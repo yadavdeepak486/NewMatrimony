@@ -28,6 +28,7 @@ import { PremiumMemberComponent } from './components/pages/dashboard/member/prem
 import { ReligionsComponent } from './components/pages/dashboard/member/profile-attributes/religions/religions.component';
 import { ProfileSectionComponent } from './components/pages/dashboard/member/profile-section/profile-section.component';
 import { ReportedMemberComponent } from './components/pages/dashboard/member/reported-member/reported-member.component';
+import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
 import { PackagePaymentComponent } from './components/pages/dashboard/package-payment/package-payment.component';
 import { PrimiumPackageComponent } from './components/pages/dashboard/primium-package/primium-package.component';
 import { EventsDetailsComponent } from './components/pages/events-details/events-details.component';
@@ -110,6 +111,7 @@ const routes: Routes = [
     {path: 'member/profile-section', component: ProfileSectionComponent},
     {path: 'package-payment', component: PackagePaymentComponent},
     {path: 'happy-stories', component: HappyStoriesComponent},
+    {path: 'newsletter', component: NewsletterComponent},
 
     {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list
 ];

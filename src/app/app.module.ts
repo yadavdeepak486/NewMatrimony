@@ -94,6 +94,7 @@ import { ProfileSectionComponent } from './components/pages/dashboard/member/pro
 import { PrimiumPackageComponent } from './components/pages/dashboard/primium-package/primium-package.component';
 import { PackagePaymentComponent } from './components/pages/dashboard/package-payment/package-payment.component';
 import { HappyStoriesComponent } from './components/pages/dashboard/happy-stories/happy-stories.component';
+import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -180,6 +181,7 @@ import { HappyStoriesComponent } from './components/pages/dashboard/happy-storie
     PrimiumPackageComponent,
     PackagePaymentComponent,
     HappyStoriesComponent,
+    NewsletterComponent,
   ],
   imports: [
     BrowserModule,
