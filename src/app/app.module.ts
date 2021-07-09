@@ -94,8 +94,9 @@ import { ProfileSectionComponent } from './components/pages/dashboard/member/pro
 import { PrimiumPackageComponent } from './components/pages/dashboard/primium-package/primium-package.component';
 import { PackagePaymentComponent } from './components/pages/dashboard/package-payment/package-payment.component';
 import { HappyStoriesComponent } from './components/pages/dashboard/happy-stories/happy-stories.component';
+import { CompleteProfileComponent } from './components/pages/complete-profile/complete-profile.component';
+import { MatModule } from "./mat/mat.module";
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -181,7 +182,8 @@ import { NewsletterComponent } from './components/pages/dashboard/newsletter/new
     PrimiumPackageComponent,
     PackagePaymentComponent,
     HappyStoriesComponent,
-    NewsletterComponent,
+    CompleteProfileComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserModule,
@@ -194,8 +196,8 @@ import { NewsletterComponent } from './components/pages/dashboard/newsletter/new
     NgxPaginationModule,
     NgStepperModule,
     CdkStepperModule,
-    Ng2SmartTableModule
-    
+    Ng2SmartTableModule,
+    MatModule
   ],
   providers: [],
   bootstrap: [AppComponent]

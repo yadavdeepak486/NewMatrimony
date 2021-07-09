@@ -1,5 +1,7 @@
 <app-navbar-style-two></app-navbar-style-two>
 
+
+
 <!-- Start Page Title Area -->
 <div class="page-title-bg" *ngFor="let Content of pageTitleContent;">
     <div class="container">
@@ -23,7 +25,9 @@
                 <div class="col-lg-3 col-md-6 p-0">
                     <div class="form-group category-select">
                         <label><i class="flaticon-category"></i></label>
-                        <ngx-select-dropdown (searchChange)="searchChange($event)" name="category-select" tabindex="0" [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options"></ngx-select-dropdown>
+                        <ngx-select-dropdown (searchChange)="searchChange($event)" name="category-select" tabindex="0"
+                            [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options">
+                        </ngx-select-dropdown>
                     </div>
                 </div>
 
@@ -50,26 +54,33 @@
                 <div class="d-flex justify-content-end">
                     <div class="select-box">
                         <label>Sort By:</label>
-                        <ngx-select-dropdown (searchChange)="searchChange($event)" name="ordering-select" tabindex="0" [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options2"></ngx-select-dropdown>
+                        <ngx-select-dropdown (searchChange)="searchChange($event)" name="ordering-select" tabindex="0"
+                            [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options2">
+                        </ngx-select-dropdown>
                     </div>
 
                     <div class="select-box">
                         <label>Distance:</label>
-                        <ngx-select-dropdown (searchChange)="searchChange($event)" name="ordering-select" tabindex="0" [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options3"></ngx-select-dropdown>
+                        <ngx-select-dropdown (searchChange)="searchChange($event)" name="ordering-select" tabindex="0"
+                            [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options3">
+                        </ngx-select-dropdown>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-6 col-md-12" *ngFor="let Content of singleListingsItem | paginate: { itemsPerPage: 4, currentPage: verticalListings }">
+            <div class="col-lg-6 col-md-12"
+                *ngFor="let Content of singleListingsItem | paginate: { itemsPerPage: 4, currentPage: verticalListings }">
                 <div class="single-listings-item">
                     <div class="row m-0">
                         <div class="col-lg-4 col-md-4 p-0">
                             <div class="listings-image" style="background-image: url({{Content.mainImg}});">
                                 <img [src]="Content.mainImg" alt="image">
-                                <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a>
-                                <a routerLink="/{{Content.categoryLink}}" class="category"><i class="flaticon-cooking"></i></a>
+                                <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i
+                                        class="flaticon-heart"></i></a>
+                                <a routerLink="/{{Content.categoryLink}}" class="category"><i
+                                        class="flaticon-cooking"></i></a>
                                 <a routerLink="/{{Content.detailsLink}}" class="link-btn"></a>
                                 <div class="author">
                                     <div class="d-flex align-items-center">
@@ -82,7 +93,8 @@
 
                         <div class="col-lg-8 col-md-8 p-0">
                             <div class="listings-content">
-                                <span class="status {{Content.extraClass}}"><i class="flaticon-save"></i> {{Content.openORclose}}</span>
+                                <span class="status {{Content.extraClass}}"><i class="flaticon-save"></i>
+                                    {{Content.openORclose}}</span>
                                 <h3><a routerLink="/{{Content.detailsLink}}">{{Content.title}}</a></h3>
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div class="rating">
@@ -94,7 +106,8 @@
                                     </div>
                                 </div>
                                 <ul class="listings-meta">
-                                    <li><a routerLink="/{{Content.categoryLink}}"><i class="flaticon-furniture-and-household"></i> Restaurant</a></li>
+                                    <li><a routerLink="/{{Content.categoryLink}}"><i
+                                                class="flaticon-furniture-and-household"></i> Restaurant</a></li>
                                     <li><i class="flaticon-pin"></i> {{Content.location}}</li>
                                 </ul>
                             </div>

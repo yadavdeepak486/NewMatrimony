@@ -421,6 +421,18 @@ button.btn-ft-get {
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
+    margin: 0px 10px;
+}
+button.btn-ft-set {
+    background: #218838;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 0px 10px;
+}
+.anchorlink{
+    color: #fff;
 }
 label.lb-ser{
     color: #66667f;
@@ -793,7 +805,7 @@ label.lb-ser{
 }
 .loginRegisterModal {
     .modal-dialog {
-        max-width: 500px;
+        max-width: 900px;
         margin: {
             top: 40px;
             bottom: 0;
