@@ -87,9 +87,15 @@ import { ReportedMemberComponent } from './components/pages/dashboard/member/rep
 import { StepperDemoComponent } from './components/pages/stepper-demo/stepper-demo.component';
 import { ProfileTabsComponent } from './components/pages/profile-detail/profile-tabs/profile-tabs.component';
 import { SimilarProfileComponent } from './components/pages/profile-detail/similar-profile/similar-profile.component';
+import { ReligionsComponent } from './components/pages/dashboard/member/profile-attributes/religions/religions.component';
+import { CasteComponent } from './components/pages/dashboard/member/profile-attributes/caste/caste.component';
+import { SubcasteComponent } from './components/pages/dashboard/member/profile-attributes/subcaste/subcaste.component';
+import { ProfileSectionComponent } from './components/pages/dashboard/member/profile-section/profile-section.component';
+import { PrimiumPackageComponent } from './components/pages/dashboard/primium-package/primium-package.component';
+import { PackagePaymentComponent } from './components/pages/dashboard/package-payment/package-payment.component';
+import { HappyStoriesComponent } from './components/pages/dashboard/happy-stories/happy-stories.component';
 import { CompleteProfileComponent } from './components/pages/complete-profile/complete-profile.component';
-import { MatModule } from './mat/mat.module'
-
+import { MatModule } from "./mat/mat.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -168,10 +174,14 @@ import { MatModule } from './mat/mat.module'
     StepperDemoComponent,
     ProfileTabsComponent,
     SimilarProfileComponent,
-    CompleteProfileComponent,
-
-
-
+    ReligionsComponent,
+    CasteComponent,
+    SubcasteComponent,
+    ProfileSectionComponent,
+    PrimiumPackageComponent,
+    PackagePaymentComponent,
+    HappyStoriesComponent,
+    CompleteProfileComponent
   ],
   imports: [
     BrowserModule,
