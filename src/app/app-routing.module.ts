@@ -20,11 +20,16 @@ import { DashboardMyProfileComponent } from './components/pages/dashboard/dashbo
 import { DashboardReviewsComponent } from './components/pages/dashboard/dashboard-reviews/dashboard-reviews.component';
 import { DashboardWalletComponent } from './components/pages/dashboard/dashboard-wallet/dashboard-wallet.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { HappyStoriesComponent } from './components/pages/dashboard/happy-stories/happy-stories.component';
 import { BulkMemberComponent } from './components/pages/dashboard/member/bulk-member/bulk-member.component';
 import { DeletedMemberComponent } from './components/pages/dashboard/member/deleted-member/deleted-member.component';
 import { FreeMemberComponent } from './components/pages/dashboard/member/free-member/free-member.component';
 import { PremiumMemberComponent } from './components/pages/dashboard/member/premium-member/premium-member.component';
+import { ReligionsComponent } from './components/pages/dashboard/member/profile-attributes/religions/religions.component';
+import { ProfileSectionComponent } from './components/pages/dashboard/member/profile-section/profile-section.component';
 import { ReportedMemberComponent } from './components/pages/dashboard/member/reported-member/reported-member.component';
+import { PackagePaymentComponent } from './components/pages/dashboard/package-payment/package-payment.component';
+import { PrimiumPackageComponent } from './components/pages/dashboard/primium-package/primium-package.component';
 import { EventsDetailsComponent } from './components/pages/events-details/events-details.component';
 import { EventsComponent } from './components/pages/events/events.component';
 import { FaqComponent } from './components/pages/faq/faq.component';
@@ -100,7 +105,11 @@ const routes: Routes = [
     {path: 'stepper-demo', component: StepperDemoComponent},
     {path: 'profile-tabs', component: ProfileTabsComponent},
     {path: 'similar-profile', component: SimilarProfileComponent},
-
+    {path: 'profile-attributes/religions', component: ReligionsComponent},
+    {path: 'premium-package', component: PrimiumPackageComponent},
+    {path: 'member/profile-section', component: ProfileSectionComponent},
+    {path: 'package-payment', component: PackagePaymentComponent},
+    {path: 'happy-stories', component: HappyStoriesComponent},
 
     {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list
 ];

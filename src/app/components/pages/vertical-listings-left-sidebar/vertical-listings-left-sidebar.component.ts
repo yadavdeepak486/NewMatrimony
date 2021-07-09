@@ -83,7 +83,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     singleListingsItem = [
         {
             mainImg: 'assets/img/listings/listings9.png',
-            categoryLink: 'single-listings',
+            categoryLink: 'profile-detail',
             bookmarkLink: 'single-listings',
             category: 'Restaurant',
             location: 'New York,',
@@ -115,7 +115,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
         },
         {
             mainImg: 'assets/img/listings/listings10.png',
-            categoryLink: 'single-listings',
+            categoryLink: 'profile-detail',
             bookmarkLink: 'single-listings',
             category: 'Hotel',
             location: 'Los Angeles',
@@ -147,7 +147,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
         },
         {
             mainImg: 'assets/img/listings/listings11.png',
-            categoryLink: 'single-listings',
+            categoryLink: 'profile-detail',
             bookmarkLink: 'single-listings',
             category: 'Shopping',
             location: 'Seattle, USA',
@@ -179,7 +179,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
         },
         {
             mainImg: 'assets/img/listings/listings12.png',
-            categoryLink: 'single-listings',
+            categoryLink: 'profile-detail',
             bookmarkLink: 'single-listings',
             category: 'Restaurant',
             location: 'New York,',
@@ -211,7 +211,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
         },
         {
             mainImg: 'assets/img/listings/listings17.jpg',
-            categoryLink: 'single-listings',
+            categoryLink: 'profile-detail',
             bookmarkLink: 'single-listings',
             category: 'Restaurant',
             location: 'New York,',
@@ -243,7 +243,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
         },
         {
             mainImg: 'assets/img/listings/listings16.jpg',
-            categoryLink: 'single-listings',
+            categoryLink: 'profile-detail',
             bookmarkLink: 'single-listings',
             category: 'Shopping',
             location: 'Seattle',
