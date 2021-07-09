@@ -97,6 +97,7 @@ import { HappyStoriesComponent } from './components/pages/dashboard/happy-storie
 import { CompleteProfileComponent } from './components/pages/complete-profile/complete-profile.component';
 import { MatModule } from "./mat/mat.module";
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -198,6 +199,7 @@ import { NewsletterComponent } from './components/pages/dashboard/newsletter/new
     CdkStepperModule,
     Ng2SmartTableModule,
     MatModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

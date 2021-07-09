@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+// import { NgxTextEditorModule } from 'ngx-text-editor'
+// import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-newsletter',
   templateUrl: './newsletter.component.html',
