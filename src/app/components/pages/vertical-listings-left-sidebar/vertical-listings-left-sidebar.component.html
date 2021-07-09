@@ -367,12 +367,12 @@
 
                 <div class="row">
                     <div class="col-lg-12 col-md-12"
-                        *ngFor="let Content of singleListingsItem | paginate: { itemsPerPage: 4, currentPage: verticalListings }">
+                        *ngFor="let Content of users | paginate: { itemsPerPage: 4, currentPage: verticalListings }">
                         <div class="single-listings-item">
                             <div class="row m-0">
                                 <div class="col-lg-4 col-md-4 p-0">
-                                    <div class="listings-image" style="background-image: url({{Content.mainImg}});">
-                                        <img [src]="Content.mainImg" alt="image">
+                                    <div class="listings-image" style="background-image: url({{Content.Profile}});">
+                                        <img [src]="Content.Profile" alt="image">
                                         <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i
                                                 class="flaticon-heart"></i></a>
                                         <!-- <a routerLink="/{{Content.categoryLink}}" class="category"><i class="flaticon-cooking"></i></a> -->
@@ -390,8 +390,8 @@
                                     <div class="listings-content">
                                         <span class="status {{Content.extraClass}}"><i class="flaticon-save"></i>
                                             {{Content.openORclose}}</span>
-                                        <h3><a routerLink="/{{Content.detailsLink}}">{{Content.title}}</a></h3>
-                                        <p class="mid">Member ID: <span class="mds">E0EE4E4D</span></p>
+                                        <h3><a routerLink="/{{Content.detailsLink}}">{{Content.Name}}</a></h3>
+                                        <p class="mid">Member ID: <span class="mds">{{Content.MatriID}}</span></p>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <!-- <div class="rating">
                                                 <i class='{{Star.icon}}' *ngFor="let Star of Content.rating;"></i>
@@ -408,22 +408,22 @@
                                                         <td class="py-1 w-25">
                                                             <span>age</span>
                                                         </td>
-                                                        <td class="py-1 w-25   fw-400">28</td>
+                                                        <td class="py-1 w-25   fw-400">{{Content.Age}}</td>
                                                         <td class="py-1 w-25"><span>Height</span></td>
                                                         <td class="py-1 w-25 fw-400">
-                                                            5
+                                                            {{Content.Height}}
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="py-1"><span>Religion</span></td>
                                                         <td class="py-1 fw-400">
-                                                            Islam
+                                                            {{Content.Religion}}
                                                         </td>
                                                         <td class="py-1">
                                                             <span>Caste</span>
                                                         </td>
                                                         <td class="py-1 fw-400">
-                                                            Sunni
+                                                            {{Content.Caste}}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -431,19 +431,19 @@
                                                             <span>First Language</span>
                                                         </td>
                                                         <td class="py-1 fw-400">
-                                                            English
+                                                            {{Content.Language}}
 
                                                         </td>
                                                         <td class="py-1"><span>Marital Status</span></td>
                                                         <td class="py-1   fw-400">
-                                                            Never Married
+                                                            {{Content.Maritalstatus}}
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="py-1"><span>location</span>
                                                         </td>
                                                         <td class="py-1 fw-400">
-                                                            Belarus
+                                                            {{Content.City}}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -455,16 +455,16 @@
                                                     <p class="i_t">Profile</p>
                                                 </a></li>
                                             <li><i class="flaticon-heart"></i>
-                                                <p class="i_t">{{Content.location}}</p>
+                                                <p class="i_t">{{Content.City}}</p>
                                             </li>
                                             <li><i class='bx bx-spreadsheet'></i>
-                                                <p class="i_t">{{Content.location}}</p>
+                                                <p class="i_t">{{Content.City}}</p>
                                             </li>
                                             <li><i class=" bx bx-block"></i>
-                                                <p class="i_t">{{Content.location}}</p>
+                                                <p class="i_t">{{Content.City}}</p>
                                             </li>
                                             <li><i class=" bx bx-error-circle"></i>
-                                                <p class="i_t">{{Content.location}}</p>
+                                                <p class="i_t">{{Content.City}}</p>
                                             </li>
                                         </ul>
                                     </div>

@@ -96,6 +96,12 @@ import { PackagePaymentComponent } from './components/pages/dashboard/package-pa
 import { HappyStoriesComponent } from './components/pages/dashboard/happy-stories/happy-stories.component';
 import { CompleteProfileComponent } from './components/pages/complete-profile/complete-profile.component';
 import { MatModule } from "./mat/mat.module";
+import { HttpClientModule } from '@angular/common/http';
+
+//Import Services
+import { UserService } from "./user.service";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -195,9 +201,10 @@ import { MatModule } from "./mat/mat.module";
     NgStepperModule,
     CdkStepperModule,
     Ng2SmartTableModule,
-    MatModule
+    MatModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

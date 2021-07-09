@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
     selector: 'app-vertical-listings-left-sidebar',
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./vertical-listings-left-sidebar.component.scss']
 })
 export class VerticalListingsLeftSidebarComponent implements OnInit {
-
-    constructor() { }
+    users: any
+    constructor(public userService: UserService) { }
 
     ngOnInit(): void {
         this.resetOption = [this.options[0]];
+        this.getallUsers();
     }
 
     pageTitleContent = [
@@ -276,5 +278,14 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     ]
 
     verticalListings: number = 1;
+
+    getallUsers() {
+        this.userService.getallprofiles().subscribe((response: any) => {
+            console.log(response)
+            this.users = response.data
+        }, (error) => {
+            console.log(error)
+        })
+    }
 
 }
