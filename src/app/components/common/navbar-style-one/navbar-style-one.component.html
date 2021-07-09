@@ -139,7 +139,7 @@
                         </li> -->
 
                         <li class="nav-item"><a href="/profile-detail" class=" nav-link">Complete Profile</a>
-                            
+
                         </li>
                     </ul>
 
@@ -149,7 +149,8 @@
                         </div> -->
 
                         <div class="option-item">
-                            <a  class="default-btn btn-lr" data-toggle="modal" data-target="#loginRegisterModal"><i class="flaticon-user"></i> Login / Register</a>
+                            <a class="default-btn btn-lr" data-toggle="modal" data-target="#loginRegisterModal"><i
+                                    class="flaticon-user"></i> Login / Register</a>
                         </div>
                     </div>
                 </div>
@@ -166,7 +167,7 @@
                     <div class="circle circle-three"></div>
                 </div>
             </div>
-            
+
             <div class="container">
                 <div class="option-inner">
                     <div class="others-option">
@@ -178,11 +179,13 @@
                         </div>
 
                         <div class="option-item">
-                            <span data-toggle="modal" data-target="#loginRegisterModal"><i class="flaticon-user"></i> Login / Register</span>
+                            <span data-toggle="modal" data-target="#loginRegisterModal"><i class="flaticon-user"></i>
+                                Login / Register</span>
                         </div>
 
                         <div class="option-item">
-                            <a routerLink="/dashboard-add-listings" class="default-btn"><i class="flaticon-more"></i> Add Listing</a>
+                            <a routerLink="/dashboard-add-listings" class="default-btn"><i class="flaticon-more"></i>
+                                Add Listing</a>
                         </div>
                     </div>
                 </div>
@@ -200,11 +203,13 @@
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+                    <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab"
+                        aria-controls="login" aria-selected="true">Login</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
+                        aria-controls="register" aria-selected="false">Register</a>
                 </li>
             </ul>
 
@@ -228,11 +233,14 @@
                                 <input type="password" placeholder="Enter Password" class="form-control">
                             </div>
 
-                            <span class="dont-account ft-text"><a href="#" data-toggle="modal" data-target="#forgotpassordModal" data-dismiss="modal">Forgot Password?</a></span>
+                            <span class="dont-account ft-text"><a href="#" data-toggle="modal"
+                                    data-target="#forgotpassordModal" data-dismiss="modal">Forgot Password?</a></span>
 
                             <button type="submit">Login Now</button>
                         </form>
-                        <span class="dont-account">Don't have an account? <a href="#">Register Now</a></span>
+                        <span class="dont-account">Don't have an account? <a id="register-tab" data-toggle="tab"
+                                href="#register" role="tab" aria-controls="register" aria-selected="false">Register
+                                Now</a></span>
                     </div>
                 </div>
 
@@ -247,67 +255,80 @@
                         </div> -->
                         <span class="sub-title"><span>Register</span></span>
                         <form>
-                            <div class="form-group">
-                                <label class="lb-ser">On Behalf </label>
-                                <select class="form-control">
-                                    <option>Friend</option>
-                                    <option>Brother</option>
-                                    <option>Sister</option>
-                                    <option>Daughter/Son</option>
-                                    <option>Selfs</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="lb-ser">On Behalf </label>
+                                        <select class="form-control">
+                                            <option>Friend</option>
+                                            <option>Brother</option>
+                                            <option>Sister</option>
+                                            <option>Daughter/Son</option>
+                                            <option>Selfs</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Name </label>
+                                        <input type="text" placeholder="Name" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Last Name </label>
+                                        <input type="text" placeholder="First Name" class="form-control">
+                                    </div>
+                                </div> -->
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Gender </label>
+                                        <select class="form-control">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Date Of Birth </label>
+                                        <input type="date" placeholder="First Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Email</label>
+                                        <input type="text" placeholder="Email" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Mobile</label>
+                                        <input [(ngModel)]="mobilenumber" type="number" placeholder="Mobile"
+                                            class="form-control">
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                       <label class="lb-ser">First Name </label>
-                                       <input type="text" placeholder="First Name" class="form-control">
+                                        <label class="lb-ser">Password </label>
+                                        <input type="password" placeholder="Set Password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                       <label class="lb-ser">Last Name </label>
-                                       <input type="text" placeholder="First Name" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                       <label class="lb-ser">Gender </label>
-                                       <select class="form-control">
-                                          <option>Male</option>
-                                          <option>Female</option>
-                                          <option></option>
-                                       </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                       <label class="lb-ser">Date Of Birth </label>
-                                       <input type="date" placeholder="First Name" class="form-control">
-                                    </div>
-                                </div>
-                              </div>
-                            <div class="form-group">
-                                <label class="lb-ser">Email/Phone</label>
-                                <input type="text" placeholder="Email & Phone" class="form-control">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                       <label class="lb-ser">Password </label>
-                                       <input type="password" placeholder="First Name" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                       <label class="lb-ser">Confirm Password </label>
-                                       <input type="password" placeholder="First Name" class="form-control">
+                                        <label class="lb-ser">Confirm Password </label>
+                                        <input type="password" placeholder="Confirm Password" class="form-control">
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Register Now</button>
+                            <button type="button" data-toggle="modal" data-target="#verifymobile" data-dismiss="modal">
+                                Register Now</button>
                         </form>
-                        <span class="already-account">Already have an account? <a href="#">Login Now</a></span>
+                        <span class="already-account">Already have an account? <a id="login-tab" data-toggle="tab"
+                                href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a></span>
                     </div>
                 </div>
             </div>
@@ -338,3 +359,31 @@
     </div>
 </div>
 <!-- forgrt password modal close -->
+
+<!-- verify mobile -->
+<div class="modal fade loginRegisterModal" id="verifymobile" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <h2 class="d-flex justify-content-center">Verify Mobile</h2>
+            <h4 class="d-flex justify-content-center sub-title"><span>Please check the otp sent to your
+                    Device
+                    {{mobilenumber}} </span></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class='bx bx-x'></i></button>
+            <form>
+
+                <div class=" form-group" [hidden]=true>
+                    <input type="text" placeholder="Enter Your Email ID or Matri ID" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="lb-ser">Enter OTP</label>
+                    <input type="number" placeholder="OTP" class="form-control">
+                </div>
+                <button type="button" class="btn-ft-set">Resend OTP</button>
+                <button type="submit" class="btn-ft-get"><span><a class="anchorlink"
+                            href="/vertical-listings-left-sidebar">Verify</a></span></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- verify mobile -->

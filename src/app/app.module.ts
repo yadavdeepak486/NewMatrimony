@@ -87,6 +87,8 @@ import { ReportedMemberComponent } from './components/pages/dashboard/member/rep
 import { StepperDemoComponent } from './components/pages/stepper-demo/stepper-demo.component';
 import { ProfileTabsComponent } from './components/pages/profile-detail/profile-tabs/profile-tabs.component';
 import { SimilarProfileComponent } from './components/pages/profile-detail/similar-profile/similar-profile.component';
+import { CompleteProfileComponent } from './components/pages/complete-profile/complete-profile.component';
+import { MatModule } from './mat/mat.module'
 
 @NgModule({
   declarations: [
@@ -166,6 +168,10 @@ import { SimilarProfileComponent } from './components/pages/profile-detail/simil
     StepperDemoComponent,
     ProfileTabsComponent,
     SimilarProfileComponent,
+    CompleteProfileComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -178,8 +184,8 @@ import { SimilarProfileComponent } from './components/pages/profile-detail/simil
     NgxPaginationModule,
     NgStepperModule,
     CdkStepperModule,
-    Ng2SmartTableModule
-    
+    Ng2SmartTableModule,
+    MatModule
   ],
   providers: [],
   bootstrap: [AppComponent]

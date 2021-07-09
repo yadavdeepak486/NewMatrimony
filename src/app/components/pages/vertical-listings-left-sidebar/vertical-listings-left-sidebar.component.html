@@ -1,5 +1,17 @@
 <app-navbar-style-one></app-navbar-style-one>
 
+<!-- alert to complete the profile -->
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Congralutionos!</strong> Complete your profile to get more matches!!! <strong><a href="/complete-profile"
+            style="cursor: pointer;">Complete Now.. </a></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- alert to complete the profile -->
+
+
 <!-- Start Page Title Area -->
 <!-- <div class="page-title-bg" *ngFor="let Content of pageTitleContent;">
     <div class="container">
@@ -44,162 +56,165 @@
         <div class="row">
             <div class="col-lg-4 col-md-12">
                 <aside class="listings-widget-area">
-                     <section class="widget widget_filters rs-pd">
+                    <section class="widget widget_filters rs-pd">
                         <h3 class="widget-title">ADVANCED SEARCH
                         </h3>
                         <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="lb-ser">Age From</label>
-                                <input type="text" placeholder="20" class="form-control">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="lb-ser">To</label>
-                                    <input type="text" placeholder="30" class="form-control">
-                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">Member Id</label>
-                                    <input type="text" placeholder="id" class="form-control">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Age From</label>
+                                        <input type="text" placeholder="20" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">Marital Status</label>
-                                    <select class="form-control">
-                                        <option selected>--Select One--</option>
-                                        <option >Never Married</option>
-                                        <option >Married</option>
-                                        <option >Divorced </option>
-                                        <option >Separated </option>
-                                        <option >Widowed</option>
-                                    </select>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="lb-ser">To</label>
+                                        <input type="text" placeholder="30" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">Religion </label>
-                                    <select class="form-control">
-                                        <option selected>--Select One--</option>
-                                        <option > Islam </option>
-                                        <option > Judaismm </option>
-                                        <option > Hinduism  </option>
-                                        <option > Christianity  </option>
-                                    </select>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Member Id</label>
+                                        <input type="text" placeholder="id" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">Caste </label>
-                                    <select class="form-control">
-                                        <option selected>--Select One--</option>
-                                        <option > jain </option>
-                                        <option > lorem </option>
-                                        <option > lorem  </option>
-                                        <option > lorem  </option>
-                                    </select>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Marital Status</label>
+                                        <select class="form-control">
+                                            <option selected>--Select One--</option>
+                                            <option>Never Married</option>
+                                            <option>Married</option>
+                                            <option>Divorced </option>
+                                            <option>Separated </option>
+                                            <option>Widowed</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">Sub Caste </label>
-                                    <select class="form-control">
-                                        <option selected>--Select One--</option>
-                                        <option > jain </option>
-                                        <option > lorem </option>
-                                        <option > lorem  </option>
-                                        <option > lorem  </option>
-                                    </select>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Religion </label>
+                                        <select class="form-control">
+                                            <option selected>--Select One--</option>
+                                            <option> Islam </option>
+                                            <option> Judaismm </option>
+                                            <option> Hinduism </option>
+                                            <option> Christianity </option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">Mother Tongue  </label>
-                                    <select class="form-control">
-                                        <option selected>--Select One--</option>
-                                        <option > Hindi </option>
-                                        <option > English </option>
-                                        <option > Urdu  </option>
-                                        <option > Arabic   </option>
-                                    </select>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Caste </label>
+                                        <select class="form-control">
+                                            <option selected>--Select One--</option>
+                                            <option> jain </option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">Profession</label>
-                                    <input type="text" placeholder="id" class="form-control">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Sub Caste </label>
+                                        <select class="form-control">
+                                            <option selected>--Select One--</option>
+                                            <option> jain </option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">Country</label>
-                                    <select class="form-control">
-                                        <option selected>--Select One--</option>
-                                        <option > Afghanistan </option>
-                                        <option > Albania </option>
-                                        <option > Algeria  </option>
-                                        <option > American Samoa   </option>
-                                    </select>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Mother Tongue </label>
+                                        <select class="form-control">
+                                            <option selected>--Select One--</option>
+                                            <option> Hindi </option>
+                                            <option> English </option>
+                                            <option> Urdu </option>
+                                            <option> Arabic </option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">State</label>
-                                    <select class="form-control">
-                                        <option selected>--Select One--</option>
-                                        <option > lorem </option>
-                                        <option > lorem </option>
-                                        <option > lorem  </option>
-                                        <option > lorem  </option>
-                                    </select>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Profession</label>
+                                        <input type="text" placeholder="id" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="lb-ser">City</label>
-                                    <select class="form-control">
-                                        <option selected>--Select One--</option>
-                                        <option > lorem </option>
-                                        <option > lorem </option>
-                                        <option > lorem  </option>
-                                        <option > lorem  </option>
-                                    </select>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Country</label>
+                                        <select class="form-control">
+                                            <option selected>--Select One--</option>
+                                            <option> Afghanistan </option>
+                                            <option> Albania </option>
+                                            <option> Algeria </option>
+                                            <option> American Samoa </option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="lb-ser">Min Height </label>
-                                    <input type="text" placeholder="5'5" class="form-control">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">State</label>
+                                        <select class="form-control">
+                                            <option selected>--Select One--</option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="lb-ser">Max Height</label>
-                                    <input type="text" placeholder="5'8" class="form-control">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="lb-ser">City</label>
+                                        <select class="form-control">
+                                            <option selected>--Select One--</option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                            <option> lorem </option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label class="lb-ser">MEMBER TYPE</label>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                                    <label class="custom-control-label" for="customCheck">Premium Member</label>
-                                    <br>
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                                    <label class="custom-control-label" for="customCheck">Free Member</label>
-                                    <br>
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                                    <label class="custom-control-label" for="customCheck">All Member</label>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Min Height </label>
+                                        <input type="text" placeholder="5'5" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="lb-ser">Max Height</label>
+                                        <input type="text" placeholder="5'8" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="lb-ser">MEMBER TYPE</label>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck"
+                                            name="example1">
+                                        <label class="custom-control-label" for="customCheck">Premium Member</label>
+                                        <br>
+                                        <input type="checkbox" class="custom-control-input" id="customCheck"
+                                            name="example1">
+                                        <label class="custom-control-label" for="customCheck">Free Member</label>
+                                        <br>
+                                        <input type="checkbox" class="custom-control-input" id="customCheck"
+                                            name="example1">
+                                        <label class="custom-control-label" for="customCheck">All Member</label>
+                                    </div>
+                                </div>
 
-                            <div _ngcontent-xdt-c89="">
-                                <button class="sre-btn" >Search</button>
+                                <div _ngcontent-xdt-c89="">
+                                    <button class="sre-btn">Search</button>
+                                </div>
                             </div>
-                        </div>
                         </form>
                         <!-- <ul>
                             <li><button type="button">$</button></li>
@@ -351,13 +366,15 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-12 col-md-12" *ngFor="let Content of singleListingsItem | paginate: { itemsPerPage: 4, currentPage: verticalListings }">
+                    <div class="col-lg-12 col-md-12"
+                        *ngFor="let Content of singleListingsItem | paginate: { itemsPerPage: 4, currentPage: verticalListings }">
                         <div class="single-listings-item">
                             <div class="row m-0">
                                 <div class="col-lg-4 col-md-4 p-0">
                                     <div class="listings-image" style="background-image: url({{Content.mainImg}});">
                                         <img [src]="Content.mainImg" alt="image">
-                                        <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a>
+                                        <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i
+                                                class="flaticon-heart"></i></a>
                                         <!-- <a routerLink="/{{Content.categoryLink}}" class="category"><i class="flaticon-cooking"></i></a> -->
                                         <a routerLink="/{{Content.detailsLink}}" class="link-btn"></a>
                                         <!-- <div class="author">
@@ -371,7 +388,8 @@
 
                                 <div class="col-lg-8 col-md-8 p-0">
                                     <div class="listings-content">
-                                        <span class="status {{Content.extraClass}}"><i class="flaticon-save"></i> {{Content.openORclose}}</span>
+                                        <span class="status {{Content.extraClass}}"><i class="flaticon-save"></i>
+                                            {{Content.openORclose}}</span>
                                         <h3><a routerLink="/{{Content.detailsLink}}">{{Content.title}}</a></h3>
                                         <p class="mid">Member ID: <span class="mds">E0EE4E4D</span></p>
                                         <div class="d-flex align-items-center justify-content-between">
@@ -384,61 +402,70 @@
                                             </div> -->
                                         </div>
                                         <div class="dt">
-                                        <table class="dt-tb">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="py-1 w-25">
-                                                        <span>age</span>
-                                                    </td>
-                                                    <td class="py-1 w-25   fw-400">28</td>
-                                                    <td class="py-1 w-25"><span>Height</span></td>
-                                                    <td class="py-1 w-25 fw-400">
-                                                        5
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1"><span>Religion</span></td>
-                                                    <td class="py-1 fw-400">
-                                                        Islam
-                                                    </td>
-                                                    <td class="py-1">
-                                                        <span>Caste</span>
-                                                    </td>
-                                                    <td class="py-1 fw-400">
-                                                        Sunni
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td class="py-1">
-                                                        <span>First Language</span>
-                                                    </td>
-                                                    <td class="py-1 fw-400">
-                                                        English
+                                            <table class="dt-tb">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="py-1 w-25">
+                                                            <span>age</span>
+                                                        </td>
+                                                        <td class="py-1 w-25   fw-400">28</td>
+                                                        <td class="py-1 w-25"><span>Height</span></td>
+                                                        <td class="py-1 w-25 fw-400">
+                                                            5
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="py-1"><span>Religion</span></td>
+                                                        <td class="py-1 fw-400">
+                                                            Islam
+                                                        </td>
+                                                        <td class="py-1">
+                                                            <span>Caste</span>
+                                                        </td>
+                                                        <td class="py-1 fw-400">
+                                                            Sunni
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="py-1">
+                                                            <span>First Language</span>
+                                                        </td>
+                                                        <td class="py-1 fw-400">
+                                                            English
 
-                                                    </td>
-                                                    <td class="py-1"><span>Marital Status</span></td>
-                                                    <td class="py-1   fw-400">
-                                                        Never Married
-                                                                                                                                      </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="py-1"><span>location</span>
-                                                    </td>
-                                                    <td class="py-1 fw-400">
-                                                        Belarus
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td class="py-1"><span>Marital Status</span></td>
+                                                        <td class="py-1   fw-400">
+                                                            Never Married
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="py-1"><span>location</span>
+                                                        </td>
+                                                        <td class="py-1 fw-400">
+                                                            Belarus
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
 
                                         </div>
                                         <ul class="listings-meta">
-                                            <li><a routerLink="/{{Content.categoryLink}}"><i class=" bx bx-user"></i> <p class="i_t">Profile</p></a></li>
-                                            <li><i class="flaticon-heart"></i><p class="i_t">{{Content.location}}</p></li>
+                                            <li><a routerLink="/{{Content.categoryLink}}"><i class=" bx bx-user"></i>
+                                                    <p class="i_t">Profile</p>
+                                                </a></li>
+                                            <li><i class="flaticon-heart"></i>
+                                                <p class="i_t">{{Content.location}}</p>
+                                            </li>
                                             <li><i class='bx bx-spreadsheet'></i>
-                                                <p class="i_t">{{Content.location}}</p></li>
-                                            <li><i class=" bx bx-block"></i><p class="i_t">{{Content.location}}</p></li>
-                                            <li><i class=" bx bx-error-circle"></i><p class="i_t">{{Content.location}}</p></li>
+                                                <p class="i_t">{{Content.location}}</p>
+                                            </li>
+                                            <li><i class=" bx bx-block"></i>
+                                                <p class="i_t">{{Content.location}}</p>
+                                            </li>
+                                            <li><i class=" bx bx-error-circle"></i>
+                                                <p class="i_t">{{Content.location}}</p>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

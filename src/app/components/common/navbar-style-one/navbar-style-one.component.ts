@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarStyleOneComponent implements OnInit {
 
+  mobilenumber = 91987654321;
   constructor() { }
 
   ngOnInit(): void {
