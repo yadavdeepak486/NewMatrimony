@@ -96,11 +96,15 @@ import { PackagePaymentComponent } from './components/pages/dashboard/package-pa
 import { HappyStoriesComponent } from './components/pages/dashboard/happy-stories/happy-stories.component';
 import { CompleteProfileComponent } from './components/pages/complete-profile/complete-profile.component';
 import { MatModule } from "./mat/mat.module";
+<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 
 //Import Services
 import { UserService } from "./user.service";
 
+=======
+import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
+>>>>>>> 2052c280b5bb89cc2d75cc0579087080b3bf8e9e
 
 @NgModule({
   declarations: [
@@ -187,7 +191,8 @@ import { UserService } from "./user.service";
     PrimiumPackageComponent,
     PackagePaymentComponent,
     HappyStoriesComponent,
-    CompleteProfileComponent
+    CompleteProfileComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserModule,
@@ -201,8 +206,13 @@ import { UserService } from "./user.service";
     NgStepperModule,
     CdkStepperModule,
     Ng2SmartTableModule,
+<<<<<<< HEAD
     MatModule,
     HttpClientModule
+=======
+    MatModule
+   
+>>>>>>> 2052c280b5bb89cc2d75cc0579087080b3bf8e9e
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

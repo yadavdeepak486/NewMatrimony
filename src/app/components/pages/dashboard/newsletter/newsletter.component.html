@@ -1,0 +1,68 @@
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+     <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div> 
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <h3 >Send Newsletter</h3>
+                <form class="bd-n">
+                    <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group fg-1">
+                            <label class="" for="">
+                                Present Address</label>
+                            <input type="text" class="form-control" id="">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label class="" for="">
+                                Newsletter subject
+                            </label>
+                            <input type="text" class="form-control" id="">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label class="" for="">
+                                Newsletter content
+                            </label>
+                            <input type="text" class="form-control" id="">
+                        </div>
+                    </div>
+                    
+                    </div>
+                    <button class="btn btn-primary mt-2">Update setting</button>
+                </form>
+                </div>
+            </div>
+            
+    </div> 
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+    
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->
+
+
+
+  

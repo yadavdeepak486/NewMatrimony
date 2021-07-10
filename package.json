@@ -32,6 +32,7 @@
     "ngx-pagination": "^5.0.0",
     "ngx-select-dropdown": "^1.4.4",
     "ngx-stepper": "^1.1.6",
+    "ngx-text-editor": "^2.2.3",
     "ngx-typed-js": "^2.0.2",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",
