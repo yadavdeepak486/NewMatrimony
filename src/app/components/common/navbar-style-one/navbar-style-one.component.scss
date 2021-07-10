@@ -805,7 +805,7 @@ label.lb-ser{
 }
 .loginRegisterModal {
     .modal-dialog {
-        max-width: 900px;
+        max-width: 600px;
         margin: {
             top: 40px;
             bottom: 0;
@@ -814,8 +814,8 @@ label.lb-ser{
             background-color: var(--whiteColor);
             border: none;
             border-radius: 0;
-            box-shadow: 5px 5px var(--mainColor);
-            border: 1px solid var(--mainColor);
+            // box-shadow: 5px 5px var(--mainColor);
+            // border: 1px solid var(--mainColor);
             padding: 40px;
             position: relative;
 
@@ -1318,12 +1318,14 @@ a.default-btn.btn-lr {
         display: block;
     }
     .loginRegisterModal {
+        
         .modal-dialog {
             max-width: 100%;
             margin: {
                 left: 10px;
                 right: 10px;
             };
+            
             .modal-content {
                 border: none;
                 box-shadow: unset;
@@ -1750,3 +1752,78 @@ a.default-btn.btn-lr {
     }
 
 }
+
+// css new
+
+div#loginRegisterModal {
+    background: {
+        image: url(../../../../assets/img/md-banner.jpg);
+        position: center center;
+        size: cover;
+        repeat: no-repeat;
+    };
+}
+div#verifymobile {
+    background: {
+        image: url(../../../../assets/img/md-banner.jpg);
+        position: center center;
+        size: cover;
+        repeat: no-repeat;
+    };
+}
+
+.inputs input {
+    width: 40px;
+    height: 40px
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 2px solid #6F1667
+}
+
+.validate {
+    border-radius: 20px;
+    height: 40px;
+    background-color: #6F1667;
+    border: 1px solid #6F1667;
+    width: 100%
+}
+
+.content a {
+    color: #D64F4F;
+    transition: all 0.5s
+}
+
+.content a:hover {
+    color: #6F1667
+}
+.modal-dialog.modal-dialog-centered.md-wid {
+    width: 500px;
+    float: right;
+    margin-right: 88px;
+}
+h4.d-flex.justify-content-center.sub-title.tx-ch {
+    font-size: 16px;
+}
+h2.d-flex.justify-content-center.tx-v {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.btn-rv {
+    margin-top: 20px;
+}
+.modal-dialog.modal-dialog-centered.al-right {
+    margin-right: 30px;
+    float: right;
+    width: 600px;
+}
+

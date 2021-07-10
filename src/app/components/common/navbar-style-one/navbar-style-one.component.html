@@ -197,7 +197,7 @@
 
 <!-- Start Login & Register Modal -->
 <div class="modal fade loginRegisterModal" id="loginRegisterModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered al-right">
         <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class='bx bx-x'></i></button>
 
@@ -362,25 +362,33 @@
 
 <!-- verify mobile -->
 <div class="modal fade loginRegisterModal" id="verifymobile" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered md-wid">
         <div class="modal-content">
-            <h2 class="d-flex justify-content-center">Verify Mobile</h2>
-            <h4 class="d-flex justify-content-center sub-title"><span>Please check the otp sent to your
+            <h2 class="d-flex justify-content-center tx-v">Verify Mobile</h2>
+            <h4 class="d-flex justify-content-center sub-title tx-ch"><span>Please check the otp sent to your
                     Device
                     {{mobilenumber}} </span></h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class='bx bx-x'></i></button>
             <form>
 
-                <div class=" form-group" [hidden]=true>
+                <!-- <div class=" form-group" [hidden]=true>
                     <input type="text" placeholder="Enter Your Email ID or Matri ID" class="form-control">
                 </div>
                 <div class="form-group">
                     <label class="lb-ser">Enter OTP</label>
                     <input type="number" placeholder="OTP" class="form-control">
+                </div> -->
+                <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+                     <input class="m-2 text-center form-control rounded" type="text" id="input1" v-on:keyup="inputenter(1)" maxlength="1" /> 
+                     <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(2)" type="text" id="input2" maxlength="1" /> 
+                     <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)" type="text" id="input3" maxlength="1" /> 
+                     <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(4)" type="text" id="input4" maxlength="1" /> 
                 </div>
+                <div class="btn-rv">
                 <button type="button" class="btn-ft-set">Resend OTP</button>
                 <button type="submit" class="btn-ft-get"><span><a class="anchorlink"
                             href="/vertical-listings-left-sidebar">Verify</a></span></button>
+                </div>
             </form>
         </div>
     </div>

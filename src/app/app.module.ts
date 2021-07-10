@@ -97,6 +97,8 @@ import { HappyStoriesComponent } from './components/pages/dashboard/happy-storie
 import { CompleteProfileComponent } from './components/pages/complete-profile/complete-profile.component';
 import { MatModule } from "./mat/mat.module";
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
+import { SmsTemplateComponent } from './components/pages/dashboard/otp-system/sms-template/sms-template.component';
+import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp/set-otp.component';
 
 @NgModule({
   declarations: [
@@ -184,7 +186,9 @@ import { NewsletterComponent } from './components/pages/dashboard/newsletter/new
     PackagePaymentComponent,
     HappyStoriesComponent,
     CompleteProfileComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    SmsTemplateComponent,
+    SetOtpComponent
   ],
   imports: [
     BrowserModule,
