@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-vertical-listings-left-sidebar',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class VerticalListingsLeftSidebarComponent implements OnInit {
     users: any
-    constructor(public userService: UserService) { }
+    constructor(public userService: UserService, private router: Router) { }
 
     ngOnInit(): void {
         this.resetOption = [this.options[0]];
@@ -286,6 +287,10 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
         }, (error) => {
             console.log(error)
         })
+    }
+
+    userDetails(id: number) {
+        this.router.navigate(['profile-detail', id]);
     }
 
 }

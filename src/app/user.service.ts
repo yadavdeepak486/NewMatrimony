@@ -5,10 +5,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
+  backendurl = "http://localhost:4000/api"
 
   constructor(public http: HttpClient) { }
 
   getallprofiles() {
-    return this.http.get("http://localhost:4000/api//user/allusers")
+    return this.http.get(`${this.backendurl}/user/allusers`)
+  }
+
+  viewoneprofile(id) {
+    return this.http.get(`${this.backendurl}/user/details/${id}`)
   }
 }
