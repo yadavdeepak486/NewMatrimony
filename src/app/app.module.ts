@@ -101,6 +101,8 @@ import { HttpClientModule } from '@angular/common/http';
 //Import Services
 import { UserService } from "./user.service";
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
+import { SmsTemplateComponent } from './components/pages/dashboard/otp-system/sms-template/sms-template.component';
+import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp/set-otp.component';
 
 
 @NgModule({
@@ -189,7 +191,9 @@ import { NewsletterComponent } from './components/pages/dashboard/newsletter/new
     PackagePaymentComponent,
     HappyStoriesComponent,
     CompleteProfileComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    SmsTemplateComponent,
+    SetOtpComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,163 @@
+@import "../../dashboard.component.scss";
+
+.form-check {
+    margin-bottom: 20px;
+
+    .form-check-label {
+        color: var(--blackColor);
+        font-weight: 600;
+    }
+    label {
+        position: relative;
+        left: 0;
+        top: -1px;
+        font-weight: 600;
+    }
+    .form-check-input {
+        margin-top: .2rem;
+    }
+}
+.col-lg-12 {
+    &:last-child {
+        .form-group {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.bd-n {
+    padding: 20px;
+}
+.form-group.fg-1 {
+    margin-bottom: 10px;
+    margin-bottom: 20px !important;
+}
+
+h3 {
+    margin-bottom: 0;
+    padding: 20px 25px 19px;
+    border-bottom: 1px dashed #eeeeee;
+    font: {
+        size: 17px;
+        weight: 600;
+    };
+}
+.card {
+    border: none;
+}
+
+
+// tab 
+
+.mt-20 {
+    margin-top: 50px !important
+}
+
+
+a:hover {
+    color: #ff407b;
+    text-decoration: none
+}
+
+a:active,
+a:hover {
+    outline: 0;
+    text-decoration: none
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #ff407b;
+    border-color: #ff407b
+}
+
+.btn {
+    font-size: 14px;
+    padding: 9px 16px;
+    border-radius: 2px
+}
+
+.tab-vertical .nav.nav-tabs {
+    float: left;
+    display: block;
+    margin-right: 0px;
+    border-bottom: 0
+}
+
+.tab-vertical .nav.nav-tabs .nav-item {
+    margin-bottom: 6px
+}
+
+.tab-vertical .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    background: #fff;
+    padding: 17px 49px;
+    color: #fff;
+    background-color: #00d4d4;
+    -webkit-border-radius: 4px 0px 0px 4px;
+    -moz-border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0px 0px 4px
+}
+
+.tab-vertical .nav-tabs .nav-link.active {
+    color: #f00;
+    background-color: #fff !important;
+    border-color: transparent !important
+}
+
+.tab-vertical .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 0px !important
+}
+
+.tab-vertical .tab-content {
+    overflow: auto;
+    -webkit-border-radius: 0px 4px 4px 4px;
+    -moz-border-radius: 0px 4px 4px 4px;
+    border-radius: 0px 4px 4px 4px;
+    background: #fff;
+    padding: 30px
+}
+.btn-ps {
+    width: 100%;
+    display: inline-block;
+    margin-top: 10px;
+}
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+}
+
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+
+
+}
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+
+
+}
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    
+
+}
+/* Min width 1200px to Max width 1355px */
+@media only screen and (min-width: 1200px) and (max-width: 1355px) {
+
+
+
+}
+/* Min width 1550px */
+@media only screen and (min-width: 1550px) {
+
+    
+
+}

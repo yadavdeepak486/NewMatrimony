@@ -30,6 +30,8 @@ import { ReligionsComponent } from './components/pages/dashboard/member/profile-
 import { ProfileSectionComponent } from './components/pages/dashboard/member/profile-section/profile-section.component';
 import { ReportedMemberComponent } from './components/pages/dashboard/member/reported-member/reported-member.component';
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
+import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp/set-otp.component';
+import { SmsTemplateComponent } from './components/pages/dashboard/otp-system/sms-template/sms-template.component';
 import { PackagePaymentComponent } from './components/pages/dashboard/package-payment/package-payment.component';
 import { PrimiumPackageComponent } from './components/pages/dashboard/primium-package/primium-package.component';
 import { EventsDetailsComponent } from './components/pages/events-details/events-details.component';
@@ -114,6 +116,8 @@ const routes: Routes = [
     { path: 'happy-stories', component: HappyStoriesComponent },
     { path: 'complete-profile', component: CompleteProfileComponent },
     { path: 'newsletter', component: NewsletterComponent },
+    { path: 'sms-template', component: SmsTemplateComponent },
+    { path: 'set-otp', component: SetOtpComponent },
 
 
     { path: '**', component: NotFoundComponent } // This line will remain down from the whole pages component list
