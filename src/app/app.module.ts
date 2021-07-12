@@ -106,6 +106,8 @@ import { SmsTemplateComponent } from './components/pages/dashboard/otp-system/sm
 import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp/set-otp.component';
 import { SendSmsComponent } from './components/pages/dashboard/otp-system/send-sms/send-sms.component';
 import { UploadedfileComponent } from './components/pages/dashboard/uploadedfile/uploadedfile.component';
+import { UserInfoComponent } from './components/pages/user-info/user-info.component';
+import { PhotoFileComponent } from './components/pages/photo-file/photo-file.component';
 
 
 @NgModule({
@@ -198,7 +200,9 @@ import { UploadedfileComponent } from './components/pages/dashboard/uploadedfile
     SmsTemplateComponent,
     SetOtpComponent,
     SendSmsComponent,
-    UploadedfileComponent
+    UploadedfileComponent,
+    UserInfoComponent,
+    PhotoFileComponent
   ],
   imports: [
     BrowserModule,
