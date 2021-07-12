@@ -8,15 +8,15 @@
                 <form [formGroup]="firstFormGroup">
                     <ng-template matStepLabel>Basic Details</ng-template>
                     <div class="row">
-                         <!-- <div class="col-lg-4 col-md-4 col-sm-6"> -->
-                            <p class="p-1">
+                        <!-- <div class="col-lg-4 col-md-4 col-sm-6"> -->
+                        <p class="p-1">
                             <mat-form-field appearance="outline">
                                 <mat-label>Religion</mat-label>
                                 <input matInput placeholder="Placeholder">
                                 <mat-icon matSuffix class="demo">sentiment_very_satisfied</mat-icon>
                                 <mat-hint>Hint</mat-hint>
                             </mat-form-field>
-                            </p>
+                        </p>
                         <!-- </div>  -->
 
                         <p class="p-1">
@@ -150,8 +150,7 @@
                     </mat-form-field> -->
                     <div>
                         <button mat-button matStepperNext class="btn-rs1">Skip Now</button>
-                        <button type="submit" mat-raised-button matStepperNext
-                        class="btn-rs">Next</button>
+                        <button type="submit" mat-raised-button matStepperNext class="btn-rs">Next</button>
                     </div>
                 </form>
             </mat-step>
@@ -197,10 +196,10 @@
                         <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
                     </mat-form-field> -->
                     <div>
-                        <button mat-raised-button  matStepperPrevious class="btn-rs">Back</button>
+                        <button mat-raised-button matStepperPrevious class="btn-rs">Back</button>
 
                         <button mat-button matStepperNext class="btn-rs">Skip Now</button>
-                        <button type="submit" mat-raised-button  matStepperNext class="btn-rs">Next</button>
+                        <button type="submit" mat-raised-button matStepperNext class="btn-rs">Next</button>
                     </div>
                 </form>
             </mat-step>

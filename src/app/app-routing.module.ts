@@ -102,7 +102,7 @@ const routes: Routes = [
     // Here add new pages component
 
     // new component
-    { path: 'profile-detail', component: ProfileDetailComponent },
+    { path: 'profile-detail/:id', component: ProfileDetailComponent },
     { path: 'member/free-member', component: FreeMemberComponent },
     { path: 'member/premium-member', component: PremiumMemberComponent },
     { path: 'member/bulk-member', component: BulkMemberComponent },

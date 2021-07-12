@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-similar-profile',
@@ -6,27 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./similar-profile.component.scss']
 })
 export class SimilarProfileComponent implements OnInit {
-
-  constructor() { }
+  similarprofiles: any
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
+    this.getallUsers();
   }
 
   sectionTitle = [
     {
-        title: 'Upcoming Events',
-        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra.'
+      title: 'Upcoming Events',
+      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra.'
     }
-]
-eventsBox = [
+  ]
+  eventsBox = [
     {
-        img: 'assets/img/events/img-1.png',
-        title: 'lorem',
-        date: 'Thu, Jul 30',
-        link: ''
+      img: 'assets/img/events/img-1.png',
+      title: 'lorem',
+      date: 'Thu, Jul 30',
+      link: ''
     }
-]
-singleEventsBox = [
+  ]
+  singleEventsBox = [
     {
       img: 'assets/img/events/img-2.png',
       title: 'lorem',
@@ -45,6 +47,17 @@ singleEventsBox = [
       date: 'Thu, Jul 30',
       link: ''
     }
-]
+  ]
+
+
+  getallUsers() {
+    this.userService.getallprofiles().subscribe((response: any) => {
+      console.log(response)
+      this.similarprofiles = response.data
+    }, (error) => {
+      console.log(error)
+    })
+  }
+
 
 }
