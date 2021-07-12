@@ -100,6 +100,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 //Import Services
 import { UserService } from "./user.service";
+import { AdminService } from "./admin.service";
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
 import { SmsTemplateComponent } from './components/pages/dashboard/otp-system/sms-template/sms-template.component';
 import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp/set-otp.component';
@@ -210,7 +211,7 @@ import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp
     MatModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

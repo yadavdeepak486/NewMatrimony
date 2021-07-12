@@ -26,7 +26,9 @@ import { BulkMemberComponent } from './components/pages/dashboard/member/bulk-me
 import { DeletedMemberComponent } from './components/pages/dashboard/member/deleted-member/deleted-member.component';
 import { FreeMemberComponent } from './components/pages/dashboard/member/free-member/free-member.component';
 import { PremiumMemberComponent } from './components/pages/dashboard/member/premium-member/premium-member.component';
+import { CasteComponent } from './components/pages/dashboard/member/profile-attributes/caste/caste.component';
 import { ReligionsComponent } from './components/pages/dashboard/member/profile-attributes/religions/religions.component';
+import { SubcasteComponent } from './components/pages/dashboard/member/profile-attributes/subcaste/subcaste.component';
 import { ProfileSectionComponent } from './components/pages/dashboard/member/profile-section/profile-section.component';
 import { ReportedMemberComponent } from './components/pages/dashboard/member/reported-member/reported-member.component';
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
@@ -110,6 +112,8 @@ const routes: Routes = [
     { path: 'profile-tabs', component: ProfileTabsComponent },
     { path: 'similar-profile', component: SimilarProfileComponent },
     { path: 'profile-attributes/religions', component: ReligionsComponent },
+    { path: 'profile-attributes/caste', component: CasteComponent },
+    { path: 'profile-attributes/subcaste', component: SubcasteComponent },
     { path: 'premium-package', component: PrimiumPackageComponent },
     { path: 'member/profile-section', component: ProfileSectionComponent },
     { path: 'package-payment', component: PackagePaymentComponent },
