@@ -99,6 +99,8 @@ import { MatModule } from "./mat/mat.module";
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
 import { SmsTemplateComponent } from './components/pages/dashboard/otp-system/sms-template/sms-template.component';
 import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp/set-otp.component';
+import { SendSmsComponent } from './components/pages/dashboard/otp-system/send-sms/send-sms.component';
+import { UploadedfileComponent } from './components/pages/dashboard/uploadedfile/uploadedfile.component';
 
 @NgModule({
   declarations: [
@@ -188,7 +190,9 @@ import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp
     CompleteProfileComponent,
     NewsletterComponent,
     SmsTemplateComponent,
-    SetOtpComponent
+    SetOtpComponent,
+    SendSmsComponent,
+    UploadedfileComponent
   ],
   imports: [
     BrowserModule,

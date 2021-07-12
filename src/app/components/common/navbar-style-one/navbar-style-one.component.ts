@@ -6,11 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-style-one.component.scss']
 })
 export class NavbarStyleOneComponent implements OnInit {
+  
+  hide = true;
 
   mobilenumber = 91987654321;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
+
 
 }

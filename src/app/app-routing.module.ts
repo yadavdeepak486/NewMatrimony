@@ -30,10 +30,12 @@ import { ReligionsComponent } from './components/pages/dashboard/member/profile-
 import { ProfileSectionComponent } from './components/pages/dashboard/member/profile-section/profile-section.component';
 import { ReportedMemberComponent } from './components/pages/dashboard/member/reported-member/reported-member.component';
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
+import { SendSmsComponent } from './components/pages/dashboard/otp-system/send-sms/send-sms.component';
 import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp/set-otp.component';
 import { SmsTemplateComponent } from './components/pages/dashboard/otp-system/sms-template/sms-template.component';
 import { PackagePaymentComponent } from './components/pages/dashboard/package-payment/package-payment.component';
 import { PrimiumPackageComponent } from './components/pages/dashboard/primium-package/primium-package.component';
+import { UploadedfileComponent } from './components/pages/dashboard/uploadedfile/uploadedfile.component';
 import { EventsDetailsComponent } from './components/pages/events-details/events-details.component';
 import { EventsComponent } from './components/pages/events/events.component';
 import { FaqComponent } from './components/pages/faq/faq.component';
@@ -118,6 +120,8 @@ const routes: Routes = [
     { path: 'newsletter', component: NewsletterComponent },
     { path: 'sms-template', component: SmsTemplateComponent },
     { path: 'set-otp', component: SetOtpComponent },
+    { path: 'send-sms', component: SendSmsComponent },
+    { path: 'uploadedfile', component: UploadedfileComponent },
 
 
     { path: '**', component: NotFoundComponent } // This line will remain down from the whole pages component list
