@@ -94,7 +94,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PortalModule,
     ScrollingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [],
   imports: [
@@ -143,7 +143,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PortalModule,
     ScrollingModule,
     CommonModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    
+
   ]
 })
 export class MatModule { }
