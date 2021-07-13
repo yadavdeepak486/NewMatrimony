@@ -107,6 +107,10 @@ import { SendSmsComponent } from './components/pages/dashboard/otp-system/send-s
 import { UploadedfileComponent } from './components/pages/dashboard/uploadedfile/uploadedfile.component';
 import { UserInfoComponent } from './components/pages/user-info/user-info.component';
 import { PhotoFileComponent } from './components/pages/photo-file/photo-file.component';
+import { HeaderComponent } from './components/pages/dashboard/website-setup/header/header.component';
+import { FooterComponent } from './components/pages/dashboard/website-setup/footer/footer.component';
+import { PagesComponent } from './components/pages/dashboard/website-setup/pages/pages.component';
+import { AppearanceComponent } from './components/pages/dashboard/website-setup/appearance/appearance.component';
 
 
 @NgModule({
@@ -201,7 +205,11 @@ import { PhotoFileComponent } from './components/pages/photo-file/photo-file.com
     SendSmsComponent,
     UploadedfileComponent,
     UserInfoComponent,
-    PhotoFileComponent
+    PhotoFileComponent,
+    HeaderComponent,
+    FooterComponent,
+    PagesComponent,
+    AppearanceComponent
   ],
   imports: [
     BrowserModule,
