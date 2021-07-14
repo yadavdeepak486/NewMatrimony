@@ -11,5 +11,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  breadcrumb = [
+    {
+        title: 'Website Header',
+        subTitle: 'Website Setup'
+    }
+]
 }

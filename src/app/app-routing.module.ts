@@ -63,6 +63,11 @@ import { PhotoFileComponent } from './components/pages/photo-file/photo-file.com
 import { VerticalListingsFullWidthComponent } from './components/pages/vertical-listings-full-width/vertical-listings-full-width.component';
 import { VerticalListingsLeftSidebarComponent } from './components/pages/vertical-listings-left-sidebar/vertical-listings-left-sidebar.component';
 import { VerticalListingsRightSidebarComponent } from './components/pages/vertical-listings-right-sidebar/vertical-listings-right-sidebar.component';
+import { HeaderComponent } from './components/pages/dashboard/website-setup/header/header.component';
+import { FooterComponent } from './components/pages/dashboard/website-setup/footer/footer.component';
+import { PagerComponent } from 'ng2-smart-table/lib/components/pager/pager.component';
+import { PagesComponent } from './components/pages/dashboard/website-setup/pages/pages.component';
+import { AppearanceComponent } from './components/pages/dashboard/website-setup/appearance/appearance.component';
 import { UserGuard } from './user.guard'
 
 const routes: Routes = [
@@ -129,8 +134,16 @@ const routes: Routes = [
     { path: 'set-otp', component: SetOtpComponent },
     { path: 'send-sms', component: SendSmsComponent },
     { path: 'uploadedfile', component: UploadedfileComponent },
-    { path: 'user-info', component: UserInfoComponent },
-    { path: 'photo-file', component: PhotoFileComponent },
+    { path: 'user-info', component: UserInfoComponent},
+    { path: 'photo-file', component: PhotoFileComponent},
+
+    // website setup
+
+    { path: 'website-setup/header', component: HeaderComponent},
+    { path: 'website-setup/footer', component: FooterComponent},
+    { path: 'website-setup/pages', component: PagesComponent},
+    { path: 'website-setup/appearance', component: AppearanceComponent},
+
 
 
 
