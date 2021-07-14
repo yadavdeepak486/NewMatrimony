@@ -59,10 +59,11 @@ import { SimilarProfileComponent } from './components/pages/profile-detail/simil
 import { StepperDemoComponent } from './components/pages/stepper-demo/stepper-demo.component';
 import { TopPlaceComponent } from './components/pages/top-place/top-place.component';
 import { UserInfoComponent } from './components/pages/user-info/user-info.component';
-import { PhotoFileComponent} from './components/pages/photo-file/photo-file.component';
+import { PhotoFileComponent } from './components/pages/photo-file/photo-file.component';
 import { VerticalListingsFullWidthComponent } from './components/pages/vertical-listings-full-width/vertical-listings-full-width.component';
 import { VerticalListingsLeftSidebarComponent } from './components/pages/vertical-listings-left-sidebar/vertical-listings-left-sidebar.component';
 import { VerticalListingsRightSidebarComponent } from './components/pages/vertical-listings-right-sidebar/vertical-listings-right-sidebar.component';
+import { UserGuard } from './user.guard'
 
 const routes: Routes = [
     { path: '', component: HomeDemoOneComponent },
@@ -85,7 +86,7 @@ const routes: Routes = [
     { path: 'categories', component: CategoriesComponent },
     { path: 'destinations', component: TopPlaceComponent },
     { path: 'vertical-listings-left-sidebar', component: VerticalListingsLeftSidebarComponent },
-    { path: 'vertical-listings-right-sidebar', component: VerticalListingsRightSidebarComponent },
+    { path: 'vertical-listings-right-sidebar', canActivate: [UserGuard], component: VerticalListingsRightSidebarComponent },
     { path: 'vertical-listings-full-width', component: VerticalListingsFullWidthComponent },
     { path: 'grid-listings-left-sidebar', component: GridListingsLeftSidebarComponent },
     { path: 'grid-listings-right-sidebar', component: GridListingsRightSidebarComponent },
@@ -128,9 +129,9 @@ const routes: Routes = [
     { path: 'set-otp', component: SetOtpComponent },
     { path: 'send-sms', component: SendSmsComponent },
     { path: 'uploadedfile', component: UploadedfileComponent },
-    { path: 'user-info', component: UserInfoComponent},
-    { path: 'photo-file', component: PhotoFileComponent},
-    
+    { path: 'user-info', component: UserInfoComponent },
+    { path: 'photo-file', component: PhotoFileComponent },
+
 
 
     { path: '**', component: NotFoundComponent } // This line will remain down from the whole pages component list

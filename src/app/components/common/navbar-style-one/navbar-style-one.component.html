@@ -151,8 +151,8 @@
                         <div class="option-item">
                             <a class="default-btn btn-lr" data-toggle="modal" data-target="#loginRegisterModal"><i
                                     class="flaticon-user"></i> Login</a>
-                                    <a class="default-btn " data-toggle="modal" data-target="#registerModal"><i
-                                        class="flaticon-user"></i> Register</a>
+                            <a class="default-btn " data-toggle="modal" data-target="#registerModal"><i
+                                    class="flaticon-user"></i> Register</a>
                         </div>
                     </div>
                 </div>
@@ -226,13 +226,18 @@
                             </ul>
                         </div> -->
                         <span class="sub-title"><span>Login</span></span>
-                        <form>
+                        <form [formGroup]="signin" (ngSubmit)="setuser()">
                             <div class="form-group">
-                                <input type="text" placeholder="Enter Your Email ID or Matri ID" class="form-control">
+                                <input type="text" placeholder="Enter Your Email ID or Matri ID" class="form-control"
+                                    formControlName="email">
                             </div>
 
                             <div class="form-group">
-                                <input type="password" placeholder="Enter Password" class="form-control">
+                                <input type="password" placeholder="Enter Password" class="form-control"
+                                    formControlName="password">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="admin/user" class="form-control" formControlName="type">
                             </div>
 
                             <span class="dont-account ft-text"><a href="#" data-toggle="modal"
@@ -240,9 +245,8 @@
 
                             <button type="submit">Login Now</button>
                         </form>
-                        <span class="dont-account">Don't have an account? <a id="" data-toggle="modal" data-toggle="modal"
-                            data-target="#registerModal" data-dismiss="modal"
-                                href="">Register
+                        <span class="dont-account">Don't have an account? <a id="" data-toggle="modal"
+                                data-toggle="modal" data-target="#registerModal" data-dismiss="modal" href="">Register
                                 Now</a></span>
                     </div>
                 </div>
@@ -384,15 +388,19 @@
                     <input type="number" placeholder="OTP" class="form-control">
                 </div> -->
                 <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
-                     <input class="m-2 text-center form-control rounded" type="text" id="input1" v-on:keyup="inputenter(1)" maxlength="1" /> 
-                     <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(2)" type="text" id="input2" maxlength="1" /> 
-                     <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)" type="text" id="input3" maxlength="1" /> 
-                     <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(4)" type="text" id="input4" maxlength="1" /> 
+                    <input class="m-2 text-center form-control rounded" type="text" id="input1"
+                        v-on:keyup="inputenter(1)" maxlength="1" />
+                    <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(2)" type="text"
+                        id="input2" maxlength="1" />
+                    <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)" type="text"
+                        id="input3" maxlength="1" />
+                    <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(4)" type="text"
+                        id="input4" maxlength="1" />
                 </div>
                 <div class="btn-rv">
-                <button type="button" class="btn-ft-set">Resend OTP</button>
-                <button type="submit" class="btn-ft-get"><span><a class="anchorlink"
-                            href="/vertical-listings-left-sidebar">Verify</a></span></button>
+                    <button type="button" class="btn-ft-set">Resend OTP</button>
+                    <button type="submit" class="btn-ft-get"><span><a class="anchorlink"
+                                href="/vertical-listings-left-sidebar">Verify</a></span></button>
                 </div>
             </form>
         </div>
@@ -409,100 +417,106 @@
         <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class='bx bx-x'></i></button>
 
-                    <div class="vesax-register">
-                        <span class="sub-title-rs"><span>Register</span></span>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="lb-ser">On Behalf </label>
-                                        <select class="form-control">
-                                            <option>Friend</option>
-                                            <option>Brother</option>
-                                            <option>Sister</option>
-                                            <option>Daughter/Son</option>
-                                            <option>Selfs</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="lb-ser">Name </label>
-                                        <input type="text" placeholder="Name" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="lb-ser">Last Name </label>
-                                        <input type="text" placeholder="Last Name" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="lb-ser">Gender </label>
-                                        <select class="form-control">
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                            <option></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="lb-ser">Date Of Birth </label>
-                                        <div id="otp" class="inputs2 d-flex flex-row justify-content-center mt-2">
-                                            <input class="m-2 text-center form-control rounded" type="text" id="input1" v-on:keyup="inputenter(1)" maxlength="2"
-                                            placeholder="D" /> 
-                                            <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(2)" type="text" id="input2" maxlength="2" 
-                                            placeholder="M" /> 
-                                            <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)" type="text" id="input3" maxlength="4" 
-                                            placeholder="Y"/> 
-                                       </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="lb-ser">Email</label>
-                                        <input type="text" placeholder="Email" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="lb-ser">Mobile</label>
-                                        <div class="input-group">
-                                        <span class="cd-n"><img src="assets/img/india.png"/> +91</span>
-                                        <input class="form-control cd-n" type="text" placeholder="Number">
-                                        </div>
-                                    </div>
+            <div class="vesax-register">
+                <span class="sub-title-rs"><span>Register</span></span>
+                <form [formGroup]="signupuser" (ngSubmit)="movetootp()">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="lb-ser">On Behalf </label>
+                                <select class="form-control" formControlName="Profilecreatedby">
+                                    <option [value]="profilefor._id" *ngFor="let profilefor of allprofilefor">
+                                        {{profilefor.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="lb-ser">First Name </label>
+                                <input type="text" placeholder="First Name" class="form-control"
+                                    formControlName="firstName">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="lb-ser">Last Name </label>
+                                <input type="text" placeholder="Last Name" class="form-control"
+                                    formControlName="LastName">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="lb-ser">Gender </label>
+                                <select class="form-control" formControlName="Gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="lb-ser">Date Of Birth </label>
+                                <div id="otp" class="inputs2 d-flex flex-row justify-content-center mt-2">
+                                    <input class="m-2 text-center form-control rounded" type="text" id="input1"
+                                        v-on:keyup="inputenter(1)" maxlength="2" placeholder="D" formControlName="DD" />
+                                    <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(2)"
+                                        type="text" id="input2" maxlength="2" placeholder="M" formControlName="MM" />
+                                    <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)"
+                                        type="text" id="input3" maxlength="4" placeholder="Y" formControlName="YYYY" />
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                    <label class="lb-ser">Password</label>
-                                    <mat-form-field appearance="fill" class="mb-w">
-                                        <mat-label>Enter your password</mat-label>
-                                        <input matInput [type]="hide ? 'password' : 'text'">
-                                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                        </button>
-                                      </mat-form-field>
-                                    </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="lb-ser">Email</label>
+                                <input type="text" placeholder="Email" class="form-control"
+                                    formControlName="ConfirmEmail">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="lb-ser">Mobile</label>
+                                <div class="input-group">
+                                    <span class="cd-n"><img src="assets/img/india.png" /> +91</span>
+                                    <input class="form-control cd-n" type="text" placeholder="Number"
+                                        formControlName="Mobile">
                                 </div>
                             </div>
-                            <div class="form-check chk-t">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" value="">By signing up you agree to our <span ><a href="#" class="tac">terms and conditions.</a></span>
-                                </label>
-                              </div>
-                             
-                            <button type="button" class="btnrg" data-toggle="modal" data-target="#verifymobile" data-dismiss="modal">
-                                Register Now</button>
-                        </form>
-                        <span class="already-account">Already have an account? <a id="" href=""  data-toggle="modal" data-target="#loginRegisterModal" data-dismiss="modal">Login</a></span>
+                        </div>
                     </div>
-               
-            
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="lb-ser">Password</label>
+                                <mat-form-field appearance="fill" class="mb-w">
+                                    <mat-label>Enter your password</mat-label>
+                                    <input matInput [type]="hide ? 'password' : 'text'"
+                                        formControlName="ConfirmPassword">
+                                    <button mat-icon-button matSuffix (click)="hide = !hide"
+                                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check chk-t">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value=""
+                                formControlName="agree_terms_conditions">By signing up you agree to our
+                            <span><a href="#" class="tac">terms and conditions.</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btnrg" data-toggle="modal" data-target="#verifymobile"
+                        data-dismiss="modal">
+                        Register Now</button>
+                </form>
+                <span class="already-account">Already have an account? <a id="" href="" data-toggle="modal"
+                        data-target="#loginRegisterModal" data-dismiss="modal">Login</a></span>
+            </div>
+
+
         </div>
     </div>
 </div>
