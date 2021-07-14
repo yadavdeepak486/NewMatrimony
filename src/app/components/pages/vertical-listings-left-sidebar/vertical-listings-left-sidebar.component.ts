@@ -289,6 +289,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
         })
     }
 
+
     userDetails(id: number) {
         this.router.navigate(['profile-detail', id]);
     }

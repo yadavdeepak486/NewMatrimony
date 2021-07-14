@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-premium-member',
@@ -8,12 +9,13 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class PremiumMemberComponent implements OnInit {
 
-  constructor() { }
+  constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.getpremiumusers();
   }
 
-  source: LocalDataSource;
+  source: any;
 
   settings = {
     // add: {
@@ -34,9 +36,9 @@ export class PremiumMemberComponent implements OnInit {
     // },
     actions: {
       columnTitle: 'Actions',
-      add: false,
-      edit: false,
-      delete: false,
+      add: true,
+      edit: true,
+      delete: true,
       custom: [
         // { name: 'Permissions', title:  '&nbsp;&nbsp;<i class="bntn btn-danger"><button>Reject</button></i>'},
       ],
@@ -44,46 +46,71 @@ export class PremiumMemberComponent implements OnInit {
 
     },
 
-    columns: {
-      id: {
-        title: '#',
-        filter: false,
+    // columns: {
+    //   id: {
+    //     title: '#',
+    //     filter: false,
 
-      },
-      image: {
+    //   },
+    //   image: {
+    //     title: 'Image',
+    //     filter: false,
+
+    //   },
+    //   memberid: {
+    //     title: 'Member ID',
+    //     filter: false,
+    //   },
+    //   Name: {
+    //     title: 'Name',
+    //     filter: false,
+    //   },
+    //   profilereported: {
+    //     title: 'Profile Reported',
+    //     filter: false,
+    //   },
+    //   memberscience: {
+    //     title: 'Member Since	',
+    //     filter: false,
+    //   },
+    //   memberstatus: {
+    //     title: 'Member Status	',
+    //     filter: false,
+    //   },
+
+    //   action: {
+    //     title: 'Action',
+    //     filter: false,
+    //   },
+    // },
+    columns: {
+      Profile: {
         title: 'Image',
         filter: false,
-
+        type: 'html',
+        valuePrepareFunction: (imageUrl) => { return '<img src="' + imageUrl + '" alt="Smiley face" height="60" width="60" />' },
       },
-      memberid: {
-        title: 'Member ID',
-        filter: false,
+      MatriID: {
+        title: '#',
+        filter: true,
+
       },
       Name: {
         title: 'Name',
-        filter: false,
+        filter: true,
       },
-      profilereported: {
-        title: 'Profile Reported',
-        filter: false,
+      createdAt: {
+        title: 'Member Since',
+        filter: true,
       },
-      memberscience: {
-        title: 'Member Since	',
-        filter: false,
-      },
-      memberstatus: {
+      Status: {
         title: 'Member Status	',
-        filter: false,
-      },
-      
-      action: {
-        title: 'Action',
-        filter: false,
+        filter: true,
       },
 
       // Permissions: {
       //   title: 'Action',
-      //   filter: false,
+      //   filter: true,
       //   actions: true,
       // },
     },
@@ -128,18 +155,27 @@ export class PremiumMemberComponent implements OnInit {
         field: 'action',
         search: query,
       },
-     
+
     ], false);
     // second parameter specifying whether to perform 'AND' or 'OR' search
     // (meaning all columns should contain search query or at least one)
     // 'AND' by default, so changing to 'OR' by setting false here
   }
 
-breadcrumb = [
+  breadcrumb = [
     {
-        title: 'Premium Member List',
-        subTitle: 'Members'
+      title: 'Premium Member List',
+      subTitle: 'Members'
     }
-]
+  ]
 
+
+  getpremiumusers() {
+    this.adminService.getpremiumusers().subscribe((response: any) => {
+      console.log(response)
+      this.source = response.data
+    }, (error) => {
+      console.log(error)
+    })
+  }
 }

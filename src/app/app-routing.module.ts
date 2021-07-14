@@ -26,7 +26,9 @@ import { BulkMemberComponent } from './components/pages/dashboard/member/bulk-me
 import { DeletedMemberComponent } from './components/pages/dashboard/member/deleted-member/deleted-member.component';
 import { FreeMemberComponent } from './components/pages/dashboard/member/free-member/free-member.component';
 import { PremiumMemberComponent } from './components/pages/dashboard/member/premium-member/premium-member.component';
+import { CasteComponent } from './components/pages/dashboard/member/profile-attributes/caste/caste.component';
 import { ReligionsComponent } from './components/pages/dashboard/member/profile-attributes/religions/religions.component';
+import { SubcasteComponent } from './components/pages/dashboard/member/profile-attributes/subcaste/subcaste.component';
 import { ProfileSectionComponent } from './components/pages/dashboard/member/profile-section/profile-section.component';
 import { ReportedMemberComponent } from './components/pages/dashboard/member/reported-member/reported-member.component';
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
@@ -57,7 +59,7 @@ import { SimilarProfileComponent } from './components/pages/profile-detail/simil
 import { StepperDemoComponent } from './components/pages/stepper-demo/stepper-demo.component';
 import { TopPlaceComponent } from './components/pages/top-place/top-place.component';
 import { UserInfoComponent } from './components/pages/user-info/user-info.component';
-import { PhotoFileComponent} from './components/pages/photo-file/photo-file.component';
+import { PhotoFileComponent } from './components/pages/photo-file/photo-file.component';
 import { VerticalListingsFullWidthComponent } from './components/pages/vertical-listings-full-width/vertical-listings-full-width.component';
 import { VerticalListingsLeftSidebarComponent } from './components/pages/vertical-listings-left-sidebar/vertical-listings-left-sidebar.component';
 import { VerticalListingsRightSidebarComponent } from './components/pages/vertical-listings-right-sidebar/vertical-listings-right-sidebar.component';
@@ -66,6 +68,7 @@ import { FooterComponent } from './components/pages/dashboard/website-setup/foot
 import { PagerComponent } from 'ng2-smart-table/lib/components/pager/pager.component';
 import { PagesComponent } from './components/pages/dashboard/website-setup/pages/pages.component';
 import { AppearanceComponent } from './components/pages/dashboard/website-setup/appearance/appearance.component';
+import { UserGuard } from './user.guard'
 
 const routes: Routes = [
     { path: '', component: HomeDemoOneComponent },
@@ -88,7 +91,7 @@ const routes: Routes = [
     { path: 'categories', component: CategoriesComponent },
     { path: 'destinations', component: TopPlaceComponent },
     { path: 'vertical-listings-left-sidebar', component: VerticalListingsLeftSidebarComponent },
-    { path: 'vertical-listings-right-sidebar', component: VerticalListingsRightSidebarComponent },
+    { path: 'vertical-listings-right-sidebar', canActivate: [UserGuard], component: VerticalListingsRightSidebarComponent },
     { path: 'vertical-listings-full-width', component: VerticalListingsFullWidthComponent },
     { path: 'grid-listings-left-sidebar', component: GridListingsLeftSidebarComponent },
     { path: 'grid-listings-right-sidebar', component: GridListingsRightSidebarComponent },
@@ -119,6 +122,8 @@ const routes: Routes = [
     { path: 'profile-tabs', component: ProfileTabsComponent },
     { path: 'similar-profile', component: SimilarProfileComponent },
     { path: 'profile-attributes/religions', component: ReligionsComponent },
+    { path: 'profile-attributes/caste', component: CasteComponent },
+    { path: 'profile-attributes/subcaste', component: SubcasteComponent },
     { path: 'premium-package', component: PrimiumPackageComponent },
     { path: 'member/profile-section', component: ProfileSectionComponent },
     { path: 'package-payment', component: PackagePaymentComponent },

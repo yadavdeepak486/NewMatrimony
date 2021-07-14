@@ -1,5 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-free-member',
@@ -8,13 +10,14 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class FreeMemberComponent implements OnInit {
 
-  constructor() { }
+  constructor(public adminServie: AdminService) { }
 
   ngOnInit(): void {
+    this.getfreeusers();
   }
 
 
-source: LocalDataSource;
+  source: any;
 
   settings = {
     // add: {
@@ -35,9 +38,9 @@ source: LocalDataSource;
     // },
     actions: {
       columnTitle: 'Actions',
-      add: false,
-      edit: false,
-      delete: false,
+      add: true,
+      edit: true,
+      delete: true,
       custom: [
         // { name: 'Permissions', title:  '&nbsp;&nbsp;<i class="bntn btn-danger"><button>Reject</button></i>'},
       ],
@@ -46,45 +49,33 @@ source: LocalDataSource;
     },
 
     columns: {
-      id: {
-        title: '#',
-        filter: false,
-
-      },
-      image: {
+      Profile: {
         title: 'Image',
         filter: false,
-
+        type: 'html',
+        valuePrepareFunction: (imageUrl) => { return '<img src="' + imageUrl + '" alt="Smiley face" height="60" width="60" />' },
       },
-      memberid: {
-        title: 'Member ID',
-        filter: false,
+      MatriID: {
+        title: '#',
+        filter: true,
+
       },
       Name: {
         title: 'Name',
-        filter: false,
+        filter: true,
       },
-      profilereported: {
-        title: 'Profile Reported',
-        filter: false,
+      createdAt: {
+        title: 'Member Since',
+        filter: true,
       },
-      memberscience: {
-        title: 'Member Since	',
-        filter: false,
-      },
-      memberstatus: {
+      Status: {
         title: 'Member Status	',
-        filter: false,
-      },
-      
-      action: {
-        title: 'Action',
-        filter: false,
+        filter: true,
       },
 
       // Permissions: {
       //   title: 'Action',
-      //   filter: false,
+      //   filter: true,
       //   actions: true,
       // },
     },
@@ -129,18 +120,27 @@ source: LocalDataSource;
         field: 'action',
         search: query,
       },
-     
+
     ], false);
     // second parameter specifying whether to perform 'AND' or 'OR' search
     // (meaning all columns should contain search query or at least one)
     // 'AND' by default, so changing to 'OR' by setting false here
   }
 
-breadcrumb = [
+  breadcrumb = [
     {
-        title: 'Free Member List',
-        subTitle: 'Members'
+      title: 'Free Member List',
+      subTitle: 'Members'
     }
-]
+  ]
+
+  getfreeusers() {
+    this.adminServie.getfreeusers().subscribe((response: any) => {
+      console.log(response)
+      this.source = response.data
+    }, (error) => {
+      console.log(error)
+    })
+  }
 
 }

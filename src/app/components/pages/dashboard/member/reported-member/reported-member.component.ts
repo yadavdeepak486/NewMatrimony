@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-reported-member',
@@ -8,13 +9,14 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class ReportedMemberComponent implements OnInit {
 
-  constructor() { }
+  constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.getreportedusers();
   }
 
 
-source: LocalDataSource;
+  source: any;
 
   settings = {
     // add: {
@@ -45,34 +47,65 @@ source: LocalDataSource;
 
     },
 
+    // columns: {
+    //   id: {
+    //     title: '#',
+    //     filter: false,
+
+    //   },
+    //   membername: {
+    //     title: 'Member Name',
+    //     filter: false,
+
+    //   },
+    //   reportedby: {
+    //     title: 'Reported By',
+    //     filter: false,
+    //   },
+    //   reportreason: {
+    //     title: 'Report Reason',
+    //     filter: false,
+    //   },
+
+    //   action: {
+    //     title: 'Action',
+    //     filter: false,
+    //   },
+
+    //   // Permissions: {
+    //   //   title: 'Action',
+    //   //   filter: false,
+    //   //   actions: true,
+    //   // },
+    // },
     columns: {
-      id: {
+      Profile: {
+        title: 'Image',
+        filter: false,
+        type: 'html',
+        valuePrepareFunction: (imageUrl) => { return '<img src="' + imageUrl + '" alt="Smiley face" height="60" width="60" />' },
+      },
+      MatriID: {
         title: '#',
-        filter: false,
+        filter: true,
 
       },
-      membername: {
-        title: 'Member Name',
-        filter: false,
-
+      Name: {
+        title: 'Name',
+        filter: true,
       },
-      reportedby: {
-        title: 'Reported By',
-        filter: false,
+      createdAt: {
+        title: 'Member Since',
+        filter: true,
       },
-      reportreason: {
-        title: 'Report Reason',
-        filter: false,
-      },
-     
-      action: {
-        title: 'Action',
-        filter: false,
+      Status: {
+        title: 'Member Status	',
+        filter: true,
       },
 
       // Permissions: {
       //   title: 'Action',
-      //   filter: false,
+      //   filter: true,
       //   actions: true,
       // },
     },
@@ -101,24 +134,34 @@ source: LocalDataSource;
         field: 'reportreason',
         search: query,
       },
-      
+
       {
         field: 'action',
         search: query,
       },
-     
+
     ], false);
     // second parameter specifying whether to perform 'AND' or 'OR' search
     // (meaning all columns should contain search query or at least one)
     // 'AND' by default, so changing to 'OR' by setting false here
   }
 
-breadcrumb = [
+  breadcrumb = [
     {
-        title: 'Reported Members',
-        subTitle: 'Members'
+      title: 'Reported Members',
+      subTitle: 'Members'
     }
-]
+  ]
+
+  getreportedusers() {
+    this.adminService.getreportedusers().subscribe((response: any) => {
+      console.log(response)
+      this.source = response.data
+    }, (error) => {
+      console.log(error)
+    })
+  }
+
 
 }
 

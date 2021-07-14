@@ -6,35 +6,36 @@
     <app-dashboard-navbar></app-dashboard-navbar>
 
     <!-- Breadcrumb Area -->
-     <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
         <h1>{{Content.title}}</h1>
         <ol class="breadcrumb">
             <li class="item"><a routerLink="/">Home</a></li>
             <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
             <li class="item">{{Content.title}}</li>
         </ol>
-    </div> 
+    </div>
     <!-- End Breadcrumb Area -->
 
     <!-- Start -->
     <div class="row">
         <div class="col-12">
-           <div class="card crd-rs">
+            <div class="card crd-rs">
                 <div class="bx-right">
-                <a href="add-user" class="btn btn-success rs-btn">Add New Member</a>
+                    <a href="add-user" class="btn btn-success rs-btn">Add New Member</a>
                 </div>
                 <div class="bx-left">
-                <input #search class="search ser-rs" type="text" placeholder="Type Name & Enter..." (keydown.enter)="onSearch(search.value)">
+                    <input #search class="search ser-rs" type="text" placeholder="Type Name & Enter..."
+                        (keydown.enter)="onSearch(search.value)">
                 </div>
-                <ng2-smart-table [settings]="settings" [source]="source"  class="table-responsive">
+                <ng2-smart-table [settings]="settings" [source]="source" class="table-responsive">
                 </ng2-smart-table>
             </div>
-         </div>
-     </div>
+        </div>
+    </div>
     <!-- End -->
 
     <div class="flex-grow-1"></div>
-    
+
     <app-copyrights></app-copyrights>
 
 </div>

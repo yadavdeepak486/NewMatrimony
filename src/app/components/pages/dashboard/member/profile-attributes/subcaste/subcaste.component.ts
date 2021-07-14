@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-subcaste',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subcaste.component.scss']
 })
 export class SubcasteComponent implements OnInit {
-
-  constructor() { }
+  allreligion: any
+  constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.getallreligion();
   }
+  breadcrumb = [
+    {
+      title: 'Religions',
+      subTitle: 'Members'
+    }
+  ]
+
+  getallreligion() {
+    this.adminService.getallreligion().subscribe((response: any) => {
+      console.log(response)
+      this.allreligion = response.data
+    }, (error) => {
+      console.log(error)
+    })
+  }
+
 
 }

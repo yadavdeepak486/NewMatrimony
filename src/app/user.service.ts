@@ -9,11 +9,23 @@ export class UserService {
 
   constructor(public http: HttpClient) { }
 
+
+
   getallprofiles() {
     return this.http.get(`${this.backendurl}/user/allusers`)
   }
 
   viewoneprofile(id) {
     return this.http.get(`${this.backendurl}/user/details/${id}`)
+  }
+
+  //user signup
+  usersignup(data) {
+    return this.http.post(`${this.backendurl}/user/signup`, data)
+  }
+
+  //get drop down data
+  getprofilefordd() {
+    return this.http.get(`${this.backendurl}/admin/allprofilefor`)
   }
 }
