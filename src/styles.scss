@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 :root {
     --fontFamily: 'Work Sans', sans-serif;
     --mainColor: #ff0000;
@@ -133,7 +135,7 @@ p {
             top: 50%;
             transform: translateY(-50%);
             font-weight: 600;
-            
+
             i {
                 transition: var(--transition);
                 color: var(--blackColor);
@@ -204,20 +206,20 @@ textarea.form-control {
 /*keyframes-css*/
 @keyframes moveleftbounce {
     0% {
-        transform: translateY(0px); 
+        transform: translateY(0px);
     }
     50% {
-        transform: translateY(10px); 
+        transform: translateY(10px);
     }
     100% {
-        transform: translateY(0px); 
-    } 
+        transform: translateY(0px);
+    }
 }
 @keyframes cluster-animation {
 	0%,100% {
         box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
     }
-    50% { 
+    50% {
         box-shadow: 0 0 0 9px rgba(0, 0, 0, 0.1);
     }
 }
@@ -387,7 +389,7 @@ textarea.form-control {
                 opacity: 0 !important;
                 visibility: hidden !important;
                 transition: var(--transition);
-                
+
                 [class*=owl-] {
                     color: var(--blackColor);
                     font-size: 14px;
@@ -489,7 +491,7 @@ textarea.form-control {
                         margin-bottom: 5px !important;
                         padding-left: 0 !important;
                         text-align: left;
-                        
+
                         li {
                             position: relative !important;
                             color: var(--blackColor) !important;
@@ -585,7 +587,7 @@ textarea.form-control {
                         margin-bottom: 5px !important;
                         padding-left: 0 !important;
                         text-align: left;
-                        
+
                         li {
                             position: relative !important;
                             color: var(--blackColor) !important;
@@ -679,7 +681,7 @@ textarea.form-control {
                     padding-left: 0 !important;
                     text-align: left !important;
                     background-color: var(--whiteColor) !important;
-                    
+
                     li {
                         position: relative !important;
                         color: var(--blackColor) !important;
@@ -959,7 +961,7 @@ textarea.form-control {
                         &:hover {
                             background-color: var(--mainColor) !important;
                             color: var(--whiteColor);
-    
+
                             &::before {
                                 color: var(--whiteColor);
                             }
@@ -990,7 +992,7 @@ textarea.form-control {
                             &:hover {
                                 background-color: var(--mainColor) !important;
                                 color: var(--whiteColor);
-    
+
                                 &::before {
                                     color: var(--whiteColor);
                                 }
@@ -1119,7 +1121,7 @@ textarea.form-control {
     .widget_search {
         form {
             position: relative;
-            
+
             .screen-reader-text {
                 display: none;
             }
@@ -1183,7 +1185,7 @@ textarea.form-control {
     .widget_vesax_posts_thumb {
         position: relative;
         overflow: hidden;
-        
+
         .item {
             overflow: hidden;
             margin-bottom: 15px;
@@ -1378,7 +1380,7 @@ textarea.form-control {
                     position: relative;
                     z-index: 1;
                     overflow: hidden;
-    
+
                     .link-btn {
                         display: block;
                         position: absolute;
@@ -1499,7 +1501,7 @@ textarea.form-control {
                     margin-bottom: 5px !important;
                     padding-left: 0 !important;
                     text-align: left !important;
-                    
+
                     li {
                         position: relative !important;
                         color: var(--blackColor) !important;
@@ -1595,7 +1597,7 @@ textarea.form-control {
                     margin-bottom: 5px !important;
                     padding-left: 0 !important;
                     text-align: left !important;
-                    
+
                     li {
                         position: relative !important;
                         color: var(--blackColor) !important;
@@ -1746,7 +1748,7 @@ textarea.form-control {
                         margin-bottom: 5px !important;
                         padding-left: 0 !important;
                         text-align: left;
-                        
+
                         li {
                             position: relative !important;
                             color: var(--blackColor) !important;
@@ -1881,7 +1883,7 @@ textarea.form-control {
                     border: 1px solid var(--bc, var(--border));
                     background: var(--b, var(--background));
                     transition: background .3s, border-color .3s, box-shadow .2s;
-                    
+
                     &:not(.switch) {
                         border-radius: 0;
                     }
@@ -1996,7 +1998,7 @@ textarea.form-control {
                     border: 1px solid var(--bc, var(--border));
                     background: var(--b, var(--background));
                     transition: background .3s, border-color .3s, box-shadow .2s;
-                    
+
                     &:not(.switch) {
                         border-radius: 0;
                     }
@@ -2111,7 +2113,7 @@ textarea.form-control {
                     border: 1px solid var(--bc, var(--border));
                     background: var(--b, var(--background));
                     transition: background .3s, border-color .3s, box-shadow .2s;
-                    
+
                     &:not(.switch) {
                         border-radius: 0;
                     }
@@ -2256,7 +2258,7 @@ textarea.form-control {
                     margin-bottom: 5px !important;
                     padding-left: 0 !important;
                     text-align: left !important;
-                    
+
                     li {
                         position: relative !important;
                         color: var(--blackColor) !important;
@@ -2405,7 +2407,7 @@ textarea.form-control {
                     a {
                         &.meanmenu-reveal {
                             color: var(--whiteColor);
-        
+
                             span {
                                 background: var(--whiteColor);
                             }
@@ -2417,7 +2419,7 @@ textarea.form-control {
     }
     .vesax-responsive-nav {
         display: block;
-        
+
         .vesax-responsive-menu {
             position: relative;
 
@@ -2875,7 +2877,7 @@ textarea.form-control {
                     a {
                         &.meanmenu-reveal {
                             color: var(--whiteColor);
-        
+
                             span {
                                 background: var(--whiteColor);
                             }
@@ -2887,7 +2889,7 @@ textarea.form-control {
     }
     .vesax-responsive-nav {
         display: block;
-        
+
         .vesax-responsive-menu {
             position: relative;
 
@@ -3196,7 +3198,7 @@ textarea.form-control {
                     a {
                         &.meanmenu-reveal {
                             color: var(--whiteColor);
-        
+
                             span {
                                 background: var(--whiteColor);
                             }
@@ -3384,7 +3386,7 @@ textarea.form-control {
 /* Min width 1550px */
 @media only screen and (min-width: 1550px) {
 
-    
+
 
 }
 html, body { height: 100%; }

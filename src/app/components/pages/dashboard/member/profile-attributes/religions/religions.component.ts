@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
@@ -23,11 +24,13 @@ export class ReligionsComponent implements OnInit {
   });
 
 
-  constructor(public adminService: AdminService,) {
+  constructor(public adminService: AdminService,private toastr: ToastrService) {
+
   }
 
   ngOnInit(): void {
     this.getallreligion();
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
   breadcrumb = [
     {

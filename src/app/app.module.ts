@@ -6,7 +6,6 @@ import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeDemoOneComponent } from './components/pages/home-demo-one/home-demo-one.component';
@@ -112,7 +111,22 @@ import { HeaderComponent } from './components/pages/dashboard/website-setup/head
 import { FooterComponent } from './components/pages/dashboard/website-setup/footer/footer.component';
 import { PagesComponent } from './components/pages/dashboard/website-setup/pages/pages.component';
 import { AppearanceComponent } from './components/pages/dashboard/website-setup/appearance/appearance.component';
-
+import { MemberLanguageComponent } from './components/pages/dashboard/member/profile-attributes/member-language/member-language.component';
+import { CountryComponent } from './components/pages/dashboard/member/profile-attributes/country/country.component';
+import { StateComponent } from './components/pages/dashboard/member/profile-attributes/state/state.component';
+import { CityComponent } from './components/pages/dashboard/member/profile-attributes/city/city.component';
+import { OnBehalfComponent } from './components/pages/dashboard/member/profile-attributes/on-behalf/on-behalf.component';
+import { FamilyValueComponent } from './components/pages/dashboard/member/profile-attributes/family-value/family-value.component';
+import { FamilyStatusComponent } from './components/pages/dashboard/member/profile-attributes/family-status/family-status.component';
+import { MaritalStatusesComponent } from './components/pages/dashboard/member/profile-attributes/marital-statuses/marital-statuses.component';
+import { EducationComponent } from './components/pages/dashboard/member/profile-attributes/education/education.component';
+import { OccupationComponent } from './components/pages/dashboard/member/profile-attributes/occupation/occupation.component';
+import { StarComponent } from './components/pages/dashboard/member/profile-attributes/star/star.component';
+import { MoonsignComponent } from './components/pages/dashboard/member/profile-attributes/moonsign/moonsign.component';
+import { HightComponent } from './components/pages/dashboard/member/profile-attributes/hight/hight.component';
+import { EmployedinComponent } from './components/pages/dashboard/member/profile-attributes/employedin/employedin.component';
+import { ToastrModule } from 'ngx-toastr';
+import { AddNewPageComponent } from './components/pages/dashboard/website-setup/pages/add-new-page/add-new-page.component';
 
 @NgModule({
   declarations: [
@@ -210,7 +224,22 @@ import { AppearanceComponent } from './components/pages/dashboard/website-setup/
     HeaderComponent,
     FooterComponent,
     PagesComponent,
-    AppearanceComponent
+    AppearanceComponent,
+    MemberLanguageComponent,
+    CountryComponent,
+    StateComponent,
+    CityComponent,
+    OnBehalfComponent,
+    FamilyValueComponent,
+    FamilyStatusComponent,
+    MaritalStatusesComponent,
+    EducationComponent,
+    OccupationComponent,
+    StarComponent,
+    MoonsignComponent,
+    HightComponent,
+    EmployedinComponent,
+    AddNewPageComponent
   ],
   imports: [
     BrowserModule,
@@ -225,7 +254,10 @@ import { AppearanceComponent } from './components/pages/dashboard/website-setup/
     CdkStepperModule,
     Ng2SmartTableModule,
     MatModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+
+
   ],
   providers: [UserService, AdminService],
   bootstrap: [AppComponent]

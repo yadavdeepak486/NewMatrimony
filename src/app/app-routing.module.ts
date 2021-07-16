@@ -69,6 +69,21 @@ import { PagerComponent } from 'ng2-smart-table/lib/components/pager/pager.compo
 import { PagesComponent } from './components/pages/dashboard/website-setup/pages/pages.component';
 import { AppearanceComponent } from './components/pages/dashboard/website-setup/appearance/appearance.component';
 import { UserGuard } from './user.guard'
+import { MemberLanguageComponent } from './components/pages/dashboard/member/profile-attributes/member-language/member-language.component';
+import { CityComponent } from './components/pages/dashboard/member/profile-attributes/city/city.component';
+import { StateComponent } from './components/pages/dashboard/member/profile-attributes/state/state.component';
+import { CountryComponent } from './components/pages/dashboard/member/profile-attributes/country/country.component';
+import { OnBehalfComponent } from './components/pages/dashboard/member/profile-attributes/on-behalf/on-behalf.component';
+import { FamilyValueComponent } from './components/pages/dashboard/member/profile-attributes/family-value/family-value.component';
+import { FamilyStatusComponent } from './components/pages/dashboard/member/profile-attributes/family-status/family-status.component';
+import { MaritalStatusesComponent } from './components/pages/dashboard/member/profile-attributes/marital-statuses/marital-statuses.component';
+import { EducationComponent } from './components/pages/dashboard/member/profile-attributes/education/education.component';
+import { OccupationComponent } from './components/pages/dashboard/member/profile-attributes/occupation/occupation.component';
+import { StarComponent } from './components/pages/dashboard/member/profile-attributes/star/star.component';
+import { MoonsignComponent } from './components/pages/dashboard/member/profile-attributes/moonsign/moonsign.component';
+import { HightComponent } from './components/pages/dashboard/member/profile-attributes/hight/hight.component';
+import { EmployedinComponent } from './components/pages/dashboard/member/profile-attributes/employedin/employedin.component';
+import { AddNewPageComponent } from './components/pages/dashboard/website-setup/pages/add-new-page/add-new-page.component';
 
 const routes: Routes = [
     { path: '', component: HomeDemoOneComponent },
@@ -124,6 +139,23 @@ const routes: Routes = [
     { path: 'profile-attributes/religions', component: ReligionsComponent },
     { path: 'profile-attributes/caste', component: CasteComponent },
     { path: 'profile-attributes/subcaste', component: SubcasteComponent },
+    { path: 'profile-attributes/member-language', component: MemberLanguageComponent },
+    { path: 'profile-attributes/City', component: CityComponent },
+    { path: 'profile-attributes/state', component: StateComponent },
+    { path: 'profile-attributes/country', component: CountryComponent },
+    { path: 'profile-attributes/on-behalf', component: OnBehalfComponent },
+    { path: 'profile-attributes/family-value', component: FamilyValueComponent },
+    { path: 'profile-attributes/family-status', component: FamilyStatusComponent },
+    { path: 'profile-attributes/marital-statuses', component: MaritalStatusesComponent },
+    { path: 'profile-attributes/education', component: EducationComponent },
+    { path: 'profile-attributes/occupation', component: OccupationComponent },
+    { path: 'profile-attributes/star', component: StarComponent },
+    { path: 'profile-attributes/moonsign', component: MoonsignComponent },
+    { path: 'profile-attributes/hight', component: HightComponent },
+    { path: 'profile-attributes/employedin', component: EmployedinComponent },
+
+
+
     { path: 'premium-package', component: PrimiumPackageComponent },
     { path: 'member/profile-section', component: ProfileSectionComponent },
     { path: 'package-payment', component: PackagePaymentComponent },
@@ -143,6 +175,8 @@ const routes: Routes = [
     { path: 'website-setup/footer', component: FooterComponent},
     { path: 'website-setup/pages', component: PagesComponent},
     { path: 'website-setup/appearance', component: AppearanceComponent},
+    { path: 'website-setup/pages/add-new-page', component: AddNewPageComponent},
+
 
 
 
