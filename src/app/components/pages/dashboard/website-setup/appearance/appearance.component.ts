@@ -11,5 +11,10 @@ export class AppearanceComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  breadcrumb = [
+    {
+        title: 'Appearance',
+        subTitle: 'Website Setup'
+    }
+]
 }

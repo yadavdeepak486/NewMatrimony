@@ -1,1 +1,208 @@
-<p>footer works!</p>
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div>
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <h3>Footer Setting</h3>
+                <form class="bd-n">
+                    <div class="row">
+                        <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>footer Logo</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <!-- <div class="input-group-prepend">
+                                  <span class="input-group-text">Upload</span>
+                                </div> -->
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                </div>
+                              </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group fg-w">
+                          <div class="col-lg-4">
+                              <label>About description</label>
+                          </div>
+                          <div class="col-lg-8">
+                            <div class="input-group mb-3">
+                              <textarea id="w3review" name="w3review" rows="4" cols="50" placeholder="text...">
+
+                                </textarea>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group fg-w">
+                            <button class="btn btn-primary ml-3 mt-2">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Contacts Widget -->
+
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <div class="card">
+                  <h3>Contacts Widget</h3>
+                  <form class="bd-n">
+                      <div class="row">
+                          <div class="form-group fg-w">
+                              <div class="col-lg-4">
+                                  <label>Address</label>
+                              </div>
+                              <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="1329 40th St Apt A Orlando, FL">
+                              </div>
+                          </div>
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Website</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="www.arvension.in">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="support@arvension.in">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <mat-form-field class="example-chip-list" appearance="fill">
+                                   <mat-label>Add Multiple Phone Number </mat-label>
+                                  <mat-chip-list #chipList aria-label="Fruit selection">
+                                    <mat-chip *ngFor="let phone of phone" [selectable]="selectable"
+                                             [removable]="removable" (removed)="remove(phone)">
+                                      {{phone.name}}
+                                      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                    </mat-chip>
+                                    <input placeholder=".."
+                                           [matChipInputFor]="chipList"
+                                           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                           [matChipInputAddOnBlur]="addOnBlur"
+                                           (matChipInputTokenEnd)="add($event)">
+                                  </mat-chip-list>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group fg-w">
+                              <button class="btn btn-primary ml-3 mt-2">Update</button>
+                          </div>
+                      </div>
+                  </form>
+
+              </div>
+
+          </div>
+
+          <!-- Contacts Widget -->
+
+
+
+
+        </div>
+
+        <!-- Link Widget Three -->
+
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <div class="card">
+                  <h3>Link Widget Three</h3>
+                  <form class="bd-n">
+                      <div class="row">
+                          <div class="form-group fg-w">
+                              <div class="col-lg-4">
+                                  <label>Title</label>
+                              </div>
+                              <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Name">
+                              </div>
+                          </div>
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Links</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="www.arvension.in">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" placeholder="FAQ">
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="support@arvension.in">
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="form-group fg-w">
+                              <button class="btn btn-primary ml-3 mt-2">Update</button>
+                          </div>
+                      </div>
+                  </form>
+
+              </div>
+
+          </div>
+
+          <!-- Link Widget Three -->
+
+
+
+
+        </div>
+
+
+    </div>
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->

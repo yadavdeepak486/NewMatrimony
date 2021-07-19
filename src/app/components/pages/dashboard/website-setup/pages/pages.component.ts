@@ -11,5 +11,10 @@ export class PagesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  breadcrumb = [
+    {
+        title: 'All Pages',
+        subTitle: 'Dashboard'
+    }
+]
 }
