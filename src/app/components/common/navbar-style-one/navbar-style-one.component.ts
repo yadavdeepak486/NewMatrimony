@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
@@ -13,18 +13,20 @@ export class NavbarStyleOneComponent implements OnInit {
   hide = true;
   allprofilefor: any;
   signupuser = new FormGroup({
-    Profilecreatedby: new FormControl(''),
-    firstName: new FormControl(''),
-    LastName: new FormControl(''),
-    Gender: new FormControl(''),
-    DD: new FormControl(''),
-    MM: new FormControl(''),
-    YYYY: new FormControl(''),
-    ConfirmEmail: new FormControl(''),
-    Mobile: new FormControl(''),
-    ConfirmPassword: new FormControl(''),
-    agree_terms_conditions: new FormControl(''),
+    Profilecreatedby: new FormControl('60eeb7fa0e58d35d2c4f4f4a', Validators.required),
+    firstName: new FormControl('', Validators.required),
+    LastName: new FormControl('', Validators.required),
+    Gender: new FormControl('Male', Validators.required),
+    dd: new FormControl('1', Validators.required),
+    mm: new FormControl('1', Validators.required),
+    yyyy: new FormControl('2000', Validators.required),
+    DOB: new FormControl(''),
+    ConfirmEmail: new FormControl('', Validators.required),
+    Mobile: new FormControl('', Validators.required),
+    ConfirmPassword: new FormControl('', Validators.required),
+    agree_terms_conditions: new FormControl('', Validators.required),
   });
+  success = false;
 
   signin = new FormGroup({
     email: new FormControl(''),
@@ -72,7 +74,16 @@ export class NavbarStyleOneComponent implements OnInit {
   //   })
   // }
 
-  movetootp() {
+  submitandmovetootp() {
     console.log(this.signupuser.value)
+    const DOBcal = `${this.signupuser.value.yyyy}-${this.signupuser.value.mm}-${this.signupuser.value.dd}`
+    this.signupuser.patchValue({ DOB: DOBcal })
+    console.log(this.signupuser.value)
+    this.userService.usersignup(this.signupuser.value).subscribe((response: any) => {
+      console.log(response)
+      this.success = true
+    }, (error) => {
+      console.log(error)
+    })
   }
 }

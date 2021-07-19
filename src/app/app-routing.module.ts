@@ -134,18 +134,15 @@ const routes: Routes = [
     { path: 'set-otp', component: SetOtpComponent },
     { path: 'send-sms', component: SendSmsComponent },
     { path: 'uploadedfile', component: UploadedfileComponent },
-    { path: 'user-info', component: UserInfoComponent},
-    { path: 'photo-file', component: PhotoFileComponent},
+    { path: 'user-info', component: UserInfoComponent },
+    { path: 'photo-file', component: PhotoFileComponent },
 
     // website setup
 
-    { path: 'website-setup/header', component: HeaderComponent},
-    { path: 'website-setup/footer', component: FooterComponent},
-    { path: 'website-setup/pages', component: PagesComponent},
-    { path: 'website-setup/appearance', component: AppearanceComponent},
-
-
-
+    { path: 'website-setup/header', component: HeaderComponent },
+    { path: 'website-setup/footer', component: FooterComponent },
+    { path: 'website-setup/pages', component: PagesComponent },
+    { path: 'website-setup/appearance', component: AppearanceComponent },
 
     { path: '**', component: NotFoundComponent } // This line will remain down from the whole pages component list
 ];

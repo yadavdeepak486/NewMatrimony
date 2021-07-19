@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdminService {
-  backendurl = "http://localhost:4000/api"
+  backendurl = "https://demo.rishtaguru.com/api"
 
   constructor(public http: HttpClient) { }
 
