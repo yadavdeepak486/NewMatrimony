@@ -127,6 +127,11 @@ import { HightComponent } from './components/pages/dashboard/member/profile-attr
 import { EmployedinComponent } from './components/pages/dashboard/member/profile-attributes/employedin/employedin.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AddNewPageComponent } from './components/pages/dashboard/website-setup/pages/add-new-page/add-new-page.component';
+import { GeneralSettingComponent } from './components/pages/dashboard/settings/general-setting/general-setting.component';
+import { LanguageComponent } from './components/pages/dashboard/settings/language/language.component';
+import { CurrencyComponent } from './components/pages/dashboard/settings/currency/currency.component';
+import { PaymentMethodsComponent } from './components/pages/dashboard/settings/payment-methods/payment-methods.component';
+import { SmtpSettingComponent } from './components/pages/dashboard/settings/smtp-setting/smtp-setting.component';
 
 @NgModule({
   declarations: [
@@ -239,7 +244,12 @@ import { AddNewPageComponent } from './components/pages/dashboard/website-setup/
     MoonsignComponent,
     HightComponent,
     EmployedinComponent,
-    AddNewPageComponent
+    AddNewPageComponent,
+    GeneralSettingComponent,
+    LanguageComponent,
+    CurrencyComponent,
+    PaymentMethodsComponent,
+    SmtpSettingComponent
   ],
   imports: [
     BrowserModule,

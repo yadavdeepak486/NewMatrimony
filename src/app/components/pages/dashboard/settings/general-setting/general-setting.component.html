@@ -1,0 +1,177 @@
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div>
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <h3>General Settings</h3>
+                <form class="bd-n">
+                    <div class="row">
+                        <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>System Logo</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <!-- <div class="input-group-prepend">
+                                  <span class="input-group-text">Upload</span>
+                                </div> -->
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                </div>
+                              </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group fg-w">
+                          <div class="col-lg-4">
+                              <label>System Name</label>
+                          </div>
+                          <div class="col-lg-8">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="" placeholder="mskdvsmvoisj" >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group fg-w">
+                          <div class="col-lg-4">
+                              <label>System Timezone</label>
+                          </div>
+                          <div class="col-lg-8">
+                            <select class="form-control">
+                              <option>(GMT+05:30) Chennai</option>
+                              <option>(GMT+05:30) Chennai</option>
+                              <option>(GMT+05:30) Chennai</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="form-group fg-w">
+                          <div class="col-lg-4">
+                              <label>Member Code Prefix</label>
+                          </div>
+                          <div class="col-lg-8">
+                            <div class="input-group mb-3">
+                              <input type="text" class="form-control" id="" placeholder="BJ" >
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group fg-w">
+                            <button class="btn btn-primary ml-3 mt-2">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <!-- activation -->
+
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+            <h3>Activation</h3>
+              <form class="bd-n">
+                  <div class="row">
+                    <div class="form-group fg-w">
+                      <div class="col-lg-4">
+                          <label>HTTPS Activation</label>
+                      </div>
+                      <div class="col-lg-8">
+                          <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                    </div>
+                    <div class="form-group fg-w">
+                      <div class="col-lg-4">
+                          <label>Maintenance Mode Activation</label>
+                      </div>
+                      <div class="col-lg-8">
+                          <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                    </div>
+                    <div class="form-group fg-w">
+                      <div class="col-lg-4">
+                          <label>Email Verification <span class="tx-rt">(You need to configure SMTP correctly to enable this feature.<a href="">Configure Now)</a></span></label>
+                      </div>
+                      <div class="col-lg-8">
+                          <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                    </div>
+                    <div class="form-group fg-w">
+                      <div class="col-lg-4">
+                          <label>Member Approval by Admin Activation</label>
+                      </div>
+                      <div class="col-lg-8">
+                          <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                    </div>
+                    <div class="form-group fg-w">
+                      <div class="col-lg-4">
+                        <label>Only Premium Member Can See Other Members Full Profile. <span class="tx-rt">(If you disable this, everyone will be able to see the members full profile.)</span></label>
+                      </div>
+                      <div class="col-lg-8">
+                          <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                    </div>
+
+                      <!-- <div class="form-group fg-w">
+                          <button class="btn btn-primary ml-3 mt-2">Update</button>
+                      </div> -->
+                  </div>
+              </form>
+          </div>
+
+      </div>
+
+
+
+
+
+  </div>
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->

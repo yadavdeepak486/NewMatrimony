@@ -84,6 +84,11 @@ import { MoonsignComponent } from './components/pages/dashboard/member/profile-a
 import { HightComponent } from './components/pages/dashboard/member/profile-attributes/hight/hight.component';
 import { EmployedinComponent } from './components/pages/dashboard/member/profile-attributes/employedin/employedin.component';
 import { AddNewPageComponent } from './components/pages/dashboard/website-setup/pages/add-new-page/add-new-page.component';
+import { CurrencyComponent } from './components/pages/dashboard/settings/currency/currency.component';
+import { GeneralSettingComponent } from './components/pages/dashboard/settings/general-setting/general-setting.component';
+import { LanguageComponent } from './components/pages/dashboard/settings/language/language.component';
+import { PaymentMethodsComponent } from './components/pages/dashboard/settings/payment-methods/payment-methods.component';
+import { SmtpSettingComponent } from './components/pages/dashboard/settings/smtp-setting/smtp-setting.component';
 
 const routes: Routes = [
     { path: '', component: HomeDemoOneComponent },
@@ -170,12 +175,19 @@ const routes: Routes = [
     { path: 'photo-file', component: PhotoFileComponent},
 
     // website setup
-
     { path: 'website-setup/header', component: HeaderComponent},
     { path: 'website-setup/footer', component: FooterComponent},
     { path: 'website-setup/pages', component: PagesComponent},
     { path: 'website-setup/appearance', component: AppearanceComponent},
     { path: 'website-setup/pages/add-new-page', component: AddNewPageComponent},
+
+    // setting
+    { path: 'settings/currency', component: CurrencyComponent},
+    { path: 'settings/general-setting', component: GeneralSettingComponent},
+    { path: 'settings/language', component: LanguageComponent},
+    { path: 'settings/payment-methods', component: PaymentMethodsComponent},
+    { path: 'settings/payment-methods', component: PaymentMethodsComponent},
+    { path: 'settings/smtp-setting', component: SmtpSettingComponent},
 
 
 
