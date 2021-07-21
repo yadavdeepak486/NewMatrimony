@@ -54,7 +54,7 @@
               "src/assets/js/simplebar.min.js",
               "src/assets/js/dropzone.min.js",
               "node_modules/wowjs/dist/wow.js",
-              "src/assets/js/main.js"
+              "./src/assets/js/main.js"
             ]
           },
           "configurations": {

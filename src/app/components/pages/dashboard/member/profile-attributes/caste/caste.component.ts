@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
@@ -7,11 +9,27 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./caste.component.scss']
 })
 export class CasteComponent implements OnInit {
+  editmode: boolean= false
   allcaste: any
-  constructor(public adminService: AdminService) { }
+  allreligion:any
+  selectedcaste: any
+  caste = new FormGroup({
+    sortorder: new FormControl(''),
+    religion: new FormControl('60ded92dd0379344c26c3cec'),
+    name: new FormControl('')
+  });
+
+  editcaste = new FormGroup({
+    id: new FormControl(''),
+    sortorder: new FormControl(''),
+    religion: new FormControl(''),
+    name: new FormControl('')
+  });
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getallcaste();
+    this.getallreligion()
   }
   breadcrumb = [
     {
@@ -19,6 +37,15 @@ export class CasteComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+
+  getallreligion() {
+    this.adminService.getallreligion().subscribe((response: any) => {
+      // console.log(response)
+      this.allreligion = response.data
+    }, (error) => {
+      console.log(error)
+    })
+  }
 
   getallcaste() {
     this.adminService.getallcaste().subscribe((response: any) => {
@@ -30,4 +57,59 @@ export class CasteComponent implements OnInit {
   }
 
 
+  getonecaste(id) {
+    this.adminService.getonecaste(id).subscribe((response: any) => {
+      console.log(id)
+      console.log(response)
+      console.log(response.data.religion._id)
+      this.editmode = true
+      this.selectedcaste = response.data
+
+      this.editcaste.setValue({ sortorder: response.data.sortorder,religion: response.data.religion._id, name: response.data.name, id: response.data._id })
+    }, (error) => {
+      console.log(error)
+    })
+  }
+
+  cancelupdate(){
+    this.editmode = false
+  }
+
+   updatecaste() {
+    console.log(this.editcaste.value, this.editcaste.value.id)
+    this.adminService.editcaste(this.editcaste.value.id, this.editcaste.value).subscribe((response: any) => {
+      this.getallcaste();
+      this.toastr.success('Religion updated succesfully');
+      this.editcaste.reset()
+      this.editmode = false
+    }, (error) => {
+      this.toastr.error('Error occured');
+      console.log(error)
+    })
+  }
+
+  submitForm() {
+    console.log(this.caste.value);
+    this.adminService.addcaste(this.caste.value).subscribe((response: any) => {
+      console.log(response)
+      this.toastr.success('Caste added succesfully');
+      this.getallcaste();
+      this.caste.reset()
+    }, (error) => {
+      this.toastr.error('Error occured');
+      console.log(error)
+    })
+  }
+
+  deletecaste(id) {
+    console.log(id)
+    this.adminService.deletecaste(id).subscribe((response: any) => {
+      console.log(response)
+      this.toastr.info('Caste deleted succesfully');
+      this.getallcaste();
+    }, (error) => {
+      this.toastr.error('Error occured');
+      console.log(error)
+    })
+  }
 }

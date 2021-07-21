@@ -156,9 +156,9 @@
                         </div> -->
 
                         <div class="option-item">
-                            <a class="default-btn btn-lr" data-toggle="modal" data-target="#loginRegisterModal"><i
+                            <a class="default-btn btn-lr" href="/login" ><i
                                     class="flaticon-user"></i> Login</a>
-                            <a class="default-btn " data-toggle="modal" data-target="#registerModal"><i
+                            <a class="default-btn" href="/signup" ><i
                                     class="flaticon-user"></i> Register</a>
                         </div>
                     </div>
@@ -561,9 +561,7 @@
                                     </select>
                                     <!-- <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)"
                                         type="text" id="input3" maxlength="4" placeholder="Y" formControlName="yyyy" /> -->
-                                    <div *ngIf="success" class="success">Registered Successfully</div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -604,14 +602,14 @@
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" value=""
                                 formControlName="agree_terms_conditions">By signing up you agree to our
-                            <span><a href="#" class="tac">terms and conditions.</a></span>
+                            <span><a class="tac">terms and conditions.</a></span>
                         </label>
                     </div>
 
-                    <button type="submit" class="btnrg" data-toggle="modal" data-target="#verifymobile">
+                    <button type="submit" data-backdrop="static" data-keyboard="false" id="regform" class="btnrg" data-toggle="modal" data-target="#verifymobile" data-dismiss="modal" >
                         Register Now</button>
                 </form>
-                <span class="already-account">Already have an account? <a id="" href="" data-toggle="modal"
+                <span class="already-account">Already have an account? <a style="cursor: pointer;"  data-toggle="modal"
                         data-target="#loginRegisterModal" data-dismiss="modal">Login</a></span>
             </div>
 

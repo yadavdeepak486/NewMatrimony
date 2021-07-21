@@ -9,7 +9,7 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./religions.component.scss']
 })
 export class ReligionsComponent implements OnInit {
-
+  editmode: boolean= false
   allreligion: any
   selectedreligion: any
   religion = new FormGroup({
@@ -30,7 +30,6 @@ export class ReligionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallreligion();
-    this.toastr.success('Hello world!', 'Toastr fun!');
   }
   breadcrumb = [
     {
@@ -52,6 +51,7 @@ export class ReligionsComponent implements OnInit {
     this.adminService.getonereligion(id).subscribe((response: any) => {
       console.log(id)
       console.log(response)
+      this.editmode = true
       this.selectedreligion = response.data
       this.editreligion.setValue({ sortorder: response.data.sortorder, name: response.data.name, id: response.data._id })
     }, (error) => {
@@ -59,11 +59,17 @@ export class ReligionsComponent implements OnInit {
     })
   }
 
+  cancelupdate(){
+    this.editmode = false
+  }
+
   updatereligion() {
     console.log(this.editreligion.value, this.editreligion.value.id)
     this.adminService.editreligion(this.editreligion.value.id, this.editreligion.value).subscribe((response: any) => {
-      // console.log(id)
       this.getallreligion();
+      this.toastr.success('Religion updated succesfully');
+      this.editreligion.reset()
+      this.editmode = false
     }, (error) => {
       console.log(error)
     })
@@ -74,7 +80,9 @@ export class ReligionsComponent implements OnInit {
     console.log(this.religion.value);
     this.adminService.addreligion(this.religion.value).subscribe((response: any) => {
       console.log(response)
+      this.toastr.success('Religion added succesfully');
       this.getallreligion();
+      this.religion.reset()
     }, (error) => {
       console.log(error)
     })
@@ -84,6 +92,7 @@ export class ReligionsComponent implements OnInit {
     console.log(id)
     this.adminService.deleterelgion(id).subscribe((response: any) => {
       console.log(response)
+      this.toastr.info('Religion deleted succesfully');
       this.getallreligion();
     }, (error) => {
       console.log(error)

@@ -275,6 +275,7 @@ import { ServerStatusComponent } from './components/pages/dashboard/system/serve
     UpdateComponent,
     ServerStatusComponent,
     
+    
   ],
   imports: [
     BrowserModule,

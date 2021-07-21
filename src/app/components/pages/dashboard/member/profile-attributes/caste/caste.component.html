@@ -2,9 +2,7 @@
 
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
-
     <app-dashboard-navbar></app-dashboard-navbar>
-
     <!-- Breadcrumb Area -->
     <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
         <h1>{{Content.title}}</h1>
@@ -44,9 +42,9 @@
                                 </td>
 
                                 <td class="option">
-                                    <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-edit'></i> </a>
-                                    <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
+                                    <a class="st-i" ><i
+                                            class=' bx bx-pencil' (click)="getonecaste(Caste._id)"></i> </a>
+                                    <a class="st-i2"><i class=' bx bx-minus' (click)="deletecaste(Caste._id)" ></i> </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -54,17 +52,42 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div *ngIf="!editmode" class="col-lg-4">
             <div class="card">
                 <h3>Add New Caste</h3>
-                <form class="bd-n">
-                    <label>Name</label>
-                    <input type="text" class="form-control" placeholder="name">
-                    <button class="btn btn-primary mt-2">Save</button>
+                <form [formGroup]="caste" (ngSubmit)="submitForm()" class="bd-n">
+                  <label>#Order</label>
+                  <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
+                  <label>Religion</label>
+                  <select type="text" class="form-control" placeholder="name" formControlName="religion">
+                    <option [value]="religion._id" *ngFor="let religion of allreligion">
+                      {{religion.name}}</option>
+                  </select>
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="name" formControlName="name">
+                  <button class="btn btn-primary mt-2" type="submit">Save</button>
                 </form>
 
             </div>
         </div>
+        <div *ngIf="editmode" class="col-lg-4">
+          <div class="card">
+              <h3>Edit Caste</h3>
+              <form [formGroup]="editcaste" (ngSubmit)="updatecaste()" class="bd-n">
+                <label>#Order</label>
+                  <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
+                <label>Religion</label>
+                  <select type="text" class="form-control" placeholder="name" formControlName="religion">
+                    <option [value]="religion._id" *ngFor="let religion of allreligion">
+                      {{religion.name}}</option>
+                  </select>
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="name" formControlName="name">
+                  <button class="btn btn-primary mt-2" type="submit">Update</button>
+                  <button class="btn btn-primary mt-2 ml-2" type="submit" (click)="cancelupdate()" >Cancel</button>
+              </form>
+          </div>
+      </div>
 
     </div>
     <!-- End -->
@@ -75,10 +98,6 @@
 
 </div>
 <!-- End Main Content Wrapper Area -->
-
-<!-- modal -->
-
-<!-- Button trigger modal -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"

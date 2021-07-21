@@ -31,37 +31,51 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let language of alllanguage;">
                                 <td class="#">
-                                   1
+                                  {{language.sortorder}}
                                 </td>
                                 <td class="name">
-                                   lorem
+                                  {{language.name}}
                                 </td>
 
                                 <td class="option">
-                                    <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-edit'></i> </a>
-                                    <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
-                                </td>
+                                  <a class="st-i" ><i
+                                          class=' bx bx-pencil' (click)="getonelanguage(language._id)"></i> </a>
+                                  <a class="st-i2"><i class=' bx bx-minus'
+                                          (click)="deletelanguage(language._id)"></i></a>
+                              </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-      <div class="col-lg-4">
+      <div *ngIf="!editmode" class="col-lg-4">
             <div class="card">
                 <h3>Add New Member Language</h3>
-                <form class="bd-n">
-                    <label> Language Name</label>
-                    <input type="text" class="form-control" placeholder="name">
-                    <button class="btn btn-primary mt-2">Save</button>
+                <form [formGroup]="language" (ngSubmit)="submitForm()" class="bd-n">
+                  <label>#Order</label>
+                  <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="name" formControlName="name">
+                  <button class="btn btn-primary mt-2" type="submit">Save</button>
                 </form>
 
             </div>
         </div>
-
+        <div *ngIf="editmode" class="col-lg-4">
+          <div class="card">
+              <h3>Edit Language</h3>
+              <form [formGroup]="editlanguage" (ngSubmit)="updatelanguage()" class="bd-n">
+                <label>#Order</label>
+                  <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="name" formControlName="name">
+                  <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2" type="submit" (click)="cancelupdate()" >Cancel</button>
+              </form>
+          </div>
+      </div>
     </div>
     <!-- End -->
 
