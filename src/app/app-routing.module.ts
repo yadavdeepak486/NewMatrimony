@@ -89,6 +89,8 @@ import { GeneralSettingComponent } from './components/pages/dashboard/settings/g
 import { LanguageComponent } from './components/pages/dashboard/settings/language/language.component';
 import { PaymentMethodsComponent } from './components/pages/dashboard/settings/payment-methods/payment-methods.component';
 import { SmtpSettingComponent } from './components/pages/dashboard/settings/smtp-setting/smtp-setting.component';
+import { SignupComponent } from './components/pages/signup/signup.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 const routes: Routes = [
     { path: '', component: HomeDemoOneComponent },
@@ -173,6 +175,8 @@ const routes: Routes = [
     { path: 'uploadedfile', component: UploadedfileComponent },
     { path: 'user-info', component: UserInfoComponent },
     { path: 'photo-file', component: PhotoFileComponent },
+    { path: 'signup', component: SignupComponent },
+    { path: 'login', component: LoginComponent},
 
     // website setup
     { path: 'website-setup/header', component: HeaderComponent},

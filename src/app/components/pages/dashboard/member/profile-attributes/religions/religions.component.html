@@ -40,7 +40,7 @@
                                 </td>
 
                                 <td class="option">
-                                    <a class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
+                                    <a class="st-i" ><i
                                             class=' bx bx-pencil' (click)="getonereligion(Religion._id)"></i> </a>
                                     <a class="st-i2"><i class=' bx bx-minus'
                                             (click)="deletereligion(Religion._id)"></i></a>
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class=" col-lg-4">
+        <div *ngIf="!editmode" class=" col-lg-4">
             <div class="card">
                 <h3>Add New Religion</h3>
                 <form [formGroup]="religion" (ngSubmit)="submitForm()" class="bd-n">
@@ -61,9 +61,20 @@
                     <input type="text" class="form-control" placeholder="name" formControlName="name">
                     <button class="btn btn-primary mt-2" type="submit">Save</button>
                 </form>
-
             </div>
         </div>
+        <div *ngIf="editmode" class=" col-lg-4">
+          <div class="card">
+              <h3>Edit Religion</h3>
+              <form [formGroup]="editreligion" (ngSubmit)="updatereligion()" class="bd-n">
+                  <label>#Order</label>
+                  <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="name" formControlName="name">
+                  <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2" type="submit" (click)="cancelupdate()" >Cancel</button>
+              </form>
+          </div>
+      </div>
 
     </div>
     <!-- End -->
@@ -74,10 +85,6 @@
 
 </div>
 <!-- End Main Content Wrapper Area -->
-
-<!-- modal -->
-
-<!-- Button trigger modal -->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
@@ -92,7 +99,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="editreligion" (ngSubmit)="updatereligion();" class="bd-n">
+                <form class="bd-n">
                     <label>#Order</label>
                     <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
                     <label>Name</label>

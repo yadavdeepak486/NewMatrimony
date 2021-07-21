@@ -132,6 +132,8 @@ import { LanguageComponent } from './components/pages/dashboard/settings/languag
 import { CurrencyComponent } from './components/pages/dashboard/settings/currency/currency.component';
 import { PaymentMethodsComponent } from './components/pages/dashboard/settings/payment-methods/payment-methods.component';
 import { SmtpSettingComponent } from './components/pages/dashboard/settings/smtp-setting/smtp-setting.component';
+import { SignupComponent } from './components/pages/signup/signup.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -249,7 +251,9 @@ import { SmtpSettingComponent } from './components/pages/dashboard/settings/smtp
     LanguageComponent,
     CurrencyComponent,
     PaymentMethodsComponent,
-    SmtpSettingComponent
+    SmtpSettingComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
