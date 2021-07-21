@@ -1,0 +1,161 @@
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+     <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div> 
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <h3 >Google Login Credential</h3>
+                <form class="bd-n">
+                    <div class="row">
+                       <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Activation</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                       </div>
+                       <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Client ID</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="876566755324-910aorpeonvrq768b1u1ojqhcqsj6ff2.apps.googleusercontent.com">
+                            </div>
+                       </div>
+                       <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Client Secret</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="FNBmFFTmsjSiJsKwf9TaNdot">
+                            </div>
+                        </div>
+                       
+                        <div class="form-group fg-w">
+                           <button class="btn btn-primary ml-3 mt-2">Save</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+               
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <h3 >Facebook Login Credential</h3>
+                <form class="bd-n">
+                    <div class="row">
+                       <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Activation
+                                </label>
+                            </div>
+                            <div class="col-lg-8">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                       </div>
+                       <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>App ID</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="hjh">
+                            </div>
+                       </div>
+                       <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>App Secret</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Text..">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group fg-w">
+                           <button class="btn btn-primary ml-3 mt-2">Save</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+               
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <h3 >Twitter Login Credential</h3>
+                <form class="bd-n">
+                    <div class="row">
+                       <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Activation</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                       </div>
+                       <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Client ID</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Text..">
+                            </div>
+                        </div>
+                        <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Client Secret</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" placeholder="Text..">
+                            </div>
+                        </div>
+                        <div class="form-group fg-w">
+                           <button class="btn btn-primary ml-3 mt-2">Save</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+               
+            </div>
+           
+
+          
+            
+            
+    </div> 
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+    
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->
+
+
+
+  

@@ -89,6 +89,19 @@ import { GeneralSettingComponent } from './components/pages/dashboard/settings/g
 import { LanguageComponent } from './components/pages/dashboard/settings/language/language.component';
 import { PaymentMethodsComponent } from './components/pages/dashboard/settings/payment-methods/payment-methods.component';
 import { SmtpSettingComponent } from './components/pages/dashboard/settings/smtp-setting/smtp-setting.component';
+import { AddNewMemberComponent } from './components/pages/dashboard/member/free-member/add-new-member/add-new-member.component';
+import { AddMemberComponent } from './components/pages/dashboard/member/premium-member/add-member/add-member.component';
+import { AddNewPackageComponent } from './components/pages/dashboard/primium-package/add-new-package/add-new-package.component';
+import { EmailTemplateComponent } from './components/pages/dashboard/settings/email-template/email-template.component';
+import { ThirdPartySettingComponent } from './components/pages/dashboard/settings/third-party-setting/third-party-setting.component';
+import { SocialLoginComponent } from './components/pages/dashboard/settings/social-login/social-login.component';
+import { AllStaffComponent } from './components/pages/dashboard/staffs/all-staff/all-staff.component';
+import { StaffRoleComponent } from './components/pages/dashboard/staffs/staff-role/staff-role.component';
+import { AddNewStaffsComponent } from './components/pages/dashboard/staffs/all-staff/add-new-staffs/add-new-staffs.component';
+import { AddNewRoleComponent } from './components/pages/dashboard/staffs/staff-role/add-new-role/add-new-role.component';
+import { UpdateComponent } from './components/pages/dashboard/system/update/update.component';
+import { ServerStatusComponent } from './components/pages/dashboard/system/server-status/server-status.component';
+
 
 const routes: Routes = [
     { path: '', component: HomeDemoOneComponent },
@@ -188,6 +201,29 @@ const routes: Routes = [
     { path: 'settings/payment-methods', component: PaymentMethodsComponent},
     { path: 'settings/payment-methods', component: PaymentMethodsComponent},
     { path: 'settings/smtp-setting', component: SmtpSettingComponent},
+    { path: 'settings/email-template', component: EmailTemplateComponent},
+    { path: 'settings/social-login', component: SocialLoginComponent},
+    { path: 'settings/third-party-setting', component: ThirdPartySettingComponent},
+    
+    //  add-new form
+    { path: 'free-member/add-new-member', component: AddNewMemberComponent},
+    { path: 'premium-member/add-member', component: AddMemberComponent},
+    { path: 'premium-package/add-new-package', component: AddNewPackageComponent},
+
+    // staffs
+    { path: 'staffs/all-staff', component: AllStaffComponent},
+    { path: 'staffs/staff-role', component: StaffRoleComponent},
+    { path: 'staffs/all-staff/add-new-staffs', component: AddNewStaffsComponent},
+    { path: 'staffs/staff-role/add-new-role', component: AddNewRoleComponent},
+   
+    // system
+    { path: 'system/update', component: UpdateComponent},
+    { path: 'system/server-status', component: ServerStatusComponent},
+
+
+
+
+
 
 
 

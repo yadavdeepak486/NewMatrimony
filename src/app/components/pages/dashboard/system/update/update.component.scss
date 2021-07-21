@@ -98,24 +98,8 @@ label {
     margin-bottom: 0.5rem;
     font-size: 14px;
 }
-
-p.smtp-1 {
-  font-size: 13px;
-  padding: 15px;
-  color: #f00;
-}
-li.smtp-3 {
-  border: 1px solid#cccccc63;
-  padding: 13px;
-}
-ul.smtp-2 {
-  list-style: none;
-  padding: 15px;
-}
-h6.smtp-6 {
-  padding: 0px 15px;
-  color: #6c6969;
-  font-size: 14px;
+mat-form-field.mat-form-field.slt.ng-tns-c114-0.mat-primary.mat-form-field-type-mat-select.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-has-label.mat-form-field-hide-placeholder.ng-untouched.ng-pristine.ng-valid {
+    width: 100% !important;
 }
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
