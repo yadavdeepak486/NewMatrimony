@@ -1,0 +1,410 @@
+<p>email-template works!</p>
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+     <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div> 
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <h3 >Email Templates</h3>
+                
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-5">
+                        <div class="tab-vertical">
+                            <ul class="nav nav-tabs" id="myTab3" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" id="home-vertical-tab" data-toggle="tab" href="#home-vertical" role="tab" aria-controls="home" aria-selected="true">Account Oppening Email</a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="profile-vertical-tab" data-toggle="tab" href="#profile-vertical" role="tab" aria-controls="profile" aria-selected="false">Account Opening Email To Admin</a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="contact-vertical-tab" data-toggle="tab" href="#contact-vertical" role="tab" aria-controls="contact" aria-selected="false">Account Approval Email</a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="vertical-four-tab" data-toggle="tab" href="#vertical-four" role="tab" aria-controls="four" aria-selected="false">Staff Account Opening Email</a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="vertical-five-tab" data-toggle="tab" href="#vertical-five" role="tab" aria-controls="five" aria-selected="false">Package Purchase Email</a> 
+                                </li>
+                                <li class="nav-item"> <a class="nav-link" id="vertical-six-tab" data-toggle="tab" href="#vertical-six" role="tab" aria-controls="six" aria-selected="false">Manual Payment Approval Email</a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="vertical-seven-tab" data-toggle="tab" href="#vertical-seven" role="tab" aria-controls="seven" aria-selected="false">Email On Express Interest</a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="vertical-eight-tab" data-toggle="tab" href="#vertical-eight" role="tab" aria-controls="eight" aria-selected="false">Email On Accepting Interest</a> </li>
+                                <li class="nav-item"> <a class="nav-link" id="vertical-nine-tab" data-toggle="tab" href="#vertical-nine" role="tab" aria-controls="nine" aria-selected="false">Password Reset Email</a> </li>
+                                
+                            </ul>
+                            <div class="tab-content" id="myTabContent3">
+                                <div class="tab-pane fade show active" id="home-vertical" role="tabpanel" aria-labelledby="home-vertical-tab">
+                                      <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                    
+                                </div>
+                                <div class="tab-pane fade" id="profile-vertical" role="tabpanel" aria-labelledby="profile-vertical-tab">
+                                    <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                   
+                                </div>
+                                <div class="tab-pane fade" id="contact-vertical" role="tabpanel" aria-labelledby="contact-vertical-tab">
+                                    <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                   
+                                </div>
+                                <div class="tab-pane fade" id="vertical-four" role="tabpanel" aria-labelledby="four-vertical-tab">
+                                    <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                   
+                                </div>
+                                <div class="tab-pane fade" id="vertical-five" role="tabpanel" aria-labelledby="five-vertical-tab">
+                                    <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                   
+                                </div>
+                                <div class="tab-pane fade" id="vertical-six" role="tabpanel" aria-labelledby="six-vertical-tab">
+                                    <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                   
+                                </div>
+                                <div class="tab-pane fade" id="vertical-seven" role="tabpanel" aria-labelledby="seven-vertical-tab">
+                                    <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                   
+                                </div>
+                                <div class="tab-pane fade" id="vertical-eight" role="tabpanel" aria-labelledby="eight-vertical-tab">
+                                    <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                   
+                                </div>
+                                <div class="tab-pane fade" id="vertical-nine" role="tabpanel" aria-labelledby="nine-vertical-tab">
+                                    <form class="bd-n">
+                                        <div class="row">
+                                                <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Activatio</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Subject</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                  <input type="text" class="form-control" placeholder="Account Opening">
+                                                 </div>
+                                               </div>
+                                               <div class="form-group fg-w">
+                                                <div class="col-lg-4">
+                                                    <label>Email Body</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                 </div>
+                                               </div>
+                                           
+                                            <div class="form-group fg-w">
+                                               <button class="btn btn-primary ml-3 mt-2">Save</button>
+                                            </div>
+                                        </div>
+                                      </form>
+                                </div>
+                                
+                            </div>
+                
+                        </div>
+                        <div class="btn-ps">
+                            <button class="btn btn-primary">Update Settings</button>
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+               
+            </div>
+            
+            
+    </div> 
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+    
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->
+
+
+
+  

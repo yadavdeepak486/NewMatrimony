@@ -30,14 +30,14 @@ h3 {
     width: 60px;
     height: 34px;
   }
-
+  
   /* Hide default HTML checkbox */
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
-
+  
   /* The slider */
   .slider {
     position: absolute;
@@ -52,7 +52,7 @@ h3 {
     width: 50px !important;
     height: 25px !important;
   }
-
+  
   .slider:before {
     position: absolute;
     content: "";
@@ -64,26 +64,26 @@ h3 {
     -webkit-transition: .4s;
     transition: .4s;
   }
-
+  
   input:checked + .slider {
     background-color: #2196F3;
   }
-
+  
   input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
   }
-
+  
   input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
-
+  
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
   }
-
+  
   .slider.round:before {
     border-radius: 50%;
   }
@@ -98,24 +98,10 @@ label {
     margin-bottom: 0.5rem;
     font-size: 14px;
 }
-
-p.smtp-1 {
-  font-size: 13px;
-  padding: 15px;
-  color: #f00;
-}
-li.smtp-3 {
-  border: 1px solid#cccccc63;
-  padding: 13px;
-}
-ul.smtp-2 {
-  list-style: none;
-  padding: 15px;
-}
-h6.smtp-6 {
-  padding: 0px 15px;
-  color: #6c6969;
-  font-size: 14px;
+.card.crd {
+    background: #ccc3;
+    padding: 13px;
+    margin-top: 27px;
 }
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
@@ -137,7 +123,7 @@ h6.smtp-6 {
 /* Min width 992px to Max width 1199px */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
-
+    
 
 }
 /* Min width 1200px to Max width 1355px */
@@ -149,6 +135,6 @@ h6.smtp-6 {
 /* Min width 1550px */
 @media only screen and (min-width: 1550px) {
 
-
+    
 
 }

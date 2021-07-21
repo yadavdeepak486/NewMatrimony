@@ -1,0 +1,135 @@
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Pages</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div>
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <h3>Add New Package</h3>
+                <form class="bd-n">
+                    <div class="row">
+                        <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Name </label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="" placeholder=" Name" >
+                              </div>
+                            </div>
+                        </div>
+                        <div class="form-group fg-w">
+                          <div class="col-lg-4">
+                              <label>Price</label>
+                          </div>
+                          <div class="col-lg-8">
+                            <div class="input-group mb-3">
+                              <input type="text" class="form-control" id="" placeholder="Price" >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Package Image</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="form-group fg-w">
+                          <div class="col-lg-4">
+                              <label>Express Interest
+                            </label>
+                          </div>
+                          <div class="col-lg-8">
+                            <div class="input-group mb-3">
+                              <input type="text" class="form-control" id="" placeholder="Eg. 10" >
+                            </div>
+                          </div>
+                        </div>
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Photo Gallery</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="" placeholder="Eg. 10" >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>View Contact Info</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="" placeholder="Eg. 10" >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Validity For</label>
+                            </div>
+                            <div class="col-lg-8">
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="" placeholder="Eg. 10" >
+                              </div>
+                            </div>
+                          </div>
+                        
+                          <div class="form-group fg-w">
+                            <div class="col-lg-4">
+                                <label>Auto Profile Matching Show
+                                </label>
+                            </div>
+                            <div class="col-lg-8">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                          </div>
+
+                        <div class="form-group fg-w">
+                            <button class="btn btn-primary ml-3 mt-2">Add New Package</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->

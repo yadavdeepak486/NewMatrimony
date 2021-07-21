@@ -132,8 +132,18 @@ import { LanguageComponent } from './components/pages/dashboard/settings/languag
 import { CurrencyComponent } from './components/pages/dashboard/settings/currency/currency.component';
 import { PaymentMethodsComponent } from './components/pages/dashboard/settings/payment-methods/payment-methods.component';
 import { SmtpSettingComponent } from './components/pages/dashboard/settings/smtp-setting/smtp-setting.component';
-import { SignupComponent } from './components/pages/signup/signup.component';
-import { LoginComponent } from './components/pages/login/login.component';
+import { AddNewMemberComponent } from './components/pages/dashboard/member/free-member/add-new-member/add-new-member.component';
+import { AddMemberComponent } from './components/pages/dashboard/member/premium-member/add-member/add-member.component';
+import { AddNewPackageComponent } from './components/pages/dashboard/primium-package/add-new-package/add-new-package.component';
+import { EmailTemplateComponent } from './components/pages/dashboard/settings/email-template/email-template.component';
+import { ThirdPartySettingComponent } from './components/pages/dashboard/settings/third-party-setting/third-party-setting.component';
+import { SocialLoginComponent } from './components/pages/dashboard/settings/social-login/social-login.component';
+import { AllStaffComponent } from './components/pages/dashboard/staffs/all-staff/all-staff.component';
+import { StaffRoleComponent } from './components/pages/dashboard/staffs/staff-role/staff-role.component';
+import { AddNewStaffsComponent } from './components/pages/dashboard/staffs/all-staff/add-new-staffs/add-new-staffs.component';
+import { AddNewRoleComponent } from './components/pages/dashboard/staffs/staff-role/add-new-role/add-new-role.component';
+import { UpdateComponent } from './components/pages/dashboard/system/update/update.component';
+import { ServerStatusComponent } from './components/pages/dashboard/system/server-status/server-status.component';
 
 @NgModule({
   declarations: [
@@ -252,8 +262,20 @@ import { LoginComponent } from './components/pages/login/login.component';
     CurrencyComponent,
     PaymentMethodsComponent,
     SmtpSettingComponent,
-    SignupComponent,
-    LoginComponent
+    AddNewMemberComponent,
+    AddMemberComponent,
+    AddNewPackageComponent,
+    EmailTemplateComponent,
+    ThirdPartySettingComponent,
+    SocialLoginComponent,
+    AllStaffComponent,
+    StaffRoleComponent,
+    AddNewStaffsComponent,
+    AddNewRoleComponent,
+    UpdateComponent,
+    ServerStatusComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
