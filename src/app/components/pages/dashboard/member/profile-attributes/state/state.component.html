@@ -27,26 +27,26 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Country</th>
+                                <th>code</th>
                                 <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor = "let state of allstate">
                                 <td class="#">
-                                   1
+                                    {{state.sortorder}}
                                 </td>
                                 <td class="name">
-                                   lorem
+                                    {{state.name}}
                                 </td>
                                 <td class="country">
-                                  lorem
+                                    {{state.isoCode}}
                                </td>
 
                                 <td class="option">
                                     <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-edit'></i> </a>
-                                    <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
+                                            class=' bx bx-pencil'></i> </a>
+                                    <a href="#" class="st-i2"><i class='bx bx-minus'></i> </a>
                                 </td>
                             </tr>
                         </tbody>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-state',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./state.component.scss']
 })
 export class StateComponent implements OnInit {
-
-  constructor() { }
+  allstate:any
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getallstate();
   }
   breadcrumb = [
     {
@@ -17,4 +20,13 @@ export class StateComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+
+  getallstate(){
+    this.adminService.allstate().subscribe((response: any)=>{
+      console.log(response)
+      this.allstate = response.data
+    },(error)=>{
+      console.log(error)
+    })
+  }
 }

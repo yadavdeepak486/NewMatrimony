@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-occupation',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./occupation.component.scss']
 })
 export class OccupationComponent implements OnInit {
-
-  constructor() { }
+  alloccupation:any
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getalloccupation();
   }
   breadcrumb = [
     {
@@ -17,4 +20,12 @@ export class OccupationComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+  getalloccupation(){
+    this.adminService.alloccupation().subscribe((response: any)=>{
+      console.log(response)
+      this.alloccupation = response.data
+    },(error)=>{
+      console.log(error)
+    })
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-country',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./country.component.scss']
 })
 export class CountryComponent implements OnInit {
-
-  constructor() { }
+  allcountry:any
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getallcountry();
   }
   breadcrumb = [
     {
@@ -17,4 +20,13 @@ export class CountryComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+
+  getallcountry(){
+    this.adminService.allcountry().subscribe((response: any)=>{
+      console.log(response)
+      this.allcountry = response.data
+    },(error)=>{
+      console.log(error)
+    })
+  }
 }

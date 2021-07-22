@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-star',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./star.component.scss']
 })
 export class StarComponent implements OnInit {
-
-  constructor() { }
+  allstar:any
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getallstar();
   }
   breadcrumb = [
     {
@@ -17,4 +20,12 @@ export class StarComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+  getallstar(){
+    this.adminService.allstar().subscribe((response: any)=>{
+      console.log(response)
+      this.allstar = response.data
+    },(error)=>{
+      console.log(error)
+    })
+  }
 }

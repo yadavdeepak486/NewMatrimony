@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-employedin',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employedin.component.scss']
 })
 export class EmployedinComponent implements OnInit {
-
-  constructor() { }
+  allemployedin:any
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getallemployedin();
   }
   breadcrumb = [
     {
@@ -17,4 +20,12 @@ export class EmployedinComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+  getallemployedin(){
+    this.adminService.allemployedin().subscribe((response: any)=>{
+      console.log(response)
+      this.allemployedin = response.data
+    },(error)=>{
+      console.log(error)
+    })
+  }
 }

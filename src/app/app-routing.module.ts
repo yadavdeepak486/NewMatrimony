@@ -101,8 +101,8 @@ import { AddNewStaffsComponent } from './components/pages/dashboard/staffs/all-s
 import { AddNewRoleComponent } from './components/pages/dashboard/staffs/staff-role/add-new-role/add-new-role.component';
 import { UpdateComponent } from './components/pages/dashboard/system/update/update.component';
 import { ServerStatusComponent } from './components/pages/dashboard/system/server-status/server-status.component';
-import { SignupComponent } from './components/pages/signup/signup.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { SignupComponent } from './components/pages/signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -163,6 +163,97 @@ const routes: Routes = [
   { path: 'dashboard-bookmarks', component: DashboardBookmarksComponent },
   { path: 'dashboard-my-listings', component: DashboardMyListingsComponent },
   // Here add new pages component
+
+  // new component
+  { path: 'profile-detail/:id', component: ProfileDetailComponent },
+  { path: 'member/free-member', component: FreeMemberComponent },
+  { path: 'member/premium-member', component: PremiumMemberComponent },
+  { path: 'member/bulk-member', component: BulkMemberComponent },
+  { path: 'member/deleted-member', component: DeletedMemberComponent },
+  { path: 'member/reported-member', component: ReportedMemberComponent },
+  { path: 'stepper-demo', component: StepperDemoComponent },
+  { path: 'profile-tabs', component: ProfileTabsComponent },
+  { path: 'similar-profile', component: SimilarProfileComponent },
+  { path: 'profile-attributes/religions', component: ReligionsComponent },
+  { path: 'profile-attributes/caste', component: CasteComponent },
+  { path: 'profile-attributes/subcaste', component: SubcasteComponent },
+  {
+    path: 'profile-attributes/member-language',
+    component: MemberLanguageComponent,
+  },
+  { path: 'profile-attributes/City', component: CityComponent },
+  { path: 'profile-attributes/state', component: StateComponent },
+  { path: 'profile-attributes/country', component: CountryComponent },
+  { path: 'profile-attributes/on-behalf', component: OnBehalfComponent },
+  { path: 'profile-attributes/family-value', component: FamilyValueComponent },
+  {
+    path: 'profile-attributes/family-status',
+    component: FamilyStatusComponent,
+  },
+  {
+    path: 'profile-attributes/marital-statuses',
+    component: MaritalStatusesComponent,
+  },
+  { path: 'profile-attributes/education', component: EducationComponent },
+  { path: 'profile-attributes/occupation', component: OccupationComponent },
+  { path: 'profile-attributes/star', component: StarComponent },
+  { path: 'profile-attributes/moonsign', component: MoonsignComponent },
+  { path: 'profile-attributes/hight', component: HightComponent },
+  { path: 'profile-attributes/employedin', component: EmployedinComponent },
+
+  { path: 'premium-package', component: PrimiumPackageComponent },
+  { path: 'member/profile-section', component: ProfileSectionComponent },
+  { path: 'package-payment', component: PackagePaymentComponent },
+  { path: 'happy-stories', component: HappyStoriesComponent },
+  { path: 'complete-profile', component: CompleteProfileComponent },
+  { path: 'newsletter', component: NewsletterComponent },
+  { path: 'sms-template', component: SmsTemplateComponent },
+  { path: 'set-otp', component: SetOtpComponent },
+  { path: 'send-sms', component: SendSmsComponent },
+  { path: 'uploadedfile', component: UploadedfileComponent },
+  { path: 'user-info', component: UserInfoComponent },
+  { path: 'photo-file', component: PhotoFileComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+
+  // website setup
+  { path: 'website-setup/header', component: HeaderComponent },
+  { path: 'website-setup/footer', component: FooterComponent },
+  { path: 'website-setup/pages', component: PagesComponent },
+  { path: 'website-setup/appearance', component: AppearanceComponent },
+  { path: 'website-setup/pages/add-new-page', component: AddNewPageComponent },
+
+  // setting
+  { path: 'settings/currency', component: CurrencyComponent },
+  { path: 'settings/general-setting', component: GeneralSettingComponent },
+  { path: 'settings/language', component: LanguageComponent },
+  { path: 'settings/payment-methods', component: PaymentMethodsComponent },
+  { path: 'settings/payment-methods', component: PaymentMethodsComponent },
+  { path: 'settings/smtp-setting', component: SmtpSettingComponent },
+  { path: 'settings/email-template', component: EmailTemplateComponent },
+  { path: 'settings/social-login', component: SocialLoginComponent },
+  {
+    path: 'settings/third-party-setting',
+    component: ThirdPartySettingComponent,
+  },
+
+  //  add-new form
+  { path: 'free-member/add-new-member', component: AddNewMemberComponent },
+  { path: 'premium-member/add-member', component: AddMemberComponent },
+  {
+    path: 'premium-package/add-new-package',
+    component: AddNewPackageComponent,
+  },
+
+  // staffs
+  { path: 'staffs/all-staff', component: AllStaffComponent },
+  { path: 'staffs/staff-role', component: StaffRoleComponent },
+  { path: 'staffs/all-staff/add-new-staffs', component: AddNewStaffsComponent },
+  { path: 'staffs/staff-role/add-new-role', component: AddNewRoleComponent },
+
+  // system
+  { path: 'system/update', component: UpdateComponent },
+  { path: 'system/server-status', component: ServerStatusComponent },
 
   // new component
   { path: 'profile-detail/:id', component: ProfileDetailComponent },

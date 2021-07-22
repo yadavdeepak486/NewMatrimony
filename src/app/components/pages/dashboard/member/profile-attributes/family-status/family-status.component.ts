@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-family-status',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./family-status.component.scss']
 })
 export class FamilyStatusComponent implements OnInit {
-
-  constructor() { }
+ allfamilystatus:any
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getallfamilystatus();
   }
   breadcrumb = [
     {
@@ -17,4 +20,12 @@ export class FamilyStatusComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+  getallfamilystatus(){
+    this.adminService.allfamilystatus().subscribe((response: any)=>{
+      console.log(response)
+      this.allfamilystatus = response.data
+    },(error)=>{
+      console.log(error)
+    })
+  }
 }

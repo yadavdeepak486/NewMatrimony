@@ -33,24 +33,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let city of allcity">
                                 <td class="#">
-                                   1
+                                  {{city.sortorder}}
                                 </td>
                                 <td class="cityname">
-                                   lorem
+                                  {{city.name}}
                                 </td>
                                 <td class="statename">
-                                  ZN
+                                  {{city.state.name}}
                                 </td>
                                 <td class="countryname">
-                                  ZN
+                                    {{city.country.name}}
                                 </td>
 
                                 <td class="option">
                                     <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-edit'></i> </a>
-                                    <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
+                                            class=' bx bx-pencil'></i> </a>
+                                    <a href="#" class="st-i2"><i class='bx bx-minus'></i> </a>
                                 </td>
                             </tr>
                         </tbody>
