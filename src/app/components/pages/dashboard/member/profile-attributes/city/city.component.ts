@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-city',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./city.component.scss']
 })
 export class CityComponent implements OnInit {
-
-  constructor() { }
+  allcity:any
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getallcity();
   }
   breadcrumb = [
     {
@@ -17,4 +20,12 @@ export class CityComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+  getallcity(){
+    this.adminService.allcity().subscribe((response: any)=>{
+      console.log(response)
+      this.allcity = response.data
+    },(error)=>{
+      console.log(error)
+    })
+  }
 }

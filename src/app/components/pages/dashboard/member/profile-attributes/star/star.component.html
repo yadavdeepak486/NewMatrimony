@@ -31,17 +31,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let star of allstar">
                                 <td class="#">
-                                   1
+                                   {{star.sortorder}}
                                 </td>
-                                <td class="cityname">
-                                   lorem
+                                <td class="name">
+                                    {{star.name}}
                                 </td>
                                 <td class="option">
                                     <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-edit'></i> </a>
-                                    <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
+                                            class=' bx bx-pencil'></i> </a>
+                                    <a href="#" class="st-i2"><i class=' bx bx-minus'></i> </a>
                                 </td>
                             </tr>
                         </tbody>

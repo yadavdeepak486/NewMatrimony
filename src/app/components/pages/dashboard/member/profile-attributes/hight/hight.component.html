@@ -31,17 +31,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let height of allheight">
                                 <td class="#">
-                                   1
+                                  {{height.sortorder}}
                                 </td>
                                 <td class="cityname">
-                                   lorem
+                                    {{height.name}}
                                 </td>
                                 <td class="option">
                                     <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-edit'></i> </a>
-                                    <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
+                                            class=' bx bx-pencil'></i> </a>
+                                    <a href="#" class="st-i2"><i class=' bx bx-minus'></i> </a>
                                 </td>
                             </tr>
                         </tbody>

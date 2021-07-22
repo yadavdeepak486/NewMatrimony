@@ -149,13 +149,13 @@ export class AdminService {
   alleducation() {
     return this.http.get(`${this.backendurl}/admin/alleducation`);
   }
-
+  
   //get all employedin
   allemployedin() {
-    return this.http.get(`${this.backendurl}/admin/allemployedin`);
+    return this.http.get(`${this.backendurl}/admin/addemployedin`);
   }
-
-  //get all occupation
+  
+    //get all occupation
   alloccupation() {
     return this.http.get(`${this.backendurl}/admin/alloccupation`);
   }
@@ -169,4 +169,25 @@ export class AdminService {
   allstate() {
     return this.http.get(`${this.backendurl}/admin/allstate`);
   }
+
+  //get all Familyvalue
+  allfamilyvalues() {
+    return this.http.get(`${this.backendurl}/admin/allfamilyvalues`);
+  }
+
+  //get all familystatus
+  allfamilystatus() {
+    return this.http.get(`${this.backendurl}/admin/allfamilystatus`);
+  }
+
+  //get allstar
+  allstar() {
+    return this.http.get(`${this.backendurl}/admin/allstar`);
+  }
+  //get all moonsign
+  allmoonsign() {
+    return this.http.get(`${this.backendurl}/admin/allmoonsign`);
+  }
+  
+  
 }

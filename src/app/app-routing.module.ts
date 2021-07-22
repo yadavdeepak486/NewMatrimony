@@ -101,6 +101,8 @@ import { AddNewStaffsComponent } from './components/pages/dashboard/staffs/all-s
 import { AddNewRoleComponent } from './components/pages/dashboard/staffs/staff-role/add-new-role/add-new-role.component';
 import { UpdateComponent } from './components/pages/dashboard/system/update/update.component';
 import { ServerStatusComponent } from './components/pages/dashboard/system/server-status/server-status.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { SignupComponent } from './components/pages/signup/signup.component';
 
 
 const routes: Routes = [
@@ -186,6 +188,8 @@ const routes: Routes = [
     { path: 'uploadedfile', component: UploadedfileComponent },
     { path: 'user-info', component: UserInfoComponent },
     { path: 'photo-file', component: PhotoFileComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent },
 
     // website setup
     { path: 'website-setup/header', component: HeaderComponent},

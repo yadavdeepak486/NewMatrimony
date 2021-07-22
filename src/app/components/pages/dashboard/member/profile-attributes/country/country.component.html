@@ -32,21 +32,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor = "let country of allcountry">
                                 <td class="#">
-                                   1
+                                   {{country.sortorder}}
                                 </td>
                                 <td class="name">
-                                   lorem
+                                    {{country.name}}
                                 </td>
                                 <td class="code">
-                                  ZN
+                                  {{country.isoCode}}
                                 </td>
 
                                 <td class="option">
                                     <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-edit'></i> </a>
-                                    <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
+                                            class=' bx bx-pencil'></i> </a>
+                                    <a href="#" class="st-i2"><i class=' bx bx-minus'></i> </a>
                                 </td>
                             </tr>
                         </tbody>

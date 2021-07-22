@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-moonsign',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./moonsign.component.scss']
 })
 export class MoonsignComponent implements OnInit {
-
-  constructor() { }
+  allmoonsign:any
+  constructor(public adminService: AdminService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getallmoonsign();
   }
   breadcrumb = [
     {
@@ -17,4 +20,12 @@ export class MoonsignComponent implements OnInit {
       subTitle: 'Categories'
     }
   ]
+  getallmoonsign(){
+    this.adminService.allmoonsign().subscribe((response: any)=>{
+      console.log(response)
+      this.allmoonsign = response.data
+    },(error)=>{
+      console.log(error)
+    })
+  }
 }

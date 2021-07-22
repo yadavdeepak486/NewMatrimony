@@ -144,7 +144,8 @@ import { AddNewStaffsComponent } from './components/pages/dashboard/staffs/all-s
 import { AddNewRoleComponent } from './components/pages/dashboard/staffs/staff-role/add-new-role/add-new-role.component';
 import { UpdateComponent } from './components/pages/dashboard/system/update/update.component';
 import { ServerStatusComponent } from './components/pages/dashboard/system/server-status/server-status.component';
-
+import { SignupComponent } from "./components/pages/signup/signup.component";
+import { LoginComponent } from "./components/pages/login/login.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -274,6 +275,8 @@ import { ServerStatusComponent } from './components/pages/dashboard/system/serve
     AddNewRoleComponent,
     UpdateComponent,
     ServerStatusComponent,
+    SignupComponent,
+    LoginComponent
     
     
   ],
