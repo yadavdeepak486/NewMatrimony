@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
     input3: new FormControl('', Validators.required),
     input4: new FormControl('', Validators.required),
   });
-  otpsection = false;
+  otpsection = true;
   success = false;
   constructor(
     public userService: UserService,
@@ -94,6 +94,10 @@ export class SignupComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  resendotp() {
+    console.log('resend otp');
   }
 
   verifyotp() {

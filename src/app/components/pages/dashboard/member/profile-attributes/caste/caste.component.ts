@@ -6,110 +6,140 @@ import { AdminService } from 'src/app/admin.service';
 @Component({
   selector: 'app-caste',
   templateUrl: './caste.component.html',
-  styleUrls: ['./caste.component.scss']
+  styleUrls: ['./caste.component.scss'],
 })
 export class CasteComponent implements OnInit {
-  editmode: boolean= false
-  allcaste: any
-  allreligion:any
-  selectedcaste: any
+  editmode: boolean = false;
+  allcaste: any;
+  allreligion: any;
+  selectedcaste: any;
   caste = new FormGroup({
     sortorder: new FormControl(''),
     religion: new FormControl('60ded92dd0379344c26c3cec'),
-    name: new FormControl('')
+    name: new FormControl(''),
   });
 
   editcaste = new FormGroup({
     id: new FormControl(''),
     sortorder: new FormControl(''),
     religion: new FormControl(''),
-    name: new FormControl('')
+    name: new FormControl(''),
   });
-  constructor(public adminService: AdminService,private toastr: ToastrService) { }
+  constructor(
+    public adminService: AdminService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getallcaste();
-    this.getallreligion()
+    this.getallreligion();
   }
   breadcrumb = [
     {
       title: 'Caste',
-      subTitle: 'Categories'
-    }
-  ]
+      subTitle: 'Categories',
+    },
+  ];
 
   getallreligion() {
-    this.adminService.getallreligion().subscribe((response: any) => {
-      // console.log(response)
-      this.allreligion = response.data
-    }, (error) => {
-      console.log(error)
-    })
+    this.adminService.getallreligion().subscribe(
+      (response: any) => {
+        // console.log(response)
+        this.allreligion = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   getallcaste() {
-    this.adminService.getallcaste().subscribe((response: any) => {
-      console.log(response)
-      this.allcaste = response.data
-    }, (error) => {
-      console.log(error)
-    })
+    this.adminService.getallcaste().subscribe(
+      (response: any) => {
+        //console.log(response)
+        this.allcaste = response.data;
+      },
+      (error) => {
+        this.toastr.error('Error occured');
+        console.log(error);
+      }
+    );
   }
-
 
   getonecaste(id) {
-    this.adminService.getonecaste(id).subscribe((response: any) => {
-      console.log(id)
-      console.log(response)
-      console.log(response.data.religion._id)
-      this.editmode = true
-      this.selectedcaste = response.data
+    this.adminService.getonecaste(id).subscribe(
+      (response: any) => {
+        //console.log(id)
+        //console.log(response)
+        //console.log(response.data.religion._id)
+        this.editmode = true;
+        this.selectedcaste = response.data;
 
-      this.editcaste.setValue({ sortorder: response.data.sortorder,religion: response.data.religion._id, name: response.data.name, id: response.data._id })
-    }, (error) => {
-      console.log(error)
-    })
+        this.editcaste.setValue({
+          sortorder: response.data.sortorder,
+          religion: response.data.religion._id,
+          name: response.data.name,
+          id: response.data._id,
+        });
+      },
+      (error) => {
+        this.toastr.error('Error occured');
+        console.log(error);
+      }
+    );
   }
 
-  cancelupdate(){
-    this.editmode = false
+  cancelupdate() {
+    this.editmode = false;
   }
 
-   updatecaste() {
-    console.log(this.editcaste.value, this.editcaste.value.id)
-    this.adminService.editcaste(this.editcaste.value.id, this.editcaste.value).subscribe((response: any) => {
-      this.getallcaste();
-      this.toastr.success('Religion updated succesfully');
-      this.editcaste.reset()
-      this.editmode = false
-    }, (error) => {
-      this.toastr.error('Error occured');
-      console.log(error)
-    })
+  updatecaste() {
+    //console.log(this.editcaste.value, this.editcaste.value.id)
+    this.adminService
+      .editcaste(this.editcaste.value.id, this.editcaste.value)
+      .subscribe(
+        (response: any) => {
+          this.getallcaste();
+          this.toastr.success('Caste updated succesfully');
+          this.editcaste.reset();
+          this.editmode = false;
+        },
+        (error) => {
+          this.toastr.error('Error occured');
+          console.log(error);
+        }
+      );
   }
 
   submitForm() {
-    console.log(this.caste.value);
-    this.adminService.addcaste(this.caste.value).subscribe((response: any) => {
-      console.log(response)
-      this.toastr.success('Caste added succesfully');
-      this.getallcaste();
-      this.caste.reset()
-    }, (error) => {
-      this.toastr.error('Error occured');
-      console.log(error)
-    })
+    //console.log(this.caste.value);
+    this.adminService.addcaste(this.caste.value).subscribe(
+      (response: any) => {
+        //console.log(response)
+        this.toastr.success('Caste added succesfully');
+        this.getallcaste();
+        this.getallcaste();
+        this.caste.reset();
+      },
+      (error) => {
+        this.toastr.error('Error occured');
+        console.log(error);
+      }
+    );
   }
 
   deletecaste(id) {
-    console.log(id)
-    this.adminService.deletecaste(id).subscribe((response: any) => {
-      console.log(response)
-      this.toastr.info('Caste deleted succesfully');
-      this.getallcaste();
-    }, (error) => {
-      this.toastr.error('Error occured');
-      console.log(error)
-    })
+    //console.log(id);
+    this.adminService.deletecaste(id).subscribe(
+      (response: any) => {
+        //console.log(response)
+        this.toastr.info('Caste deleted succesfully');
+        this.getallcaste();
+      },
+      (error) => {
+        this.toastr.error('Error occured');
+        console.log(error);
+      }
+    );
   }
 }

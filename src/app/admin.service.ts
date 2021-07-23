@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
 
   constructor(public http: HttpClient) {}
 
@@ -149,13 +149,13 @@ export class AdminService {
   alleducation() {
     return this.http.get(`${this.backendurl}/admin/alleducation`);
   }
-  
+
   //get all employedin
   allemployedin() {
     return this.http.get(`${this.backendurl}/admin/addemployedin`);
   }
-  
-    //get all occupation
+
+  //get all occupation
   alloccupation() {
     return this.http.get(`${this.backendurl}/admin/alloccupation`);
   }
@@ -188,6 +188,4 @@ export class AdminService {
   allmoonsign() {
     return this.http.get(`${this.backendurl}/admin/allmoonsign`);
   }
-  
-  
 }
