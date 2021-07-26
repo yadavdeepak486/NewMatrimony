@@ -1,3 +1,4 @@
+<app-navbar-style-one></app-navbar-style-one>
 <section class="bg-img">
   <div class="container">
     <div class="row">
@@ -5,12 +6,25 @@
         <div class="card pd-5">
           <div *ngIf="!otpsection" class="vesax-register">
             <span class="sub-title-rs"><span>Register</span></span>
-            <form [formGroup]="signupuser" (ngSubmit)="submitandmovetootp()">
+            <form [formGroup]="signupuser" (ngSubmit)="submitandmovetootp()" ngNativeValidate>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label class="lb-ser">On Behalf </label>
-                    <select class="form-control" formControlName="Profilecreatedby">
+                    <label class="lb-ser">First Name <span style="color: red;">*</span> </label>
+                    <input type="text" placeholder="First Name" class="form-control" formControlName="firstName"
+                      required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="lb-ser">Last Name <span style="color: red;">*</span> </label>
+                    <input type="text" placeholder="Last Name" class="form-control" formControlName="LastName" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="lb-ser">On Behalf <span style="color: red;">*</span> </label>
+                    <select class="form-control" formControlName="Profilecreatedby" required>
                       <option [value]="profilefor._id" *ngFor="let profilefor of allprofilefor">
                         {{profilefor.name}}</option>
                     </select>
@@ -18,20 +32,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="lb-ser">First Name </label>
-                    <input type="text" placeholder="First Name" class="form-control" formControlName="firstName">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="lb-ser">Last Name </label>
-                    <input type="text" placeholder="Last Name" class="form-control" formControlName="LastName">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="lb-ser">Gender </label>
-                    <select class="form-control" #gender formControlName="Gender">
+                    <label class="lb-ser">Gender <span style="color: red;">*</span> </label>
+                    <select class="form-control" #gender formControlName="Gender" required>
                       <option value="Male" selected>Male</option>
                       <option value="Female">Female</option>
                     </select>
@@ -39,11 +41,9 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="lb-ser">Date Of Birth </label>
+                    <label class="lb-ser">Date Of Birth <span style="color: red;">*</span> </label>
                     <div id="otp" class="inputs2 d-flex flex-row justify-content-center ">
-                      <!-- <input class="m-2 text-center form-control rounded" type="text" id="input1"
-                                          v-on:keyup="inputenter(1)" maxlength="2" placeholder="D" formControlName="dd" /> -->
-                      <select class="text-center form-control rounded" formControlName="dd">
+                      <select class="text-center form-control rounded" formControlName="dd" required>
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -75,10 +75,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                       </select>
-                      <!-- <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(2)"
-                                          type="text" id="input2" maxlength="2" placeholder="M" formControlName="mm" /> -->
-
-                      <select class="text-center form-control rounded" formControlName="mm">
+                      <select class="text-center form-control rounded" formControlName="mm" required>
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -90,9 +87,8 @@
                         <option value="9">9</option>
                         <option value="10">10</option>
                         <option value="12">12</option>
-
                       </select>
-                      <select class="text-center form-control rounded" formControlName="yyyy">
+                      <select class="text-center form-control rounded" formControlName="yyyy" required>
                         <option value="1961">1961</option>
                         <option value="1962">1962</option>
                         <option value="1963">1963</option>
@@ -136,35 +132,33 @@
                         <option value="2002" *ngIf="gender.value == 'Female'">2002</option>
                         <option value="2003" *ngIf="gender.value == 'Female'">2003</option>
                       </select>
-                      <!-- <input class="m-2 text-center form-control rounded" v-on:keyup="inputenter(3)"
-                                          type="text" id="input3" maxlength="4" placeholder="Y" formControlName="yyyy" /> -->
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="lb-ser">Email</label>
+                    <label class="lb-ser">Email </label>
                     <input type="email" placeholder="Email" class="form-control" formControlName="ConfirmEmail">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="lb-ser">Mobile</label>
+                    <label class="lb-ser">Mobile <span style="color: red;">*</span></label>
                     <div class="input-group">
                       <span class="cd-n"><img src="assets/img/india.png" /> +91</span>
                       <input class="form-control cd-n" type="number" min="1000000000" max="9999999999" maxlength="10"
-                        placeholder="Number" formControlName="Mobile">
+                        placeholder="Number" formControlName="Mobile" required>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label class="lb-ser">Password</label>
+                    <label class="lb-ser">Password <span style="color: red;">*</span></label>
                     <mat-form-field appearance="fill" class="mb-w">
                       <mat-label>Enter your password</mat-label>
-                      <input matInput [type]="hide ? 'password' : 'text'" formControlName="ConfirmPassword">
+                      <input matInput [type]="hide ? 'password' : 'text'" formControlName="ConfirmPassword" required>
                       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                         [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -175,7 +169,8 @@
               </div>
               <div class="form-check chk-t">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="" formControlName="agree_terms_conditions">By
+                  <input type="checkbox" class="form-check-input" [value]="1" formControlName="agree_terms_conditions"
+                    required>By
                   signing up you agree to our
                   <span><a class="tac">terms and conditions.</a></span>
                 </label>
@@ -192,19 +187,19 @@
             <h4 class="d-flex justify-content-center sub-title tx-ch"><span>Please check the otp sent to your
                 Device
                 {{mobilenumber}} </span></h4>
-            <form [formGroup]="verifyotpform" (ngSubmit)="verifyotp()">
+            <form [formGroup]="verifyotpform" (ngSubmit)="verifyotp()" ngNativeValidate>
               <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
                 <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded" type="text"
-                  id="input1" formControlName="input1" v-on:keyup="inputenter(1)" maxlength="1" />
+                  id="input1" formControlName="input1" v-on:keyup="inputenter(1)" maxlength="1" required />
                 <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  v-on:keyup="inputenter(2)" type="text" id="input2" formControlName="input2" maxlength="1" />
+                  v-on:keyup="inputenter(2)" type="text" id="input2" formControlName="input2" maxlength="1" required />
                 <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  v-on:keyup="inputenter(3)" type="text" id="input3" formControlName="input3" maxlength="1" />
+                  v-on:keyup="inputenter(3)" type="text" id="input3" formControlName="input3" maxlength="1" required />
                 <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  v-on:keyup="inputenter(4)" type="text" id="input4" formControlName="input4" maxlength="1" />
+                  v-on:keyup="inputenter(4)" type="text" id="input4" formControlName="input4" maxlength="1" required />
               </div>
               <div class="btn-rv">
-                <button type="button" class="btn-ft-set" onclick="sendotp()">Resend OTP</button>
+                <button type="button" class="btn-ft-set" (click)="resendotp()">Resend OTP</button>
                 <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Verify</a></span></button>
               </div>
             </form>

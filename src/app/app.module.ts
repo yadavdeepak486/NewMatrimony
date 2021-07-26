@@ -94,12 +94,12 @@ import { PrimiumPackageComponent } from './components/pages/dashboard/primium-pa
 import { PackagePaymentComponent } from './components/pages/dashboard/package-payment/package-payment.component';
 import { HappyStoriesComponent } from './components/pages/dashboard/happy-stories/happy-stories.component';
 import { CompleteProfileComponent } from './components/pages/complete-profile/complete-profile.component';
-import { MatModule } from "./mat/mat.module";
+import { MatModule } from './mat/mat.module';
 import { HttpClientModule } from '@angular/common/http';
 
 //Import Services
-import { UserService } from "./user.service";
-import { AdminService } from "./admin.service";
+import { UserService } from './user.service';
+import { AdminService } from './admin.service';
 import { NewsletterComponent } from './components/pages/dashboard/newsletter/newsletter.component';
 import { SmsTemplateComponent } from './components/pages/dashboard/otp-system/sms-template/sms-template.component';
 import { SetOtpComponent } from './components/pages/dashboard/otp-system/set-otp/set-otp.component';
@@ -144,8 +144,8 @@ import { AddNewStaffsComponent } from './components/pages/dashboard/staffs/all-s
 import { AddNewRoleComponent } from './components/pages/dashboard/staffs/staff-role/add-new-role/add-new-role.component';
 import { UpdateComponent } from './components/pages/dashboard/system/update/update.component';
 import { ServerStatusComponent } from './components/pages/dashboard/system/server-status/server-status.component';
-import { SignupComponent } from "./components/pages/signup/signup.component";
-import { LoginComponent } from "./components/pages/login/login.component";
+import { SignupComponent } from './components/pages/signup/signup.component';
+import { LoginComponent } from './components/pages/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -276,9 +276,7 @@ import { LoginComponent } from "./components/pages/login/login.component";
     UpdateComponent,
     ServerStatusComponent,
     SignupComponent,
-    LoginComponent
-    
-    
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -295,10 +293,8 @@ import { LoginComponent } from "./components/pages/login/login.component";
     MatModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-
-
   ],
   providers: [UserService, AdminService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

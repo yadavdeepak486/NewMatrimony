@@ -11,6 +11,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class SignupComponent implements OnInit {
   hide = true;
+  auth: any;
   allprofilefor: any;
   mobilenumber: any;
   usertype: any;
@@ -29,7 +30,7 @@ export class SignupComponent implements OnInit {
     ConfirmEmail: new FormControl('', Validators.required),
     Mobile: new FormControl('', Validators.required),
     ConfirmPassword: new FormControl('', Validators.required),
-    agree_terms_conditions: new FormControl('', Validators.required),
+    agree_terms_conditions: new FormControl('1', Validators.required),
   });
 
   verifyotpform = new FormGroup({
@@ -73,11 +74,15 @@ export class SignupComponent implements OnInit {
         this.otpsection = true;
         this.mobilenumber = this.signupuser.value.Mobile;
         this.usertype = response.user_type;
+        this.auth = true;
+        localStorage.setItem('id', JSON.stringify(response.user._id));
         localStorage.setItem('usertype', JSON.stringify(this.usertype));
+        localStorage.setItem('auth', JSON.stringify(this.auth));
         this.sendotp();
       },
       (error) => {
-        console.log(error);
+        this.toastr.error(error.error.msg + ' Please Login');
+        this.routes.navigate(['/login']);
       }
     );
   }
@@ -94,6 +99,10 @@ export class SignupComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  resendotp() {
+    this.sendotp();
   }
 
   verifyotp() {

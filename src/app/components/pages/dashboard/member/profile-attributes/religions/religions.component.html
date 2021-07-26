@@ -3,137 +3,84 @@
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
 
-    <app-dashboard-navbar></app-dashboard-navbar>
+  <app-dashboard-navbar></app-dashboard-navbar>
 
-    <!-- Breadcrumb Area -->
-    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-        <h1>{{Content.title}}</h1>
-        <ol class="breadcrumb">
-            <li class="item"><a routerLink="/">Home</a></li>
-            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-            <li class="item">{{Content.title}}</li>
-        </ol>
-    </div>
-    <!-- End Breadcrumb Area -->
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/">Home</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}}</li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
 
-    <!-- Start -->
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="card">
-                <h3>All Religions</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Option</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let Religion of allreligion;">
-                                <td class="#">
-                                    {{Religion.sortorder}}
-                                </td>
-                                <td class="name">
-                                    {{Religion.name}}
-                                </td>
+  <!-- Start -->
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <h3>All Religions</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Option</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let Religion of allreligion;">
+                <td class="#">
+                  {{Religion.sortorder}}
+                </td>
+                <td class="name">
+                  {{Religion.name}}
+                </td>
 
-                                <td class="option">
-                                    <a class="st-i" ><i
-                                            class=' bx bx-pencil' (click)="getonereligion(Religion._id)"></i> </a>
-                                    <a class="st-i2"><i class=' bx bx-minus'
-                                            (click)="deletereligion(Religion._id)"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                <td class="option">
+                  <a class="st-i"><i class=' bx bx-pencil' (click)="getonereligion(Religion._id)"></i> </a>
+                  <a class="st-i2"><i class=' bx bx-minus' (click)="deletereligion(Religion._id)"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div *ngIf="!editmode" class=" col-lg-4">
-            <div class="card">
-                <h3>Add New Religion</h3>
-                <form [formGroup]="religion" (ngSubmit)="submitForm()" class="bd-n">
-                    <label>#Order</label>
-                    <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
-                    <label>Name</label>
-                    <input type="text" class="form-control" placeholder="name" formControlName="name">
-                    <button class="btn btn-primary mt-2" type="submit">Save</button>
-                </form>
-            </div>
-        </div>
-        <div *ngIf="editmode" class=" col-lg-4">
-          <div class="card">
-              <h3>Edit Religion</h3>
-              <form [formGroup]="editreligion" (ngSubmit)="updatereligion()" class="bd-n">
-                  <label>#Order</label>
-                  <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
-                  <label>Name</label>
-                  <input type="text" class="form-control" placeholder="name" formControlName="name">
-                  <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2" type="submit" (click)="cancelupdate()" >Cancel</button>
-              </form>
-          </div>
       </div>
-
     </div>
-    <!-- End -->
+    <div *ngIf="!editmode" class=" col-lg-4">
+      <div class="card">
+        <h3>Add New Religion</h3>
+        <form [formGroup]="religion" (ngSubmit)="submitForm()" class="bd-n" ngNativeValidate>
+          <label>#Order</label>
+          <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+          <button class="btn btn-primary mt-2" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="editmode" class=" col-lg-4">
+      <div class="card">
+        <h3>Edit Religion</h3>
+        <form [formGroup]="editreligion" (ngSubmit)="updatereligion()" class="bd-n" ngNativeValidate>
+          <label>#Order</label>
+          <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+          <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2"
+            type="submit" (click)="cancelupdate()">Cancel</button>
+        </form>
+      </div>
+    </div>
 
-    <div class="flex-grow-1"></div>
+  </div>
+  <!-- End -->
 
-    <app-copyrights></app-copyrights>
+  <div class="flex-grow-1"></div>
+
+  <app-copyrights></app-copyrights>
 
 </div>
 <!-- End Main Content Wrapper Area -->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Edit Religion Info
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="bd-n">
-                    <label>#Order</label>
-                    <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
-                    <label>Name</label>
-                    <input type="text" class="form-control" placeholder="name" formControlName="name">
-                    <!-- <button class="btn btn-primary mt-2" type="submit" >Save</button> -->
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="confirmdelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Confirm Delete
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Yes</button>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-        </div>
-    </div>
-</div>
