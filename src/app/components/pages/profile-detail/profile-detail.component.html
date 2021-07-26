@@ -3,93 +3,93 @@
 
 <!-- Start Main Content Wrapper Area -->
 <div class="sec-1">
-    <div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5"></div>
+      <div class="col-lg-7 offset-lg-5">
         <div class="row">
-            <div class="col-lg-5"></div>
-            <div class="col-lg-7 offset-lg-5">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <h3 class="pft1">{{userdetails.Name}}</h3>
-                        <p class="pft2">Member ID: <span class="pft3">{{userdetails.MatriID}}</span></p>
-                        <div class="pft4">
-                            <p>{{userdetails.Age}}</p>
-                            <p>{{userdetails.Religion}}, {{userdetails.Caste}}</p>
-                        </div>
-                        <div class="pft4">
-                            <p>{{userdetails.Maritalstatus}}</p>
-                            <p>{{userdetails.City}}</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 pft5">
-                        <h3 class="pft1">Like this Profile ?</h3>
-                        <a href="#">
-                            <div class="pft-i">
-                                <i class="flaticon-heart"></i>
-                            </div>
-                            <p style="color:#fff;">Response to Interest</p>
-                        </a>
-                    </div>
-                </div>
+          <div class="col-lg-7">
+            <h3 class="pft1">{{userdetails.Name}}{{userdetails.firstName}}{{userdetails.lastName}}</h3>
+            <p class="pft2">Member ID: <span class="pft3">{{userdetails.Prefix}}{{userdetails.MatriID}}</span></p>
+            <div class="pft4">
+              <p>{{userdetails.Age }} Yrs, {{userdetails.Height.feetinchvalue}} ({{userdetails.Height.cmvalue }} cm)</p>
+              <p>{{userdetails.Religion.name}}, {{userdetails.Caste.name}}</p>
             </div>
+            <div class="pft4">
+              <p>{{userdetails.Maritalstatus}}</p>
+              <p>From: {{userdetails.LCity.name }}, {{userdetails.LState.name }}, {{ userdetails.LCountry.name}}</p>
+            </div>
+          </div>
+          <div class="col-lg-5 pft5">
+            <h3 class="pft1">Like this Profile ?</h3>
+            <a href="#">
+              <div class="pft-i">
+                <i class="flaticon-heart"></i>
+              </div>
+              <p style="color:#fff;">Response to Interest</p>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <div class="section">
-    <!-- Start -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-md-12 mt-top">
-                <div class="my-profile-box">
-                    <form>
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12">
-                                <div class="form-group profile-box">
-                                    <img src="{{userdetails.Profile}}" alt="image">
-                                    <div class="file-upload">
-                                        <input type="file" name="file" id="file" class="inputfile" />
-                                        <label for="file"><i class='bx bx-upload'></i> Upload Photo</label>
-                                    </div>
-                                </div>
-                                <p class="mid">Member ID: <span class="mds">{{userdetails.MatriID}}</span></p>
-                                <h3 class="pf-n">{{userdetails.Name}}</h3>
-
-                                <div class="col-lg-12 col-md-12"></div>
-                                <div class="pft-bx">
-                                    <a href="#">
-                                        <i class=" bx bx-list-ul pftcolr"></i>
-                                        <p class="pftcolr">Shortlisting..</p>
-                                    </a>
-                                </div>
-                                <div class="pft-bx1 ">
-                                    <a href="#">
-                                        <i class="bx bx-x-circle pftcolr"></i>
-                                        <p class="pftcolr">Ignore</p>
-                                    </a>
-                                </div>
-                                <div class="pft-bx1">
-                                    <a href="#">
-                                        <i class="bx bx-info-circle pftcolr"></i>
-                                        <p class="pftcolr">Report</p>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-12 col-md-12">
-                                <app-similar-profile></app-similar-profile>
-                            </div>
-                        </div>
-                    </form>
+  <!-- Start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-12 mt-top">
+        <div class="my-profile-box">
+          <form>
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="form-group profile-box">
+                  <img src="{{userdetails.Photo1}}" alt="image">
+                  <div class="file-upload">
+                    <input type="file" name="file" id="file" class="inputfile" />
+                    <label for="file"><i class='bx bx-upload'></i> Upload Photo</label>
+                  </div>
                 </div>
-            </div>
-            <div class="col-lg-7 col-md-12">
-                <div class="my-profile-box">
-                    <app-profile-tabs></app-profile-tabs>
+                <p class="mid">Member ID: <span class="mds">{{userdetails.Prefix}}{{userdetails.MatriID}}</span></p>
+                <h3 class="pf-n">{{userdetails.Name}}</h3>
+
+                <div class="col-lg-12 col-md-12"></div>
+                <div class="pft-bx">
+                  <a href="#">
+                    <i class=" bx bx-list-ul pftcolr"></i>
+                    <p class="pftcolr">Shortlisting..</p>
+                  </a>
                 </div>
+                <div class="pft-bx1 ">
+                  <a href="#">
+                    <i class="bx bx-x-circle pftcolr"></i>
+                    <p class="pftcolr">Ignore</p>
+                  </a>
+                </div>
+                <div class="pft-bx1">
+                  <a href="#">
+                    <i class="bx bx-info-circle pftcolr"></i>
+                    <p class="pftcolr">Report</p>
+                  </a>
+                </div>
+
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <app-similar-profile></app-similar-profile>
+              </div>
             </div>
-            <!-- End -->
+          </form>
         </div>
+      </div>
+      <div class="col-lg-7 col-md-12">
+        <div class="my-profile-box">
+          <app-profile-tabs></app-profile-tabs>
+        </div>
+      </div>
+      <!-- End -->
     </div>
+  </div>
 
 
-    <app-footer-style-one></app-footer-style-one>
-    <!-- End Main Content Wrapper Area -->
+  <app-footer-style-one></app-footer-style-one>
+  <!-- End Main Content Wrapper Area -->

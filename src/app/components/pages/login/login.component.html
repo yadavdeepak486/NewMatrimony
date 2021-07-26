@@ -1,41 +1,39 @@
+<app-navbar-style-one></app-navbar-style-one>
 <section class="bg-img">
   <div class="container">
-      <div class="row">
-          <div class="offset-lg-6 col-lg-6">
-              <div class="card pd-5">
-                <div class="vesax-login">
-                  <!-- <div class="login-with-account">
+    <div class="row">
+      <div class="offset-lg-6 col-lg-6">
+        <div class="card pd-5">
+          <div class="vesax-login">
+            <!-- <div class="login-with-account">
                       <span>Login with</span>
                       <ul>
                           <li><a href="#" class="facebook"><i class='bx bxl-facebook'></i> Facebook</a></li>
                           <li><a href="#" class="twitter"><i class='bx bxl-twitter'></i> Twitter</a></li>
                       </ul>
                   </div> -->
-                  <span class="sub-title"><span>Login</span></span>
-                  <form [formGroup]="signin" (ngSubmit)="setuser()">
-                      <div class="form-group">
-                          <input type="text" placeholder="Enter Your Email ID or Matri ID" class="form-control"
-                              formControlName="email">
-                      </div>
-
-                      <div class="form-group">
-                          <input type="password" placeholder="Enter Password" class="form-control"
-                              formControlName="password">
-                      </div>
-                      <div class="form-group">
-                          <input type="text" placeholder="admin/user" class="form-control" formControlName="type">
-                      </div>
-
-                      <span class="dont-account ft-text"><a href="#" data-toggle="modal"
-                              data-target="#forgotpassordModal" data-dismiss="modal">Forgot Password?</a></span>
-
-                      <button type="submit" class="btnln">Login Now</button>
-                  </form>
-                  <span class="dont-account">Don't have an account? <a href="/signup">Register
-                          Now</a></span>
+            <span class="sub-title"><span>Login</span></span>
+            <form [formGroup]="signin" (ngSubmit)="userlogin()">
+              <div class="form-group">
+                <input type="number" placeholder="Number" class="form-control" formControlName="Mobile">
               </div>
+
+              <div class="form-group">
+                <input type="password" placeholder="Enter Password" class="form-control" formControlName="password">
               </div>
+              <!-- <div class="form-group">
+                <input type="text" placeholder="admin/user" class="form-control" formControlName="type">
+              </div> -->
+
+              <span class="dont-account ft-text"><a>Forgot Password?</a></span>
+
+              <button type="submit" class="btnln">Login Now</button>
+            </form>
+            <span class="dont-account">Don't have an account? <a href="/signup">Register
+                Now</a></span>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 </section>

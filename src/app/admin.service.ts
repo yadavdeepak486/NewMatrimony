@@ -114,11 +114,12 @@ export class AdminService {
   }
 
   //maritalstatus
-  addmaritalstatus(data) {
-    return this.http.post(`${this.backendurl}/admin/addmaritalstatus`, data);
-  }
+
   getallmaritalstatus() {
     return this.http.get(`${this.backendurl}/admin/allmaritalstatus`);
+  }
+  addmaritalstatus(data) {
+    return this.http.post(`${this.backendurl}/admin/addmaritalstatus`, data);
   }
   getonemaritalstatus(id) {
     return this.http.get(`${this.backendurl}/admin/viewonemaritalstatus/${id}`);
@@ -152,7 +153,7 @@ export class AdminService {
 
   //get all employedin
   allemployedin() {
-    return this.http.get(`${this.backendurl}/admin/addemployedin`);
+    return this.http.get(`${this.backendurl}/admin/allemployedin`);
   }
 
   //get all occupation
@@ -160,9 +161,21 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/alloccupation`);
   }
 
-  //get all country
+  //country
   allcountry() {
     return this.http.get(`${this.backendurl}/admin/allcountry`);
+  }
+  addcountry(data) {
+    return this.http.post(`${this.backendurl}/admin/addcountry`, data);
+  }
+  getonecountry(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonecountry/${id}`);
+  }
+  editcountry(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editcountry/${id}`, data);
+  }
+  deletecountry(id) {
+    return this.http.delete(`${this.backendurl}/admin/deletecountry/${id}`);
   }
 
   //get all state

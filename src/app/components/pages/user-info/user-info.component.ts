@@ -1,7 +1,9 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-user-info',
@@ -10,6 +12,7 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class UserInfoComponent implements OnInit, OnChanges {
   allreligion: any;
+  allcaste: any;
   allheights: any;
   allcity: any;
   alleducation: any;
@@ -37,10 +40,11 @@ export class UserInfoComponent implements OnInit, OnChanges {
     City: new FormControl('', Validators.required),
   });
 
-  allcaste: any;
   constructor(
     public adminService: AdminService,
-    private toastr: ToastrService
+    public userService: UserService,
+    private toastr: ToastrService,
+    public routes: Router
   ) {}
 
   ngOnInit(): void {
@@ -172,6 +176,18 @@ export class UserInfoComponent implements OnInit, OnChanges {
   }
 
   submitandmovephoto() {
-    console.log(this.userinfo.value);
+    const id = localStorage.getItem('id');
+    const str = id.replace(/"/g, '');
+    console.log(str, this.userinfo.value);
+    this.userService.addotheruserdetails(str, this.userinfo.value).subscribe(
+      (response: any) => {
+        this.toastr.success('Information added successfully');
+        this.routes.navigate(['/photo-file']);
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

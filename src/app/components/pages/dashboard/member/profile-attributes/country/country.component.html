@@ -3,58 +3,89 @@
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
 
-    <app-dashboard-navbar></app-dashboard-navbar>
+  <app-dashboard-navbar></app-dashboard-navbar>
 
-    <!-- Breadcrumb Area -->
-    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-        <h1>{{Content.title}}</h1>
-        <ol class="breadcrumb">
-            <li class="item"><a routerLink="/">Home</a></li>
-            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-            <li class="item">{{Content.title}}</li>
-        </ol>
-    </div>
-    <!-- End Breadcrumb Area -->
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/">Home</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}}</li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
 
-    <!-- Start -->
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <h3>All Countries</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Code</th>
-                                <th>Show/Hide</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor = "let country of allcountry">
-                                <td class="#">
-                                   {{country.sortorder}}
-                                </td>
-                                <td class="name">
-                                    {{country.name}}
-                                </td>
-                                <td class="code">
-                                  {{country.isoCode}}
-                                </td>
+  <!-- Start -->
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <h3>All Countries</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Phone Code</th>
+                <th>Show/Hide</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let country of allcountry">
+                <td class="#">
+                  {{country.isoCode}}
+                </td>
+                <td class="name">
+                  {{country.name}}
+                </td>
+                <td class="code">
+                  {{country.phonecode}}
+                </td>
 
-                                <td class="option">
-                                    <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-pencil'></i> </a>
-                                    <a href="#" class="st-i2"><i class=' bx bx-minus'></i> </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                <td class="option">
+                  <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
+                      class=' bx bx-pencil'></i> </a>
+                  <a href="#" class="st-i2"><i class=' bx bx-minus'></i> </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <!-- <div class="col-lg-4">
+      </div>
+    </div>
+    <div *ngIf="!editmode" class="col-lg-4">
+      <div class="card">
+        <h3>Add New Member Country</h3>
+        <form [formGroup]="country" (ngSubmit)="submitForm()" class="bd-n" ngNativeValidate>
+          <label>#Phone Code <span style="color: red;">*</span></label>
+          <input type="number" class="form-control" placeholder="5" formControlName="phonecode" required>
+          <label>ISO Code <span style="color: red;">*</span></label>
+          <input type="text" class="form-control" placeholder="name" formControlName="isoCode" required>
+          <label>Name <span style="color: red;">*</span></label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+          <button class="btn btn-primary mt-2" type="submit">Save</button>
+        </form>
+
+      </div>
+    </div>
+    <div *ngIf="editmode" class="col-lg-4">
+      <div class="card">
+        <h3>Edit Country</h3>
+        <form [formGroup]="editcountry" (ngSubmit)="updatecountry()" class="bd-n" ngNativeValidate>
+          <label>#Phone Code <span style="color: red;">*</span></label>
+          <input type="number" class="form-control" placeholder="5" formControlName="phonecode" required>
+          <label>ISO Code <span style="color: red;">*</span></label>
+          <input type="text" class="form-control" placeholder="name" formControlName="isoCode" required>
+          <label>Name <span style="color: red;">*</span></label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+          <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2"
+            type="submit" (click)="cancelupdate()">Cancel</button>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="col-lg-4">
             <div class="card">
                 <h3>Add New Caste</h3>
                 <form class="bd-n">
@@ -66,12 +97,12 @@
             </div>
         </div> -->
 
-    </div>
-    <!-- End -->
+  </div>
+  <!-- End -->
 
-    <div class="flex-grow-1"></div>
+  <div class="flex-grow-1"></div>
 
-    <app-copyrights></app-copyrights>
+  <app-copyrights></app-copyrights>
 
 </div>
 <!-- End Main Content Wrapper Area -->
@@ -82,27 +113,27 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Edit Caste Info
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="bd-n">
-                    <label>Name</label>
-                    <input type="text" class="form-control" placeholder="name">
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Caste Info
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="bd-n">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="name">
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Update</button>
-            </div>
-        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,3 +1,4 @@
+<app-navbar-style-one></app-navbar-style-one>
 <section class="bg-img">
   <div class="container">
     <div class="row">
@@ -49,9 +50,9 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Birth Place </label>
-                  <select class="form-control" formControlName="City">
-                    <option [value]="city.name" *ngFor="let city of allcity">
+                  <label class="lb-ser">Place Of Birth</label>
+                  <select class="form-control" formControlName="POB">
+                    <option [value]="city._id" *ngFor="let city of allcity">
                       {{city.name}}</option>
                   </select>
                 </div>
@@ -71,9 +72,8 @@
                   </select>
                 </div>
               </div>
-
               <p class="sub-text"><b>Occupation Details</b></p>
-
+              <hr>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Type of Employement </label>

@@ -99,6 +99,7 @@ export class MemberLanguageComponent implements OnInit {
         console.log(response);
         this.toastr.success('Language added succesfully');
         this.getalllanguage();
+        this.getalllanguage();
         this.language.reset();
       },
       (error) => {

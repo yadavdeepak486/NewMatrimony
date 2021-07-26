@@ -256,31 +256,6 @@ const routes: Routes = [
   { path: 'system/server-status', component: ServerStatusComponent },
 
   // new component
-  { path: 'profile-detail/:id', component: ProfileDetailComponent },
-  { path: 'member/free-member', component: FreeMemberComponent },
-  { path: 'member/premium-member', component: PremiumMemberComponent },
-  { path: 'member/bulk-member', component: BulkMemberComponent },
-  { path: 'member/deleted-member', component: DeletedMemberComponent },
-  { path: 'member/reported-member', component: ReportedMemberComponent },
-  { path: 'stepper-demo', component: StepperDemoComponent },
-  { path: 'profile-tabs', component: ProfileTabsComponent },
-  { path: 'similar-profile', component: SimilarProfileComponent },
-  { path: 'profile-attributes/religions', component: ReligionsComponent },
-  { path: 'profile-attributes/caste', component: CasteComponent },
-  { path: 'profile-attributes/subcaste', component: SubcasteComponent },
-  {
-    path: 'profile-attributes/member-language',
-    component: MemberLanguageComponent,
-  },
-  { path: 'profile-attributes/City', component: CityComponent },
-  { path: 'profile-attributes/state', component: StateComponent },
-  { path: 'profile-attributes/country', component: CountryComponent },
-  { path: 'profile-attributes/on-behalf', component: OnBehalfComponent },
-  { path: 'profile-attributes/family-value', component: FamilyValueComponent },
-  {
-    path: 'profile-attributes/family-status',
-    component: FamilyStatusComponent,
-  },
   {
     path: 'profile-attributes/marital-statuses',
     component: MaritalStatusesComponent,
