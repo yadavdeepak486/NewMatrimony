@@ -103,6 +103,8 @@ import { UpdateComponent } from './components/pages/dashboard/system/update/upda
 import { ServerStatusComponent } from './components/pages/dashboard/system/server-status/server-status.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
+import { MyProfileComponent } from './components/pages/myprofile/myprofile.component';
+import { MyprofileTabComponent } from './components/pages/myprofile/myprofile-tab/myprofile-tab.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -316,6 +318,10 @@ const routes: Routes = [
   { path: 'staffs/staff-role', component: StaffRoleComponent },
   { path: 'staffs/all-staff/add-new-staffs', component: AddNewStaffsComponent },
   { path: 'staffs/staff-role/add-new-role', component: AddNewRoleComponent },
+
+  // myprofile
+  { path: 'myprofile', component: MyProfileComponent },
+  { path: 'myprofile/myprofiletab', component: MyprofileTabComponent },
 
   // system
   { path: 'system/update', component: UpdateComponent },

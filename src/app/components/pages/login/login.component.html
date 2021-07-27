@@ -1,39 +1,68 @@
 <app-navbar-style-one></app-navbar-style-one>
 <section class="bg-img">
   <div class="container">
-      <div class="row">
-          <div class="offset-lg-6 col-lg-6">
-              <div class="card pd-5 rs-1">
-                <div class="vesax-login">
-                  <!-- <div class="login-with-account">
-                      <span>Login with</span>
-                      <ul>
-                          <li><a href="#" class="facebook"><i class='bx bxl-facebook'></i> Facebook</a></li>
-                          <li><a href="#" class="twitter"><i class='bx bxl-twitter'></i> Twitter</a></li>
-                      </ul>
-                  </div> -->
-            <span class="sub-title"><span>Login</span></span>
-            <form [formGroup]="signin" (ngSubmit)="userlogin()">
+    <div class="row">
+      <div class="offset-lg-7 col-lg-5">
+        <div class="card pd-5 rs-1">
+          <div *ngIf="!forgotpassword" class="vesax-login">
+            <span  class="sub-title-rs"><span>Login</span></span>
+            <form  [formGroup]="signin" (ngSubmit)="userlogin()">
               <div class="form-group">
-                <input type="number" placeholder="Number" class="form-control" formControlName="Mobile">
+                <input
+                  type="number"
+                  placeholder="Number"
+                  class="form-control"
+                  formControlName="Mobile"
+                />
               </div>
 
               <div class="form-group">
-                <input type="password" placeholder="Enter Password" class="form-control" formControlName="password">
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  class="form-control"
+                  formControlName="password"
+                />
               </div>
-              <!-- <div class="form-group">
-                <input type="text" placeholder="admin/user" class="form-control" formControlName="type">
-              </div> -->
 
-              <span class="dont-account ft-text"><a>Forgot Password?</a></span>
+              <span class="dont-account ft-text"
+                ><a (click)="forgetpassword()">Forgot Password?</a></span
+              >
 
               <button type="submit" class="btnln">Login Now</button>
             </form>
-            <span class="dont-account">Don't have an account? <a href="/signup">Register
-                Now</a></span>
+            <span class="dont-account"
+              >Don't have an account? <a href="/signup">Register Now</a></span
+            >
+          </div>
+          <div *ngIf="forgotpassword" class="modal-content rs-3">
+            <span class="sub-title-rs"><span>Forgot Password</span></span>
+            <form>
+              <div class="form-group">
+                <input
+                  type="password"
+                  placeholder="New Password"
+                  class="form-control"
+                  formControlName="password"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  placeholder="Confirm  Password"
+                  class="form-control"
+                  formControlName="password"
+                />
+              </div>
+              <div class="btn-rv">
+                <button type="button" class="btn-ft-set">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
-      </div>
+        </div>
+        
+        
     </div>
   </div>
 </section>

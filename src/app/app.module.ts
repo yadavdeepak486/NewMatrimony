@@ -146,6 +146,8 @@ import { UpdateComponent } from './components/pages/dashboard/system/update/upda
 import { ServerStatusComponent } from './components/pages/dashboard/system/server-status/server-status.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { MyProfileComponent } from './components/pages/myprofile/myprofile.component';
+import { MyprofileTabComponent } from './components/pages/myprofile/myprofile-tab/myprofile-tab.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -277,6 +279,8 @@ import { LoginComponent } from './components/pages/login/login.component';
     ServerStatusComponent,
     SignupComponent,
     LoginComponent,
+    MyProfileComponent,
+    MyprofileTabComponent,
   ],
   imports: [
     BrowserModule,

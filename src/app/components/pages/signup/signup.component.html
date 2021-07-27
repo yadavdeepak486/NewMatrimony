@@ -2,8 +2,8 @@
 <section class="bg-img">
   <div class="container">
     <div class="row">
-      <div class="offset-lg-6 col-lg-6">
-        <div class="card pd-5">
+      <div class="offset-lg-7 col-lg-5">
+        <div class="card pd-5 rs-1">
           <div *ngIf="!otpsection" class="vesax-register">
             <span class="sub-title-rs"><span>Register</span></span>
             <form [formGroup]="signupuser" (ngSubmit)="submitandmovetootp()" ngNativeValidate>
@@ -21,7 +21,7 @@
                     <input type="text" placeholder="Last Name" class="form-control" formControlName="LastName" required>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="form-group">
                     <label class="lb-ser">On Behalf <span style="color: red;">*</span> </label>
                     <select class="form-control" formControlName="Profilecreatedby" required>
@@ -135,13 +135,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                   <div class="form-group">
                     <label class="lb-ser">Email </label>
                     <input type="email" placeholder="Email" class="form-control" formControlName="ConfirmEmail">
                   </div>
-                </div>
-                <div class="col-md-6">
+                </div> -->
+                <div class="col-md-12">
                   <div class="form-group">
                     <label class="lb-ser">Mobile <span style="color: red;">*</span></label>
                     <div class="input-group">
@@ -151,9 +151,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="form-group">
                     <label class="lb-ser">Password <span style="color: red;">*</span></label>
                     <mat-form-field appearance="fill" class="mb-w">
@@ -167,6 +165,9 @@
                   </div>
                 </div>
               </div>
+            
+                
+             
               <div class="form-check chk-t">
                 <label class="form-check-label">
                   <input type="checkbox" class="form-check-input" [value]="1" formControlName="agree_terms_conditions"
@@ -182,7 +183,7 @@
             <span class="already-account">Already have an account? <a style="cursor: pointer;"
                 href="/login">Login</a></span>
           </div>
-          <div *ngIf="otpsection" class="modal-content">
+          <div *ngIf="otpsection" class="modal-content rs-3">
             <h2 class="d-flex justify-content-center tx-v">Verify Mobile</h2>
             <h4 class="d-flex justify-content-center sub-title tx-ch"><span>Please check the otp sent to your
                 Device
