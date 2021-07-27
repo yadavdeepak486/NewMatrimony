@@ -11,6 +11,7 @@ import { AdminService } from 'src/app/admin.service';
 export class CountryComponent implements OnInit {
   editmode: boolean = false;
   allcountry: any;
+  allcountryrest: any;
   selectedcountry: any;
 
   country = new FormGroup({
@@ -33,6 +34,7 @@ export class CountryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallcountry();
+    this.getallcountryfromrest();
   }
   breadcrumb = [
     {
@@ -40,6 +42,18 @@ export class CountryComponent implements OnInit {
       subTitle: 'Categories',
     },
   ];
+
+  getallcountryfromrest() {
+    // this.adminService.allcountryfromrest().subscribe(
+    //   (response: any) => {
+    //     console.log(response);
+    //     this.allcountryrest = response;
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+  }
 
   getallcountry() {
     this.adminService.allcountry().subscribe(
@@ -61,8 +75,9 @@ export class CountryComponent implements OnInit {
         this.editmode = true;
         this.selectedcountry = response.data;
         this.editcountry.setValue({
-          sortorder: response.data.sortorder,
+          isoCode: response.data.isoCode,
           name: response.data.name,
+          phonecode: response.data.phonecode,
           id: response.data._id,
         });
       },

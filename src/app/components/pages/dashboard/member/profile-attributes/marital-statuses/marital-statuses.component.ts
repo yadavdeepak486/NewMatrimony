@@ -109,7 +109,7 @@ export class MaritalStatusesComponent implements OnInit {
 
   deletemaritalstatus(id) {
     console.log(id);
-    this.adminService.deleterelgion(id).subscribe(
+    this.adminService.deletemaritalstatus(id).subscribe(
       (response: any) => {
         console.log(response);
         this.toastr.info('maritalstatus deleted succesfully');

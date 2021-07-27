@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
 
   constructor(public http: HttpClient) {}
 
@@ -141,31 +141,6 @@ export class AdminService {
     );
   }
 
-  //height
-  getallheight() {
-    return this.http.get(`${this.backendurl}/admin/allheight`);
-  }
-
-  //get all city
-  allcity() {
-    return this.http.get(`${this.backendurl}/admin/allcity`);
-  }
-
-  //get all education
-  alleducation() {
-    return this.http.get(`${this.backendurl}/admin/alleducation`);
-  }
-
-  //get all employedin
-  allemployedin() {
-    return this.http.get(`${this.backendurl}/admin/allemployedin`);
-  }
-
-  //get all occupation
-  alloccupation() {
-    return this.http.get(`${this.backendurl}/admin/alloccupation`);
-  }
-
   //country
   allcountry() {
     return this.http.get(`${this.backendurl}/admin/allcountry`);
@@ -183,27 +158,200 @@ export class AdminService {
     return this.http.delete(`${this.backendurl}/admin/deletecountry/${id}`);
   }
 
-  //get all state
+  //state
   allstate() {
     return this.http.get(`${this.backendurl}/admin/allstate`);
+  }
+  addstate(data) {
+    return this.http.post(`${this.backendurl}/admin/addstate`, data);
+  }
+  getonestate(id) {
+    return this.http.get(`${this.backendurl}/admin/onestate/${id}`);
+  }
+  statebycountry(id) {
+    return this.http.get(`${this.backendurl}/admin/statebycountry/${id}`);
+  }
+  editstate(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editstate/${id}`, data);
+  }
+  deletestate(id) {
+    return this.http.delete(`${this.backendurl}/admin/deletestate/${id}`);
+  }
+
+  //get all city
+  allcity() {
+    return this.http.get(`${this.backendurl}/admin/allcity`);
+  }
+  addcity(data) {
+    return this.http.post(`${this.backendurl}/admin/addcity`, data);
+  }
+  getonecity(id) {
+    return this.http.get(`${this.backendurl}/admin/onecity/${id}`);
+  }
+  citybystate(id) {
+    return this.http.get(`${this.backendurl}/admin/citybystate/${id}`);
+  }
+  editcity(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editcity/${id}`, data);
+  }
+  deletecity(id) {
+    return this.http.delete(`${this.backendurl}/admin/deletecity/${id}`);
   }
 
   //get all Familyvalue
   allfamilyvalues() {
     return this.http.get(`${this.backendurl}/admin/allfamilyvalues`);
   }
+  addfamilyvalues(data) {
+    return this.http.post(`${this.backendurl}/admin/addfamilyvalues`, data);
+  }
+  getonefamilyvalues(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonefamilyvalues/${id}`);
+  }
+  editfamilyvalues(id, data) {
+    return this.http.post(
+      `${this.backendurl}/admin/editfamilyvalues/${id}`,
+      data
+    );
+  }
+  deletefamilyvalues(id) {
+    return this.http.delete(
+      `${this.backendurl}/admin/deletefamilyvalues/${id}`
+    );
+  }
 
   //get all familystatus
   allfamilystatus() {
     return this.http.get(`${this.backendurl}/admin/allfamilystatus`);
+  }
+  addfamilystatus(data) {
+    return this.http.post(`${this.backendurl}/admin/addfamilystatus`, data);
+  }
+  getonefamilystatus(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonefamilystatus/${id}`);
+  }
+  editfamilystatus(id, data) {
+    return this.http.post(
+      `${this.backendurl}/admin/editfamilystatus/${id}`,
+      data
+    );
+  }
+  deletefamilystatus(id) {
+    return this.http.delete(
+      `${this.backendurl}/admin/deletefamilystatus/${id}`
+    );
+  }
+
+  //get all education
+  alleducation() {
+    return this.http.get(`${this.backendurl}/admin/alleducation`);
+  }
+  addeducation(data) {
+    return this.http.post(`${this.backendurl}/admin/addeducation`, data);
+  }
+  getoneeducation(id) {
+    return this.http.get(`${this.backendurl}/admin/viewoneeducation/${id}`);
+  }
+  editeducation(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editeducation/${id}`, data);
+  }
+  deleteeducation(id) {
+    return this.http.delete(`${this.backendurl}/admin/deleteeducation/${id}`);
+  }
+
+  //get all occupation
+  alloccupation() {
+    return this.http.get(`${this.backendurl}/admin/alloccupation`);
+  }
+  addoccupation(data) {
+    return this.http.post(`${this.backendurl}/admin/addoccupation`, data);
+  }
+  getoneoccupation(id) {
+    return this.http.get(`${this.backendurl}/admin/viewoneoccupation/${id}`);
+  }
+  editoccupation(id, data) {
+    return this.http.post(
+      `${this.backendurl}/admin/editoccupation/${id}`,
+      data
+    );
+  }
+  deleteoccupation(id) {
+    return this.http.delete(`${this.backendurl}/admin/deleteoccupation/${id}`);
   }
 
   //get allstar
   allstar() {
     return this.http.get(`${this.backendurl}/admin/allstar`);
   }
+  addstar(data) {
+    return this.http.post(`${this.backendurl}/admin/addstar`, data);
+  }
+  getonestar(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonestar/${id}`);
+  }
+  editstar(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editstar/${id}`, data);
+  }
+  deletestar(id) {
+    return this.http.delete(`${this.backendurl}/admin/deletestar/${id}`);
+  }
+
   //get all moonsign
   allmoonsign() {
     return this.http.get(`${this.backendurl}/admin/allmoonsign`);
+  }
+  addmoonsign(data) {
+    return this.http.post(`${this.backendurl}/admin/addmoonsign`, data);
+  }
+  getonemoonsign(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonemoonsign/${id}`);
+  }
+  editmoonsign(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editmoonsign/${id}`, data);
+  }
+  deletemoonsign(id) {
+    return this.http.delete(`${this.backendurl}/admin/deletemoonsign/${id}`);
+  }
+
+  //height
+  getallheight() {
+    return this.http.get(`${this.backendurl}/admin/allheight`);
+  }
+  addheight(data) {
+    return this.http.post(`${this.backendurl}/admin/addheight`, data);
+  }
+  getoneheight(id) {
+    return this.http.get(`${this.backendurl}/admin/viewoneheight/${id}`);
+  }
+  editheight(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editheight/${id}`, data);
+  }
+  deleteheight(id) {
+    return this.http.delete(`${this.backendurl}/admin/deleteheight/${id}`);
+  }
+
+  //get all employedin
+  allemployedin() {
+    return this.http.get(`${this.backendurl}/admin/allemployedin`);
+  }
+  addemployedin(data) {
+    return this.http.post(`${this.backendurl}/admin/addemployedin`, data);
+  }
+  getoneemployedin(id) {
+    return this.http.get(`${this.backendurl}/admin/viewoneemployedin/${id}`);
+  }
+  editemployedin(id, data) {
+    return this.http.post(
+      `${this.backendurl}/admin/editemployedin/${id}`,
+      data
+    );
+  }
+  deleteemployedin(id) {
+    return this.http.delete(`${this.backendurl}/admin/deleteemployedin/${id}`);
+  }
+
+  //from rest
+  allcountryfromrest() {
+    return this.http.get(`https://restcountries.eu/rest/v2/all`);
   }
 }
