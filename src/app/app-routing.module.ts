@@ -105,6 +105,8 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { MyProfileComponent } from './components/pages/myprofile/myprofile.component';
 import { MyprofileTabComponent } from './components/pages/myprofile/myprofile-tab/myprofile-tab.component';
+import { VerifyProfileComponent } from './components/pages/dashboard/verify-profile/verify-profile.component';
+import { VerifyMemberComponent } from './components/pages/dashboard/member/verify-member/verify-member.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -218,6 +220,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
 
+  { path: 'member/verify-member', component: VerifyMemberComponent },
+
   // website setup
   { path: 'website-setup/header', component: HeaderComponent },
   { path: 'website-setup/footer', component: FooterComponent },
@@ -322,6 +326,9 @@ const routes: Routes = [
   // myprofile
   { path: 'myprofile', component: MyProfileComponent },
   { path: 'myprofile/myprofiletab', component: MyprofileTabComponent },
+
+  // verify-profile
+  { path: 'verify-profile', component: VerifyProfileComponent },
 
   // system
   { path: 'system/update', component: UpdateComponent },
