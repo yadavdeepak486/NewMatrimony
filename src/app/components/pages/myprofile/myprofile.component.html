@@ -1,0 +1,220 @@
+<app-navbar-style-one></app-navbar-style-one>
+
+
+<!-- Start Main Content Wrapper Area -->
+<div class="sec-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 offset-lg-5">
+        <div class="row">
+          <div class="col-lg-7">
+            <h3 class="pft1">{{userdetails.Name}}{{userdetails.firstName}}{{userdetails.lastName}}</h3>
+            <p class="pft2">Member ID: <span class="pft3">{{userdetails.Prefix}}{{userdetails.MatriID}}</span></p>
+            <div class="pft4">
+              <p>{{userdetails.Age }} Yrs, {{userdetails.Height.feetinchvalue}} ({{userdetails.Height.cmvalue }} cm)</p>
+              <p>{{userdetails.Religion.name}}, {{userdetails.Caste.name}}</p>
+            </div>
+            <div class="pft4">
+              <p>{{userdetails.Maritalstatus}}</p>
+              <p>From: {{userdetails.LCity.name }}, {{userdetails.LState.name }}, {{ userdetails.LCountry.name}}</p>
+            </div>
+          </div>
+          <div class="col-lg-5 pft5">
+            <h3 class="pft1">Like this Profile ?</h3>
+            <a href="#">
+              <div class="pft-i">
+                <i class="flaticon-heart"></i>
+              </div>
+              <p style="color:#fff;">Response to Interest</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <!-- Start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-12 mt-top">
+        <div class="my-profile-box">
+          <form>
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="form-group profile-box">
+                  <img src="assets/img/user1.png" alt="image" class="my-img">
+                  <div class="file-upload">
+                    <input type="file" name="file" id="file" class="inputfile" />
+                    <label for="file"><i class='bx bx-upload'></i> Upload Photo</label>
+                  </div>
+                </div>
+                <!-- <p class="mid">Member ID: <span class="mds">{{userdetails.Prefix}}{{userdetails.MatriID}}</span></p>
+                <h3 class="pf-n">{{userdetails.Name}}</h3> -->
+
+                <!-- <div class="col-lg-12 col-md-12"></div>
+                <div class="pft-bx">
+                  <a href="#">
+                    <i class=" bx bx-list-ul pftcolr"></i>
+                    <p class="pftcolr">Shortlisting..</p>
+                  </a>
+                </div>
+                <div class="pft-bx1 ">
+                  <a href="#">
+                    <i class="bx bx-x-circle pftcolr"></i>
+                    <p class="pftcolr">Ignore</p>
+                  </a>
+                </div>
+                <div class="pft-bx1">
+                  <a href="#">
+                    <i class="bx bx-info-circle pftcolr"></i>
+                    <p class="pftcolr">Report</p>
+                  </a>
+                </div> -->
+
+              </div>
+              <!-- <div class="col-lg-12 col-md-12">
+                <app-similar-profile></app-similar-profile>
+              </div> -->
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-12">
+        <div class="my-profile-box">
+          <app-myprofile-tab></app-myprofile-tab>
+        </div>
+      </div>
+      <!-- End -->
+    </div>
+
+         <div class="profile-content">
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+                  <div class="my-profile-box">
+                      <h3>Profile Details</h3>
+                      <form>
+                          <div class="row">
+                              
+                              <div class="col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Your Name</label>
+                                      <input type="text" class="form-control" value="Andy Smith">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Email</label>
+                                      <input type="email" class="form-control" value="hello@andysmith.com">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Phone</label>
+                                      <input type="text" class="form-control" value="+88 (123) 123456">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Address</label>
+                                      <input type="text" class="form-control" value="Wonder Street, USA, New York">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Website</label>
+                                      <input type="text" class="form-control" value="EnvyTheme.com">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Bio</label>
+                                      <textarea cols="30" rows="6" placeholder="Short description about you..." class="form-control"></textarea>
+                                  </div>
+                              </div>
+      
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Facebook URL</label>
+                                      <input type="text" class="form-control" placeholder="https://www.facebook.com/">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Twitter URL</label>
+                                      <input type="text" class="form-control" placeholder="https://twitter.com/">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Linkedin URL</label>
+                                      <input type="text" class="form-control" placeholder="https://www.linkedin.com/">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-xl-6 col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Instagram URL</label>
+                                      <input type="text" class="form-control" placeholder="https://instagram.com/">
+                                  </div>
+                              </div>
+          
+                              <div class="col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <button type="submit">Save Change</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="my-profile-box">
+                      <h3>Change Password</h3>
+                      <form>
+                          <div class="row">
+                              <div class="col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Current Password</label>
+                                      <input type="password" class="form-control" value="123456">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>New Password</label>
+                                      <input type="password" class="form-control">
+                                  </div>
+                              </div>
+                              
+                              <div class="col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <label>Confirm New Password</label>
+                                      <input type="password" class="form-control">
+                                  </div>
+                              </div>
+          
+                              <div class="col-lg-12 col-md-12">
+                                  <div class="form-group">
+                                      <button type="submit">Change Password</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                </div>
+              </div>
+         </div>
+  </div>
+</div>
+
+
+  <app-footer-style-one></app-footer-style-one>
+  <!-- End Main Content Wrapper Area -->

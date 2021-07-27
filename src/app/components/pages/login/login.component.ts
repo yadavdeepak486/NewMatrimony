@@ -10,6 +10,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  forgotpassword = false
   signin = new FormGroup({
     Mobile: new FormControl(''),
     password: new FormControl(''),
@@ -37,6 +38,11 @@ export class LoginComponent implements OnInit {
     );
   }
 
+
+  forgetpassword(){
+    console.log("forget password")
+    this.forgotpassword = true
+  }
   // setuser() {
   //   console.log(this.signin.value);
   //   if (this.signin.value.type == 'user') {
