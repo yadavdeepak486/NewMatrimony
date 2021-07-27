@@ -3,81 +3,101 @@
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
 
-    <app-dashboard-navbar></app-dashboard-navbar>
+  <app-dashboard-navbar></app-dashboard-navbar>
 
-    <!-- Breadcrumb Area -->
-    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-        <h1>{{Content.title}}</h1>
-        <ol class="breadcrumb">
-            <li class="item"><a routerLink="/">Home</a></li>
-            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-            <li class="item">{{Content.title}}</li>
-        </ol>
-    </div>
-    <!-- End Breadcrumb Area -->
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/">Home</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}}</li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
 
-    <!-- Start -->
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="card">
-                <h3>All States</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>code</th>
-                                <th>Option</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor = "let state of allstate">
-                                <td class="#">
-                                    {{state.sortorder}}
-                                </td>
-                                <td class="name">
-                                    {{state.name}}
-                                </td>
-                                <td class="country">
-                                    {{state.isoCode}}
-                               </td>
-
-                                <td class="option">
-                                    <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i
-                                            class=' bx bx-pencil'></i> </a>
-                                    <a href="#" class="st-i2"><i class='bx bx-minus'></i> </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  <!-- Start -->
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <h3>All States</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Option</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let state of allstate">
+                <td class="#">
+                  {{state.isoCode}}
+                </td>
+                <td class="name">
+                  {{state.name}}
+                </td>
+                <td class="country">
+                  {{state.country.name}}
+                </td>
+                <td class="option">
+                  <a class="st-i"><i class=' bx bx-pencil' (click)="getonestate(state._id)"></i> </a>
+                  <a class="st-i2"><i class=' bx bx-minus' (click)="deletestate(state._id)"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      <div class="col-lg-4">
-            <div class="card">
-                <h3>Add New State</h3>
-                <form class="bd-n">
-                     <label> Country</label>
-                    <select class="form-control">
-                        <option>lorem</option>
-                        <option>lorem</option>
-                        <option>lorem</option>
-                    </select>
-                    <label> State Name</label>
-                    <input type="text" class="form-control" placeholder="name">
-                    <button class="btn btn-primary mt-2">Save</button>
-                </form>
-
-            </div>
-        </div>
-
+      </div>
     </div>
-    <!-- End -->
+    <div *ngIf="!editmode" class="col-lg-4">
+      <div class="card">
+        <h3>Add New State</h3>
+        <form [formGroup]="state" (ngSubmit)="submitForm()" class="bd-n" ngNativeValidate>
+          <label>#Iso Code</label>
+          <input type="number" class="form-control" placeholder="5" formControlName="isoCode" required>
+          <label>Country</label>
+          <select type="text" class="form-control" placeholder="name" formControlName="country" required>
+            <option [value]="country._id" *ngFor="let country of allcountry">
+              {{country.name}}</option>
+          </select>
 
-    <div class="flex-grow-1"></div>
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+          <button class="btn btn-primary mt-2" type="submit">Save</button>
+        </form>
 
-    <app-copyrights></app-copyrights>
+      </div>
+    </div>
+    <div *ngIf="editmode" class="col-lg-4">
+      <div class="card">
+        <h3>Edit State</h3>
+        <form [formGroup]="editstate" (ngSubmit)="updatestate()" class="bd-n" ngNativeValidate>
+          <label>#Iso Code</label>
+          <input type="number" class="form-control" placeholder="5" formControlName="isoCode" required>
+          <label>Country</label>
+          <select type="text" class="form-control" placeholder="name" formControlName="country" required>
+            <option [value]="country._id" *ngFor="let country of allcountry">
+              {{country.name}}</option>
+          </select>
+
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+          <button class="btn btn-primary mt-2" type="submit">Update</button>
+          <button class="btn btn-primary mt-2 ml-2" type="submit" (click)="cancelupdate()">Cancel</button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- End -->
+
+  <div class="flex-grow-1"></div>
+
+  <app-copyrights></app-copyrights>
 
 </div>
 <!-- End Main Content Wrapper Area -->
@@ -88,27 +108,27 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Edit Caste Info
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="bd-n">
-                    <label>Name</label>
-                    <input type="text" class="form-control" placeholder="name">
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Caste Info
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="bd-n">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="name">
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Update</button>
-            </div>
-        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
     </div>
+  </div>
 </div>

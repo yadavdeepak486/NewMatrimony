@@ -107,7 +107,7 @@ export class OnBehalfComponent implements OnInit {
 
   deleteprofilefor(id) {
     console.log(id);
-    this.adminService.deleterelgion(id).subscribe(
+    this.adminService.deleteprofilefor(id).subscribe(
       (response: any) => {
         console.log(response);
         this.toastr.info('profilefor deleted succesfully');

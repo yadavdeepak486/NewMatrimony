@@ -42,7 +42,6 @@ export class MemberLanguageComponent implements OnInit {
   getalllanguage() {
     this.adminService.getalllanguage().subscribe(
       (response: any) => {
-        // console.log(response)
         this.alllanguage = response.data;
       },
       (error) => {
@@ -81,7 +80,7 @@ export class MemberLanguageComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.getalllanguage();
-          this.toastr.success('Religion updated succesfully');
+          this.toastr.success('Language updated succesfully');
           this.editlanguage.reset();
           this.editmode = false;
         },
