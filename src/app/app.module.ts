@@ -148,6 +148,8 @@ import { SignupComponent } from './components/pages/signup/signup.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { MyProfileComponent } from './components/pages/myprofile/myprofile.component';
 import { MyprofileTabComponent } from './components/pages/myprofile/myprofile-tab/myprofile-tab.component';
+import { VerifyProfileComponent } from './components/pages/dashboard/verify-profile/verify-profile.component';
+import { VerifyMemberComponent } from './components/pages/dashboard/member/verify-member/verify-member.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -281,6 +283,8 @@ import { MyprofileTabComponent } from './components/pages/myprofile/myprofile-ta
     LoginComponent,
     MyProfileComponent,
     MyprofileTabComponent,
+    VerifyProfileComponent,
+    VerifyMemberComponent,
   ],
   imports: [
     BrowserModule,

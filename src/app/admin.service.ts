@@ -19,6 +19,11 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/user/type/FM`);
   }
 
+  // inactiveuser
+  getinactiveuser() {
+    return this.http.get(`${this.backendurl}/user/inactiveuser`);
+  }
+
   getpremiumusers() {
     return this.http.get(`${this.backendurl}/user/type/PM`);
   }
