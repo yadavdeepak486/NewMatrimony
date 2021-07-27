@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
 
   constructor(public http: HttpClient) {}
 
@@ -348,5 +348,39 @@ export class AdminService {
   //from rest
   allcountryfromrest() {
     return this.http.get(`https://restcountries.eu/rest/v2/all`);
+  }
+
+  //staff roles
+  getallrole() {
+    return this.http.get(`${this.backendurl}/admin/allrole`);
+  }
+  addrole(data) {
+    return this.http.post(`${this.backendurl}/admin/addrole`, data);
+  }
+  getonerole(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonerole/${id}`);
+  }
+  editrole(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editrole/${id}`, data);
+  }
+  deleterole(id) {
+    return this.http.delete(`${this.backendurl}/admin/deleterole/${id}`);
+  }
+
+  //staff
+  getallstaff() {
+    return this.http.get(`${this.backendurl}/admin/allstaff`);
+  }
+  addstaff(data) {
+    return this.http.post(`${this.backendurl}/admin/addstaff`, data);
+  }
+  getonestaff(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonestaff/${id}`);
+  }
+  editstaff(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editstaff/${id}`, data);
+  }
+  deletestaff(id) {
+    return this.http.delete(`${this.backendurl}/admin/deletestaff/${id}`);
   }
 }

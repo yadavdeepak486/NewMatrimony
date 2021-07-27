@@ -1,230 +1,251 @@
 <!-- Start Sidemenu Area -->
 <div class="sidemenu-area">
-    <div class="sidemenu-header">
-        <a routerLink="/dashboard" class="navbar-brand d-flex align-items-center">
-            <img src="assets/img/black-logo.png" alt="image">
-        </a>
-        <div class="responsive-burger-menu d-block d-lg-none">
-            <span class="top-bar"></span>
-            <span class="middle-bar"></span>
-            <span class="bottom-bar"></span>
-        </div>
+  <div class="sidemenu-header">
+    <a routerLink="/dashboard" class="navbar-brand d-flex align-items-center">
+      <img src="assets/img/black-logo.png" alt="image">
+    </a>
+    <div class="responsive-burger-menu d-block d-lg-none">
+      <span class="top-bar"></span>
+      <span class="middle-bar"></span>
+      <span class="bottom-bar"></span>
     </div>
+  </div>
 
-    <div class="sidemenu-body">
-        <ul class="sidemenu-nav metisMenu h-100" id="sidemenu-nav" data-simplebar>
-            <li class="nav-item-title">
-                Main
-            </li>
+  <div class="sidemenu-body">
+    <ul class="sidemenu-nav metisMenu h-100" id="sidemenu-nav" data-simplebar>
+      <li class="nav-item-title">
+        Main
+      </li>
 
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/dashboard" class="nav-link">
-                    <span class="icon"><i class='bx bx-home-circle'></i></span>
-                    <span class="menu-title">Dashboard</span>
+      <li class="nav-item" routerLinkActive="active mm-active">
+        <a routerLink="/dashboard" class="nav-link">
+          <span class="icon"><i class='bx bx-home-circle'></i></span>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive=" mm-active">
+        <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
+          <span class="icon"><i class='bx bx-user-plus'></i></span>
+          <span class="menu-title">Member</span>
+        </a>
+
+        <ul class="sidemenu-nav-second-level">
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/member/free-member" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Free Members</span>
+              <!-- <span class="badge">5</span>  -->
+            </a>
+          </li>
+
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/member/premium-member" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Premium Member</span>
+              <!-- <span class="badge yellow">1</span> -->
+            </a>
+          </li>
+
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/member/bulk-member" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Bulk Member Add</span>
+              <!-- <span class="badge red">2</span> -->
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/member/deleted-member" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Deleted Members</span>
+              <!-- <span class="badge red">2</span> -->
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/member/reported-member" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Reported Members</span>
+              <!-- <span class="badge red">2</span> -->
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Profile Attributes</span>
+            </a>
+            <ul class="sidemenu-nav-third-level">
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/religions" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Religions</span>
                 </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
-                    <span class="icon"><i class='bx bx-user-plus'></i></span>
-                    <span class="menu-title">Member</span>
+              </li>
+
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/caste" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Caste</span>
                 </a>
+              </li>
 
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/member/free-member" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Free Members</span>
-                            <!-- <span class="badge">5</span>  -->
-                        </a>
-                    </li>
-
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/member/premium-member" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Premium Member</span>
-                            <!-- <span class="badge yellow">1</span> -->
-                        </a>
-                    </li>
-
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/member/bulk-member" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Bulk Member Add</span>
-                            <!-- <span class="badge red">2</span> -->
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/member/deleted-member" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Deleted Members</span>
-                            <!-- <span class="badge red">2</span> -->
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/member/reported-member" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Reported Members</span>
-                            <!-- <span class="badge red">2</span> -->
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Profile Attributes</span>
-                        </a>
-                        <ul class="sidemenu-nav-third-level">
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/religions" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">Religions</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/caste" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">Caste</span>
-                                </a>
-                            </li>
-
-                            <!-- <li class="nav-item" routerLinkActive="active">
+              <!-- <li class="nav-item" routerLinkActive="active">
                                 <a routerLink="/profile-attributes/subcaste" class="nav-link">
                                     <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
                                     <span class="menu-title">Sub Caste</span>
                                 </a>
                             </li> -->
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/member-language" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">Member Language</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/country" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">Country</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/state" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">State</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/City" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">City</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/on-behalf" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">On Behalf</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/family-value" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">Family Value</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/family-status" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">Family Status</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/marital-statuses" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">Marital Statuses</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                              <a routerLink="/profile-attributes/education" class="nav-link">
-                                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                  <span class="menu-title">Education</span>
-                              </a>
-                          </li>
-                          <li class="nav-item" routerLinkActive="active">
-                            <a routerLink="/profile-attributes/occupation" class="nav-link">
-                                <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                <span class="menu-title">Occupation</span>
-                            </a>
-                          </li>
-                          <li class="nav-item" routerLinkActive="active">
-                          <a routerLink="/profile-attributes/star" class="nav-link">
-                              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                              <span class="menu-title">Star</span>
-                          </a>
-                          </li>
-                            <li class="nav-item" routerLinkActive="active">
-                            <a routerLink="/profile-attributes/moonsign" class="nav-link">
-                                <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                <span class="menu-title">Moonsign</span>
-                            </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                              <a routerLink="/profile-attributes/hight" class="nav-link">
-                                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                  <span class="menu-title">Height</span>
-                              </a>
-                            </li>
-                            <li class="nav-item" routerLinkActive="active">
-                                <a routerLink="/profile-attributes/employedin" class="nav-link">
-                                    <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                                    <span class="menu-title">Employedin</span>
-                                </a>
-                            </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/member-language" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Member Language</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/country" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Country</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/state" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">State</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/City" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">City</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/on-behalf" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">On Behalf</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/family-value" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Family Value</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/family-status" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Family Status</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/marital-statuses" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Marital Statuses</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/education" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Education</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/occupation" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Occupation</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/star" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Star</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/moonsign" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Moonsign</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/hight" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Height</span>
+                </a>
+              </li>
+              <li class="nav-item" routerLinkActive="">
+                <a routerLink="/profile-attributes/employedin" class="nav-link">
+                  <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+                  <span class="menu-title">Employedin</span>
+                </a>
+              </li>
 
-                        </ul>
+            </ul>
 
-                    </li>
-                    <!-- <li class="nav-item" routerLinkActive="active">
+          </li>
+          <!-- <li class="nav-item" routerLinkActive="active">
                         <a routerLink="/member/profile-section" class="nav-link">
                             <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
                             <span class="menu-title">Profile Section</span>
                         </a>
                     </li> -->
-                </ul>
-            </li>
+        </ul>
+      </li>
 
-            <li class="nav-item" routerLinkActive="active">
-                <a routerLink="/premium-package" class="nav-link">
-                    <span class="icon"><i class='bx bx-home-circle '></i></span>
-                    <span class="menu-title">Premium Packages</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a routerLink="/package-payment" class="nav-link">
-                    <span class="icon"><i class='bx bx-dollar-circle '></i></span>
-                    <span class="menu-title">Packages Payments</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a routerLink="/happy-stories" class="nav-link">
-                    <span class="icon"><i class='bx bxs-smile  '></i></span>
-                    <span class="menu-title">Happy Stories</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
-                    <span class="icon"><i class='bx bx-merge'></i></span>
-                    <span class="menu-title">Marketing</span>
-                </a>
+      <li class="nav-item" routerLinkActive="">
+        <a routerLink="/premium-package" class="nav-link">
+          <span class="icon"><i class='bx bx-home-circle '></i></span>
+          <span class="menu-title">Premium Packages</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="">
+        <a routerLink="/package-payment" class="nav-link">
+          <span class="icon"><i class='bx bx-dollar-circle '></i></span>
+          <span class="menu-title">Packages Payments</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive=" mm-active">
+        <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
+          <span class="icon"><i class=' bx bx-user'></i></span>
+          <span class="menu-title">Staffs</span>
+          <span class="badge">Staff</span>
+        </a>
+        <ul class="sidemenu-nav-second-level">
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/staffs/all-staff" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">All Staffs</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/staffs/staff-role" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Staffs Role</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item" routerLinkActive="">
+        <a routerLink="/happy-stories" class="nav-link">
+          <span class="icon"><i class='bx bxs-smile  '></i></span>
+          <span class="menu-title">Happy Stories</span>
+        </a>
+      </li>
+      <!-- <li class="nav-item" routerLinkActive=" mm-active">
+        <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
+          <span class="icon"><i class='bx bx-merge'></i></span>
+          <span class="menu-title">Marketing</span>
+        </a>
 
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/newsletter" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Newsletter</span>
-                            <!-- <span class="badge">5</span>  -->
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+        <ul class="sidemenu-nav-second-level">
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/newsletter" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Newsletter</span>
+               <span class="badge">5</span>
+      </a>
+      </li>
+    </ul>
+    </li> -->
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
                     <span class="icon"><i class='bx bxs-keyboard'></i></span>
                     <span class="menu-title">Support Ticket</span>
@@ -272,182 +293,169 @@
                 </ul>
             </li> -->
 
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
-                    <span class="icon"><i class=' bx bxs-key'></i></span>
-                    <span class="menu-title">OTP System</span>
-                    <span class="badge">Addon</span>
-                </a>
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/sms-template" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Sms Templates</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/set-otp" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Set OTP Credentials</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/send-sms" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Send Sms</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+      <li class="nav-item" routerLinkActive=" mm-active">
+        <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
+          <span class="icon"><i class=' bx bxs-key'></i></span>
+          <span class="menu-title">OTP System</span>
+        </a>
+        <ul class="sidemenu-nav-second-level">
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/sms-template" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Sms Templates</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/set-otp" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Set OTP Credentials</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/send-sms" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Send Sms</span>
+            </a>
+          </li>
+        </ul>
+      </li>
 
-            <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/uploadedfile" class="nav-link">
                     <span class="icon"><i class=' bx bxs-image-add'></i></span>
                     <span class="menu-title">Uploaded Files</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
-                    <span class="icon"><i class='bx bxl-wikipedia'></i></span>
-                    <span class="menu-title">Website setup</span>
-                </a>
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/website-setup/header" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Header</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/website-setup/footer" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Footer</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/website-setup/pages" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Pages</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/website-setup/appearance" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Appearence</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+      <li class="nav-item" routerLinkActive=" mm-active">
+        <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
+          <span class="icon"><i class='bx bxl-wikipedia'></i></span>
+          <span class="menu-title">Website setup</span>
+        </a>
+        <ul class="sidemenu-nav-second-level">
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/system/update" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Logo</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/website-setup/header" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Header</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/website-setup/footer" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Footer</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/website-setup/pages" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Pages</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/website-setup/appearance" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Appearence</span>
+            </a>
+          </li>
+        </ul>
+      </li>
 
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
-                    <span class="icon"><i class=' bx bxs-palette '></i></span>
-                    <span class="menu-title">Settings</span>
-                </a>
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/settings/general-setting" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">General Setting</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/settings/language" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Language</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/settings/currency" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Currency</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/settings/payment-methods" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Payment Methods</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/settings/smtp-setting" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">SMTP Settings</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/settings/email-template" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Email Template</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/settings/third-party-setting" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Third Party Settings</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/settings/social-login" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Social Media Login</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+      <li class="nav-item" routerLinkActive=" mm-active">
+        <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
+          <span class="icon"><i class=' bx bxs-palette '></i></span>
+          <span class="menu-title">Settings</span>
+        </a>
+        <ul class="sidemenu-nav-second-level">
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/settings/general-setting" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">General Setting</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item" routerLinkActive="">
+            <a routerLink="/settings/language" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Language</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/settings/currency" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Currency</span>
+            </a>
+          </li> -->
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/settings/payment-methods" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Payment Methods</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/settings/smtp-setting" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">SMTP Settings</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/settings/email-template" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Email Template</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item" routerLinkActive="">
+            <a routerLink="/settings/third-party-setting" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Third Party Settings</span>
+            </a>
+          </li> -->
+          <!-- <li class="nav-item" routerLinkActive="">
+            <a routerLink="/settings/social-login" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Social Media Login</span>
+            </a>
+          </li> -->
+        </ul>
+      </li>
 
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
-                    <span class="icon"><i class=' bx bx-user'></i></span>
-                    <span class="menu-title">Staffs</span>
-                </a>
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/staffs/all-staff" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">All Staffs</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/staffs/staff-role" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Staffs Role</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
 
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
-                    <span class="icon"><i class=' bx bx-bar-chart-square'></i></span>
-                    <span class="menu-title">System</span>
-                </a>
-                <ul class="sidemenu-nav-second-level">
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/system/update" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Update</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" routerLinkActive="active">
-                        <a routerLink="/system/server-status" class="nav-link">
-                            <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
-                            <span class="menu-title">Server Status</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
 
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/dashboard-messages" class="nav-link">
-                    <span class="icon"><i class='bx bx-aperture'></i></span>
-                    <span class="menu-title">Addon Manager</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
+      <!-- <li class="nav-item" routerLinkActive=" mm-active">
+        <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
+          <span class="icon"><i class=' bx bx-bar-chart-square'></i></span>
+          <span class="menu-title">System</span>
+        </a>
+        <ul class="sidemenu-nav-second-level">
+          <li class="nav-item" routerLinkActive="">
+            <a routerLink="/system/update" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Logo</span>
+            </a>
+          </li>
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+        </ul>
+      </li> -->
+      <!-- <li class="nav-item" routerLinkActive="">
+            <a routerLink="/system/server-status" class="nav-link">
+              <span class="icon"><i class='bx bx-circle icon-rs'></i></span>
+              <span class="menu-title">Server Status</span>
+            </a>
+          </li> -->
+
+      <li class="nav-item" routerLinkActive=" mm-active">
+        <a routerLink="/dashboard-messages" class="nav-link">
+          <span class="icon"><i class='bx bx-aperture'></i></span>
+          <span class="menu-title">Chat</span>
+          <span class="badge">chat</span>
+        </a>
+      </li>
+
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/dashboard-messages" class="nav-link">
                     <span class="icon"><i class='bx bx-envelope-open'></i></span>
                     <span class="menu-title">Messages</span>
@@ -455,25 +463,25 @@
                 </a>
             </li> -->
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/dashboard-bookings" class="nav-link">
                     <span class="icon"><i class='bx bx-copy'></i></span>
                     <span class="menu-title">Bookings</span>
                 </a>
             </li> -->
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/dashboard-wallet" class="nav-link">
                     <span class="icon"><i class='bx bx-wallet'></i></span>
                     <span class="menu-title">Wallet</span>
                 </a>
             </li> -->
 
-            <!-- <li class="nav-item-title">
+      <!-- <li class="nav-item-title">
                 Listings
             </li> -->
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a href="javascript:void(0)" class="collapsed-nav-link nav-link" aria-expanded="false">
                     <span class="icon"><i class='bx bx-layer'></i></span>
                     <span class="menu-title">My Listings</span>
@@ -503,52 +511,52 @@
                 </ul>
             </li> -->
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/dashboard-reviews" class="nav-link">
                     <span class="icon"><i class='bx bx-star'></i></span>
                     <span class="menu-title">Reviews</span>
                 </a>
             </li> -->
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/dashboard-bookmarks" class="nav-link">
                     <span class="icon"><i class='bx bx-heart'></i></span>
                     <span class="menu-title">Bookmarks</span>
                 </a>
             </li> -->
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/dashboard-add-listings" class="nav-link">
                     <span class="icon"><i class='bx bx-plus-circle'></i></span>
                     <span class="menu-title">Add Listings</span>
                 </a>
             </li> -->
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/dashboard-invoice" class="nav-link">
                     <span class="icon"><i class='bx bx-certification'></i></span>
                     <span class="menu-title">Invoice</span>
                 </a>
             </li> -->
 
-            <!-- <li class="nav-item-title">
+      <!-- <li class="nav-item-title">
                 Account
             </li> -->
 
-            <!-- <li class="nav-item" routerLinkActive="active mm-active">
+      <!-- <li class="nav-item" routerLinkActive="active mm-active">
                 <a routerLink="/dashboard-my-profile" class="nav-link">
                     <span class="icon"><i class='bx bxs-user-circle'></i></span>
                     <span class="menu-title">Profile</span>
                 </a>
             </li> -->
 
-            <!-- <li class="nav-item">
+      <!-- <li class="nav-item">
                 <a routerLink="/" class="nav-link">
                     <span class="icon"><i class='bx bx-log-out'></i></span>
                     <span class="menu-title">Logout</span>
                 </a>
             </li> -->
-        </ul>
-    </div>
+    </ul>
+  </div>
 </div>
 <!-- End Sidemenu Area -->
