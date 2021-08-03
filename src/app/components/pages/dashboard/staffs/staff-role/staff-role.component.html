@@ -3,62 +3,84 @@
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
 
-    <app-dashboard-navbar></app-dashboard-navbar>
+  <app-dashboard-navbar></app-dashboard-navbar>
 
-    <!-- Breadcrumb Area -->
-     <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-        <h1>{{Content.title}}</h1>
-        <ol class="breadcrumb">
-            <li class="item"><a routerLink="/">Home</a></li>
-            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-            <li class="item">{{Content.title}}</li>
-        </ol>
-    </div> 
-    <!-- End Breadcrumb Area -->
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/">Home</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}}</li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
 
-    <!-- Start -->
-    <div _ngcontent-rqo-c140="" class="bx-right"><a _ngcontent-rqo-c140="" href="/staffs/all-staff/add-new-staffs" class="btn btn-success rs-btn">Add New staffs</a></div>
-    <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <h3 >All Roles</h3>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Options</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr >
-                                    <td class="#">
-                                       1 
-                                    </td>
-                                    <td class="name">
-                                        Admin
-                                    </td>
-                                    <td class="Options">
-                                        <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i class=' bx bx-edit'></i> </a>
-                                        <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
-                                    </td>
-                                </tr>
-                               
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            
+  <!-- Start -->
+  <!-- <div _ngcontent-rqo-c140="" class="bx-right"><a _ngcontent-rqo-c140="" href="/staffs/all-staff/add-new-staffs"
+      class="btn btn-success rs-btn">Add New staffs</a></div> -->
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <h3>All Roles</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let role of allrole;">
+                <td class="#">
+                  {{role.sortorder}}
+                </td>
+                <td class="name">
+                  {{role.name}}
+                </td>
+                <td class="option">
+                  <a class="st-i"><i class=' bx bx-pencil' (click)="getonerole(role._id)"></i> </a>
+                  <a class="st-i2"><i class=' bx bx-minus' (click)="deleterole(role._id)"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!editmode" class="col-lg-4">
+      <div class="card">
+        <h3>Add New Member Role</h3>
+        <form [formGroup]="role" (ngSubmit)="submitForm()" class="bd-n" ngNativeValidate>
+          <label>#Order</label>
+          <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+          <button class="btn btn-primary mt-2" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="editmode" class="col-lg-4">
+      <div class="card">
+        <h3>Edit Role</h3>
+        <form [formGroup]="editrole" (ngSubmit)="updaterole()" class="bd-n" ngNativeValidate>
+          <label>#Order</label>
+          <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+          <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2"
+            type="submit" (click)="cancelupdate()">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End -->
 
-    </div> 
-    <!-- End -->
+  <div class="flex-grow-1"></div>
 
-    <div class="flex-grow-1"></div>
-    
-    <app-copyrights></app-copyrights>
+  <app-copyrights></app-copyrights>
 
 </div>
 <!-- End Main Content Wrapper Area -->
-

@@ -10,7 +10,9 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  forgotpassword = false
+  auth: any;
+  usertype: any;
+  forgotpassword = false;
   signin = new FormGroup({
     Mobile: new FormControl(''),
     password: new FormControl(''),
@@ -28,6 +30,11 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.signin.value).subscribe(
       (response: any) => {
         this.toastr.success('Welcome to Himachal Matrimony');
+        this.auth = true;
+        this.usertype = response.user_type;
+        localStorage.setItem('id', JSON.stringify(response.user._id));
+        localStorage.setItem('usertype', JSON.stringify(this.usertype));
+        localStorage.setItem('auth', JSON.stringify(this.auth));
         console.log(response);
         this.routes.navigate(['/vertical-listings-left-sidebar']);
       },
@@ -38,10 +45,9 @@ export class LoginComponent implements OnInit {
     );
   }
 
-
-  forgetpassword(){
-    console.log("forget password")
-    this.forgotpassword = true
+  forgetpassword() {
+    console.log('forget password');
+    this.forgotpassword = true;
   }
   // setuser() {
   //   console.log(this.signin.value);

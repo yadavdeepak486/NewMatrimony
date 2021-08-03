@@ -10,18 +10,17 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-
   defaultValue: any = {
     name: 'Deutschland',
     alpha2Code: 'DE',
     alpha3Code: 'DEU',
-    numericCode: '276'
- };
+    numericCode: '276',
+  };
   hide = true;
   auth: any;
+  usertype: any;
   allprofilefor: any;
   mobilenumber: any;
-  usertype: any;
   signupuser = new FormGroup({
     Profilecreatedby: new FormControl(
       '60df0fa2ff52457009228570',
@@ -53,10 +52,6 @@ export class SignupComponent implements OnInit {
     public routes: Router,
     public toastr: ToastrService
   ) {}
-
-  
-
-
 
   ngOnInit(): void {
     this.getallreligion();

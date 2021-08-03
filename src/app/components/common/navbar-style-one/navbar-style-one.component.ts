@@ -9,6 +9,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./navbar-style-one.component.scss'],
 })
 export class NavbarStyleOneComponent implements OnInit {
+  checkauth: any;
   // hide = true;
   // allprofilefor: any;
   // signupuser = new FormGroup({
@@ -37,7 +38,11 @@ export class NavbarStyleOneComponent implements OnInit {
   // });
 
   // mobilenumber = 91987654321;
-  constructor(public userService: UserService, public routes: Router) {}
+
+  constructor(public userService: UserService, public routes: Router) {
+    this.checkauth = localStorage.getItem('auth');
+    console.log(this.checkauth);
+  }
 
   ngOnInit(): void {}
 
@@ -81,4 +86,14 @@ export class NavbarStyleOneComponent implements OnInit {
   //     }
   //   );
   // }
+
+  logout() {
+    console.log('request logout');
+    const setauth = false;
+    localStorage.setItem('id', '');
+    localStorage.setItem('usertype', '');
+    localStorage.setItem('auth', JSON.stringify(setauth));
+    localStorage.setItem('TOKEN', '');
+    this.checkauth = false;
+  }
 }
