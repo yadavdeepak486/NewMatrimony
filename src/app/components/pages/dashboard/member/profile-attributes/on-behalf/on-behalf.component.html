@@ -52,11 +52,11 @@
     <div *ngIf="!editmode" class="col-lg-4">
       <div class="card">
         <h3>Add New On Behalf</h3>
-        <form [formGroup]="profilefor" (ngSubmit)="submitForm()" class="bd-n">
+        <form [formGroup]="profilefor" (ngSubmit)="submitForm()" class="bd-n" ngNativeValidate>
           <label>#Order</label>
-          <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
+          <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
           <label>Name</label>
-          <input type="text" class="form-control" placeholder="name" formControlName="name">
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
           <button class="btn btn-primary mt-2" type="submit">Save</button>
         </form>
       </div>
@@ -64,11 +64,11 @@
     <div *ngIf="editmode" class="col-lg-4">
       <div class="card">
         <h3>Edit On Behalf</h3>
-        <form [formGroup]="editprofilefor" (ngSubmit)="updateprofilefor()" class="bd-n">
+        <form [formGroup]="editprofilefor" (ngSubmit)="updateprofilefor()" class="bd-n" ngNativeValidate>
           <label>#Order</label>
-          <input type="number" class="form-control" placeholder="5" formControlName="sortorder">
+          <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
           <label>Name</label>
-          <input type="text" class="form-control" placeholder="name" formControlName="name">
+          <input type="text" class="form-control" placeholder="name" formControlName="name" required>
           <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2"
             type="submit" (click)="cancelupdate()">Cancel</button>
         </form>

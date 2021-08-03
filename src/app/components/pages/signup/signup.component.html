@@ -140,16 +140,19 @@
                     <label class="lb-ser">Email </label>
                     <input type="email" placeholder="Email" class="form-control" formControlName="ConfirmEmail">
                   </div>
-<<<<<<< HEAD
                 </div>
-=======
-                </div> 
->>>>>>> 7a210cec71e35f964bfe92b99d21fdaf30155218
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="lb-ser">Mobile <span style="color: red;">*</span></label>
                     <div class="input-group">
-                      <span class="cd-n"><img src="assets/img/india.png" /> +91</span>
+                      <span class="cd-n"><select class="form-control">
+                          <option style="background-image:url(country);" [value]="country._id"
+                            *ngFor="let country of allcountry">
+                            +{{country.callingCodes}}
+                          </option>
+                        </select></span>
+
+                      <!-- <img [src]="country?.flag" /> -->
                       <input class="form-control cd-n" type="number" min="1000000000" max="9999999999" maxlength="10"
                         placeholder="Number" formControlName="Mobile" required>
                     </div>
@@ -169,9 +172,6 @@
                   </div>
                 </div>
               </div>
-
-
-
               <div class="form-check chk-t">
                 <label class="form-check-label">
                   <input type="checkbox" class="form-check-input" [value]="1" formControlName="agree_terms_conditions"

@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
   userauth = false;
 
   constructor(public http: HttpClient) {}
@@ -67,7 +67,7 @@ export class UserService {
   }
 
   //rest api country
-  allcountryfromrest() {
-    return this.http.get(`https://restcountries.eu/rest/v2/all`);
+  getallflags() {
+    return this.http.get(`${this.backendurl}/user/countrywithflag`);
   }
 }

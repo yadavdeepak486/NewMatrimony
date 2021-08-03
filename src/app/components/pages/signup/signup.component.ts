@@ -20,12 +20,10 @@ export class SignupComponent implements OnInit {
   auth: any;
   usertype: any;
   allprofilefor: any;
+  allcountry: any;
   mobilenumber: any;
   signupuser = new FormGroup({
-    Profilecreatedby: new FormControl(
-      '60df0fa2ff52457009228570',
-      Validators.required
-    ),
+    Profilecreatedby: new FormControl('', Validators.required),
     firstName: new FormControl('', Validators.required),
     LastName: new FormControl('', Validators.required),
     Gender: new FormControl('Male', Validators.required),
@@ -55,6 +53,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallreligion();
+    this.getallflags();
   }
 
   getallreligion() {
@@ -89,6 +88,18 @@ export class SignupComponent implements OnInit {
       (error) => {
         this.toastr.error(error.error.msg + ' Please Login');
         this.routes.navigate(['/login']);
+      }
+    );
+  }
+
+  getallflags() {
+    this.userService.getallflags().subscribe(
+      (response: any) => {
+        this.allcountry = response.data;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }
