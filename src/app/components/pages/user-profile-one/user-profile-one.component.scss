@@ -1,3 +1,31 @@
+div {
+    position: relative;
+    overflow: hidden;
+  }
+  .input-one {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .file.a-btn {
+    background: #1c8602;
+    display: inline-block;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 100px;
+    margin-top: 15px;
+}
+
+p.bt-tetx {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+// css old
+
 @import "../../pages/dashboard/dashboard.component.scss";
 
 
@@ -14,6 +42,7 @@
 
 .my-profile-box {
     margin-bottom: 30px;
+    margin-top: 35px;
     background-color: var(--whiteColor);
     box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
     border-radius: 5px;

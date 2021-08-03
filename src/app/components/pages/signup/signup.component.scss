@@ -1412,11 +1412,11 @@ a.default-btn.btn-lr {
   
   // mb css
   .card.pd-5.rs-1 {
-    height: 900px !important; 
+    height: 1000px !important; 
     justify-content: center;
   }
   button.btnrg{
-    padding: 15px 115px !important;
+    padding: 15px 25px !important;
    }
   .modal-content.rs-3 {
     border: none !important;
@@ -1941,7 +1941,8 @@ input.example-right-align {
   margin-bottom: 15px;
 }
 a.tac {
-  color: #f00;
+  color:#0e0bf5;
+  font-weight: 700;
 }
 div#forgotpassordModal {
   background: {
@@ -2066,6 +2067,21 @@ button.btnrg {
 // new css
 
 .card.pd-5.rs-1 {
-  height:750px;
+  height:800px;
   justify-content: center;
+}
+
+// form haeding
+.form-heading{
+  width: 100%;
+  text-align: center;
+}
+.form-heading h3{
+  font-size: 18px;
+  color: #f00;
+  margin-bottom: 4px;
+}
+.form-heading p{
+  font-size: 12px;
+  font-weight: 500;
 }

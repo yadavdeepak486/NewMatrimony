@@ -12,97 +12,147 @@ export class VerifyMemberComponent implements OnInit {
 
  
   ngOnInit(): void {
-    
-    this.getinactiveuser();
+    this.resetOption = [this.options[0]]; 
+   
   }
+  
+  pageTitleContent = [
+    {
+        title: 'Find Popular Places'
+    }
+]
 
-
-  source: any;
-
-  settings = {
-    // add: {
-    //   addButtonContent: '<i  class="ion-ios-plus-outline"></i>',
-    //   createButtonContent: '<i class="ion-checkmark" ></i>',
-    //   cancelButtonContent: '<i class="ion-close"></i>',
-    //   confirmCreate: true
-    // },
-    // edit: {
-    //   editButtonContent: '<i class="ion-edit"></i>',
-    //   saveButtonContent: '<i class="ion-checkmark"></i>',
-    //   cancelButtonContent: '<i class="ion-close"></i>',
-    //   confirmSave: true
-    // },
-    // delete: {
-    //   deleteButtonContent: '<i class="ion-trash-a"></i>',
-    //   confirmDelete: true
-    // },
-    actions: {
-      columnTitle: 'Actions',
-      add: true,
-      edit: true,
-      delete: true,
+// Category Select
+singleSelect: any = [];
+multiSelect: any = [];
+stringArray: any = [];
+objectsArray: any = [];
+resetOption: any;
+config = {
+    displayKey: "name",
+    search: true
+};
+options = [
+    // Type here your category name
+    {
+        name: "name",
+    },
+    {
+        name: "lorem",
+    },
+    {
+        name: "lorem",
+    }
     
-      custom: [
-        // { name: 'Permissions', title:  '&nbsp;&nbsp;<i class="bntn btn-danger"><button>Reject</button></i>'},
-      ],
-      position: 'right',
-
+];
+searchChange($event) {
+    console.log($event);
+}
+reset() {
+    this.resetOption = [];
+}
+// Ordering Select
+options2 = [
+    {
+        name: "Recommended",
     },
-
-    columns: {
-      Photo1: {
-        title: 'Image',
-        filter: false,
-        type: 'html',
-        valuePrepareFunction: (imageUrl) => { return '<img src="' + imageUrl + '" alt="Smiley face" height="60" width="60" />' },
-      },
-     
-      firstName: {
-        title: 'First Name/Last Name',
-        filter: true,
-      },
-      Gender: {
-        title: 'Gender',
-        filter: true,
-      },
-      description: {
-        title: 'Description',
-        filter: true,
-      },
-
-      // Permissions: {
-      //   title: 'Action',
-      //   filter: true,
-      //   actions: true,
-      // },
+    {
+        name: "Default",
     },
-    attr: {
-      class: 'table table-bordered'
+    {
+        name: "Popularity",
     },
+    {
+        name: "Latest",
+    }
+    
+];
+// Distance Select
+options3 = [
+    {
+        name: "Driving (5 mi.)",
+    },
+    {
+        name: "Walking (1 mi.)",
+    },
+    {
+        name: "Biking (2 mi.)",
+    },
+    {
+        name: "Within 4 blocks",
+    },
+    {
+        name: "Bicycle (6 mi.)",
+    }
+];
 
-  };
-
-  onSearch(query: string = '') {
-    this.source.setFilter([
-      // fields we want to inclue in the search
+// All Listings
+singleListingsItem = [
+    {
+        mainImg: 'assets/img/user1.png',
       
-      {
-        field: 'firstName',
-        search: query,
-      },
-      {
-        field: 'Gender',
-        search: query,
-      },
-      {
-        field: '',
-        search: query,
-      },
-    ], true);
-    // second parameter specifying whether to perform 'AND' or 'OR' search
-    // (meaning all columns should contain search query or at least one)
-    // 'AND' by default, so changing to 'OR' by setting false here
-  }
+        category: 'Restaurant',
+        location: 'New York, USA',
+        title: 'Himanshi Sharma',
+        online: 'Online',
+        detailsLink: '',
+        extraClass: 'status-open',
+        
+    },
+    {
+      mainImg: 'assets/img/user1.png',
+      
+      category: 'Restaurant',
+      location: 'New York, USA',
+      title: 'Himanshi Sharma',
+      online: 'Online',
+      detailsLink: '',
+      extraClass: 'status-open',
+    },
+    {
+      mainImg: 'assets/img/user1.png',
+      
+      category: 'Restaurant',
+      location: 'New York, USA',
+      title: 'Himanshi Sharma',
+      online: 'Online',
+      detailsLink: '',
+      extraClass: 'status-open',
+    },
+    {
+      mainImg: 'assets/img/user1.png',
+      
+      category: 'Restaurant',
+      location: 'New York, USA',
+      title: 'Himanshi Sharma',
+      online: 'Online',
+      detailsLink: '',
+      extraClass: 'status-open',
+    },
+    {
+      mainImg: 'assets/img/user1.png',
+      
+      category: 'Restaurant',
+      location: 'New York, USA',
+      title: 'Himanshi Sharma',
+      online: 'Online',
+      detailsLink: '',
+      extraClass: 'status-open',
+    },
+    {
+      mainImg: 'assets/img/user1.png',
+      
+      category: 'Restaurant',
+      location: 'New York, USA',
+      title: 'Himanshi Sharma',
+      online: 'Online',
+      detailsLink: '',
+      extraClass: 'status-open',
+    }
+]
+
+verticalListings: number = 1;
+
 
   breadcrumb = [
     {
@@ -111,15 +161,5 @@ export class VerifyMemberComponent implements OnInit {
     }
   ]
 
-  getinactiveuser() {
-    this.adminServie.getinactiveuser().subscribe((response: any) => {
-      console.log(response)
-      this.source = response.data
-    }, (error) => {
-      console.log(error)
-    })
-  }
-
-  
 
 }

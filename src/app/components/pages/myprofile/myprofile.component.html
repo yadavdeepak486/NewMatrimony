@@ -90,126 +90,695 @@
 
          <div class="profile-content">
               <div class="row">
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-12 col-md-12">
                   <div class="my-profile-box">
-                      <h3>Profile Details</h3>
-                      <form>
-                          <div class="row">
-                              
-                              <div class="col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Your Name</label>
-                                      <input type="text" class="form-control" value="Andy Smith">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-xl-6 col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Email</label>
-                                      <input type="email" class="form-control" value="hello@andysmith.com">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-xl-6 col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Phone</label>
-                                      <input type="text" class="form-control" value="+88 (123) 123456">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-xl-6 col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Address</label>
-                                      <input type="text" class="form-control" value="Wonder Street, USA, New York">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-xl-6 col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Website</label>
-                                      <input type="text" class="form-control" value="EnvyTheme.com">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Bio</label>
-                                      <textarea cols="30" rows="6" placeholder="Short description about you..." class="form-control"></textarea>
-                                  </div>
-                              </div>
-      
-                              <div class="col-xl-6 col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Facebook URL</label>
-                                      <input type="text" class="form-control" placeholder="https://www.facebook.com/">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-xl-6 col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Twitter URL</label>
-                                      <input type="text" class="form-control" placeholder="https://twitter.com/">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-xl-6 col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Linkedin URL</label>
-                                      <input type="text" class="form-control" placeholder="https://www.linkedin.com/">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-xl-6 col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Instagram URL</label>
-                                      <input type="text" class="form-control" placeholder="https://instagram.com/">
-                                  </div>
-                              </div>
-          
-                              <div class="col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <button type="submit">Save Change</button>
-                                  </div>
-                              </div>
+                      <div class="content-box">
+                          <div class="heading-title">
+                              <h3>Basic Information</h3>
+                              <button class="btn btn-primary btn-right" type="button" data-toggle="collapse" data-target="#bsinfo" aria-expanded="false" aria-controls="bsinfo">
+                               Update Now
+                              </button>
                           </div>
-                      </form>
-                  </div>
-              </div>
-                <div class="col-lg-6 col-md-12">
-                  <div class="my-profile-box">
-                      <h3>Change Password</h3>
-                      <form>
-                          <div class="row">
-                              <div class="col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Current Password</label>
-                                      <input type="password" class="form-control" value="123456">
+                          <div class="collapse" id="bsinfo">
+                            <div class="card card-body">
+                               <form>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" placeholder="Name">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Gender</label>
+                                        <select class="form-control">
+                                           <option>Male</option>
+                                           <option>Female</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Age</label>
+                                        <input type="text" class="form-control" placeholder="Age">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Date Of Birth</label>
+                                        <input type="date" class="form-control" placeholder="DOB">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Place of Birth</label>
+                                        <input type="text" class="form-control" placeholder="Place Of Birth">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Marital Status</label>
+                                        <select name="" id="" class="form-control">
+                                            <option>Married</option>
+                                            <option>Unmarried</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Children Status</label>
+                                        <select name="" id="" class="form-control" aria-placeholder="Children Status:">
+                                            <option>yes</option>
+                                            <option>no</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Time of Birth</label>
+                                        <input type="time" class="form-control" placeholder="Time Of Birth">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <button class="btn btn-primary btn-up">Update</button>
+                                    </div>
                                   </div>
-                              </div>
-                              
-                              <div class="col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>New Password</label>
-                                      <input type="password" class="form-control">
-                                  </div>
-                              </div>
-                              
-                              <div class="col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <label>Confirm New Password</label>
-                                      <input type="password" class="form-control">
-                                  </div>
-                              </div>
-          
-                              <div class="col-lg-12 col-md-12">
-                                  <div class="form-group">
-                                      <button type="submit">Change Password</button>
-                                  </div>
-                              </div>
+                               </form>
+                            </div>
                           </div>
-                      </form>
+                          <div class="info-text">
+                              <table class="tb-text">
+                                   <tbody class="tb-text">
+                                       <tr class="wd">
+                                          <td class="wd1">Name:</td>
+                                          <td class="wd1">Lorem</td>
+                                       </tr>
+                                       <tr class="wd">
+                                          <td class="wd1">Gender:</td>
+                                          <td class="wd1">Male</td>
+                                       </tr>
+                                       <tr class="wd">
+                                          <td class="wd1">Age:</td>
+                                          <td class="wd1">25</td>
+                                       </tr>
+                                       <tr class="wd">
+                                          <td class="wd1">Date of Birth:</td>
+                                          <td class="wd1">23/7/2021</td>
+                                       </tr>
+                                       <tr class="wd">
+                                          <td class="wd1">Place Of Birth:</td>
+                                          <td class="wd1">Indore</td>
+                                       </tr>
+                                       <tr class="wd">
+                                          <td class="wd1">Marital Status:</td>
+                                          <td class="wd1">Unmarried</td>
+                                        </tr>
+                                        <tr class="wd">
+                                          <td class="wd1">Children Status:</td>
+                                          <td class="wd1">No Children</td>
+                                        </tr>
+                                        <tr class="wd">
+                                          <td class="wd1">Time of Birth:</td>
+                                          <td class="wd1">04:29:00 Pm</td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+                          </div>
+                      </div>
+                      <!-- education -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                            <h3>Education and Occupation</h3>
+                            <button class="btn btn-primary btn-right" type="button" data-toggle="collapse" data-target="#educa" aria-expanded="false" aria-controls="educa">
+                             Update Now
+                            </button>
+                        </div>
+                        <div class="collapse" id="educa">
+                          <div class="card card-body">
+                            <form>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Education</label>
+                                    <select class="form-control">
+                                        <option>High School</option>
+                                        <option>Higher secondery</option>
+                                        <option>Bachelor</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Education Details</label>
+                                    <select class="form-control">
+                                       <option>lorem</option>
+                                       <option>lorem</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Occupation</label>
+                                    <input type="text" class="form-control" placeholder="Occupation">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Occupation Detail</label>
+                                    <input type="date" class="form-control" placeholder="Occupation Detail">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Employee In</label>
+                                    <select class="form-control">
+                                      <option>Gov.</option>
+                                      <option>Private</option>
+                                      <option>Not</option>
+                                   </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Annual Income</label>
+                                    <select name="" id="" class="form-control">
+                                        <option>1,00,000</option>
+                                        <option>2,00,000</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <button class="btn btn-primary btn-up">Update</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="info-text">
+                            <table class="tb-text">
+                                 <tbody class="tb-text">
+                                     <tr class="wd">
+                                        <td class="wd1">Education:</td>
+                                        <td class="wd1">High School</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Education Details:</td>
+                                        <td class="wd1">h</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Occupation:</td>
+                                        <td class="wd1">Not Working</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Occupation Detail:</td>
+                                        <td class="wd1">No</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Employee In:</td>
+                                        <td class="wd1">Not Employeed</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Annual Income:</td>
+                                        <td class="wd1">80,000 per yaer</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">Children Status:</td>
+                                        <td class="wd1">No Children</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">Time of Birth:</td>
+                                        <td class="wd1">04:29:00 Pm</td>
+                                      </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                      </div>
+                      <!-- socio religion background -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                            <h3>Socio Religious Background</h3>
+                            <button class="btn btn-primary btn-right" type="button" data-toggle="collapse" data-target="#socio" aria-expanded="false" aria-controls="socio">
+                             Update Now
+                            </button>
+                        </div>
+                        <div class="collapse" id="socio">
+                          <div class="card card-body">
+                            <form>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Religion</label>
+                                    <select class="form-control">
+                                        <option>Hindu</option>
+                                        <option>Jain</option>
+                                        <option>Christian</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Caste/division</label>
+                                    <input type="text" class="form-control" placeholder="Caste">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Manglik/Dosham</label>
+                                    <select class="form-control">
+                                      <option>yes</option>
+                                      <option>no</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Gothram</label>
+                                    <input type="text" class="form-control" placeholder="Gothram">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Language</label>
+                                    <select class="form-control">
+                                      <option>Hindi</option>
+                                      <option>English</option>
+                                      <option>both</option>
+                                   </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Star</label>
+                                    <input type="text" class="form-control" placeholder="Star">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Moonsign</label>
+                                    <input type="text" class="form-control" placeholder="Moonsign">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Horoscope Match</label>
+                                    <input type="text" class="form-control" placeholder="Horoscope Match">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <button class="btn btn-primary btn-up">Update</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="info-text">
+                            <table class="tb-text">
+                                 <tbody class="tb-text">
+                                     <tr class="wd">
+                                        <td class="wd1">Religion:</td>
+                                        <td class="wd1">Hindu</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Caste/division</td>
+                                        <td class="wd1">Chaudhary-girth</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Manglik/Dosham:</td>
+                                        <td class="wd1">Manglik</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Gothram:</td>
+                                        <td class="wd1">No</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Language:</td>
+                                        <td class="wd1">Hindi</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Star:</td>
+                                        <td class="wd1">Does Not Matter</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">Moonsign:</td>
+                                        <td class="wd1">no</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">Horoscope Match:</td>
+                                        <td class="wd1">no</td>
+                                      </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                      </div>
+                      <!-- Physical Status and Lifestyle -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                            <h3>Physical Status and Lifestyle</h3>
+                            <button class="btn btn-primary btn-right" type="button" data-toggle="collapse" data-target="#physicalstatus" aria-expanded="false" aria-controls="physicalstatus">
+                             Update Now
+                            </button>
+                        </div>
+                        <div class="collapse" id="physicalstatus">
+                          <div class="card card-body">
+                            <form>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Height</label>
+                                    <input type="text" class="form-control" placeholder="Sft 4in ( 162cm )">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Weight</label>
+                                    <input type="text" class="form-control" placeholder="48">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Blood Group</label>
+                                    <select class="form-control">
+                                      <option>A+</option>
+                                      <option>A-</option>
+                                      <option>B+</option>
+                                      <option>O+</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Complexion</label>
+                                    <input type="text" class="form-control" placeholder="Complexion">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Diet</label>
+                                    <select class="form-control">
+                                      <option>yes</option>
+                                      <option>no</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Smoke</label>
+                                    <select class="form-control">
+                                      <option>yes</option>
+                                      <option>no</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Drink</label>
+                                    <select class="form-control">
+                                      <option>yes</option>
+                                      <option>no</option>
+                                    </select>
+                                  </div>
+                                </div>
+                               
+                               
+                                <div class="col-md-12">
+                                  <button class="btn btn-primary btn-up">Update</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="info-text">
+                            <table class="tb-text">
+                                 <tbody class="tb-text">
+                                     <tr class="wd">
+                                        <td class="wd1">Height:</td>
+                                        <td class="wd1">Sft 4in ( 162cm )</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Weight</td>
+                                        <td class="wd1">Chaudhary-girth</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Blood Group:</td>
+                                        <td class="wd1">no</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Complexion:</td>
+                                        <td class="wd1">No</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Diet:</td>
+                                        <td class="wd1">no</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Smoke:</td>
+                                        <td class="wd1">no</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">Drink:</td>
+                                        <td class="wd1">no</td>
+                                      </tr>
+                                      
+                                 </tbody>
+                            </table>
+                        </div>
+                      </div>
+                      <!-- profile description -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                            <h3>Profile Description</h3>
+                            <button class="btn btn-primary btn-right" type="button" data-toggle="collapse" data-target="#prodescrip" aria-expanded="false" aria-controls="prodescrip">
+                             Update Now
+                            </button>
+                        </div>
+                        <div class="collapse" id="prodescrip">
+                          <div class="card card-body">
+                            <h3>dummy Account</h3>
+                            <!-- <form>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Height</label>
+                                    <input type="text" class="form-control" placeholder="Sft 4in ( 162cm )">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Weight</label>
+                                    <input type="text" class="form-control" placeholder="48">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Blood Group</label>
+                                    <select class="form-control">
+                                      <option>A+</option>
+                                      <option>A-</option>
+                                      <option>B+</option>
+                                      <option>O+</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Complexion</label>
+                                    <input type="text" class="form-control" placeholder="Complexion">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Diet</label>
+                                    <select class="form-control">
+                                      <option>yes</option>
+                                      <option>no</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Smoke</label>
+                                    <select class="form-control">
+                                      <option>yes</option>
+                                      <option>no</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Drink</label>
+                                    <select class="form-control">
+                                      <option>yes</option>
+                                      <option>no</option>
+                                    </select>
+                                  </div>
+                                </div>
+                               
+                               
+                                <div class="col-md-6">
+                                  <button class="btn btn-primary btn-up">Update</button>
+                                </div>
+                              </div>
+                            </form> -->
+                          </div>
+                        </div>
+                        <div class="info-text">
+                            <h3>dummy Account</h3>
+                          <!-- <table class="tb-text">
+                                 <tbody class="tb-text">
+                                     <tr class="wd">
+                                        <td class="wd1">Height:</td>
+                                        <td class="wd1">Sft 4in ( 162cm )</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Weight</td>
+                                        <td class="wd1">Chaudhary-girth</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Blood Group:</td>
+                                        <td class="wd1">no</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Complexion:</td>
+                                        <td class="wd1">No</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Diet:</td>
+                                        <td class="wd1">no</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Smoke:</td>
+                                        <td class="wd1">no</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">Drink:</td>
+                                        <td class="wd1">no</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">Horoscope Match:</td>
+                                        <td class="wd1">no</td>
+                                      </tr>
+                                 </tbody>
+                            </table> -->
+                        </div>
+                      </div>
+                      <!-- family detail -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                            <h3>Family Details</h3>
+                            <button class="btn btn-primary btn-right" type="button" data-toggle="collapse" data-target="#familydetail" aria-expanded="false" aria-controls="familydetail">
+                             Update Now
+                            </button>
+                        </div>
+                        <div class="collapse" id="familydetail">
+                          <div class="card card-body">
+                            <form>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Family Values</label>
+                                    <input type="text" class="form-control" placeholder="family Values">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Family Type</label>
+                                    <select class="form-control">
+                                      <option>lorem</option>
+                                      <option>lorem</option>
+                                      <option>lorem</option>
+                                      <option>lorem</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Family Status</label>
+                                    <select class="form-control">
+                                      <option>lorem</option>
+                                      <option>lorem</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Father Occupation</label>
+                                    <input type="text" class="form-control" placeholder="Retired">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Mother Occupation</label>
+                                    <input type="text" class="form-control" placeholder="HouseWife">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Family Origin</label>
+                                    <input type="text" class="form-control" placeholder="Family Origin">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>No. of Brothers</label>
+                                    <input type="text" class="form-control" placeholder="2 Elder Brothers">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>No. of Sister</label>
+                                    <input type="text" class="form-control" placeholder="2 Elder Sister's">
+                                  </div>
+                                </div>
+                              
+                                <div class="col-md-6">
+                                  <button class="btn btn-primary btn-up">Update</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="info-text">
+                            <table class="tb-text">
+                                 <tbody class="tb-text">
+                                     <tr class="wd">
+                                        <td class="wd1">Family Values:</td>
+                                        <td class="wd1">no</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Family Type:</td>
+                                        <td class="wd1">no</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Family Status:</td>
+                                        <td class="wd1">no</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Father Occupation:</td>
+                                        <td class="wd1">Retired</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Mother Occupation:</td>
+                                        <td class="wd1">HouseWife</td>
+                                     </tr>
+                                     <tr class="wd">
+                                        <td class="wd1">Family Origin:</td>
+                                        <td class="wd1">Kangra</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">No. of Brothers:</td>
+                                        <td class="wd1">3 Elder brother and 2 youngest brother</td>
+                                      </tr>
+                                      <tr class="wd">
+                                        <td class="wd1">No. of Sister:</td>
+                                        <td class="wd1">no</td>
+                                      </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                      </div>
                   </div>
-                </div>
+                 </div>
               </div>
          </div>
   </div>

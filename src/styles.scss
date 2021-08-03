@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --fontFamily: "Work Sans", sans-serif;
+  --fontFamily: 'Poppins', sans-serif;
   --mainColor: #ff0000;
   --mainColor2: #1ee2e9;
   --optionalColor: #666666;
@@ -187,12 +187,13 @@ p {
 }
 /*form-control*/
 .form-control {
-  border-radius: 0;
-  background-color: #e5e5e561 !important;
+  border-radius: 4px;
+  // background-color: #e5e5e561 !important;
+  border: 1px solid #e2e5ec;
   box-shadow: unset !important;
   transition: var(--transition);
-  border: none;
-  height: 45px;
+  // border: none;
+  height: 40px;
   padding-left: 15px;
   color: var(--blackColor);
   font: {
@@ -3442,5 +3443,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family:'Poppins', sans-serif;
 }
