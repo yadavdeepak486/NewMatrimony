@@ -2,7 +2,7 @@
 <section class="bg-img">
   <div class="container">
     <div class="row">
-      <div class="offset-lg-6 col-lg-6">
+      <div class="offset-lg-7 col-lg-5">
         <div class="card pd-5">
           <div class="tl-text">
             <h3>We Need few more information </h3>
@@ -12,7 +12,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Religion</label>
+                  <label class="lb-ser">Religion <span style="color: red;">*</span></label>
                   <select #selectedreligion (ngModelChange)="castofrelgion($event)" class="form-control"
                     formControlName="Religion">
                     <option [value]="religion._id" *ngFor="let religion of allreligion">
@@ -22,7 +22,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Caste </label>
+                  <label class="lb-ser">Caste <span style="color: red;">*</span> </label>
                   <select class="form-control" formControlName="Caste">
                     <option [value]="caste._id" *ngFor="let caste of allcaste">
                       {{caste.name}}</option>
@@ -31,7 +31,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Manglik Status </label>
+                  <label class="lb-ser">Manglik Status <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="Manglik">
                     <option value="not_manglik" selected>Not Manglik</option>
                     <option value="manglik">Manglik</option>
@@ -41,7 +41,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Height </label>
+                  <label class="lb-ser">Height<span style="color: red;">*</span> </label>
                   <select class="form-control" formControlName="Height">
                     <option [value]="height._id" *ngFor="let height of allheights">
                       {{height.feetinchvalue}} Feet {{height.cmvalue}} Cm</option>
@@ -50,7 +50,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Place Of Birth</label>
+                  <label class="lb-ser">Place Of Birth <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="POB">
                     <option [value]="city._id" *ngFor="let city of allcity">
                       {{city.name}}</option>
@@ -59,24 +59,24 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Time Of Birth </label>
+                  <label class="lb-ser">Time Of Birth <span style="color: red;">*</span> </label>
                   <input type="time" placeholder="Time of Birth" formControlName="TOB" class="form-control">
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <label class="lb-ser">Education</label>
+                  <label class="lb-ser">Education<span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="Education">
                     <option [value]="education._id" *ngFor="let education of alleducation">
                       {{education.name}}, {{education.place}}</option>
                   </select>
                 </div>
               </div>
-              <p class="sub-text"><b>Occupation Details</b></p>
+              <p class="sub-text"><b>Occupation Details <span style="color: red;">*</span></b></p>
               <hr>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Type of Employement </label>
+                  <label class="lb-ser">Type of Employement <span style="color: red;">*</span> </label>
                   <select class="form-control" formControlName="Employedin">
                     <option [value]="employedin._id" *ngFor="let employedin of allemployedin">
                       {{employedin.name}}</option>
@@ -85,7 +85,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Occupation</label>
+                  <label class="lb-ser">Occupation <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="Occupation">
                     <option [value]="occupation._id" *ngFor="let occupation of alloccupation">
                       {{occupation.name}}</option>
@@ -97,7 +97,7 @@
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Living Country</label>
+                  <label class="lb-ser">Living Country <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="LCountry">
                     <option [value]="country._id" *ngFor="let country of allcountry">
                       {{country.name}}</option>
@@ -106,7 +106,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Living State</label>
+                  <label class="lb-ser">Living State <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="LState">
                     <option [value]="state._id" *ngFor="let state of allstate">
                       {{state.name}}</option>
@@ -115,7 +115,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Living City</label>
+                  <label class="lb-ser">Living City <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="LCity">
                     <option [value]="city._id" *ngFor="let city of allcity">
                       {{city.name}}</option>
@@ -130,7 +130,7 @@
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Native Country</label>
+                  <label class="lb-ser">Native Country <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="Country">
                     <option [value]="country._id" *ngFor="let country of allcountry">
                       {{country.name}}</option>
@@ -139,7 +139,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Native State</label>
+                  <label class="lb-ser">Native State <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="State">
                     <option [value]="state._id" *ngFor="let state of allstate">
                       {{state.name}}</option>
@@ -148,7 +148,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="lb-ser">Native City</label>
+                  <label class="lb-ser">Native City <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="City">
                     <option [value]="city._id" *ngFor="let city of allcity">
                       {{city.name}}</option>
@@ -158,7 +158,7 @@
             </div>
             <div class="btn-box">
               <button type="submit" class="btnrg">
-                Register Now</button>
+                Next</button>
             </div>
           </form>
         </div>

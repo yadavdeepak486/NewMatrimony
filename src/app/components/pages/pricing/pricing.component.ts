@@ -1,3 +1,4 @@
+import { TWO } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -23,7 +24,7 @@ export class PricingComponent implements OnInit {
         {
             singlePricingBox: [
                 {
-                    title: 'Starter Plan',
+                    title: 'BRONZE Membership Plan',
                     features: [
                         {
                             icon: 'bx bx-check',
@@ -67,7 +68,7 @@ export class PricingComponent implements OnInit {
                     buttonLink: '#'
                 },
                 {
-                    title: 'Advance Plan',
+                    title: 'SILVER Memberships Plan',
                     features: [
                         {
                             icon: 'bx bx-check',
@@ -111,7 +112,7 @@ export class PricingComponent implements OnInit {
                     buttonLink: '#'
                 },
                 {
-                    title: 'Premium Plan',
+                    title: 'GOLDEN Membership Plan',
                     features: [
                         {
                             icon: 'bx bx-check',
@@ -295,5 +296,6 @@ export class PricingComponent implements OnInit {
             ]
         }
     ]
+    
 
 }

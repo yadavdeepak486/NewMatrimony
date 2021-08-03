@@ -5,7 +5,11 @@
       <div class="offset-lg-7 col-lg-5">
         <div class="card pd-5 rs-1">
           <div *ngIf="!otpsection" class="vesax-register">
-            <span class="sub-title-rs"><span>Register</span></span>
+            <div class="form-heading">
+               <h3>Create Your Free Profile</h3>
+               <p>Submit your below details to Sign Up</p>
+            </div>
+            <span class="sub-title-rs"><span></span></span>
             <form [formGroup]="signupuser" (ngSubmit)="submitandmovetootp()" ngNativeValidate>
               <div class="row">
                 <div class="col-md-6">
@@ -24,7 +28,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="lb-ser">On Behalf <span style="color: red;">*</span> </label>
-                    <select class="form-control" formControlName="Profilecreatedby" required>
+                    <select class="form-control" formControlName="Profilecreatedby" >
                       <option [value]="profilefor._id" *ngFor="let profilefor of allprofilefor">
                         {{profilefor.name}}</option>
                     </select>
@@ -143,7 +147,7 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label class="lb-ser">Mobile <span style="color: red;">*</span></label>
+                    <label class="lb-ser">Mobile Number <span style="color: red;">*</span><small>( We will  send verification code on this )</small></label>
                     <div class="input-group">
                       <span class="cd-n"><select class="form-control">
                           <option style="background-image:url(country);" [value]="country._id"
@@ -160,7 +164,7 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label class="lb-ser">Password <span style="color: red;">*</span></label>
+                    <label class="lb-ser">Create your password to Login <span style="color: red;">*</span></label>
                     <mat-form-field appearance="fill" class="mb-w">
                       <mat-label>Enter your password</mat-label>
                       <input matInput [type]="hide ? 'password' : 'text'" formControlName="ConfirmPassword" required>
@@ -177,14 +181,14 @@
                   <input type="checkbox" class="form-check-input" [value]="1" formControlName="agree_terms_conditions"
                     required>By
                   signing up you agree to our
-                  <span><a class="tac">terms and conditions.</a></span>
+                  <span><a  href="javascript:void(0)" class="tac">T&C</a></span> and  <span><a class="tac" href="javascript:void(0)">Privacy Policy</a></span>
                 </label>
               </div>
 
               <button type="submit" id="regform" class="btnrg">
                 Register Now</button>
             </form>
-            <span class="already-account">Already have an account? <a style="cursor: pointer;"
+            <span class="already-account">Already have an account? <a style="cursor: pointer; color: blue; font-weight: 500;"
                 href="/login">Login</a></span>
           </div>
           <div *ngIf="otpsection" class="modal-content rs-3">

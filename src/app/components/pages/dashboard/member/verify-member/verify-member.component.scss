@@ -1,336 +1,147 @@
 @import "../../dashboard.component.scss";
+@import "../../../vertical-listings-left-sidebar/vertical-listings-left-sidebar.component.scss";
 
-.bookings-listings-box {
-    margin-bottom: 30px;
+// new css 
+span.sp-1 {
+    font-size: 16px;
+    margin-left: 4px;
+    font-weight: 500;
+}
+span.sp-2 {
+    font-size: 16px;
+    margin-left: 8px;
+    font-weight: 500;
+}
+span.sp-3 {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.tb-1{
+    width: 100%;
+    color: #6f6666;
+    font-size: 14px;
+    font-weight: 500;
+}
+.tb-s{
+    margin-left: 15px;
+}
+.detail-text{
+    border-top: 1px solid #cccccc7a;
+    padding: 10px 0px;
+    border-bottom: 1px solid #cccccc7a;
+}
+p.l-mark {
+    padding-top: 10px;
+    color: #666;
+    font-weight: 600;
+    font-size: 14px;
+}
+span.txt-small {
+    font-weight: 300;
+    font-size: 14px;
+}
+li.lst-txt {
+    font-size: 12px !important;
+}
+span.spn-lst {
+    font-weight: 400;
+}
+a.lst-profile {
+    font-size: 12px;
+    color: #233cea !important;
+}
+ul.listings-meta.pd-tr {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+ul.listings-meta.pd-r {
+    margin: 0px !important;
+}
+
+// css for search filter
+form {
+    margin-top: 4px;
     background-color: var(--whiteColor);
-    box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
-    border-radius: 5px;
+    // box-shadow: 5px 5px #30eded;
+    border-radius: 100px;
+    padding: {
+        left: 20px;
+        right: 12px;
+    };
+    .form-group {
+        margin: 0;
+        position: relative;
+        border-right: 1px solid #30eded;
+        margin-left: 12px;
 
-    h3 {
-        margin-bottom: 0;
-        padding: 20px 25px 19px;
-        border-bottom: 1px dashed #eeeeee;
-        font: {
-            size: 17px;
-            weight: 600;
-        };
-    }
-    table {
-        margin-bottom: 0;
-
-        thead {
-            th {
-                white-space: nowrap;
-                vertical-align: middle;
-                color: var(--blackColor);
-                padding: 11px 25px 10px;
-                border: {
-                    bottom: 1px dashed #eeeeee;
-                    top: none;
-                    right: 1px dashed #eeeeee;
-                };
-                font: {
-                    size: var(--fontSize);
-                    weight: 600;
-                };
-            }
+        label {
+            margin-bottom: 0;
+            position: absolute;
+            left: 0;
+            top: 19px;
+            line-height: 1;
+            font-size: 23px;
+            color: #646464;
+            z-index: 2;
         }
-        tbody {
-            td {
-                white-space: nowrap;
-                vertical-align: middle;
-                padding: 30px 25px;
-                border: {
-                    bottom: 1px dashed #eeeeee;
-                    right: 1px dashed #eeeeee;
-                    top: 1px dashed #eeeeee;
-                };
-                &.name {
-                    position: relative;
-
-                    img {
-                        width: 80px;
-                        height: 80px;
-                        border-radius: 50%;
-                    }
-                    .info {
-                        margin-top: 15px;
-
-                        span {
-                            display: block;
-                            margin-bottom: 8px;
-                            font: {
-                                size: 18px;
-                                weight: 600;
-                            };
-                        }
-                        ul {
-                            padding-left: 0;
-                            margin-bottom: 0;
-                            list-style-type: none;
-
-                            li {
-                                color: var(--optionalColor);
-                                display: inline-block;
-                                margin-right: 20px;
-                                position: relative;
-                                font: {
-                                    size: 14px;
-                                    weight: 500;
-                                };
-                                a {
-                                    color: var(--optionalColor);
-                                    display: inline-block;
-
-                                    &:hover {
-                                        color: var(--mainColor);
-                                    }
-                                }
-                                &::before {
-                                    content: '';
-                                    position: absolute;
-                                    right: -10px;
-                                    top: 5px;
-                                    width: 1px;
-                                    height: 12px;
-                                    background-color: #eeeeee;
-                                }
-                                &:last-child {
-                                    margin-right: 0;
-
-                                    &::before {
-                                        display: none;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .default-btn {
-                        border-radius: 30px;
-                        box-shadow: unset;
-                        background-color: #eeeeee;
-                        font-size: 13px;
-                        border: none;
-                        margin-top: 14px;
-                        position: relative;
-                        padding: {
-                            top: 8px;
-                            bottom: 8px;
-                            left: 40px;
-                            right: 20px;
-                        };
-                        i {
-                            position: absolute;
-                            left: 20px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            font-size: 15px;
-                            margin-top: -.5px;
-                        }
-                        &:hover {
-                            background-color: var(--mainColor);
-                            color: var(--whiteColor);
-                        }
-                    }
-                }
-                &.details {
-                    h4 {
-                        margin-bottom: 15px;
-                        font-size: 17px;
-
-                        .bookings-status {
-                            border-radius: 30px;
-                            color: var(--whiteColor);
-                            padding: 3px 10px 3.5px;
-                            position: relative;
-                            background-color: var(--mainColor);
-                            top: -2px;
-                            margin-left: 2px;
-                            font: {
-                                weight: 500;
-                                size: 12px;
-                            };
-                            &.approved {
-                                background-color: #64bc36;
-                            }
-                            &.canceled {
-                                background-color: red;
-                            }
-                        }
-                    }
-                    ul {
-                        padding-left: 0;
-                        list-style-type: none;
-                        margin-bottom: 0;
-
-                        li {
-                            margin-top: 12px;
-                            color: var(--optionalColor);
-                            font-size: 14px;
-
-                            span {
-                                color: var(--blackColor);
-                                font-weight: 500;
-                            }
-                            i {
-                                color: var(--mainColor);
-                                position: relative;
-                                top: .8px;
-                                margin-right: 5px;
-                            }
-                            a {
-                                color: var(--optionalColor);
-
-                                &:hover {
-                                    color: var(--mainColor);
-                                }
-                            }
-                            strong {
-                                font-weight: 600;
-                                color: var(--blackColor);
-                                margin-left: 3px;
-                            }
-                            .paid {
-                                color: #64bc36;
-                            }
-                            .unpaid {
-                                color: red;
-                            }
-                            &:last-child {
-                                margin-bottom: 0;
-                            }
-                        }
-                    }
-                }
-                &.action {
-                    .default-btn {
-                        border-radius: 30px;
-                        box-shadow: unset;
-                        background-color: #eeeeee;
-                        font-size: 13px;
-                        border: none;
-                        position: relative;
-                        margin-right: 15px;
-                        padding: {
-                            top: 8px;
-                            bottom: 8px;
-                            left: 40px;
-                            right: 20px;
-                        };
-                        &:hover {
-                            background-color: var(--mainColor);
-                            color: var(--whiteColor);
-                        }
-                        i {
-                            position: absolute;
-                            left: 20px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            font-size: 15px;
-                        }
-                        &.danger {
-                            margin-right: 0;
-
-                            &:hover {
-                                background-color: red;
-                                color: var(--whiteColor);
-                            }
-                        }
-                    }
+        &.category-select {
+            border-right: none;
+            padding-right: 20px;
+        }
+        .form-control {
+            border: none !important;
+            color: var(--blackColor);
+            box-shadow: unset !important;
+            background-color: transparent !important;
+            height: 60px;
+            line-height: 60px;
+            font: {
+                size: var(--fontSize);
+                weight: 400;
+            };
+            padding: {
+                top: 2px;
+                bottom: 0;
+                left: 30px;
+                right: 15px;
+            };
+            &::placeholder {
+                transition: var(--transition);
+                color: #666666;
+            }
+            &:focus {
+                &::placeholder {
+                    color: transparent;
                 }
             }
         }
     }
-}
-
-// new css
-
-.card.crd-rs {
-    padding: 25px 20px;
-    border-radius: 4px;
-    border: none;
-}
-input.search.ser-rs {
-    width: 300px;
-    padding: 10px 10px;
-    margin-bottom: 20px;
-    float: left;
-}
-a.btn.btn-success.rs-btn {
-    border-radius: 20px;
-    padding: 9px 25px;
-    float: right;
-}
-
-
-/* Max width 767px */
-@media only screen and (max-width: 767px) {
-
-    .bookings-listings-box {
-        h3 {
-            padding: 15px 20px;
+    .col-lg-4 {
+        .form-group {
+            margin-left: 0;
         }
-        table {
-            thead {
-                th {
-                    padding: 11px 20px 10px;
-                    font-size: 14.5px;
-                }
-            }
-            tbody {
-                td {
-                    padding: 25px 20px;
+    }
+    .submit-btn {
+        padding-left: 5px;
 
-                    &.name {
-                        .info {
-                            span {
-                                font-size: 16px;
-                            }
-                        }
-                    }
-                    &.details {
-                        h4 {
-                            font-size: 15px;
-                        }
-                    }
-                    &.action {
-                        .default-btn {
-                            font-size: 12px;
-                        }
-                    }
-                }
+        button {
+            display: block;
+            width: 100%;
+            background-color: var(--mainColor);
+            border: none;
+            color: var(--whiteColor);
+            font-size: var(--fontSize);
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 30px;
+            transition: var(--transition);
+
+            &:hover {
+                background-color: var(--blackColor);
+                color: var(--whiteColor);
             }
         }
     }
-
 }
-/* Min width 576px to Max width 767px */
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-
-
-
-}
-/* Min width 768px to Max width 991px */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-
-
-
-}
-/* Min width 992px to Max width 1199px */
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-
-    
-
-}
-/* Min width 1200px to Max width 1355px */
-@media only screen and (min-width: 1200px) and (max-width: 1355px) {
-
-
-
-}
-/* Min width 1550px */
-@media only screen and (min-width: 1550px) {
-
-    
-
-}
+// css for search filter close

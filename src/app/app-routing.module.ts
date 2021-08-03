@@ -107,6 +107,8 @@ import { MyProfileComponent } from './components/pages/myprofile/myprofile.compo
 import { MyprofileTabComponent } from './components/pages/myprofile/myprofile-tab/myprofile-tab.component';
 import { VerifyProfileComponent } from './components/pages/dashboard/verify-profile/verify-profile.component';
 import { VerifyMemberComponent } from './components/pages/dashboard/member/verify-member/verify-member.component';
+import { UserProfileOneComponent } from './components/pages/user-profile-one/user-profile-one.component';
+import { UserProfileTwoComponent } from './components/pages/user-profile-two/user-profile-two.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -308,6 +310,11 @@ const routes: Routes = [
     path: 'settings/third-party-setting',
     component: ThirdPartySettingComponent,
   },
+
+  // user-profile-one
+  { path: 'user-profile-one', component: UserProfileOneComponent},
+  // user-profile-two
+  { path: 'user-profile-two', component: UserProfileTwoComponent},
 
   //  add-new form
   { path: 'free-member/add-new-member', component: AddNewMemberComponent },

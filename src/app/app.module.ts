@@ -150,6 +150,8 @@ import { MyProfileComponent } from './components/pages/myprofile/myprofile.compo
 import { MyprofileTabComponent } from './components/pages/myprofile/myprofile-tab/myprofile-tab.component';
 import { VerifyProfileComponent } from './components/pages/dashboard/verify-profile/verify-profile.component';
 import { VerifyMemberComponent } from './components/pages/dashboard/member/verify-member/verify-member.component';
+import { UserProfileOneComponent } from './components/pages/user-profile-one/user-profile-one.component';
+import { UserProfileTwoComponent } from './components/pages/user-profile-two/user-profile-two.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -285,6 +287,8 @@ import { VerifyMemberComponent } from './components/pages/dashboard/member/verif
     MyprofileTabComponent,
     VerifyProfileComponent,
     VerifyMemberComponent,
+    UserProfileOneComponent,
+    UserProfileTwoComponent,
   ],
   imports: [
     BrowserModule,
