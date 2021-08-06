@@ -6,7 +6,7 @@
         <!-- <div class="logo">
                     <a routerLink="/"><img src="assets/img/logo.png" alt="logo"></a>
                 </div> -->
-        <h2 style="color: #fff;">Logo</h2>
+        <h2 style="color: #fff;" routerLink="/">Logo</h2>
       </div>
     </div>
   </div>
@@ -14,8 +14,10 @@
   <div class="vesax-nav">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-md navbar-light">
-        <!-- <a class="navbar-brand" routerLink="/"><img src="assets/img/logo.png" alt="logo"></a> -->
-        <h2 style="color: #fff;">Logo</h2>
+        <a class="navbar-brand" style="color: white;
+        font-size: 2rem;" routerLink="/"><img style="width: 48px;" [src]="filepath ||stndpath" alt="logo" />
+          {{logo?.title}}</a>
+        <!-- <h2 style="color: #fff;">Logo</h2> -->
 
         <div class="collapse navbar-collapse mean-menu">
           <!-- <form class="navbar-search-box">

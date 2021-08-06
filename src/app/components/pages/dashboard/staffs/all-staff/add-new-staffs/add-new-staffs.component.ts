@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 
@@ -22,7 +23,8 @@ export class AddNewStaffsComponent implements OnInit {
 
   constructor(
     public adminService: AdminService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public routes: Router
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +54,7 @@ export class AddNewStaffsComponent implements OnInit {
         console.log(response);
         this.toastr.success('Staff added succesfully');
         this.staff.reset();
+        this.routes.navigate(['/staffs/all-staff']);
       },
       (error) => {
         console.log(error);

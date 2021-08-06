@@ -59,7 +59,12 @@
           <label>#Order</label>
           <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
           <label>Inch</label>
-          <input type="text" class="form-control" placeholder="feetinchvalue" formControlName="feetinchvalue" required>
+          <input type="number" class="form-control" #feet placeholder="feet" required>
+          <input type="number" class="form-control" #inch placeholder="inch" required>
+          {{feet.value}}'{{inch.value}}"
+          {{(feet.value*30.48)+inch.value*2.54}}
+          <input type="text" class="form-control" placeholder="feetinchvalue" formControlName="feetinchvalue"
+            value="{{feet.value}}'{{inch.value}}" required>
           <label>Cm</label>
           <input type="text" class="form-control" placeholder="cmvalue" formControlName="cmvalue" required>
           <button class="btn btn-primary mt-2" type="submit">Save</button>

@@ -9,15 +9,18 @@
       <div class="col-lg-7 offset-lg-5">
         <div class="row">
           <div class="col-lg-7">
-            <h3 class="pft1">{{userdetails.Name}}{{userdetails.firstName}}{{userdetails.lastName}}</h3>
-            <p class="pft2">Member ID: <span class="pft3">{{userdetails.Prefix}}{{userdetails.MatriID}}</span></p>
+            <h3 class="pft1">{{userdetails?.Name}}{{userdetails?.firstName}}{{userdetails?.lastName}}</h3>
+            <p class="pft2">Member ID: <span class="pft3">{{userdetails?.Prefix}}{{userdetails?.MatriID}}</span></p>
             <div class="pft4">
-              <p>{{userdetails.Age }} Yrs, {{userdetails.Height.feetinchvalue}} ({{userdetails.Height.cmvalue }} cm)</p>
-              <p>{{userdetails.Religion.name}}, {{userdetails.Caste.name}}</p>
+              <p>{{userdetails?.Age }} Yrs, {{userdetails?.Height?.feetinchvalue}} ({{userdetails?.Height?.cmvalue }}
+                cm)
+              </p>
+              <p>{{userdetails?.Religion?.name}}, {{userdetails?.Caste?.name}}</p>
             </div>
             <div class="pft4">
-              <p>{{userdetails.Maritalstatus}}</p>
-              <p>From: {{userdetails.LCity.name }}, {{userdetails.LState.name }}, {{ userdetails.LCountry.name}}</p>
+              <p>{{userdetails?.Maritalstatus?.name}}</p>
+              <p>From: {{userdetails?.LCity?.name }}, {{userdetails?.LState?.name }}, {{ userdetails?.LCountry?.name}}
+              </p>
             </div>
           </div>
           <div class="col-lg-5 pft5">
@@ -44,14 +47,14 @@
             <div class="row">
               <div class="col-lg-12 col-md-12">
                 <div class="form-group profile-box">
-                  <img src="{{userdetails.Photo1}}" alt="image">
+                  <img src="{{userdetails?.Photo1}}" alt="image">
                   <div class="file-upload">
                     <input type="file" name="file" id="file" class="inputfile" />
                     <label for="file"><i class='bx bx-upload'></i> Upload Photo</label>
                   </div>
                 </div>
-                <p class="mid">Member ID: <span class="mds">{{userdetails.Prefix}}{{userdetails.MatriID}}</span></p>
-                <h3 class="pf-n">{{userdetails.Name}}</h3>
+                <p class="mid">Member ID: <span class="mds">{{userdetails?.Prefix}}{{userdetails?.MatriID}}</span></p>
+                <h3 class="pf-n">{{userdetails?.Name}}</h3>
 
                 <div class="col-lg-12 col-md-12"></div>
                 <div class="pft-bx">

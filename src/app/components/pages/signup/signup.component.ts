@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class SignupComponent implements OnInit {
   auth: any;
   usertype: any;
   allprofilefor: any;
+  allmaritalstatus: any;
   allcountry: any;
   mobilenumber: any;
   signupuser = new FormGroup({
@@ -32,6 +34,7 @@ export class SignupComponent implements OnInit {
     yyyy: new FormControl('2000', Validators.required),
     DOB: new FormControl(''),
     ConfirmEmail: new FormControl('', Validators.required),
+    Maritalstatus: new FormControl('', Validators.required),
     Mobile: new FormControl('', Validators.required),
     ConfirmPassword: new FormControl('', Validators.required),
     agree_terms_conditions: new FormControl('1', Validators.required),
@@ -47,6 +50,7 @@ export class SignupComponent implements OnInit {
   success = false;
   constructor(
     public userService: UserService,
+    private adminService: AdminService,
     public routes: Router,
     public toastr: ToastrService
   ) {}
@@ -54,6 +58,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.getallreligion();
     this.getallflags();
+    this.getmaritalstatus();
   }
 
   getallreligion() {
@@ -61,6 +66,18 @@ export class SignupComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.allprofilefor = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getmaritalstatus() {
+    this.adminService.getallmaritalstatus().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allmaritalstatus = response.data;
       },
       (error) => {
         console.log(error);

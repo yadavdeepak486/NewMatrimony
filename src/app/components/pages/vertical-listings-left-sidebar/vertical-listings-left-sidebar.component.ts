@@ -285,7 +285,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.users = response.data;
-        console.log(this.users[0].Age);
+        //console.log(this.users[0].Age);
       },
       (error) => {
         console.log(error);

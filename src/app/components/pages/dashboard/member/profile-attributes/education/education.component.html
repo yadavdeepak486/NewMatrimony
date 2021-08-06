@@ -27,6 +27,7 @@
               <tr>
                 <th>#</th>
                 <th>Name</th>
+                <th>Degree</th>
                 <th>Place</th>
                 <th>Option</th>
               </tr>
@@ -34,13 +35,16 @@
             <tbody>
               <tr *ngFor="let education of alleducation">
                 <td class="#">
-                  {{education.sortorder}}
+                  {{education?.sortorder}}
                 </td>
                 <td class="cityname">
-                  {{education.name}}
+                  {{education?.name}}
                 </td>
                 <td class="cityname">
-                  {{education.place.name}}
+                  {{education?.degree}}
+                </td>
+                <td class="cityname">
+                  {{education?.place}}
                 </td>
                 <td class="option">
                   <a class="st-i"><i class=' bx bx-pencil' (click)="getoneeducation(education._id)"></i> </a>
@@ -58,15 +62,12 @@
         <form [formGroup]="education" (ngSubmit)="submitForm()" class="bd-n" ngNativeValidate>
           <label>#Order <span style="color: red;">*</span></label>
           <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
-          <label>Name <span style="color: red;">*</span></label>
+          <label>College Name <span style="color: red;">*</span></label>
           <input type="text" class="form-control" placeholder="name" formControlName="name" required>
-          <label>Short Name</label>
-          <input type="text" class="form-control" placeholder="name" formControlName="shortname">
+          <label>Degree</label>
+          <input type="text" class="form-control" placeholder="name" formControlName="degree">
           <label>Place</label>
-          <select type="text" class="form-control" placeholder="place" formControlName="place" required>
-            <option [value]="place._id" *ngFor="let place of allcity">
-              {{place.name}}</option>
-          </select>
+          <input type="text" class="form-control" placeholder="place" formControlName="place">
           <button class="btn btn-primary mt-2" type="submit">Save</button>
         </form>
       </div>
@@ -77,15 +78,12 @@
         <form [formGroup]="editeducation" (ngSubmit)="updateeducation()" class="bd-n" ngNativeValidate>
           <label>#Order <span style="color: red;">*</span></label>
           <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
-          <label>Name <span style="color: red;">*</span></label>
+          <label>College Name <span style="color: red;">*</span></label>
           <input type="text" class="form-control" placeholder="name" formControlName="name" required>
-          <label>Short Name</label>
-          <input type="text" class="form-control" placeholder="name" formControlName="shortname">
+          <label>Degree</label>
+          <input type="text" class="form-control" placeholder="name" formControlName="degree">
           <label>Place</label>
-          <select type="text" class="form-control" placeholder="place" formControlName="place" required>
-            <option [value]="place._id" *ngFor="let place of allcity">
-              {{place.name}}</option>
-          </select>
+          <input type="text" class="form-control" placeholder="place" formControlName="place">
           <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2"
             type="submit" (click)="cancelupdate()">Cancel</button>
         </form>

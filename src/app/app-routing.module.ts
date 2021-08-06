@@ -109,6 +109,7 @@ import { VerifyProfileComponent } from './components/pages/dashboard/verify-prof
 import { VerifyMemberComponent } from './components/pages/dashboard/member/verify-member/verify-member.component';
 import { UserProfileOneComponent } from './components/pages/user-profile-one/user-profile-one.component';
 import { UserProfileTwoComponent } from './components/pages/user-profile-two/user-profile-two.component';
+import { AllMemberComponent } from './components/pages/dashboard/member/all-member/all-member.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -172,6 +173,7 @@ const routes: Routes = [
 
   // new component
   { path: 'profile-detail/:id', component: ProfileDetailComponent },
+  { path: 'member/all-member', component: AllMemberComponent },
   { path: 'member/free-member', component: FreeMemberComponent },
   { path: 'member/premium-member', component: PremiumMemberComponent },
   { path: 'member/bulk-member', component: BulkMemberComponent },
@@ -312,9 +314,9 @@ const routes: Routes = [
   },
 
   // user-profile-one
-  { path: 'user-profile-one', component: UserProfileOneComponent},
+  { path: 'user-profile-one', component: UserProfileOneComponent },
   // user-profile-two
-  { path: 'user-profile-two', component: UserProfileTwoComponent},
+  { path: 'user-profile-two', component: UserProfileTwoComponent },
 
   //  add-new form
   { path: 'free-member/add-new-member', component: AddNewMemberComponent },

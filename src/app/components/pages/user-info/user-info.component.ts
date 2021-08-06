@@ -20,6 +20,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
   alloccupation: any;
   allcountry: any;
   allstate: any;
+  alllanguage: any;
   selectedreligion: any;
 
   userinfo = new FormGroup({
@@ -57,6 +58,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.alleducations();
     this.allcountrys();
     this.allstates();
+    this.getalllanguage();
   }
 
   ngOnChanges(): void {
@@ -102,6 +104,18 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.alleducation().subscribe(
       (response: any) => {
         this.alleducation = response.data;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getalllanguage() {
+    this.adminService.getalllanguage().subscribe(
+      (response: any) => {
+        this.alllanguage = response.data;
         console.log(response);
       },
       (error) => {

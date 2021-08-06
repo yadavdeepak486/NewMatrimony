@@ -1,0 +1,152 @@
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+  <app-dashboard-navbar></app-dashboard-navbar>
+
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/dashboard">Home</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}} <strong>({{alluser?.length}})</strong></li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
+
+  <!-- Start -->
+  <div class="row">
+    <div class="col-12">
+      <!-- Start Listings Area -->
+      <section class="listings-area ">
+        <div class="container">
+          <div class="listings-grid-sorting row align-items-center">
+            <!-- <div class="col-lg-5 col-md-4 result-count">
+                <input type="search" class="form-control" placeholder="search listing..">
+            </div> -->
+
+            <div class="col-lg-12 col-md-12 ">
+              <form>
+                <div class="row m-0 align-items-center">
+                  <div class="col-lg-5 col-md-12 p-0">
+                    <div class="form-group">
+                      <label><i class="flaticon-search"></i></label>
+                      <input type="text" class="form-control" placeholder="Search member ID/Name/Mb/Email">
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-lg-3 col-md-6 p-0">
+                            <div class="form-group">
+                                <label><i class="flaticon-pin"></i></label>
+                                <input type="text" class="form-control" placeholder="Location">
+                            </div>
+                        </div> -->
+
+                  <div class="col-lg-5 col-md-6 p-0">
+                    <div class="form-group category-select">
+                      <label><i class="flaticon-category"></i></label>
+                      <ngx-select-dropdown (searchChange)="searchChange($event)" class="form-control"
+                        name="category-select" tabindex="0" [multiple]="false" [(ngModel)]="singleSelect"
+                        [config]="config" [options]="options">
+                      </ngx-select-dropdown>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-2 col-md-12 p-0">
+                    <div class="submit-btn">
+                      <button type="submit">Search Now</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 col-md-12"
+              *ngFor="let Content of alluser | paginate: { itemsPerPage: 8, currentPage: verticalListings }">
+              <div class="single-listings-item">
+                <div class="row m-0">
+                  <div class="col-lg-4 col-md-4 p-0">
+                    <div class="listings-image" style="background-image: url({{Content?.Photo1}});">
+                      <img [src]="Content.mainImg" alt="image">
+                    </div>
+                  </div>
+                  <div class="col-lg-8 col-md-8 p-0">
+                    <div class="listings-content">
+                      <span class="status {{Content?.extraClass}}">
+                        Online</span>
+                      <h3><a routerLink="/{{Content?.detailsLink}}">{{Content?.title}}</a>
+                        <span class="sp-1">{{Content?.Prefix}}{{Content?.MatriID}}</span>
+                        <span class="sp-2">| {{Content?.Maritalstatus?.name}} |</span>
+                        <span class="sp-3">Status : {{Content?.Status}}</span>
+                      </h3>
+                      <div class="detail-text">
+                        <table class="tb-1">
+                          <tbody class="tb-1">
+                            <tr>
+                              <td>{{Content?.Gender}} ,{{Content?.Age}} Yrs</td>
+                              <td>Form:<span class="tb-s">{{Content?.City?.name}}</span></td>
+                            </tr>
+                            <tr>
+                              <td>{{Content?.Religion?.name}},{{Content?.Caste?.name}}</td>
+                              <td>Mobile:<span class="tb-s">{{Content?.Mobile}}</span></td>
+                            </tr>
+                            <tr>
+                              <td>{{Content?.Education?.name}}, {{Content?.Education?.shortname}}
+                                {{Content?.Education?.place}}</td>
+                              <td>Assigned To:<span class="tb-s">Diksha Verma</span></td>
+                            </tr>
+                            <tr>
+                              <td>{{Content?.Employedin?.name}} Employee, {{Content?.Occupation?.name}}</td>
+                              <td>RM:<span class="tb-s">Diksha Verma</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="l-mark">Last Remark: <span class="txt-small"> ""</span></p>
+                      <ul class="listings-meta pd-tr">
+                        <li class="lst-txt">Reg. Date: <span class="spn-lst">{{Content?.createdAt | date
+                            :'short'}},</span></li>
+                        <li class="lst-txt">Last Login: <span class="spn-lst">{{Content?.updatedAt | date
+                            :'short'}},</span></li>
+                        <li class="lst-txt">Profile View: <span class="spn-lst">"",</span></li>
+                        <li class="lst-txt">Signup Platform: <span class="spn-lst">Android,</span></li>
+                        <li class="lst-txt">Plan: <span class="spn-lst">Free</span></li>
+                      </ul>
+                      <ul class="listings-meta pd-r">
+                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Profile View</a></li>
+                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Edit Profile</a> </li>
+                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Manage Photo</a> </li>
+                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li>
+                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li>
+                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>
+                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Chat</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+              <div class="pagination-area text-center">
+                <pagination-controls (pageChange)="verticalListings = $event"></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Listings Area -->
+    </div>
+  </div>
+  <!-- End -->
+
+  <div class="flex-grow-1"></div>
+
+  <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->

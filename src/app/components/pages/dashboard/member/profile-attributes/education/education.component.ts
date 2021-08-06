@@ -16,7 +16,7 @@ export class EducationComponent implements OnInit {
 
   education = new FormGroup({
     sortorder: new FormControl(''),
-    shortname: new FormControl(''),
+    degree: new FormControl(''),
     place: new FormControl(''),
     name: new FormControl(''),
   });
@@ -24,7 +24,7 @@ export class EducationComponent implements OnInit {
   editeducation = new FormGroup({
     id: new FormControl(''),
     sortorder: new FormControl(''),
-    shortname: new FormControl(''),
+    degree: new FormControl(''),
     place: new FormControl(''),
     name: new FormControl(''),
   });
@@ -43,6 +43,7 @@ export class EducationComponent implements OnInit {
       subTitle: 'Categories',
     },
   ];
+
   getalleducation() {
     this.adminService.alleducation().subscribe(
       (response: any) => {
@@ -77,8 +78,8 @@ export class EducationComponent implements OnInit {
         this.editeducation.setValue({
           sortorder: response.data.sortorder,
           name: response.data.name,
-          shortname: response.data.shortname,
-          place: response.data.place._id,
+          degree: response.data.degree,
+          place: response.data.place,
           id: response.data._id,
         });
       },

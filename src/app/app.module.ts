@@ -152,6 +152,8 @@ import { VerifyProfileComponent } from './components/pages/dashboard/verify-prof
 import { VerifyMemberComponent } from './components/pages/dashboard/member/verify-member/verify-member.component';
 import { UserProfileOneComponent } from './components/pages/user-profile-one/user-profile-one.component';
 import { UserProfileTwoComponent } from './components/pages/user-profile-two/user-profile-two.component';
+import { AllMemberComponent } from './components/pages/dashboard/member/all-member/all-member.component';
+import { FeaturedMemberComponent } from './components/pages/dashboard/member/featured-member/featured-member.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -289,6 +291,8 @@ import { UserProfileTwoComponent } from './components/pages/user-profile-two/use
     VerifyMemberComponent,
     UserProfileOneComponent,
     UserProfileTwoComponent,
+    AllMemberComponent,
+    FeaturedMemberComponent,
   ],
   imports: [
     BrowserModule,

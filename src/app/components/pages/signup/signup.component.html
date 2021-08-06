@@ -6,8 +6,8 @@
         <div class="card pd-5 rs-1">
           <div *ngIf="!otpsection" class="vesax-register">
             <div class="form-heading">
-               <h3>Create Your Free Profile</h3>
-               <p>Submit your below details to Sign Up</p>
+              <h3>Create Your Free Profile</h3>
+              <p>Submit your below details to Sign Up</p>
             </div>
             <span class="sub-title-rs"><span></span></span>
             <form [formGroup]="signupuser" (ngSubmit)="submitandmovetootp()" ngNativeValidate>
@@ -28,12 +28,13 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="lb-ser">On Behalf <span style="color: red;">*</span> </label>
-                    <select class="form-control" formControlName="Profilecreatedby" >
+                    <select class="form-control" formControlName="Profilecreatedby">
                       <option [value]="profilefor._id" *ngFor="let profilefor of allprofilefor">
                         {{profilefor.name}}</option>
                     </select>
                   </div>
                 </div>
+
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="lb-ser">Gender <span style="color: red;">*</span> </label>
@@ -139,24 +140,38 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                   <div class="form-group">
                     <label class="lb-ser">Email </label>
                     <input type="email" placeholder="Email" class="form-control" formControlName="ConfirmEmail">
                   </div>
                 </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="lb-ser">Marital Status<span style="color: red;">*</span> </label>
+                    <select class="form-control" formControlName="Maritalstatus">
+                      <option [value]="maritalstatus._id" *ngFor="let maritalstatus of allmaritalstatus">
+                        {{maritalstatus.name}}</option>
+                    </select>
+                  </div>
+                </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label class="lb-ser">Mobile Number <span style="color: red;">*</span><small>( We will  send verification code on this )</small></label>
+                    <label class="lb-ser">Mobile Number <span style="color: red;">*</span><small>( We will send
+                        verification code on this )</small></label>
                     <div class="input-group">
-                      <span class="cd-n"><select class="form-control">
-                          <option style="background-image:url(country);" [value]="country._id"
-                            *ngFor="let country of allcountry">
-                            +{{country.callingCodes}}
+                      <span class="custom-dropdown">
+                        <select class="form-control" style="display: block;">
+                          <option [value]="country._id" *ngFor="let country of allcountry" [data-image]="country?.flag"
+                            [title]="country?.flag">
+                            <i class="icon-custom" [src]="country?.flag" alt="img"></i>
+                            +{{country?.callingCodes}}
                           </option>
+                          <option value="610bb1c7b9e2fb19cc060ccc" selected>+91</option>
                         </select></span>
 
-                      <!-- <img [src]="country?.flag" /> -->
+                      <!-- <img [src]="country?.flag" />
+                       -->
                       <input class="form-control cd-n" type="number" min="1000000000" max="9999999999" maxlength="10"
                         placeholder="Number" formControlName="Mobile" required>
                     </div>
@@ -181,15 +196,16 @@
                   <input type="checkbox" class="form-check-input" [value]="1" formControlName="agree_terms_conditions"
                     required>By
                   signing up you agree to our
-                  <span><a  href="javascript:void(0)" class="tac">T&C</a></span> and  <span><a class="tac" href="javascript:void(0)">Privacy Policy</a></span>
+                  <span><a href="javascript:void(0)" class="tac">T&C</a></span> and <span><a class="tac"
+                      href="javascript:void(0)">Privacy Policy</a></span>
                 </label>
               </div>
 
               <button type="submit" id="regform" class="btnrg">
                 Register Now</button>
             </form>
-            <span class="already-account">Already have an account? <a style="cursor: pointer; color: blue; font-weight: 500;"
-                href="/login">Login</a></span>
+            <span class="already-account">Already have an account? <a
+                style="cursor: pointer; color: blue; font-weight: 500;" href="/login">Login</a></span>
           </div>
           <div *ngIf="otpsection" class="modal-content rs-3">
             <h2 class="d-flex justify-content-center tx-v">Verify Mobile</h2>

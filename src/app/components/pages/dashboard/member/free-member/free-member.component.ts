@@ -6,19 +6,41 @@ import { AdminService } from 'src/app/admin.service';
 @Component({
   selector: 'app-free-member',
   templateUrl: './free-member.component.html',
-  styleUrls: ['./free-member.component.scss']
+  styleUrls: ['./free-member.component.scss'],
 })
 export class FreeMemberComponent implements OnInit {
-
-  constructor(public adminServie: AdminService) { }
+  allfreeuser: any;
+  constructor(public adminServie: AdminService) {}
 
   ngOnInit(): void {
     this.getfreeusers();
   }
 
-
+  singleSelect: any = [];
   source: any;
-
+  resetOption: any;
+  config = {
+    displayKey: 'name',
+    search: true,
+  };
+  options = [
+    // Type here your category name
+    {
+      name: 'name',
+    },
+    {
+      name: 'lorem',
+    },
+    {
+      name: 'lorem',
+    },
+  ];
+  searchChange($event) {
+    console.log($event);
+  }
+  reset() {
+    this.resetOption = [];
+  }
   settings = {
     // add: {
     //   addButtonContent: '<i  class="ion-ios-plus-outline"></i>',
@@ -45,7 +67,6 @@ export class FreeMemberComponent implements OnInit {
         // { name: 'Permissions', title:  '&nbsp;&nbsp;<i class="bntn btn-danger"><button>Reject</button></i>'},
       ],
       position: 'right',
-
     },
 
     columns: {
@@ -53,12 +74,17 @@ export class FreeMemberComponent implements OnInit {
         title: 'Image',
         filter: false,
         type: 'html',
-        valuePrepareFunction: (imageUrl) => { return '<img src="' + imageUrl + '" alt="Smiley face" height="60" width="60" />' },
+        valuePrepareFunction: (imageUrl) => {
+          return (
+            '<img src="' +
+            imageUrl +
+            '" alt="Smiley face" height="60" width="60" />'
+          );
+        },
       },
       MatriID: {
         title: '#',
         filter: true,
-
       },
       Name: {
         title: 'Name',
@@ -80,48 +106,50 @@ export class FreeMemberComponent implements OnInit {
       // },
     },
     attr: {
-      class: 'table table-bordered'
+      class: 'table table-bordered',
     },
-
   };
 
+  verticalListings: number = 1;
   onSearch(query: string = '') {
-    this.source.setFilter([
-      // fields we want to inclue in the search
-      {
-        field: '#',
-        search: query,
-      },
-      {
-        field: 'image',
-        search: query,
-      },
-      {
-        field: 'memberid',
-        search: query,
-      },
-      {
-        field: 'Name',
-        search: query,
-      },
-      {
-        field: 'profilereported',
-        search: query,
-      },
-      {
-        field: 'memberscience',
-        search: query,
-      },
-      {
-        field: 'memberstatus',
-        search: query,
-      },
-      {
-        field: 'action',
-        search: query,
-      },
-
-    ], false);
+    this.source.setFilter(
+      [
+        // fields we want to inclue in the search
+        {
+          field: '#',
+          search: query,
+        },
+        {
+          field: 'image',
+          search: query,
+        },
+        {
+          field: 'memberid',
+          search: query,
+        },
+        {
+          field: 'Name',
+          search: query,
+        },
+        {
+          field: 'profilereported',
+          search: query,
+        },
+        {
+          field: 'memberscience',
+          search: query,
+        },
+        {
+          field: 'memberstatus',
+          search: query,
+        },
+        {
+          field: 'action',
+          search: query,
+        },
+      ],
+      false
+    );
     // second parameter specifying whether to perform 'AND' or 'OR' search
     // (meaning all columns should contain search query or at least one)
     // 'AND' by default, so changing to 'OR' by setting false here
@@ -130,17 +158,19 @@ export class FreeMemberComponent implements OnInit {
   breadcrumb = [
     {
       title: 'Free Member List',
-      subTitle: 'Members'
-    }
-  ]
+      subTitle: 'Members',
+    },
+  ];
 
   getfreeusers() {
-    this.adminServie.getfreeusers().subscribe((response: any) => {
-      console.log(response)
-      this.source = response.data
-    }, (error) => {
-      console.log(error)
-    })
+    this.adminServie.getfreeusers().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allfreeuser = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-
 }
