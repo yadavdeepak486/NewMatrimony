@@ -109,6 +109,7 @@ import { VerifyProfileComponent } from './components/pages/dashboard/verify-prof
 import { VerifyMemberComponent } from './components/pages/dashboard/member/verify-member/verify-member.component';
 import { UserProfileOneComponent } from './components/pages/user-profile-one/user-profile-one.component';
 import { UserProfileTwoComponent } from './components/pages/user-profile-two/user-profile-two.component';
+import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-plan.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -336,6 +337,9 @@ const routes: Routes = [
 
   // verify-profile
   { path: 'verify-profile', component: VerifyProfileComponent },
+
+  // premium-plan
+  { path: 'premuim-plan', component: PremuimPlanComponent },
 
   // system
   { path: 'system/update', component: UpdateComponent },
