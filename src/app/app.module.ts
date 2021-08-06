@@ -154,6 +154,7 @@ import { UserProfileOneComponent } from './components/pages/user-profile-one/use
 import { UserProfileTwoComponent } from './components/pages/user-profile-two/user-profile-two.component';
 import { AllMemberComponent } from './components/pages/dashboard/member/all-member/all-member.component';
 import { FeaturedMemberComponent } from './components/pages/dashboard/member/featured-member/featured-member.component';
+import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-plan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -291,8 +292,12 @@ import { FeaturedMemberComponent } from './components/pages/dashboard/member/fea
     VerifyMemberComponent,
     UserProfileOneComponent,
     UserProfileTwoComponent,
+<<<<<<< HEAD
     AllMemberComponent,
     FeaturedMemberComponent,
+=======
+    PremuimPlanComponent,
+>>>>>>> f0a29ef0654d33431709a567d0efb3aacd1c2f14
   ],
   imports: [
     BrowserModule,
