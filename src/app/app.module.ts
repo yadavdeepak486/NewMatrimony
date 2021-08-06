@@ -292,12 +292,9 @@ import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-pl
     VerifyMemberComponent,
     UserProfileOneComponent,
     UserProfileTwoComponent,
-<<<<<<< HEAD
     AllMemberComponent,
     FeaturedMemberComponent,
-=======
     PremuimPlanComponent,
->>>>>>> f0a29ef0654d33431709a567d0efb3aacd1c2f14
   ],
   imports: [
     BrowserModule,
