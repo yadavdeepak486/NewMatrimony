@@ -111,6 +111,10 @@ import { UserProfileOneComponent } from './components/pages/user-profile-one/use
 import { UserProfileTwoComponent } from './components/pages/user-profile-two/user-profile-two.component';
 import { AllMemberComponent } from './components/pages/dashboard/member/all-member/all-member.component';
 import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-plan.component';
+import { UserDashboardComponent } from './components/pages/user-dashboard/user-dashboard.component';
+import { UserDashboardNavbarComponent } from './components/common/user-dashboard-navbar/user-dashboard-navbar.component';
+import { UserDashboardSidemenuComponent } from './components/common/user-dashboard-sidemenu/user-dashboard-sidemenu.component';
+import { ProfileContentComponent } from './components/pages/user-dashboard/profile-content/profile-content.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -326,6 +330,13 @@ const routes: Routes = [
     path: 'premium-package/add-new-package',
     component: AddNewPackageComponent,
   },
+
+  // user-dashboard
+  { path: 'user-dashboard', component: UserDashboardComponent },
+  { path: 'user-dashboard-sidemenu', component: UserDashboardSidemenuComponent },
+  { path: 'user-dashboard-navbar', component: UserDashboardNavbarComponent },
+  { path: 'user-dashboard/profile-content', component: ProfileContentComponent },
+
 
   // staffs
   { path: 'staffs/all-staff', component: AllStaffComponent },

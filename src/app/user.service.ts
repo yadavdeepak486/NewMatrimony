@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
 

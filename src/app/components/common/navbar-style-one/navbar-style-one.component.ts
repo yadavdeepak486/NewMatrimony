@@ -105,13 +105,4 @@ export class NavbarStyleOneComponent implements OnInit {
     );
   }
 
-  logout() {
-    console.log('request logout');
-    const setauth = false;
-    localStorage.setItem('id', '');
-    localStorage.setItem('usertype', '');
-    localStorage.setItem('auth', JSON.stringify(setauth));
-    localStorage.setItem('TOKEN', '');
-    this.checkauth = false;
-  }
 }

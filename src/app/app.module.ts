@@ -155,6 +155,10 @@ import { UserProfileTwoComponent } from './components/pages/user-profile-two/use
 import { AllMemberComponent } from './components/pages/dashboard/member/all-member/all-member.component';
 import { FeaturedMemberComponent } from './components/pages/dashboard/member/featured-member/featured-member.component';
 import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-plan.component';
+import { UserDashboardComponent } from './components/pages/user-dashboard/user-dashboard.component';
+import { UserDashboardNavbarComponent } from './components/common/user-dashboard-navbar/user-dashboard-navbar.component';
+import { UserDashboardSidemenuComponent } from './components/common/user-dashboard-sidemenu/user-dashboard-sidemenu.component';
+import { ProfileContentComponent } from './components/pages/user-dashboard/profile-content/profile-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -295,6 +299,10 @@ import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-pl
     AllMemberComponent,
     FeaturedMemberComponent,
     PremuimPlanComponent,
+    UserDashboardComponent,
+    UserDashboardNavbarComponent,
+    UserDashboardSidemenuComponent,
+    ProfileContentComponent,
   ],
   imports: [
     BrowserModule,
