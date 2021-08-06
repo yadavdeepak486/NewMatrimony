@@ -1,5 +1,45 @@
 @import "../vertical-listings-left-sidebar/vertical-listings-left-sidebar.component.scss";
 
+// new css 8/6/21
+h3.hd-txtt {
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    background: #221638;
+    color: #fff;
+    padding: 10px;
+}
+.pt-70 {
+    padding-top: 47px;
+}
+.ad-box {
+    margin: 17px 0px;
+    border: 1px solid#cccccc91;
+    padding: 8px;
+}
+span.sptxt {
+    float: right;
+    color: #f00;
+    font-weight: 600;
+}
+.left-box ul{
+    padding: 0;
+    margin: 0px;
+    list-style: none;
+}
+.left-box ul li{
+    font-size: 14px;
+    color: #807171;
+    font-weight: 500;
+    padding: 11px 10px;
+    border-bottom: 1px solid#cccccc7a;
+}
+.left-box {
+    border: 1px solid#cccccc94;
+}
+// new css 8/6/21 close
+
+
 // new css
 
 p.txt-user {

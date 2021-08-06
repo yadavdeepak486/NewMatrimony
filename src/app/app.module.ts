@@ -157,6 +157,10 @@ import { FeaturedMemberComponent } from './components/pages/dashboard/member/fea
 import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-plan.component';
 
 import { QuillModule } from 'ngx-quill';
+import { UserDashboardComponent } from './components/pages/user-dashboard/user-dashboard.component';
+import { UserDashboardNavbarComponent } from './components/common/user-dashboard-navbar/user-dashboard-navbar.component';
+import { UserDashboardSidemenuComponent } from './components/common/user-dashboard-sidemenu/user-dashboard-sidemenu.component';
+import { ProfileContentComponent } from './components/pages/user-dashboard/profile-content/profile-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -297,6 +301,10 @@ import { QuillModule } from 'ngx-quill';
     AllMemberComponent,
     FeaturedMemberComponent,
     PremuimPlanComponent,
+    UserDashboardComponent,
+    UserDashboardNavbarComponent,
+    UserDashboardSidemenuComponent,
+    ProfileContentComponent,
   ],
   imports: [
     BrowserModule,
