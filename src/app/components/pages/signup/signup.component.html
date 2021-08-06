@@ -149,7 +149,14 @@
                   <div class="form-group">
                     <label class="lb-ser">Mobile Number <span style="color: red;">*</span><small>( We will  send verification code on this )</small></label>
                     <div class="input-group">
-                      <span class="cd-n"><img src="assets/img/india.png" /> +91</span>
+                      <span class="cd-n"><select class="form-control">
+                          <option style="background-image:url(country);" [value]="country._id"
+                            *ngFor="let country of allcountry">
+                            +{{country.callingCodes}}
+                          </option>
+                        </select></span>
+
+                      <!-- <img [src]="country?.flag" /> -->
                       <input class="form-control cd-n" type="number" min="1000000000" max="9999999999" maxlength="10"
                         placeholder="Number" formControlName="Mobile" required>
                     </div>
@@ -169,9 +176,6 @@
                   </div>
                 </div>
               </div>
-
-
-
               <div class="form-check chk-t">
                 <label class="form-check-label">
                   <input type="checkbox" class="form-check-input" [value]="1" formControlName="agree_terms_conditions"

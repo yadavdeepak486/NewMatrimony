@@ -67,7 +67,7 @@ export class UserService {
   }
 
   //rest api country
-  allcountryfromrest() {
-    return this.http.get(`https://restcountries.eu/rest/v2/all`);
+  getallflags() {
+    return this.http.get(`${this.backendurl}/user/countrywithflag`);
   }
 }

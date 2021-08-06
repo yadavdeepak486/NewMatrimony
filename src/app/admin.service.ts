@@ -58,7 +58,7 @@ export class AdminService {
   }
 
   deleterelgion(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletereligion/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletereligion/${id}`);
   }
 
   //caste
@@ -75,7 +75,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editcaste/${id}`, data);
   }
   deletecaste(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletecaste/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletecaste/${id}`);
   }
   castesofreligion(id) {
     return this.http.get(`${this.backendurl}/admin/castesofreligion/${id}`);
@@ -95,7 +95,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editlanguage/${id}`, data);
   }
   deletelanguage(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletelanguage/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletelanguage/${id}`);
   }
 
   //profilefor
@@ -115,7 +115,7 @@ export class AdminService {
     );
   }
   deleteprofilefor(id) {
-    return this.http.delete(`${this.backendurl}/admin/deleteprofilefor/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deleteprofilefor/${id}`);
   }
 
   //maritalstatus
@@ -136,9 +136,7 @@ export class AdminService {
     );
   }
   deletemaritalstatus(id) {
-    return this.http.delete(
-      `${this.backendurl}/admin/deletemaritalstatus/${id}`
-    );
+    return this.http.get(`${this.backendurl}/admin/deletemaritalstatus/${id}`);
   }
 
   //country
@@ -155,7 +153,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editcountry/${id}`, data);
   }
   deletecountry(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletecountry/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletecountry/${id}`);
   }
 
   //state
@@ -175,7 +173,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editstate/${id}`, data);
   }
   deletestate(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletestate/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletestate/${id}`);
   }
 
   //get all city
@@ -195,7 +193,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editcity/${id}`, data);
   }
   deletecity(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletecity/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletecity/${id}`);
   }
 
   //get all Familyvalue
@@ -215,9 +213,7 @@ export class AdminService {
     );
   }
   deletefamilyvalues(id) {
-    return this.http.delete(
-      `${this.backendurl}/admin/deletefamilyvalues/${id}`
-    );
+    return this.http.get(`${this.backendurl}/admin/deletefamilyvalues/${id}`);
   }
 
   //get all familystatus
@@ -237,9 +233,7 @@ export class AdminService {
     );
   }
   deletefamilystatus(id) {
-    return this.http.delete(
-      `${this.backendurl}/admin/deletefamilystatus/${id}`
-    );
+    return this.http.get(`${this.backendurl}/admin/deletefamilystatus/${id}`);
   }
 
   //get all education
@@ -256,7 +250,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editeducation/${id}`, data);
   }
   deleteeducation(id) {
-    return this.http.delete(`${this.backendurl}/admin/deleteeducation/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deleteeducation/${id}`);
   }
 
   //get all occupation
@@ -276,7 +270,7 @@ export class AdminService {
     );
   }
   deleteoccupation(id) {
-    return this.http.delete(`${this.backendurl}/admin/deleteoccupation/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deleteoccupation/${id}`);
   }
 
   //get allstar
@@ -293,7 +287,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editstar/${id}`, data);
   }
   deletestar(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletestar/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletestar/${id}`);
   }
 
   //get all moonsign
@@ -310,7 +304,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editmoonsign/${id}`, data);
   }
   deletemoonsign(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletemoonsign/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletemoonsign/${id}`);
   }
 
   //height
@@ -327,7 +321,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editheight/${id}`, data);
   }
   deleteheight(id) {
-    return this.http.delete(`${this.backendurl}/admin/deleteheight/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deleteheight/${id}`);
   }
 
   //get all employedin
@@ -347,7 +341,7 @@ export class AdminService {
     );
   }
   deleteemployedin(id) {
-    return this.http.delete(`${this.backendurl}/admin/deleteemployedin/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deleteemployedin/${id}`);
   }
 
   //from rest
@@ -369,7 +363,7 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editrole/${id}`, data);
   }
   deleterole(id) {
-    return this.http.delete(`${this.backendurl}/admin/deleterole/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deleterole/${id}`);
   }
 
   //staff
@@ -386,6 +380,6 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/editstaff/${id}`, data);
   }
   deletestaff(id) {
-    return this.http.delete(`${this.backendurl}/admin/deletestaff/${id}`);
+    return this.http.get(`${this.backendurl}/admin/deletestaff/${id}`);
   }
 }

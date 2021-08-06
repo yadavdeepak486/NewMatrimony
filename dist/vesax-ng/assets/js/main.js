@@ -148,4 +148,10 @@
     $("#registerModal").css({ color: "red" });
     return false;
   });
+
+  // $('.main-nav li > a').each(function () {
+  //   var $this = $(this);
+  //   var loc = location.
+  //   if (location.pathname.replace(/\/[^\/]*\.html$/, '').startsWith($this.attr('href').replace(/\.html$/, ''))) {$this.parent().addClass('active');}
+  // });
 })(jQuery);

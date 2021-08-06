@@ -1409,19 +1409,19 @@ a.default-btn.btn-lr {
       }
     }
   }
-  
+
   // mb css
   .card.pd-5.rs-1 {
-    height: 1000px !important; 
+    height: 1000px !important;
     justify-content: center;
   }
-  button.btnrg{
+  button.btnrg {
     padding: 15px 25px !important;
-   }
+  }
   .modal-content.rs-3 {
     border: none !important;
     padding: 100px 0px !important;
-   }
+  }
 }
 /* Min width 576px to Max width 767px */
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -1941,7 +1941,7 @@ input.example-right-align {
   margin-bottom: 15px;
 }
 a.tac {
-  color:#0e0bf5;
+  color: #0e0bf5;
   font-weight: 700;
 }
 div#forgotpassordModal {
@@ -1961,7 +1961,6 @@ div#forgotpassordModal {
     size: cover;
     repeat: no-repeat;
   }
-  
 }
 
 .card.pd-5 {
@@ -2063,25 +2062,24 @@ button.btnrg {
 }
 // profile box
 
-
 // new css
 
 .card.pd-5.rs-1 {
-  height:800px;
+  height: 800px;
   justify-content: center;
 }
 
 // form haeding
-.form-heading{
+.form-heading {
   width: 100%;
   text-align: center;
 }
-.form-heading h3{
+.form-heading h3 {
   font-size: 18px;
   color: #f00;
   margin-bottom: 4px;
 }
-.form-heading p{
+.form-heading p {
   font-size: 12px;
   font-weight: 500;
 }
