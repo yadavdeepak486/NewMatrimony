@@ -155,6 +155,8 @@ import { UserProfileTwoComponent } from './components/pages/user-profile-two/use
 import { AllMemberComponent } from './components/pages/dashboard/member/all-member/all-member.component';
 import { FeaturedMemberComponent } from './components/pages/dashboard/member/featured-member/featured-member.component';
 import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-plan.component';
+
+import { QuillModule } from 'ngx-quill';
 @NgModule({
   declarations: [
     AppComponent,
@@ -311,6 +313,7 @@ import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-pl
     MatModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    QuillModule.forRoot(),
   ],
   providers: [UserService, AdminService],
   bootstrap: [AppComponent],

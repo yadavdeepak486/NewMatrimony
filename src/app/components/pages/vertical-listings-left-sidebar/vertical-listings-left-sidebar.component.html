@@ -397,19 +397,19 @@
                             <td class="py-1 w-25   fw-400">{{Content.Age}}</td>
                             <td class="py-1 w-25"><span><strong>Height:</strong></span></td>
                             <td class="py-1 w-25 fw-400">
-                              {{Content.Height.feetinchvalue}}
+                              {{Content?.Height?.feetinchvalue}}
                             </td>
                           </tr>
                           <tr>
                             <td class="py-1"><span><strong>Religion:</strong></span></td>
                             <td class="py-1 fw-400">
-                              {{Content.Religion.name}}
+                              {{Content.Religion?.name}}
                             </td>
                             <td class="py-1">
                               <span><strong>Caste</strong></span>
                             </td>
                             <td class="py-1 fw-400">
-                              {{Content.Caste.name}}
+                              {{Content.Caste?.name}}
                             </td>
                           </tr>
 
@@ -417,7 +417,7 @@
                             <td class="py-1"><span><strong>location:</strong></span>
                             </td>
                             <td class="py-1 fw-400">
-                              {{Content.LCity.name}}{{Content.LState.name}}{{Content.LCountry.name}}
+                              {{Content.LCity?.name}}{{Content.LState?.name}}{{Content.LCountry?.name}}
                             </td>
                           </tr>
                         </tbody>

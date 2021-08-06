@@ -271,49 +271,9 @@ const routes: Routes = [
     path: 'profile-attributes/marital-statuses',
     component: MaritalStatusesComponent,
   },
-  { path: 'profile-attributes/education', component: EducationComponent },
-  { path: 'profile-attributes/occupation', component: OccupationComponent },
-  { path: 'profile-attributes/star', component: StarComponent },
-  { path: 'profile-attributes/moonsign', component: MoonsignComponent },
-  { path: 'profile-attributes/hight', component: HightComponent },
-  { path: 'profile-attributes/employedin', component: EmployedinComponent },
-
-  { path: 'premium-package', component: PrimiumPackageComponent },
   { path: 'member/profile-section', component: ProfileSectionComponent },
-  { path: 'package-payment', component: PackagePaymentComponent },
-  { path: 'happy-stories', component: HappyStoriesComponent },
-  { path: 'complete-profile', component: CompleteProfileComponent },
-  { path: 'newsletter', component: NewsletterComponent },
-  { path: 'sms-template', component: SmsTemplateComponent },
-  { path: 'set-otp', component: SetOtpComponent },
-  { path: 'send-sms', component: SendSmsComponent },
-  { path: 'uploadedfile', component: UploadedfileComponent },
-  { path: 'user-info', component: UserInfoComponent },
-  { path: 'photo-file', component: PhotoFileComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-
-  // website setup
-  { path: 'website-setup/header', component: HeaderComponent },
-  { path: 'website-setup/footer', component: FooterComponent },
-  { path: 'website-setup/pages', component: PagesComponent },
-  { path: 'website-setup/appearance', component: AppearanceComponent },
-  { path: 'website-setup/pages/add-new-page', component: AddNewPageComponent },
-
-  // setting
-  { path: 'settings/currency', component: CurrencyComponent },
-  { path: 'settings/general-setting', component: GeneralSettingComponent },
-  { path: 'settings/language', component: LanguageComponent },
-  { path: 'settings/payment-methods', component: PaymentMethodsComponent },
-  { path: 'settings/payment-methods', component: PaymentMethodsComponent },
-  { path: 'settings/smtp-setting', component: SmtpSettingComponent },
-  { path: 'settings/email-template', component: EmailTemplateComponent },
-  { path: 'settings/social-login', component: SocialLoginComponent },
-  {
-    path: 'settings/third-party-setting',
-    component: ThirdPartySettingComponent,
-  },
-
   // user-profile-one
   { path: 'user-profile-one', component: UserProfileOneComponent },
   // user-profile-two

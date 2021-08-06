@@ -387,4 +387,13 @@ export class AdminService {
   getlogo() {
     return this.http.get(`${this.backendurl}/admin/viewweblogo/Two`);
   }
+
+  //happy story
+  getallhappystory() {
+    return this.http.get(`${this.backendurl}/admin/allhappystory`);
+  }
+
+  getalllogo() {
+    return this.http.get(`${this.backendurl}/admin/alllogo`);
+  }
 }
