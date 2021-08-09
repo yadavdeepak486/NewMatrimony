@@ -4,20 +4,17 @@ import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-user-dashboard-navbar',
   templateUrl: './user-dashboard-navbar.component.html',
-  styleUrls: ['./user-dashboard-navbar.component.scss']
+  styleUrls: ['./user-dashboard-navbar.component.scss'],
 })
 export class UserDashboardNavbarComponent implements OnInit {
   checkauth: any;
 
-  constructor(public userService: UserService, public routes: Router) { 
+  constructor(public userService: UserService, public routes: Router) {
     this.checkauth = localStorage.getItem('auth');
     console.log(this.checkauth);
   }
 
-  ngOnInit(): void {
-    
-  }
-
+  ngOnInit(): void {}
 
   logout() {
     console.log('request logout');
@@ -28,6 +25,4 @@ export class UserDashboardNavbarComponent implements OnInit {
     localStorage.setItem('TOKEN', '');
     this.checkauth = false;
   }
-
-
 }
