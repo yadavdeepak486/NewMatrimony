@@ -31,10 +31,7 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         this.toastr.success('Welcome to Himachal Matrimony');
         this.auth = true;
-        this.usertype = response.user_type;
-        localStorage.setItem('id', response.user._id);
-        localStorage.setItem('usertype', JSON.stringify(this.usertype));
-        localStorage.setItem('auth', JSON.stringify(this.auth));
+        localStorage.setItem('auth-token', response.token);
         console.log(response);
         this.routes.navigate(['/vertical-listings-left-sidebar']);
       },
@@ -49,17 +46,4 @@ export class LoginComponent implements OnInit {
     console.log('forget password');
     this.forgotpassword = true;
   }
-  // setuser() {
-  //   console.log(this.signin.value);
-  //   if (this.signin.value.type == 'user') {
-  //     console.log('Welcome user');
-  //     localStorage.setItem('usertype', 'user');
-  //     this.routes.navigate(['/vertical-listings-left-sidebar']);
-  //   } else if (this.signin.value.type == 'admin') {
-  //     localStorage.setItem('usertype', 'admin');
-  //     this.routes.navigate(['/dashboard']);
-  //   } else {
-  //     console.log('error');
-  //   }
-  // }
 }

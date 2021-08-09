@@ -19,10 +19,8 @@ export class UserDashboardNavbarComponent implements OnInit {
   logout() {
     console.log('request logout');
     const setauth = false;
-    localStorage.setItem('id', '');
-    localStorage.setItem('usertype', '');
-    localStorage.setItem('auth', JSON.stringify(setauth));
-    localStorage.setItem('TOKEN', '');
+    localStorage.setItem('auth-token', '');
+    this.routes.navigate(['/']);
     this.checkauth = false;
   }
 }

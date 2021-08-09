@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -30,14 +30,16 @@ export class UserProfileTwoComponent implements OnInit {
 
   verticalListings: number = 1;
   getmydetails() {
-    this.userService.getmyprofiledetail().subscribe(
-      (response: any) => {
-        console.log(response);
-        this.mydetail = response.data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    setTimeout(() => {
+      this.userService.getmyprofiledetail().subscribe(
+        (response: any) => {
+          console.log(response);
+          this.mydetail = response.data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }, 3000);
   }
 }

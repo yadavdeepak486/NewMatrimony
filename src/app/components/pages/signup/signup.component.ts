@@ -97,9 +97,7 @@ export class SignupComponent implements OnInit {
         this.mobilenumber = this.signupuser.value.Mobile;
         this.usertype = response.user_type;
         this.auth = true;
-        localStorage.setItem('id', JSON.stringify(response.user._id));
-        localStorage.setItem('usertype', JSON.stringify(this.usertype));
-        localStorage.setItem('auth', JSON.stringify(this.auth));
+        localStorage.setItem('auth-token', response.token);
         this.sendotp();
       },
       (error) => {

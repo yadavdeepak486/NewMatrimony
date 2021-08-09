@@ -14,14 +14,17 @@ export class UserInfoComponent implements OnInit, OnChanges {
   allreligion: any;
   allcaste: any;
   allheights: any;
-  allcity: any;
   alleducation: any;
   allemployedin: any;
   alloccupation: any;
   allcountry: any;
+  lallstate: any;
+  lallcity: any;
   allstate: any;
+  allcity: any;
   alllanguage: any;
   selectedreligion: any;
+  disablecastetab: any = true;
 
   userinfo = new FormGroup({
     Religion: new FormControl('', Validators.required),
@@ -32,6 +35,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     TOB: new FormControl('', Validators.required),
     Education: new FormControl('', Validators.required),
     Employedin: new FormControl('', Validators.required),
+    Language: new FormControl('', Validators.required),
     Occupation: new FormControl('', Validators.required),
     LCountry: new FormControl('', Validators.required),
     LState: new FormControl('', Validators.required),
@@ -51,13 +55,12 @@ export class UserInfoComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getallreligion();
     this.getallheights();
-    this.getallcity();
     this.alleducations();
     this.allemployedins();
     this.alloccupations();
     this.alleducations();
     this.allcountrys();
-    this.allstates();
+    //this.allstates();
     this.getalllanguage();
   }
 
@@ -88,17 +91,17 @@ export class UserInfoComponent implements OnInit, OnChanges {
     );
   }
 
-  getallcity() {
-    this.adminService.allcity().subscribe(
-      (response: any) => {
-        this.allcity = response.data;
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  // getallcity() {
+  //   this.adminService.allcity().subscribe(
+  //     (response: any) => {
+  //       this.allcity = response.data;
+  //       console.log(response);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   alleducations() {
     this.adminService.alleducation().subscribe(
@@ -160,10 +163,62 @@ export class UserInfoComponent implements OnInit, OnChanges {
     );
   }
 
+  /*
   allstates() {
     this.adminService.allstate().subscribe(
       (response: any) => {
         this.allstate = response.data;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  } */
+  lstateofcountry(id) {
+    console.log(id);
+    this.adminService.statebycountry(id).subscribe(
+      (response: any) => {
+        this.lallstate = response.data;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  lcityofstate(id) {
+    console.log(id);
+    this.adminService.citybystate(id).subscribe(
+      (response: any) => {
+        this.lallcity = response.data;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  stateofcountry(id) {
+    console.log(id);
+    this.adminService.statebycountry(id).subscribe(
+      (response: any) => {
+        this.allstate = response.data;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  cityofstate(id) {
+    console.log(id);
+    this.adminService.citybystate(id).subscribe(
+      (response: any) => {
+        this.allcity = response.data;
         console.log(response);
       },
       (error) => {

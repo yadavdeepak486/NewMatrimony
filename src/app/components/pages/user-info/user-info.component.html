@@ -104,7 +104,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Living Country <span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="LCountry">
+                  <select (ngModelChange)="lstateofcountry($event)" class="form-control" formControlName="LCountry">
                     <option [value]="country._id" *ngFor="let country of allcountry">
                       {{country?.name}}</option>
                   </select>
@@ -113,8 +113,8 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Living State <span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="LState">
-                    <option [value]="state._id" *ngFor="let state of allstate">
+                  <select (ngModelChange)="lcityofstate($event)" class="form-control" formControlName="LState">
+                    <option [value]="state._id" *ngFor="let state of lallstate">
                       {{state?.name}}</option>
                   </select>
                 </div>
@@ -123,7 +123,7 @@
                 <div class="form-group">
                   <label class="lb-ser">Living City <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="LCity">
-                    <option [value]="city._id" *ngFor="let city of allcity">
+                    <option [value]="city._id" *ngFor="let city of lallcity">
                       {{city?.name}}</option>
                   </select>
                 </div>
@@ -137,7 +137,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Native Country <span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="Country">
+                  <select (ngModelChange)="stateofcountry($event)" class="form-control" formControlName="Country">
                     <option [value]="country._id" *ngFor="let country of allcountry">
                       {{country?.name}}</option>
                   </select>
@@ -146,7 +146,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Native State <span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="State">
+                  <select (ngModelChange)="stateofcountry($event)" class="form-control" formControlName="State">
                     <option [value]="state._id" *ngFor="let state of allstate">
                       {{state?.name}}</option>
                   </select>

@@ -1,13 +1,19 @@
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpEvent,
+  HttpRequest,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -18,12 +24,26 @@ export class UserService {
       this.loginedinuserid = getid;
     }
   }
+
+  getTransferIp() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+  }
+
   getallprofiles() {
     return this.http.get(`${this.backendurl}/user/allusers`);
   }
 
   viewoneprofile(id) {
-    return this.http.get(`${this.backendurl}/user/details/${id}`);
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/userdetails/${id}`, {
+      headers: header,
+    });
   }
 
   //user signup
@@ -41,7 +61,17 @@ export class UserService {
 
   //add other info
   addotheruserdetails(id, data) {
-    return this.http.post(`${this.backendurl}/user/setting/${id}`, data);
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.post(
+      `${this.backendurl}/user/setting`,
+      {
+        headers: header,
+      },
+      data
+    );
   }
 
   //login
@@ -84,13 +114,12 @@ export class UserService {
 
   //my profile
   getmyprofiledetail() {
-    if (this.loginedinuserid !== undefined) {
-      console.log(
-        this.loginedinuserid + 'This is to check if it is null or not'
-      );
-      return this.http.get(
-        `${this.backendurl}/user/details/${this.loginedinuserid}`
-      );
-    }
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/details`, {
+      headers: header,
+    });
   }
 }

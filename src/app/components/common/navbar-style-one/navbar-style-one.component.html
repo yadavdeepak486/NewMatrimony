@@ -149,7 +149,7 @@
                             </ul>
                         </li> -->
 
-            <li class="nav-item">
+            <li *ngIf="checkauth" class="nav-item">
               <a routerLink="/user-dashboard" class="nav-link" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">My Profile</a>
 

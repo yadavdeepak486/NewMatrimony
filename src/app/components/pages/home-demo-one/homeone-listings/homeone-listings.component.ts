@@ -227,6 +227,7 @@ export class HomeoneListingsComponent implements OnInit {
         console.log(this.mainImg);
         console.log(response.data[0].img1);
         let arry = [];
+
         arry.push(response.data[0].img1);
         arry.push(response.data[0].img2);
         arry.push(response.data[0].img3);
