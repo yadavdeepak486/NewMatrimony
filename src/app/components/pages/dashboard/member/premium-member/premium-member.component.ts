@@ -8,15 +8,38 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./premium-member.component.scss']
 })
 export class PremiumMemberComponent implements OnInit {
-
+  allpremuimusers: any;
   constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
     this.getpremiumusers();
   }
 
+  singleSelect: any = [];
   source: any;
-
+  resetOption: any;
+  config = {
+    displayKey: 'name',
+    search: true,
+  };
+  options = [
+    // Type here your category name
+    {
+      name: 'name',
+    },
+    {
+      name: 'lorem',
+    },
+    {
+      name: 'lorem',
+    },
+  ];
+  searchChange($event) {
+    console.log($event);
+  }
+  reset() {
+    this.resetOption = [];
+  }
   settings = {
     // add: {
     //   addButtonContent: '<i  class="ion-ios-plus-outline"></i>',
@@ -43,57 +66,24 @@ export class PremiumMemberComponent implements OnInit {
         // { name: 'Permissions', title:  '&nbsp;&nbsp;<i class="bntn btn-danger"><button>Reject</button></i>'},
       ],
       position: 'right',
-
     },
 
-    // columns: {
-    //   id: {
-    //     title: '#',
-    //     filter: false,
-
-    //   },
-    //   image: {
-    //     title: 'Image',
-    //     filter: false,
-
-    //   },
-    //   memberid: {
-    //     title: 'Member ID',
-    //     filter: false,
-    //   },
-    //   Name: {
-    //     title: 'Name',
-    //     filter: false,
-    //   },
-    //   profilereported: {
-    //     title: 'Profile Reported',
-    //     filter: false,
-    //   },
-    //   memberscience: {
-    //     title: 'Member Since	',
-    //     filter: false,
-    //   },
-    //   memberstatus: {
-    //     title: 'Member Status	',
-    //     filter: false,
-    //   },
-
-    //   action: {
-    //     title: 'Action',
-    //     filter: false,
-    //   },
-    // },
     columns: {
       Profile: {
         title: 'Image',
         filter: false,
         type: 'html',
-        valuePrepareFunction: (imageUrl) => { return '<img src="' + imageUrl + '" alt="Smiley face" height="60" width="60" />' },
+        valuePrepareFunction: (imageUrl) => {
+          return (
+            '<img src="' +
+            imageUrl +
+            '" alt="Smiley face" height="60" width="60" />'
+          );
+        },
       },
       MatriID: {
         title: '#',
         filter: true,
-
       },
       Name: {
         title: 'Name',
@@ -115,48 +105,50 @@ export class PremiumMemberComponent implements OnInit {
       // },
     },
     attr: {
-      class: 'table table-bordered'
+      class: 'table table-bordered',
     },
-
   };
 
+  verticalListings: number = 1;
   onSearch(query: string = '') {
-    this.source.setFilter([
-      // fields we want to inclue in the search
-      {
-        field: '#',
-        search: query,
-      },
-      {
-        field: 'image',
-        search: query,
-      },
-      {
-        field: 'memberid',
-        search: query,
-      },
-      {
-        field: 'Name',
-        search: query,
-      },
-      {
-        field: 'profilereported',
-        search: query,
-      },
-      {
-        field: 'memberscience',
-        search: query,
-      },
-      {
-        field: 'memberstatus',
-        search: query,
-      },
-      {
-        field: 'action',
-        search: query,
-      },
-
-    ], false);
+    this.source.setFilter(
+      [
+        // fields we want to inclue in the search
+        {
+          field: '#',
+          search: query,
+        },
+        {
+          field: 'image',
+          search: query,
+        },
+        {
+          field: 'memberid',
+          search: query,
+        },
+        {
+          field: 'Name',
+          search: query,
+        },
+        {
+          field: 'profilereported',
+          search: query,
+        },
+        {
+          field: 'memberscience',
+          search: query,
+        },
+        {
+          field: 'memberstatus',
+          search: query,
+        },
+        {
+          field: 'action',
+          search: query,
+        },
+      ],
+      false
+    );
     // second parameter specifying whether to perform 'AND' or 'OR' search
     // (meaning all columns should contain search query or at least one)
     // 'AND' by default, so changing to 'OR' by setting false here
@@ -171,11 +163,14 @@ export class PremiumMemberComponent implements OnInit {
 
 
   getpremiumusers() {
-    this.adminService.getpremiumusers().subscribe((response: any) => {
-      console.log(response)
-      this.source = response.data
-    }, (error) => {
-      console.log(error)
-    })
+    this.adminService.getpremiumusers().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allpremuimusers = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

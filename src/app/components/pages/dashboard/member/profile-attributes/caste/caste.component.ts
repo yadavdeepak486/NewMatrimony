@@ -10,8 +10,10 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class CasteComponent implements OnInit {
   editmode: boolean = false;
+  togglecheck: boolean = true;
   allcaste: any;
   allreligion: any;
+  allreligionbasedcaste:any;
   selectedcaste: any;
   caste = new FormGroup({
     sortorder: new FormControl(''),
@@ -25,6 +27,7 @@ export class CasteComponent implements OnInit {
     religion: new FormControl(''),
     name: new FormControl(''),
   });
+  getallreligionbasedcaste: any;
   constructor(
     public adminService: AdminService,
     private toastr: ToastrService
@@ -142,4 +145,29 @@ export class CasteComponent implements OnInit {
       }
     );
   }
+
+  castebasedonreg(){
+    console.log("button clicked")
+    if(this.togglecheck == false){
+      this.togglecheck = true
+    }
+    else {
+    this.togglecheck = false
+    }
+  }
+
+  religionbasedcaste(id) {
+    console.log(id);
+    // this.adminService.religionbasedcaste(id).subscribe(
+    //   (response: any) => {
+    //     //console.log(response)
+    //     this.getallcaste();
+    //   },
+    //   (error) => {
+    //     this.toastr.error('Error occured');
+    //     console.log(error);
+    //   }
+    // );
+  }
+
 }

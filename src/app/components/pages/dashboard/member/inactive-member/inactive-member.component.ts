@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
-  selector: 'app-reported-member',
-  templateUrl: './reported-member.component.html',
-  styleUrls: ['./reported-member.component.scss']
+  selector: 'app-inactive-member',
+  templateUrl: './inactive-member.component.html',
+  styleUrls: ['./inactive-member.component.scss']
 })
-export class ReportedMemberComponent implements OnInit {
+export class InactiveMemberComponent implements OnInit {
+  allinactiveuser: any;
 
-  allreportedusers: any;
-  constructor(public adminServie: AdminService) {}
+  constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.getreportedusers();
+    this.getinactiveuser();
   }
 
   singleSelect: any = [];
@@ -157,16 +156,17 @@ export class ReportedMemberComponent implements OnInit {
 
   breadcrumb = [
     {
-      title: 'Reported Member List',
-      subTitle: 'Members',
-    },
-  ];
+      title: 'InActive Member List',
+      subTitle: 'Members'
+    }
+  ]
 
-  getreportedusers() {
-    this.adminServie.getreportedusers().subscribe(
+
+  getinactiveuser() {
+    this.adminService.getinactiveuser().subscribe(
       (response: any) => {
         console.log(response);
-        this.allreportedusers = response.data;
+        this.allinactiveuser = response.data;
       },
       (error) => {
         console.log(error);
@@ -174,4 +174,5 @@ export class ReportedMemberComponent implements OnInit {
     );
   }
 }
+
 

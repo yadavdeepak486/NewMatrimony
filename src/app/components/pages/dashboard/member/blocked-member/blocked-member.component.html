@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
           <li class="item"><a routerLink="/">Home</a></li>
           <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-          <li class="item">{{Content.title}} <strong>({{ allfeaturesusers?.length}})</strong></li>
+          <li class="item">{{Content.title}} <strong>({{ allblockedusers?.length}})</strong></li>
         </ol>
       </div>
     <!-- End Breadcrumb Area -->
@@ -66,7 +66,7 @@
     
               <div class="row">
                 <div class="col-lg-12 col-md-12"
-                  *ngFor="let Content of  allfeaturesusers | paginate: { itemsPerPage: 8, currentPage: verticalListings }">
+                  *ngFor="let Content of  allblockedusers | paginate: { itemsPerPage: 8, currentPage: verticalListings }">
                   <div class="single-listings-item">
                     <div class="row m-0">
                       <div class="col-lg-4 col-md-4 p-0">
