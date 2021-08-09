@@ -1,0 +1,262 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-lg-3">
+                <div class="left-box">
+                    <h3 class="hd-txtt">Quick Overview</h3>
+                    <ul>
+                       <li>Who View My Profile <span class="sptxt">09</span></li>
+                       <li>Short Listed Profile <span class="sptxt">09</span></li>
+                       <li>Interest Recieved <span class="sptxt">09</span></li>
+                       <li>Interest Sent by me <span class="sptxt">09</span></li>
+                       <li>Photo Request Sent <span class="sptxt">09</span></li>
+                       <li>Blocked Profile <span class="sptxt">09</span></li>
+                       <li>I Viewed Profile <span class="sptxt">09</span></li>
+                       <li>Photo Request Recieved<span class="sptxt">09</span></li>
+                       <li>Membership Details<span class="sptxt">09</span></li>
+                    </ul>
+                 </div>
+                 <div class="ad-box">
+                    <img src="assets/img/banner-ad.jpg" />
+                 </div>
+              </div> -->
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-12 col-md-12" *ngFor="let Content of singleListingsItem">
+                <div class="single-listings-item">
+                  <div class="row m-0">
+                    <div class="col-lg-5 col-md-4 p-0">
+                      <div class="listings-image" style="background-image: url({{mydetail?.Photo1}});">
+                        <img [src]="mydetail?.Photo1" alt="image">
+                      </div>
+                    </div>
+                    <div class="col-lg-7 col-md-8 p-0">
+                      <div class="listings-content">
+                        <div class="pf- box">
+                          <p class="txt-user">Matri ID: {{mydetail?.Prefix}}{{mydetail?.MatriID}}<span></span></p>
+                          <p class="txt-user">MB NO: {{mydetail?.Mobile}}<span></span></p>
+                          <p class="txt-user">DOB: {{mydetail?.DOB}}<span></span></p>
+                          <p class="txt-user"> {{mydetail?.Gender}},
+                            {{mydetail?.Height?.feetinchvalue}}({{mydetail?.Height?.cmvalue}}Cms)</p>
+                          <p class="txt-user">Native
+                            From: {{mydetail?.City?.name}}, {{mydetail?.State?.name}}, {{mydetail?.Country?.name}}
+                          </p>
+                          <p class="txt-user">Living
+                            In: {{mydetail?.LCity?.name}}, {{mydetail?.LState?.name}}, {{mydetail?.LCountry?.name}}
+                          </p>
+                        </div>
+                        <a href="javascript:void(0);" class="updt">Update Your Details</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="dpgrade">
+              <p>You are currently a free Member<br>
+                Upgrade your membership to premium membership
+                and get in touch with call/chat with others member directly.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="bd-r">
+              <h3 class="hd-1">Hi Himanshi, Your profile Is 60% complete, We recomend to complete profile 100%.</h3>
+              <p>Click below details with * mark to increase %age of your profile:</p>
+              <ul class="xt">
+                <li><span style="color: red;">*</span>Basic Details</li>
+                <li><span style="color: red;">*</span>Family Details</li>
+                <li><span style="color: red;">*</span>Partner Details</li>
+                <li><span style="color: red;">*</span>Education & Occupation </li>
+                <li><span style="color: red;">*</span>Profile Description</li>
+                <li><span style="color: red;">*</span>Contact Details</li>
+                <li><span style="color: red;">*</span>assets & properties</li>
+              </ul>
+              <ul class="xt">
+                <li><span style="color: red;">*</span>Verify Profile</li>
+                <li><span style="color: red;">*</span>Profile Photo</li>
+                <li><span style="color: red;">*</span>Profile Photo2</li>
+                <li><span style="color: red;">*</span>Profile Photo3</li>
+                <li><span style="color: red;">*</span>Physical Attribute and Eating Habits</li>
+                <li><span style="color: red;">*</span>Horoscope Deatils</li>
+                <li><span style="color: red;">*</span>Premium Memberships</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="progress blue">
+              <span class="progress-left">
+                <span class="progress-bar"></span>
+              </span>
+              <span class="progress-right">
+                <span class="progress-bar"></span>
+              </span>
+              <div class="progress-value">60%</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- featured profile -->
+          <div class="col-lg-12">
+            <h3 class="tl-1">Featured Profile</h3>
+          </div>
+          <div class="col-lg-6" *ngFor="let Content of singleListingsItem">
+            <div class="single-listings-item">
+              <div class="row m-0">
+                <div class="col-lg-5 col-md-4 p-0">
+                  <div class="listings-image" style="background-image: url({{Content.mainImg}});">
+                    <img [src]="Content.mainImg" alt="image">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-8 p-0">
+                  <div class="listings-content">
+                    <div class="pf- box">
+                      <p class="txt-user"><b>0111111</b></p>
+                      <p class="txt-user">30 Yrs, Others,<span>Nurse</span></p>
+                      <p class="txt-user">Caste: <span>Rajput</span></p>
+                      <p class="txt-user">From: <span>Mandi</span></p>
+                      <p class="txt-user">Living in: <span>Indore</span></p>
+                    </div>
+                    <a href="javascript:void(0);" class="updt">View Profile</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" *ngFor="let Content of singleListingsItem">
+            <div class="single-listings-item">
+              <div class="row m-0">
+                <div class="col-lg-5 col-md-4 p-0">
+                  <div class="listings-image" style="background-image: url({{Content.mainImg}});">
+                    <img [src]="Content.mainImg" alt="image">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-8 p-0">
+                  <div class="listings-content">
+                    <div class="pf- box">
+                      <p class="txt-user"><b>0111111</b></p>
+                      <p class="txt-user">30 Yrs, Others,<span>Nurse</span></p>
+                      <p class="txt-user">Caste: <span>Rajput</span></p>
+                      <p class="txt-user">From: <span>Mandi</span></p>
+                      <p class="txt-user">Living in: <span>Indore</span></p>
+                    </div>
+                    <a href="javascript:void(0);" class="updt">View Profile</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Just Joined -->
+          <div class="col-lg-12">
+            <h3 class="tl-1">Just Joined</h3>
+          </div>
+          <div class="col-lg-6" *ngFor="let Content of singleListingsItem">
+            <div class="single-listings-item">
+              <div class="row m-0">
+                <div class="col-lg-5 col-md-4 p-0">
+                  <div class="listings-image" style="background-image: url({{Content.mainImg}});">
+                    <img [src]="Content.mainImg" alt="image">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-8 p-0">
+                  <div class="listings-content">
+                    <div class="pf- box">
+                      <p class="txt-user"><b>0111111</b></p>
+                      <p class="txt-user">30 Yrs, Others,<span>Nurse</span></p>
+                      <p class="txt-user">Caste: <span>Rajput</span></p>
+                      <p class="txt-user">From: <span>Mandi</span></p>
+                      <p class="txt-user">Living in: <span>Indore</span></p>
+                    </div>
+                    <a href="javascript:void(0);" class="updt">View Profile</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" *ngFor="let Content of singleListingsItem">
+            <div class="single-listings-item">
+              <div class="row m-0">
+                <div class="col-lg-5 col-md-4 p-0">
+                  <div class="listings-image" style="background-image: url({{Content.mainImg}});">
+                    <img [src]="Content.mainImg" alt="image">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-8 p-0">
+                  <div class="listings-content">
+                    <div class="pf- box">
+                      <p class="txt-user"><b>0111111</b></p>
+                      <p class="txt-user">30 Yrs, Others,<span>Nurse</span></p>
+                      <p class="txt-user">Caste: <span>Rajput</span></p>
+                      <p class="txt-user">From: <span>Mandi</span></p>
+                      <p class="txt-user">Living in: <span>Indore</span></p>
+                    </div>
+                    <a href="javascript:void(0);" class="updt">View Profile</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Your Matches -->
+          <div class="col-lg-12">
+            <h3 class="tl-1">Your Matches</h3>
+          </div>
+          <div class="col-lg-6" *ngFor="let Content of singleListingsItem">
+            <div class="single-listings-item">
+              <div class="row m-0">
+                <div class="col-lg-5 col-md-4 p-0">
+                  <div class="listings-image" style="background-image: url({{Content.mainImg}});">
+                    <img [src]="Content.mainImg" alt="image">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-8 p-0">
+                  <div class="listings-content">
+                    <div class="pf- box">
+                      <p class="txt-user"><b>0111111</b></p>
+                      <p class="txt-user">30 Yrs, Others,<span>Nurse</span></p>
+                      <p class="txt-user">Caste: <span>Rajput</span></p>
+                      <p class="txt-user">From: <span>Mandi</span></p>
+                      <p class="txt-user">Living in: <span>Indore</span></p>
+                    </div>
+                    <a href="javascript:void(0);" class="updt">View Profile</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" *ngFor="let Content of singleListingsItem">
+            <div class="single-listings-item">
+              <div class="row m-0">
+                <div class="col-lg-5 col-md-4 p-0">
+                  <div class="listings-image" style="background-image: url({{Content.mainImg}});">
+                    <img [src]="Content.mainImg" alt="image">
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-8 p-0">
+                  <div class="listings-content">
+                    <div class="pf- box">
+                      <p class="txt-user"><b>0111111</b></p>
+                      <p class="txt-user">30 Yrs, Others,<span>Nurse</span></p>
+                      <p class="txt-user">Caste: <span>Rajput</span></p>
+                      <p class="txt-user">From: <span>Mandi</span></p>
+                      <p class="txt-user">Living in: <span>Indore</span></p>
+                    </div>
+                    <a href="javascript:void(0);" class="updt">View Profile</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

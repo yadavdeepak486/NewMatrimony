@@ -27,42 +27,50 @@
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
         <h3>Header Setting</h3>
-        <form class="bd-n">
+        <form [formGroup]="logoform" (ngSubmit)="submitForm()" class="bd-n" ngNativeValidate>
           <div class="row">
-            <div class="form-group fg-w">
-              <div class="col-lg-4">
-                <label>Header Logo</label>
-              </div>
-              <div class="col-lg-8">
-                <div class="input-group mb-3">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                  </div>
-                </div>
-
-              </div>
-            </div>
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Website Title</label>
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="" placeholder="Malwa Matrimony">
+                  <input type="text" class="form-control" formControlName="title" id="" placeholder="Malwa Matrimony"
+                    required>
                 </div>
               </div>
             </div>
             <div class="form-group fg-w">
               <div class="col-lg-4">
-                <label>Website keyname</label>
+                <label>Website keyname <span style="color: red;">*</span></label>
               </div>
               <div class="col-lg-8">
-                <div class="input-group mb-3">
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="" placeholder="One">
+                <select class="form-control" formControlName="website">
+                  <option value="One" selected>One</option>
+                  <option value="Two">Two</option>
+                  <option value="Three">Three</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Header Logo</label>
+              </div>
+              <div class="col-lg-8 ">
+                <div class="input-group mb-3" style="
+                margin-top: 65px;
+            ">
+                  <div class="custom-file">
+                    <img class="to-send-images" [src]="filePath1 || deffilePath1" alt="image" />
+                    <label class="custom-file-upload" style="    margin-top: -50px;
+              z-index: 1002;
+              ">
+                      <input #photo1 type="file" accept="image/*" name="Photo1" (change)="imagePreview1($event)"
+                        required />
+                    </label>
                   </div>
                 </div>
+
               </div>
             </div>
             <div class="form-group fg-w">

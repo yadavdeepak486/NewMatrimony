@@ -393,6 +393,18 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/allhappystory`);
   }
 
+  addhappystory(data) {
+    const formData: FormData = new FormData();
+    formData.append('img1', data.img1);
+    formData.append('img2', data.img2);
+    formData.append('img3', data.img3);
+    formData.append('title', data.title);
+    formData.append('desc', data.desc);
+    formData.append('sortorder', data.sortorder);
+
+    return this.http.post(`${this.backendurl}/admin/addhappystory`, formData);
+  }
+
   getalllogo() {
     return this.http.get(`${this.backendurl}/admin/alllogo`);
   }

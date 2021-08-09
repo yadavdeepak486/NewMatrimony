@@ -13,8 +13,11 @@ export class HappyStoriesComponent implements OnInit {
   content: any = '';
   allstory: any;
   addstory = false;
-  filePath1: any = 'assets/img/couple-vector.png';
-  photo1form: FormGroup;
+  deffilePath1 = 'assets/img/couple-vector.png';
+  filePath1: any;
+  filePath2: any;
+  filePath3: any;
+  storyform: FormGroup;
   selectedFiles: FileList;
 
   //filePath1: any;
@@ -27,8 +30,13 @@ export class HappyStoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallhappystories();
-    this.photo1form = this.formBuilder.group({
-      Photo1: [''],
+    this.storyform = this.formBuilder.group({
+      title: '',
+      desc: '',
+      sortorder: '',
+      img1: [''],
+      img2: [''],
+      img3: [''],
     });
   }
   breadcrumb = [
@@ -58,20 +66,42 @@ export class HappyStoriesComponent implements OnInit {
     this.toastr.info('Implimentation to be done');
   }
 
-  imagePreview(e, digit) {
-    console.log(digit);
-    this.selectedFiles = e.target.files;
-
+  imagePreview1(e) {
     const file = e.target.files[0];
-    console.log(file);
-    this.photo1form.get('Photo1').setValue(file);
+    if (file) {
+      this.storyform.get('img1').setValue(file);
+    }
     const reader = new FileReader();
     const k = reader.readAsDataURL(file);
-    console.log(k);
     this.tosendpath = e.target.files.item(0);
-    console.log(this.tosendpath);
     reader.onload = (_event) => {
       this.filePath1 = reader.result;
+    };
+  }
+
+  imagePreview2(e) {
+    const file = e.target.files[0];
+    if (file) {
+      this.storyform.get('img2').setValue(file);
+    }
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.filePath2 = reader.result;
+    };
+  }
+
+  imagePreview3(e) {
+    const file = e.target.files[0];
+    if (file) {
+      this.storyform.get('img3').setValue(file);
+    }
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.filePath3 = reader.result;
     };
   }
 
@@ -110,5 +140,21 @@ export class HappyStoriesComponent implements OnInit {
   cancelstoryform() {
     this.addstory = false;
     console.log('cancel story clicked');
+  }
+
+  submitForm() {
+    console.log(this.storyform.value);
+    this.adminService.addhappystory(this.storyform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getallhappystories();
+        this.getallhappystories();
+        this.storyform.reset();
+        this.addstory = false;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

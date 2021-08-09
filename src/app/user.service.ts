@@ -10,8 +10,14 @@ export class UserService {
   backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
+  loginedinuserid;
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) {
+    const getid = localStorage.getItem('id');
+    if (getid) {
+      this.loginedinuserid = getid;
+    }
+  }
   getallprofiles() {
     return this.http.get(`${this.backendurl}/user/allusers`);
   }
@@ -74,5 +80,17 @@ export class UserService {
 
   getlogo() {
     return this.http.get(`${this.backendurl}/admin/viewweblogo/Two`);
+  }
+
+  //my profile
+  getmyprofiledetail() {
+    if (this.loginedinuserid !== undefined) {
+      console.log(
+        this.loginedinuserid + 'This is to check if it is null or not'
+      );
+      return this.http.get(
+        `${this.backendurl}/user/details/${this.loginedinuserid}`
+      );
+    }
   }
 }

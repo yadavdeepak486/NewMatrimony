@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Welcome to Himachal Matrimony');
         this.auth = true;
         this.usertype = response.user_type;
-        localStorage.setItem('id', JSON.stringify(response.user._id));
+        localStorage.setItem('id', response.user._id);
         localStorage.setItem('usertype', JSON.stringify(this.usertype));
         localStorage.setItem('auth', JSON.stringify(this.auth));
         console.log(response);

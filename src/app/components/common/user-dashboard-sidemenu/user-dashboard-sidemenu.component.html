@@ -1,107 +1,104 @@
 <!-- Start Sidemenu Area -->
 <div class="sidemenu-area">
-    <div class="sidemenu-header">
-        <a class="navbar-brand" style="color: white;
+  <div class="sidemenu-header">
+    <a class="navbar-brand" style="color: white;
         font-size: 2rem;" routerLink="/"><img style="width: 48px;" [src]="filepath ||stndpath" alt="logo" />
-          {{logo?.title}}</a>
-        <div class="responsive-burger-menu d-block d-lg-none">
-            <span class="top-bar"></span>
-            <span class="middle-bar"></span>
-            <span class="bottom-bar"></span>
-        </div>
+      {{logo?.title}}</a>
+    <div class="responsive-burger-menu d-block d-lg-none">
+      <span class="top-bar"></span>
+      <span class="middle-bar"></span>
+      <span class="bottom-bar"></span>
     </div>
+  </div>
 
-    <div class="sidemenu-body">
-        <ul class="sidemenu-nav metisMenu h-100" id="sidemenu-nav" data-simplebar>
-            <li class="nav-item-title">
-                Main
-            </li>
-            
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/user-dashboard" class="nav-link">
-                    <span class="icon"><i class='bx bx-home-circle'></i></span>
-                    <span class="menu-title">My profile</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/user-dashboard/profile-content" class="nav-link">
-                    <span class="icon"><i class='bx bx-edit'></i></span>
-                    <span class="menu-title">Complete Profile</span>
-                    <!-- <span class="badge"></span> -->
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-user'></i></span>
-                    <span class="menu-title">Who View My profile</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-list-minus'></i></span>
-                    <span class="menu-title">Short Listed Profile</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-like'></i></span>
-                    <span class="menu-title">Interest Recieved</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-send'></i></span>
-                    <span class="menu-title">Interest Sent by me</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-send'></i></span>
-                    <span class="menu-title">Photo Request Sent</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-block'></i></span>
-                    <span class="menu-title">Blocked Profile</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-street-view'></i></span>
-                    <span class="menu-title">I Viewed Profile</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-user'></i></span>
-                    <span class="menu-title">Photo Request Recieved</span>
-                    <span class="badge">3</span>
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-detail'></i></span>
-                    <span class="menu-title">Membership Details</span>
-                    <!-- <span class="badge">3</span> -->
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active mm-active">
-                <a routerLink="/demo" class="nav-link">
-                    <span class="icon"><i class='bx bx-envelope-open'></i></span>
-                    <span class="menu-title">chat</span>
-                    <!-- <span class="badge">3</span> -->
-                </a>
-            </li> 
-            
-            <li class="nav-item-title">
+  <div class="sidemenu-body">
+    <ul class="sidemenu-nav metisMenu h-100" id="sidemenu-nav" data-simplebar>
+
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/user-dashboard" class="nav-link">
+          <span class="icon"><i class='bx bx-home-circle'></i></span>
+          <span class="menu-title">My profile</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/user-dashboard/profile-content" class="nav-link">
+          <span class="icon"><i class='bx bx-edit'></i></span>
+          <span class="menu-title">Complete Profile</span>
+          <!-- <span class="badge"></span> -->
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-user'></i></span>
+          <span class="menu-title">Who View My profile</span>
+          <span class="badge">3</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-list-minus'></i></span>
+          <span class="menu-title">Short Listed Profile</span>
+          <span class="badge">3</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-like'></i></span>
+          <span class="menu-title">Interest Recieved</span>
+          <span class="badge">3</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-send'></i></span>
+          <span class="menu-title">Interest Sent by me</span>
+          <span class="badge">3</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-send'></i></span>
+          <span class="menu-title">Photo Request Sent</span>
+          <span class="badge">3</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-block'></i></span>
+          <span class="menu-title">Blocked Profile</span>
+          <span class="badge">3</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-street-view'></i></span>
+          <span class="menu-title">I Viewed Profile</span>
+          <span class="badge">3</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-user'></i></span>
+          <span class="menu-title">Photo Request Recieved</span>
+          <span class="badge">3</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/demo" class="nav-link">
+          <span class="icon"><i class='bx bx-detail'></i></span>
+          <span class="menu-title">Membership Details</span>
+          <!-- <span class="badge">3</span> -->
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/dashboard-messages" class="nav-link">
+          <span class="icon"><i class='bx bx-envelope-open'></i></span>
+          <span class="menu-title">chat</span>
+          <!-- <span class="badge">3</span> -->
+        </a>
+      </li>
+
+      <!-- <li class="nav-item-title">
                 Account
             </li>
 
@@ -110,15 +107,15 @@
                     <span class="icon"><i class='bx bxs-user-circle'></i></span>
                     <span class="menu-title">Profile</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
-                <a routerLink="/" class="nav-link">
-                    <span class="icon"><i class='bx bx-log-out'></i></span>
-                    <span class="menu-title">Logout</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link">
+          <span class="icon"><i class='bx bx-log-out'></i></span>
+          <span class="menu-title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 <!-- End Sidemenu Area -->

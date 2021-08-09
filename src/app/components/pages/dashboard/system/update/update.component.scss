@@ -359,6 +359,12 @@ table {
     }
   }
 }
+
+.to-send-images {
+  height: 150px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
 }
