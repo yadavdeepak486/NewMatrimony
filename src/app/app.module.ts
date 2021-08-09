@@ -161,6 +161,9 @@ import { UserDashboardComponent } from './components/pages/user-dashboard/user-d
 import { UserDashboardNavbarComponent } from './components/common/user-dashboard-navbar/user-dashboard-navbar.component';
 import { UserDashboardSidemenuComponent } from './components/common/user-dashboard-sidemenu/user-dashboard-sidemenu.component';
 import { ProfileContentComponent } from './components/pages/user-dashboard/profile-content/profile-content.component';
+import { InactiveMemberComponent } from './components/pages/dashboard/member/inactive-member/inactive-member.component';
+import { BlockedMemberComponent } from './components/pages/dashboard/member/blocked-member/blocked-member.component';
+import { ProfileListComponent } from './components/pages/user-dashboard/profile-list/profile-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -305,6 +308,9 @@ import { ProfileContentComponent } from './components/pages/user-dashboard/profi
     UserDashboardNavbarComponent,
     UserDashboardSidemenuComponent,
     ProfileContentComponent,
+    InactiveMemberComponent,
+    BlockedMemberComponent,
+    ProfileListComponent,
   ],
   imports: [
     BrowserModule,

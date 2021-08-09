@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
-  selector: 'app-reported-member',
-  templateUrl: './reported-member.component.html',
-  styleUrls: ['./reported-member.component.scss']
+  selector: 'app-blocked-member',
+  templateUrl: './blocked-member.component.html',
+  styleUrls: ['./blocked-member.component.scss']
 })
-export class ReportedMemberComponent implements OnInit {
+export class BlockedMemberComponent implements OnInit {
 
-  allreportedusers: any;
-  constructor(public adminServie: AdminService) {}
+  allblockedusers: any;
+
+  constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.getreportedusers();
+    this.getblockedusers();
   }
 
   singleSelect: any = [];
@@ -157,16 +157,17 @@ export class ReportedMemberComponent implements OnInit {
 
   breadcrumb = [
     {
-      title: 'Reported Member List',
-      subTitle: 'Members',
-    },
-  ];
+      title: 'Blocked Member List',
+      subTitle: 'Members'
+    }
+  ]
 
-  getreportedusers() {
-    this.adminServie.getreportedusers().subscribe(
+
+  getblockedusers() {
+    this.adminService.getblockedusers().subscribe(
       (response: any) => {
         console.log(response);
-        this.allreportedusers = response.data;
+        this.allblockedusers = response.data;
       },
       (error) => {
         console.log(error);
@@ -174,4 +175,6 @@ export class ReportedMemberComponent implements OnInit {
     );
   }
 }
+
+
 

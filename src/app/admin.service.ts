@@ -20,25 +20,30 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/user/type/FM`);
   }
 
+  // featuresuser
+  getfeaturesusers() {
+    return this.http.get(`${this.backendurl}/user/type/FM`);
+  }
+
   // inactiveuser
   getinactiveuser() {
     return this.http.get(`${this.backendurl}/user/inactiveuser`);
   }
 
   getpremiumusers() {
-    return this.http.get(`${this.backendurl}/user/type/PM`);
+    return this.http.get(`${this.backendurl}/user/type/FM`);
   }
 
   getdeletedusers() {
-    return this.http.get(`${this.backendurl}/user/deletedusers`);
+    return this.http.get(`${this.backendurl}/user/type/FM`);
   }
 
   getblockedusers() {
-    return this.http.get(`${this.backendurl}/user/allblockedusers`);
+    return this.http.get(`${this.backendurl}/user/type/FM`);
   }
 
   getreportedusers() {
-    return this.http.get(`${this.backendurl}/user/allreportedusers`);
+    return this.http.get(`${this.backendurl}/user/type/FM`);
   }
 
   //profile attributes
@@ -408,4 +413,11 @@ export class AdminService {
   getalllogo() {
     return this.http.get(`${this.backendurl}/admin/alllogo`);
   }
+
+  // religionbasedcaste
+
+  religionbasedcaste(id) {
+    return this.http.get(`${this.backendurl}/admin/castesofreligion/${id}`);
+  }
+
 }

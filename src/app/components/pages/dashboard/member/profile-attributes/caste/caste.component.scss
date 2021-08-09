@@ -1,5 +1,13 @@
 @import "../../../dashboard.component.scss";
 
+// css for religion btn
+button.btn.btn-primary.btn-hide {
+  width: 100px;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+// close
 .st-i i {
   font-size: 20px;
   margin-right: 20px;

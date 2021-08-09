@@ -124,4 +124,7 @@ export class ReligionsComponent implements OnInit {
       }
     );
   }
+
+
+ 
 }

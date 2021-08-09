@@ -116,6 +116,10 @@ import { UserDashboardSidemenuComponent } from './components/common/user-dashboa
 import { ProfileContentComponent } from './components/pages/user-dashboard/profile-content/profile-content.component';
 import { UserProfileOneComponent } from './components/pages/my-profile/user-profile-one.component';
 import { UserProfileTwoComponent } from './components/pages/complete-pro/user-profile-two.component';
+import { FeaturedMemberComponent } from './components/pages/dashboard/member/featured-member/featured-member.component';
+import { InactiveMemberComponent } from './components/pages/dashboard/member/inactive-member/inactive-member.component';
+import { BlockedMemberComponent } from './components/pages/dashboard/member/blocked-member/blocked-member.component';
+import { ProfileListComponent } from './components/pages/user-dashboard/profile-list/profile-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -182,6 +186,9 @@ const routes: Routes = [
   { path: 'member/all-member', component: AllMemberComponent },
   { path: 'member/free-member', component: FreeMemberComponent },
   { path: 'member/premium-member', component: PremiumMemberComponent },
+  { path: 'member/featured-member', component: FeaturedMemberComponent },
+  { path: 'member/inactive-member', component: InactiveMemberComponent },
+  { path: 'member/blocked-member', component: BlockedMemberComponent },
   { path: 'member/bulk-member', component: BulkMemberComponent },
   { path: 'member/deleted-member', component: DeletedMemberComponent },
   { path: 'member/reported-member', component: ReportedMemberComponent },
@@ -303,6 +310,7 @@ const routes: Routes = [
     path: 'user-dashboard/profile-content',
     component: ProfileContentComponent,
   },
+  { path: 'user-dashboard/profile-list', component: ProfileListComponent },
 
   // staffs
   { path: 'staffs/all-staff', component: AllStaffComponent },

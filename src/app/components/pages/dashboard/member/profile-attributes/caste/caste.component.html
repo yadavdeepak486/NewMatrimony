@@ -17,7 +17,7 @@
   <!-- Start -->
   <div class="row">
     <div class="col-lg-8">
-      <div class="card tb-card">
+      <div *ngIf="togglecheck" class="card tb-card">
         <h3>All Castes</h3>
         <div class="table-responsive">
           <table class="table">
@@ -50,6 +50,60 @@
           </table>
         </div>
       </div>
+
+          <!-- hide-table -->
+      <div class="religion-content">
+        <div class="card card-body">
+          <h3>Religion Based Caste</h3>
+          <button class="btn btn-primary btn-hide" type="button" data-toggle="collapse" data-target="#collapseExample" (click)="castebasedonreg()" aria-expanded="false" aria-controls="collapseExample">
+            Religions
+          </button>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="lb-ser">select Religion<span style="color: red;">*</span> </label>
+              <select class="form-control" >
+                <option [value]="religion._id" *ngFor="let religion of allreligion" (ngModelChange)="religionbasedcaste($event)">
+                  {{religion.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="collapse" id="collapseExample">
+          <div class="card tb-card">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Caste</th>
+                    <th>Religion</th>
+                    <th>Option</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let religion of caste;">
+                    <td class="#">
+                      {{Caste.sortorder}}
+                    </td>
+                    <td class="name">
+                      {{Caste.name}}
+                    </td>
+                    <td class="name">
+                      {{Caste.religion.name}}
+                    </td>
+    
+                    <td class="option">
+                      <a class="st-i"><i class=' bx bx-pencil' (click)="getonecaste(Caste._id)"></i> </a>
+                      <a class="st-i2"><i class=' bx bx-minus' (click)="deletecaste(Caste._id)"></i> </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- close hide-table -->
     </div>
     <div *ngIf="!editmode" class="col-lg-4">
       <div class="card">
