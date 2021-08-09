@@ -30,16 +30,14 @@ export class UserProfileTwoComponent implements OnInit {
 
   verticalListings: number = 1;
   getmydetails() {
-    setTimeout(() => {
-      this.userService.getmyprofiledetail().subscribe(
-        (response: any) => {
-          console.log(response);
-          this.mydetail = response.data;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    }, 3000);
+    this.userService.getmyprofiledetail().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.mydetail = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

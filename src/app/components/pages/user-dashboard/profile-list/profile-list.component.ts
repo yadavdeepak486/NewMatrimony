@@ -5,7 +5,7 @@ import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-profile-list',
   templateUrl: './profile-list.component.html',
-  styleUrls: ['./profile-list.component.scss']
+  styleUrls: ['./profile-list.component.scss'],
 })
 export class ProfileListComponent implements OnInit {
   users: any;
@@ -281,7 +281,7 @@ export class ProfileListComponent implements OnInit {
   verticalListings: number = 1;
 
   getallUsers() {
-    this.userService.getallprofiles().subscribe(
+    this.userService.sentinterest().subscribe(
       (response: any) => {
         console.log(response);
         this.users = response.data;

@@ -122,4 +122,24 @@ export class UserService {
       headers: header,
     });
   }
+
+  sendinterest(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}//user/addinterest/${id}`, {
+      headers: header,
+    });
+  }
+
+  sentinterest() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}//user/sentinterest`, {
+      headers: header,
+    });
+  }
 }

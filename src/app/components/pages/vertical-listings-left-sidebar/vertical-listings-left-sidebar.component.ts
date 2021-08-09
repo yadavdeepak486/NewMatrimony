@@ -296,4 +296,17 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   userDetails(id: number) {
     this.router.navigate(['profile-detail', id]);
   }
+
+  sendinterest(id) {
+    console.log(id);
+    this.userService.sendinterest(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        //this.users = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

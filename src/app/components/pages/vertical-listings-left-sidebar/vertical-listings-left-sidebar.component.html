@@ -428,7 +428,7 @@
                       <li><a routerLink="/profile-detail/{{Content._id}}"><i class=" bx bx-user"></i>
                           <p class="i_t">Profile</p>
                         </a></li>
-                      <li><i class="flaticon-heart"></i>
+                      <li><i (click)="sendinterest(Content._id)" class="flaticon-heart"></i>
                         <p class="i_t">Sent Interest</p>
                       </li>
                       <!-- <li><i class='bx bx-spreadsheet'></i>
