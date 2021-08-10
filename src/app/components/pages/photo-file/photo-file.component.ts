@@ -25,7 +25,9 @@ export class PhotoFileComponent implements OnInit {
 
   fileInfos: Observable<any>;
 
-  filePath: any;
+  filePath1: any;
+  filePath2: any;
+  filePath3: any;
   tosendpath: any;
   changeimage = 'assets/img/events/img-3.png';
 
@@ -45,8 +47,6 @@ export class PhotoFileComponent implements OnInit {
   }
 
   imagePreview(e) {
-    this.selectedFiles = e.target.files;
-
     const file = e.target.files[0];
     console.log(file);
     this.photo1form.get('Photo1').setValue(file);
@@ -56,51 +56,30 @@ export class PhotoFileComponent implements OnInit {
     this.tosendpath = e.target.files.item(0);
     console.log(this.tosendpath);
     reader.onload = (_event) => {
-      this.filePath = reader.result;
+      this.filePath1 = reader.result;
     };
   }
 
   submitphoto1() {
-    this.progress = 0;
-    const id = localStorage.getItem('id');
-    const str = id.replace(/"/g, '');
-    console.log(str);
     this.currentFile = this.selectedFiles.item(0);
-    this.userService.upload(str, this.currentFile).subscribe(
-      (event) => {
-        if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round((100 * event.loaded) / event.total);
-        } else if (event instanceof HttpResponse) {
-          this.message = event.body.message;
-        }
-        console.log(event);
-        this.routes.navigate(['/vertical-listings-left-sidebar']);
-      },
-      (err) => {
-        this.progress = 0;
-        this.message = 'Could not upload the file!';
-        this.currentFile = undefined;
-        this.toastr.error(err.error.msg);
-        console.log(err);
-      }
-    );
-    this.selectedFiles = undefined;
-
-    // if (!this.photo1form.get('Photo1').value) {
-    //   alert('Please fill valid details!');
-    //   return false;
-    // }
-    // const formData = new FormData();
-    // formData.append('Photo1', this.photo1form.get('Photo1').value);
-    // console.log(str, this.photo1form.value);
-    // this.userService.addimage(str, this.photo1form.value).subscribe(
-    //   (response: any) => {
-    //     this.toastr.success('Image Uploaded successfully');
-    //     console.log(response);
+    // this.userService.upload(this.currentFile).subscribe(
+    //   (event) => {
+    //     if (event.type === HttpEventType.UploadProgress) {
+    //       this.progress = Math.round((100 * event.loaded) / event.total);
+    //     } else if (event instanceof HttpResponse) {
+    //       this.message = event.body.message;
+    //     }
+    //     console.log(event);
+    //     this.routes.navigate(['/vertical-listings-left-sidebar']);
     //   },
-    //   (error) => {
-    //     console.log(error);
+    //   (err) => {
+    //     this.progress = 0;
+    //     this.message = 'Could not upload the file!';
+    //     this.currentFile = undefined;
+    //     this.toastr.error(err.error.msg);
+    //     console.log(err);
     //   }
     // );
+    this.selectedFiles = undefined;
   }
 }

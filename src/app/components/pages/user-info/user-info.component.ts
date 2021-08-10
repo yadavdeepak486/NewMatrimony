@@ -60,7 +60,6 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.alloccupations();
     this.alleducations();
     this.allcountrys();
-    //this.allstates();
     this.getalllanguage();
   }
 
@@ -83,7 +82,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.getallheight().subscribe(
       (response: any) => {
         this.allheights = response.data;
-        console.log(response);
+        // console.log(response);
       },
       (error) => {
         console.log(error);
@@ -91,23 +90,11 @@ export class UserInfoComponent implements OnInit, OnChanges {
     );
   }
 
-  // getallcity() {
-  //   this.adminService.allcity().subscribe(
-  //     (response: any) => {
-  //       this.allcity = response.data;
-  //       console.log(response);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-
   alleducations() {
     this.adminService.alleducation().subscribe(
       (response: any) => {
         this.alleducation = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -119,7 +106,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.getalllanguage().subscribe(
       (response: any) => {
         this.alllanguage = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -131,7 +118,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.allemployedin().subscribe(
       (response: any) => {
         this.allemployedin = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -143,7 +130,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.alloccupation().subscribe(
       (response: any) => {
         this.alloccupation = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -155,7 +142,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.allcountry().subscribe(
       (response: any) => {
         this.allcountry = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -180,7 +167,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.statebycountry(id).subscribe(
       (response: any) => {
         this.lallstate = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -193,7 +180,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.citybystate(id).subscribe(
       (response: any) => {
         this.lallcity = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -206,7 +193,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.statebycountry(id).subscribe(
       (response: any) => {
         this.allstate = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -219,7 +206,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.citybystate(id).subscribe(
       (response: any) => {
         this.allcity = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -232,7 +219,7 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.adminService.castesofreligion(id).subscribe(
       (response: any) => {
         this.allcaste = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -240,15 +227,9 @@ export class UserInfoComponent implements OnInit, OnChanges {
     );
   }
 
-  onChange(id) {
-    console.log(id);
-  }
-
   submitandmovephoto() {
-    const id = localStorage.getItem('id');
-    const str = id.replace(/"/g, '');
-    console.log(str, this.userinfo.value);
-    this.userService.addotheruserdetails(str, this.userinfo.value).subscribe(
+    console.log(this.userinfo.value);
+    this.userService.addotheruserdetails(this.userinfo.value).subscribe(
       (response: any) => {
         this.toastr.success('Information added successfully');
         this.routes.navigate(['/photo-file']);

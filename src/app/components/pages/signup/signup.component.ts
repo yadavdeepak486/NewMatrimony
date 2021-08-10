@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit {
   getallreligion() {
     this.userService.getprofilefordd().subscribe(
       (response: any) => {
-        console.log(response);
+        //  console.log(response);
         this.allprofilefor = response.data;
       },
       (error) => {
@@ -76,7 +76,7 @@ export class SignupComponent implements OnInit {
   getmaritalstatus() {
     this.adminService.getallmaritalstatus().subscribe(
       (response: any) => {
-        console.log(response);
+        // console.log(response);
         this.allmaritalstatus = response.data;
       },
       (error) => {
@@ -97,6 +97,7 @@ export class SignupComponent implements OnInit {
         this.mobilenumber = this.signupuser.value.Mobile;
         this.usertype = response.user_type;
         this.auth = true;
+        console.log(response.token);
         localStorage.setItem('auth-token', response.token);
         this.sendotp();
       },
@@ -111,7 +112,7 @@ export class SignupComponent implements OnInit {
     this.userService.getallflags().subscribe(
       (response: any) => {
         this.allcountry = response.data;
-        console.log(response);
+        //console.log(response);
       },
       (error) => {
         console.log(error);
@@ -120,7 +121,7 @@ export class SignupComponent implements OnInit {
   }
 
   sendotp() {
-    console.log(this.signupuser.value.Mobile);
+    //console.log(this.signupuser.value.Mobile);
     this.userService
       .sendotp({ Mobile: this.signupuser.value.Mobile })
       .subscribe(
@@ -132,7 +133,6 @@ export class SignupComponent implements OnInit {
         }
       );
   }
-
   resendotp() {
     this.sendotp();
   }

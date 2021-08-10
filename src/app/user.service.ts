@@ -12,8 +12,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -60,18 +60,14 @@ export class UserService {
   }
 
   //add other info
-  addotheruserdetails(id, data) {
+  addotheruserdetails(data) {
     let header = new HttpHeaders().set(
       'auth-token',
       localStorage.getItem('auth-token')
     );
-    return this.http.post(
-      `${this.backendurl}/user/setting`,
-      {
-        headers: header,
-      },
-      data
-    );
+    return this.http.post(`${this.backendurl}/user/setting`, data, {
+      headers: header,
+    });
   }
 
   //login
@@ -89,15 +85,23 @@ export class UserService {
     return this.http.post(`${this.backendurl}/user/uploadimage/${id}`, data);
   }
 
-  upload(id, file: File): Observable<HttpEvent<any>> {
+  upload(data) {
     const formData: FormData = new FormData();
 
-    formData.append('Photo1', file);
-
+    formData.append('Photo1', data.Photo1);
+    formData.append('Photo2', data.Photo2);
+    formData.append('Photo3', data.Photo3);
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
     const req = new HttpRequest(
       'POST',
-      `${this.backendurl}/user/uploadimage/${id}`,
-      formData
+      `${this.backendurl}/user/uploadimage`,
+      formData,
+      {
+        headers: header,
+      }
     );
 
     return this.http.request(req);
@@ -142,4 +146,18 @@ export class UserService {
       headers: header,
     });
   }
+
+  // userinfo(data) {
+  //   let header = new HttpHeaders().set(
+  //     'auth-token',
+  //     localStorage.getItem('auth-token')
+  //   );
+  //   return this.http.post(
+  //     `${this.backendurl}/user/setting`,
+  //     {
+  //       headers: header,
+  //     },
+  //     data
+  //   );
+  // }
 }
