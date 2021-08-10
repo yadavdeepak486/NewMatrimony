@@ -121,6 +121,12 @@ import { InactiveMemberComponent } from './components/pages/dashboard/member/ina
 import { BlockedMemberComponent } from './components/pages/dashboard/member/blocked-member/blocked-member.component';
 import { ProfileListComponent } from './components/pages/user-dashboard/profile-list/profile-list.component';
 import { UserChatComponent } from './components/pages/user-dashboard/user-chat/user-chat.component';
+import { BlockedProfileComponent } from './components/pages/user-dashboard/blocked-profile/blocked-profile.component';
+import { InterestRecievedComponent } from './components/pages/user-dashboard/interest-recieved/interest-recieved.component';
+import { InterestSentComponent } from './components/pages/user-dashboard/interest-sent/interest-sent.component';
+import { PhotoRecivedComponent } from './components/pages/user-dashboard/photo-recived/photo-recived.component';
+import { PhotoRequestComponent } from './components/pages/user-dashboard/photo-request/photo-request.component';
+import { ShortListedComponent } from './components/pages/user-dashboard/short-listed/short-listed.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -302,7 +308,13 @@ const routes: Routes = [
 
   // user-dashboard
   { path: 'user-dashboard', component: UserDashboardComponent },
-  { path: 'user-chat', component: UserChatComponent },
+  { path: 'user-dashboard/user-chat', component: UserChatComponent },
+  { path: 'user-dashboard/blocked-profile', component: BlockedProfileComponent },
+  { path: 'user-dashboard/interest-recieved', component: InterestRecievedComponent },
+  { path: 'user-dashboard/interest-sent', component: InterestSentComponent },
+  { path: 'user-dashboard/photo-recived', component: PhotoRecivedComponent },
+  { path: 'user-dashboard/photo-request', component: PhotoRequestComponent },
+  { path: 'user-dashboard/short-listed', component: ShortListedComponent },
   {
     path: 'user-dashboard-sidemenu',
     component: UserDashboardSidemenuComponent,
