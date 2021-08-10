@@ -165,6 +165,12 @@ import { InactiveMemberComponent } from './components/pages/dashboard/member/ina
 import { BlockedMemberComponent } from './components/pages/dashboard/member/blocked-member/blocked-member.component';
 import { ProfileListComponent } from './components/pages/user-dashboard/profile-list/profile-list.component';
 import { UserChatComponent } from './components/pages/user-dashboard/user-chat/user-chat.component';
+import { ShortListedComponent } from './components/pages/user-dashboard/short-listed/short-listed.component';
+import { InterestRecievedComponent } from './components/pages/user-dashboard/interest-recieved/interest-recieved.component';
+import { InterestSentComponent } from './components/pages/user-dashboard/interest-sent/interest-sent.component';
+import { PhotoRequestComponent } from './components/pages/user-dashboard/photo-request/photo-request.component';
+import { BlockedProfileComponent } from './components/pages/user-dashboard/blocked-profile/blocked-profile.component';
+import { PhotoRecivedComponent } from './components/pages/user-dashboard/photo-recived/photo-recived.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -313,6 +319,12 @@ import { UserChatComponent } from './components/pages/user-dashboard/user-chat/u
     BlockedMemberComponent,
     ProfileListComponent,
     UserChatComponent,
+    ShortListedComponent,
+    InterestRecievedComponent,
+    InterestSentComponent,
+    PhotoRequestComponent,
+    BlockedProfileComponent,
+    PhotoRecivedComponent,
   ],
   imports: [
     BrowserModule,
