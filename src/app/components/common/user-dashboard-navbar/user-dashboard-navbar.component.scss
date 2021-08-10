@@ -102,6 +102,7 @@ ul.navbar-nav.st-pd-nav {
                             content: "\f106";
                             position: absolute;
                             right: 0;
+                            color: #fff;
                             transition: var(--transition);
                             top: 10px;
                             font: {
@@ -111,7 +112,7 @@ ul.navbar-nav.st-pd-nav {
                         }
                         span {
                             top: 1px;
-                            color: var(--optionalColor);
+                            color: #fafafa;
             
                             &::before {
                                 display: none;

@@ -8,6 +8,9 @@ import { UserService } from 'src/app/user.service';
 })
 export class UserProfileOneComponent implements OnInit {
   mydetail: any;
+  togglecheck: boolean = true;
+  togglechecktwo: boolean = true;
+  togglecheckoccupation: boolean = true;
   dumPhoto = 'assets/img/me.jpg';
   Photodummen = 'assets/img/me.jpg';
   Photodumwomen = 'assets/img/wo.jpg';
@@ -31,5 +34,35 @@ export class UserProfileOneComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  formone(){
+    console.log("button clicked")
+    if(this.togglecheck == false){
+      this.togglecheck = true
+    }
+    else {
+    this.togglecheck = false
+    }
+  }
+
+  formtwo(){
+    console.log("button clicked")
+    if(this.togglechecktwo == false){
+      this.togglechecktwo = true
+    }
+    else {
+    this.togglechecktwo = false
+    }
+  }
+
+  formoccupation(){
+    console.log("button clicked")
+    if(this.togglecheckoccupation == false){
+      this.togglecheckoccupation = true
+    }
+    else {
+    this.togglecheckoccupation = false
+    }
   }
 }
