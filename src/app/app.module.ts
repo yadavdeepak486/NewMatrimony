@@ -164,6 +164,7 @@ import { ProfileContentComponent } from './components/pages/user-dashboard/profi
 import { InactiveMemberComponent } from './components/pages/dashboard/member/inactive-member/inactive-member.component';
 import { BlockedMemberComponent } from './components/pages/dashboard/member/blocked-member/blocked-member.component';
 import { ProfileListComponent } from './components/pages/user-dashboard/profile-list/profile-list.component';
+import { UserChatComponent } from './components/pages/user-dashboard/user-chat/user-chat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -311,6 +312,7 @@ import { ProfileListComponent } from './components/pages/user-dashboard/profile-
     InactiveMemberComponent,
     BlockedMemberComponent,
     ProfileListComponent,
+    UserChatComponent,
   ],
   imports: [
     BrowserModule,

@@ -120,6 +120,7 @@ import { FeaturedMemberComponent } from './components/pages/dashboard/member/fea
 import { InactiveMemberComponent } from './components/pages/dashboard/member/inactive-member/inactive-member.component';
 import { BlockedMemberComponent } from './components/pages/dashboard/member/blocked-member/blocked-member.component';
 import { ProfileListComponent } from './components/pages/user-dashboard/profile-list/profile-list.component';
+import { UserChatComponent } from './components/pages/user-dashboard/user-chat/user-chat.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -301,6 +302,7 @@ const routes: Routes = [
 
   // user-dashboard
   { path: 'user-dashboard', component: UserDashboardComponent },
+  { path: 'user-chat', component: UserChatComponent },
   {
     path: 'user-dashboard-sidemenu',
     component: UserDashboardSidemenuComponent,
