@@ -34,6 +34,21 @@ span.sptxt {
 }
 // new css 8/6/21 close
 
+// new css 10/8/2021
+.edit {
+    float: right;
+    margin-top: -43px;
+    margin-right: 15px;
+}
+.edit a i{
+    font-size: 25px;
+    color: #fff;
+}
+.card.card-body.bd-none {
+    border: none;
+}
+// close
+
 div {
     position: relative;
     overflow: hidden;
@@ -85,7 +100,7 @@ p.bt-tetx {
 
     h3 {
         margin-bottom: 0;
-        padding: 20px 25px 19px;
+        padding: 13px 22px;
         border-bottom: 1px dashed #eeeeee;
         font: {
             size: 17px;
@@ -300,8 +315,10 @@ h3.pf-n {
     width: 100%;
     display: inline-block;
     color: #fff;
-    background: linear-gradient(225deg, #e4dee1 0%, #9e9b9b 100%);
+    background: linear-gradient(225deg, #5f24ca 0%, #221638 100%);
+    border-radius: 6px;
 }
+
 .content-box {
     width: 100%;
     display: inline-block;

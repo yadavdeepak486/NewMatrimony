@@ -39,7 +39,10 @@
                         <div class="heading-title">
                           <h3>Basic Information</h3>
                         </div>
-                        <div class="info-text">
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="formone()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheck" class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
@@ -77,14 +80,114 @@
                             </tbody>
                           </table>
                         </div>
+                        <!-- form -->
+                        <div  *ngIf="!togglecheck" class="info-text">
+                          <div class="card card-body bd-none">
+                            <form>
+                               <div class="row">
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label>Name</label>
+                                     <input type="text" class="form-control" placeholder="Name">
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label>Gender</label>
+                                     <select class="form-control">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                     </select>
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label>Age</label>
+                                     <input type="text" class="form-control" placeholder="Age">
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label>Date Of Birth</label>
+                                     <input type="date" class="form-control" placeholder="DOB">
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label>Place of Birth</label>
+                                     <input type="text" class="form-control" placeholder="Place Of Birth">
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label>Marital Status</label>
+                                     <select name="" id="" class="form-control">
+                                         <option>Married</option>
+                                         <option>Unmarried</option>
+                                     </select>
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label>Children Status</label>
+                                     <select name="" id="" class="form-control" aria-placeholder="Children Status:">
+                                         <option>yes</option>
+                                         <option>no</option>
+                                     </select>
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label>Time of Birth</label>
+                                     <input type="time" class="form-control" placeholder="Time Of Birth">
+                                   </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                   <button class="btn btn-primary btn-up">Update</button>
+                                 </div>
+                               </div>
+                            </form>
+                         </div>
+                        </div>
+                        <!-- close -->
                       </div>
                       <!-- discription -->
                       <div class="content-box">
                         <div class="heading-title">
                           <h3>About</h3>
                         </div>
-                        <div class="info-text">
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="formtwo()"></i></a>
+                        </div>
+                        <div  *ngIf="togglechecktwo" class="info-text">
                           {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
+                        </div>
+                        <div  *ngIf="!togglechecktwo" class="info-text">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label>Descriptions</label>
+                                  <textarea id="w3review" name="w3review" rows="5" cols="100">
+                                    
+                                    </textarea>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Gender</label>
+                                  <select class="form-control">
+                                     <option>Male</option>
+                                     <option>Female</option>
+                                  </select>
+                                </div>
+                              </div>
+            
+                              <div class="col-md-12">
+                                <button class="btn btn-primary btn-up">Update</button>
+                              </div>
+                            </div>
+                         </form>
                         </div>
                       </div>
                       <!-- discription -->
@@ -93,7 +196,10 @@
                         <div class="heading-title">
                           <h3>Education and Occupation</h3>
                         </div>
-                        <div class="info-text">
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="formoccupation()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckoccupation" class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
@@ -122,6 +228,65 @@
                               </tr>
                             </tbody>
                           </table>
+                        </div>
+                        <div *ngIf="!togglecheckoccupation" class="info-text">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Education</label>
+                                  <select class="form-control">
+                                      <option>High School</option>
+                                      <option>Higher secondery</option>
+                                      <option>Bachelor</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Education Details</label>
+                                  <select class="form-control">
+                                     <option>lorem</option>
+                                     <option>lorem</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Occupation</label>
+                                  <input type="text" class="form-control" placeholder="Occupation">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Occupation Detail</label>
+                                  <input type="date" class="form-control" placeholder="Occupation Detail">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Employee In</label>
+                                  <select class="form-control">
+                                    <option>Gov.</option>
+                                    <option>Private</option>
+                                    <option>Not</option>
+                                 </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Annual Income</label>
+                                  <select name="" id="" class="form-control">
+                                      <option>1,00,000</option>
+                                      <option>2,00,000</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <button class="btn btn-primary btn-up">Update</button>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
                       <!-- socio religion background -->
