@@ -146,7 +146,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Native State <span style="color: red;">*</span></label>
-                  <select (ngModelChange)="stateofcountry($event)" class="form-control" formControlName="State">
+                  <select (ngModelChange)="cityofstate($event)" class="form-control" formControlName="State">
                     <option [value]="state._id" *ngFor="let state of allstate">
                       {{state?.name}}</option>
                   </select>
