@@ -8,13 +8,17 @@ import { UserService } from 'src/app/user.service';
 })
 export class UserDashboardNavbarComponent implements OnInit {
   checkauth: any;
+  mydetail: any;
+  path1 = 'assets/img/user1.jpg';
 
   constructor(public userService: UserService, public routes: Router) {
     this.checkauth = localStorage.getItem('auth');
     console.log(this.checkauth);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getmydetails();
+  }
 
   logout() {
     console.log('request logout');
@@ -22,5 +26,17 @@ export class UserDashboardNavbarComponent implements OnInit {
     localStorage.setItem('auth-token', '');
     this.routes.navigate(['/']);
     this.checkauth = false;
+  }
+
+  getmydetails() {
+    this.userService.getmyprofiledetail().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.mydetail = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
