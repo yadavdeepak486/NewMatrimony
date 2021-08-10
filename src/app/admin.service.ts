@@ -393,6 +393,15 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/viewweblogo/Two`);
   }
 
+  addlogo(data) {
+    const formData: FormData = new FormData();
+    formData.append('title', data?.title);
+    formData.append('logo', data?.logo);
+    formData.append('website', data.website);
+
+    return this.http.post(`${this.backendurl}/admin/addlogo`, formData);
+  }
+
   //happy story
   getallhappystory() {
     return this.http.get(`${this.backendurl}/admin/allhappystory`);

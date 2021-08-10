@@ -9,7 +9,7 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./update.component.scss'],
 })
 export class UpdateComponent implements OnInit {
-  addlogo = true;
+  addlogo = false;
   alllogo: any;
   deffilePath1 = 'assets/img/couple-vector.png';
   tosendpath: any;
@@ -82,17 +82,17 @@ export class UpdateComponent implements OnInit {
 
   submitForm() {
     console.log(this.logoform.value);
-    // this.adminService.addhappystory(this.logoform.value).subscribe(
-    //   (response: any) => {
-    //     console.log(response);
-    //     this.getalllogos();
-    //     this.getalllogos();
-    //     this.logoform.reset();
-    //     this.addlogo = false;
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    this.adminService.addhappystory(this.logoform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getalllogos();
+        this.getalllogos();
+        this.logoform.reset();
+        this.addlogo = false;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
