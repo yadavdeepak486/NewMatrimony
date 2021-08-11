@@ -5,7 +5,7 @@ import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-interest-recieved',
   templateUrl: './interest-recieved.component.html',
-  styleUrls: ['./interest-recieved.component.scss']
+  styleUrls: ['./interest-recieved.component.scss'],
 })
 export class InterestRecievedComponent implements OnInit {
   users: any;
@@ -281,7 +281,7 @@ export class InterestRecievedComponent implements OnInit {
   verticalListings: number = 1;
 
   getallUsers() {
-    this.userService.sentinterest().subscribe(
+    this.userService.receivedinterest().subscribe(
       (response: any) => {
         console.log(response);
         this.users = response.data;
@@ -297,5 +297,3 @@ export class InterestRecievedComponent implements OnInit {
     this.router.navigate(['profile-detail', id]);
   }
 }
-
-

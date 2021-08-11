@@ -8,13 +8,14 @@
   <!-- Start -->
   <div class="row">
     <!-- Start Listings Area -->
-    <section class="listings-area ">
+    <section style="width: 100%;
+    display: inline;" class="listings-area ">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12 ">
             <div *ngIf="users" class="row">
               <div class="col-lg-6 col-md-12"
-                *ngFor="let Content of users | paginate: { itemsPerPage: 15, currentPage: verticalListings }">
+                *ngFor="let Content of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
                 <div class="single-listings-item">
                   <div class="row m-0">
                     <div class="col-lg-4 col-md-4 p-0">
@@ -28,8 +29,10 @@
 
                     <div class="col-lg-8 col-md-8 p-0">
                       <div class="listings-content">
-                        <span class="status ">
-                          Online Now</span>
+                        <span *ngIf="Content?.acceptance_status == true" class="status ">
+                          {{Content?.acceptance_status? "Accepted": "Pending"}}</span>
+                        <span *ngIf="Content?.acceptance_status == false" class="status status-close">
+                          {{Content?.acceptance_status? "Accepted": "Pending"}}</span>
                         <h3 class="mid">ID: <span
                             class="mds">{{Content?.displayed_user_id?.Prefix}}{{Content?.displayed_user_id?.MatriID}}</span>
                         </h3>
@@ -38,30 +41,51 @@
                         </div>
                         <div class="dt">
                           <ul>
-                            <li> Unmarried   <span>(Never Unmarried)</span></li>
-                            <li>{{Content?.displayed_user_id?.Age}} Yrs, 5Ft 1 inch (165 cm) <span></span></li>
-                            <li>Hindu, <span>Rajput</span></li>
-                            <li>From: <span>Mandi</span></li>
-                            <li>Living in: <span>Indore</span> </li>
+                            <li><span> {{Content?.displayed_user_id?.Maritalstatus?.name}}</span></li>
+                            <li>{{Content?.displayed_user_id?.Age}} Yrs,
+                              {{Content?.displayed_user_id?.Height?.feetinchvalue}}
+                              ({{Content?.displayed_user_id?.Height?.cmvalue}} cm) <span></span></li>
+                            <li>{{Content?.displayed_user_id?.Religion?.name || "Religion N/A"}},
+                              <span>{{Content?.displayed_user_id?.Caste?.name || "Caste N/A"}}</span>
+                            </li>
+                            <li><b> From: </b><span> {{Content?.displayed_user_id?.City?.name}},
+                                {{Content?.displayed_user_id?.State?.name}},
+                                {{Content?.displayed_user_id?.Country?.name}}</span></li>
+                            <li><b>Living in:</b> <span>{{Content?.displayed_user_id?.LCity?.name}},
+                                {{Content?.displayed_user_id?.LState?.name}},
+                                {{Content?.displayed_user_id?.LCountry?.name}}</span> </li>
                           </ul>
 
                         </div>
                         <ul class="listings-meta">
-                          <li><a routerLink="/profile-detail/{{Content._id}}"><i class=" bx bx-user"></i>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i class=" bx bx-user"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                               <p class="i_t">Profile</p>
                             </a></li>
-                          <li><i class="flaticon-heart"></i>
+                          <li><a routerLink="/user-dashboard/user-chat"><i class=" bx bx-chat"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Chat</p>
+                            </a></li>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i
+                                class=" bx bx-phone-call" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Call</p>
+                            </a></li>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i
+                                class=" bx bx-list-plus" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Shortlist</p>
+                            </a></li>
+                          <!-- <li><i class="flaticon-heart"></i>
                             <p class="i_t">Sent Interest</p>
-                          </li>
+                          </li> -->
                           <!-- <li><i class='bx bx-spreadsheet'></i>
                                                         <p class="i_t">{{Content.City}}</p>
                                                     </li> -->
-                          <li><i class=" bx bx-block"></i>
+                          <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                             <p class="i_t">Block</p>
                           </li>
-                          <li><i class=" bx bx-error-circle"></i>
+                          <!-- <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                             <p class="i_t">Report</p>
-                          </li>
+                          </li> -->
                         </ul>
                       </div>
                     </div>

@@ -5,10 +5,9 @@ import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-short-listed',
   templateUrl: './short-listed.component.html',
-  styleUrls: ['./short-listed.component.scss']
+  styleUrls: ['./short-listed.component.scss'],
 })
 export class ShortListedComponent implements OnInit {
-
   users: any;
   constructor(public userService: UserService, private router: Router) {}
 
@@ -282,7 +281,7 @@ export class ShortListedComponent implements OnInit {
   verticalListings: number = 1;
 
   getallUsers() {
-    this.userService.sentinterest().subscribe(
+    this.userService.myshortlist().subscribe(
       (response: any) => {
         console.log(response);
         this.users = response.data;
@@ -298,4 +297,3 @@ export class ShortListedComponent implements OnInit {
     this.router.navigate(['profile-detail', id]);
   }
 }
-

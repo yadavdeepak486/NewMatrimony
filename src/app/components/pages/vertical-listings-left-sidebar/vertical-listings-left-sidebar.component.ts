@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-vertical-listings-left-sidebar',
@@ -9,7 +10,11 @@ import { Router } from '@angular/router';
 })
 export class VerticalListingsLeftSidebarComponent implements OnInit {
   users: any;
-  constructor(public userService: UserService, private router: Router) {}
+  constructor(
+    public userService: UserService,
+    private router: Router,
+    public toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.resetOption = [this.options[0]];
@@ -302,7 +307,20 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     this.userService.sendinterest(id).subscribe(
       (response: any) => {
         console.log(response);
-        //this.users = response.data;
+        this.toastr.success('Interest sent successfully');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  addtoshortlist(id) {
+    console.log(id);
+    this.userService.addtoshortlist(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Added to sortlist');
       },
       (error) => {
         console.log(error);

@@ -142,7 +142,37 @@ export class UserService {
       'auth-token',
       localStorage.getItem('auth-token')
     );
-    return this.http.get(`${this.backendurl}//user/sentinterest`, {
+    return this.http.get(`${this.backendurl}/user/sentinterest`, {
+      headers: header,
+    });
+  }
+
+  receivedinterest() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/recievedinterest`, {
+      headers: header,
+    });
+  }
+
+  addtoshortlist(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/addshortlist/${id}`, {
+      headers: header,
+    });
+  }
+
+  myshortlist() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/allshortlist`, {
       headers: header,
     });
   }

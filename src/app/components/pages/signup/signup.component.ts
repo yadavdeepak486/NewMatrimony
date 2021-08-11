@@ -121,7 +121,7 @@ export class SignupComponent implements OnInit {
   }
 
   sendotp() {
-    //console.log(this.signupuser.value.Mobile);
+    console.log(this.signupuser.value.Mobile);
     this.userService
       .sendotp({ Mobile: this.signupuser.value.Mobile })
       .subscribe(

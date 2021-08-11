@@ -5,20 +5,26 @@ import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-user-dashboard-sidemenu',
   templateUrl: './user-dashboard-sidemenu.component.html',
-  styleUrls: ['./user-dashboard-sidemenu.component.scss']
+  styleUrls: ['./user-dashboard-sidemenu.component.scss'],
 })
 export class UserDashboardSidemenuComponent implements OnInit {
   checkauth: any;
   logo: any;
+  sendinterest: any;
+  receivedinterest: any;
+  sortlist: any;
   stndpath = 'assets/img/logo.png';
   filepath: any;
   constructor(public userService: UserService, public routes: Router) {
     this.checkauth = localStorage.getItem('auth');
     console.log(this.checkauth);
-   }
-   
+  }
+
   ngOnInit(): void {
     this.getlogo();
+    this.getreceivedbadge();
+    this.getsendbadge();
+    this.getsortlistbadge();
   }
 
   getlogo() {
@@ -35,4 +41,42 @@ export class UserDashboardSidemenuComponent implements OnInit {
     );
   }
 
+  getreceivedbadge() {
+    this.userService.receivedinterest().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.receivedinterest = response.data?.length;
+        //console.log(this.users[0].Age);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getsendbadge() {
+    this.userService.sentinterest().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.sendinterest = response.data.length;
+        //console.log(this.users[0].Age);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getsortlistbadge() {
+    this.userService.myshortlist().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.sortlist = response.data.length;
+        //console.log(this.users[0].Age);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
