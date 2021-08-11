@@ -309,8 +309,14 @@ const routes: Routes = [
   // user-dashboard
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'user-dashboard/user-chat', component: UserChatComponent },
-  { path: 'user-dashboard/blocked-profile', component: BlockedProfileComponent },
-  { path: 'user-dashboard/interest-recieved', component: InterestRecievedComponent },
+  {
+    path: 'user-dashboard/blocked-profile',
+    component: BlockedProfileComponent,
+  },
+  {
+    path: 'user-dashboard/interest-recieved',
+    component: InterestRecievedComponent,
+  },
   { path: 'user-dashboard/interest-sent', component: InterestSentComponent },
   { path: 'user-dashboard/photo-recived', component: PhotoRecivedComponent },
   { path: 'user-dashboard/photo-request', component: PhotoRequestComponent },
@@ -340,7 +346,7 @@ const routes: Routes = [
   { path: 'verify-profile', component: VerifyProfileComponent },
 
   // premium-plan
-  { path: 'premuim-plan', component: PremuimPlanComponent },
+  { path: 'premium-plan', component: PremuimPlanComponent },
 
   // system
   { path: 'system/update', component: UpdateComponent },
