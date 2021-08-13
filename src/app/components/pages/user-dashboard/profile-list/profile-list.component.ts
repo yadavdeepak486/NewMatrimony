@@ -281,7 +281,7 @@ export class ProfileListComponent implements OnInit {
   verticalListings: number = 1;
 
   getallUsers() {
-    this.userService.sentinterest().subscribe(
+    this.userService.showmyprofileviewedby().subscribe(
       (response: any) => {
         console.log(response);
         this.users = response.data;

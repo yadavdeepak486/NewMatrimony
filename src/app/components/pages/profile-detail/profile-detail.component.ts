@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -11,11 +12,16 @@ export class ProfileDetailComponent implements OnInit {
   userdetails: any;
   id: any;
 
-  constructor(public userService: UserService, public route: ActivatedRoute) {}
+  constructor(
+    public userService: UserService,
+    public toastr: ToastrService,
+    public route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.viewDetailedProfile(this.id);
+    // this.addviewprofile(this.id);
   }
 
   monthlyPricing = [
@@ -300,9 +306,35 @@ export class ProfileDetailComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.userdetails = response.data;
+        this.addviewprofile(id);
       },
       (error) => {
         console.log(error);
+      }
+    );
+  }
+
+  addviewprofile(id) {
+    this.userService.addviewprofile(id).subscribe(
+      (response: any) => {
+        console.log('profile viewed' + response);
+        // this.userdetails = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  sendinterest(id) {
+    console.log(id);
+    this.userService.sendinterest(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Interest sent successfully');
+      },
+      (error) => {
+        this.toastr.error('Interest Already sent');
       }
     );
   }

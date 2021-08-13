@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class VerticalListingsLeftSidebarComponent implements OnInit {
   users: any;
-  ngStyle:boolean= false;
+  ngStyle: boolean = false;
   constructor(
     public userService: UserService,
     private router: Router,
@@ -332,5 +332,30 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     );
   }
 
-  
+  sendphotoreq(id) {
+    // console.log(id);
+    this.userService.sendphotoreq(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Photo request sent');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  startchat(id) {
+    // console.log(id);
+    this.userService.createchatroom(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Chat room');
+        this.router.navigate(['user-dashboard/user-chat']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

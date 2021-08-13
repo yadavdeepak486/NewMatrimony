@@ -13,6 +13,9 @@ export class UserDashboardSidemenuComponent implements OnInit {
   sendinterest: any;
   receivedinterest: any;
   sortlist: any;
+  whoview: any;
+  photoreqsent: any;
+  photoreqrec: any;
   stndpath = 'assets/img/logo.png';
   filepath: any;
   constructor(public userService: UserService, public routes: Router) {
@@ -25,6 +28,9 @@ export class UserDashboardSidemenuComponent implements OnInit {
     this.getreceivedbadge();
     this.getsendbadge();
     this.getsortlistbadge();
+    this.whoviewedmyprofile();
+    this.mysentphotoreq();
+    this.myrecphotoreq();
   }
 
   getlogo() {
@@ -72,6 +78,45 @@ export class UserDashboardSidemenuComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.sortlist = response.data.length;
+        //console.log(this.users[0].Age);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  whoviewedmyprofile() {
+    this.userService.showmyprofileviewedby().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.whoview = response.data.length;
+        //console.log(this.users[0].Age);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  mysentphotoreq() {
+    this.userService.mysentphotoreq().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.photoreqsent = response.data.length;
+        //console.log(this.users[0].Age);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  myrecphotoreq() {
+    this.userService.myreceivedphotoreq().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.photoreqrec = response.data.length;
         //console.log(this.users[0].Age);
       },
       (error) => {

@@ -18,11 +18,10 @@
                 <div class="single-listings-item">
                   <div class="row m-0">
                     <div class="col-lg-4 col-md-4 p-0">
-                      <div class="listings-image"
-                        style="background-image: url({{Content?.displayed_user_id?.Photo1}});">
-                        <img [src]="Content?.displayed_user_id?.Photo1" alt="image">
+                      <div class="listings-image" style="background-image: url({{Content?.logged_user_id?.Photo1}});">
+                        <img [src]="Content?.logged_user_id?.Photo1" alt="image">
                         <!-- <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
-                        <a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}" class="link-btn"></a>
+                        <a routerLink="/profile-detail/{{Content?.logged_user_id?._id}}" class="link-btn"></a>
                       </div>
                     </div>
 
@@ -33,7 +32,7 @@
                         <span *ngIf="Content?.acceptance_status == false" class="status status-close">
                           {{Content?.acceptance_status? "Accepted": "Pending"}}</span>
                         <h3 class="mid">ID: <span
-                            class="mds">{{Content?.displayed_user_id?.Prefix}}{{Content?.displayed_user_id?.MatriID}}</span>
+                            class="mds">{{Content?.logged_user_id?.Prefix}}{{Content?.logged_user_id?.MatriID}}</span>
                         </h3>
 
                         <div class="d-flex align-items-center justify-content-between">
@@ -41,7 +40,7 @@
                         <div class="dt">
                           <ul>
                             <li> Unmarried <span>(Never Unmarried)</span></li>
-                            <li>{{Content?.displayed_user_id?.Age}} Yrs, 5Ft 1 inch (165 cm) <span></span></li>
+                            <li>{{Content?.logged_user_id?.Age}} Yrs, 5Ft 1 inch (165 cm) <span></span></li>
                             <li>Hindu, <span>Rajput</span></li>
                             <li>From: <span>Mandi</span></li>
                             <li>Living in: <span>Indore</span> </li>
