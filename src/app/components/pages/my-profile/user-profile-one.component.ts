@@ -7,7 +7,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './user-profile-one.component.html',
   styleUrls: ['./user-profile-one.component.scss'],
 })
+
+
 export class UserProfileOneComponent implements OnInit {
+  
   mydetail: any;
   togglecheck: boolean = true;
   togglechecktwo: boolean = true;
@@ -16,6 +19,7 @@ export class UserProfileOneComponent implements OnInit {
   togglecheckfamily: boolean= true;
   togglecheckpartner: boolean= true;
   togglecheckphysical: boolean= true;
+  togglecheckproperties: boolean= true;
   dumPhoto = 'assets/img/me.jpg';
   Photodummen = 'assets/img/me.jpg';
   Photodumwomen = 'assets/img/wo.jpg';
@@ -129,6 +133,15 @@ export class UserProfileOneComponent implements OnInit {
     }
     else{
       this.togglecheckphysical= false
+    }
+  }
+  properties(){
+    console.log("button clicked")
+    if (this.togglecheckproperties == false){
+      this.togglecheckproperties= true
+    }
+    else{
+      this.togglecheckproperties= false
     }
   }
 }

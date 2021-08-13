@@ -658,9 +658,9 @@
                           <h3>Assets & Properties</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="socioreligous()"></i></a>
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="properties()"></i></a>
                         </div>
-                        <div *ngIf="togglecheckreligous"class="info-text">
+                        <div *ngIf="togglecheckproperties"class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
@@ -698,70 +698,35 @@
                             </tbody>
                           </table>
                         </div>
-                        <div *ngIf="!togglecheckreligous"class="info-text">
+                        <div *ngIf="!togglecheckproperties"class="info-text">
                           <form>
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Religion</label>
-                                  <select class="form-control">
-                                      <option>Hindu</option>
-                                      <option>Jain</option>
-                                      <option>Christian</option>
-                                  </select>
+                                  <label>Own Aggriculture Land</label>
+                                  <input type="text" class="form-control" placeholder="">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Caste/division</label>
-                                  <input type="text" class="form-control" placeholder="Caste">
+                                  <label>Own Commercial Land</label>
+                                  <input type="text" class="form-control" placeholder="">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Manglik/Dosham</label>
-                                  <select class="form-control">
-                                    <option>yes</option>
-                                    <option>no</option>
-                                  </select>
+                                  <label>House</label>
+                                  <input type="text" class="form-control" placeholder="">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Gothram</label>
-                                  <input type="text" class="form-control" placeholder="Gothram">
+                                  <label>Own Car</label>
+                                  <input type="text" class="form-control" placeholder="">
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Language</label>
-                                  <select class="form-control">
-                                    <option>Hindi</option>
-                                    <option>English</option>
-                                    <option>both</option>
-                                 </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Star</label>
-                                  <input type="text" class="form-control" placeholder="Star">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Moonsign</label>
-                                  <input type="text" class="form-control" placeholder="Moonsign">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Horoscope Match</label>
-                                  <input type="text" class="form-control" placeholder="Horoscope Match">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <button class="btn btn-primary btn-up">Update</button>
+                              <div class="col-md-12">
+                                <button class="btn btn-primary btn-up">Submit</button>
                               </div>
                             </div>
                           </form>
@@ -810,14 +775,17 @@
                           <div class="heading-title">
                             <h3>Hobbies and Details </h3>
                           </div>
-                          <!-- <div class="info-text">
+                          <div class="edit">
+                            <a href="javascript:void();"><i class="bx bx-edit" (click)="partnerexp()"></i></a>
+                          </div>
+                          <div *ngIf="togglecheckpartner" class="info-text">
                             <table class="tb-text">
                               <tbody class="tb-text">
                                 <tr class="wd">
-                                  <td class="wd1">Manglik:</td>
-                                  <td class="wd1">{{mydetail?.Manglik || "not mentioned"}}</td>
+                                  <td class="wd1">Singing:</td>
+                                  <td class="wd1">{{mydetail?.song || "not mentioned"}}</td>
                                 </tr>
-                                <tr class="wd">
+                                <!-- <tr class="wd">
                                   <td class="wd1">Birth Time:</td>
                                   <td class="wd1">{{mydetail?.birthtime || "not mentioned"}}</td>
                                 </tr>
@@ -836,10 +804,13 @@
                                 <tr class="wd">
                                   <td class="wd1">Horoscope Match:</td>
                                   <td class="wd1">{{mydetail?.Horosmatch || "not mentioned"}}</td>
-                                </tr> 
+                                </tr>  -->
                               </tbody>
                             </table> 
-                          </div> -->
+                          </div> 
+                          <div *ngIf=" !togglecheckpartner"class="info-text">
+                              <h1>dfdfddfdfdfd</h1>
+                          </div>
                         </div>
 
                       <!-- Partner Expectation -->
@@ -847,39 +818,7 @@
                         <div class="heading-title">
                           <h3>Desired Partner Details</h3>
                         </div>
-                        <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="partnerexp()"></i></a>
-                        </div>
-                        <div *ngIf="togglecheckpartner" class="info-text">
-                          <!-- <table class="tb-text">
-                            <tbody class="tb-text">
-                              <tr class="wd">
-                                <td class="wd1">Age Range:</td>
-                                <td class="wd1">{{mydetail?.PE_FromAge}}-{{mydetail?.PE_ToAge}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Have Children:</td>
-                                <td class="wd1">{{mydetail?.PE_HaveChildren || "doesn't matter"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Height Range:</td>
-                                <td class="wd1">{{mydetail?.PE_Height?.cmvalue}}-{{mydetail?.PE_Heightto?.cmvalue}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Complexion:</td>
-                                <td class="wd1">{{mydetail?.PE_Complexion || "doesn't matter"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Expected Partner Description:</td>
-                                <td class="wd1">{{mydetail?.PartnerExpectations || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Have Children:</td>
-                                <td class="wd1">{{mydetail?.PE_HaveChildren || "doesn't matter"}}</td>
-                              </tr>
-                            </tbody>
-                          </table> -->
-                           
+                        <div  class="info-text">
                           <form>
                             <div class="row">
                               <div class="col-md-6">
@@ -896,13 +835,31 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
+                                  <label>Education</label>
+                                  <input type="text" class="form-control" placeholder="Education">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Home Town</label>
+                                  <input type="text" class="form-control" placeholder="Example : Sagar">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Living Town</label>
+                                  <input type="text" class="form-control" placeholder="Example : Indore">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
                                   <label>Occupation</label>
                                   <input type="text" class="form-control" placeholder="Occupation">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Family Type</label>
+                                  <label>Religion</label>
                                   <select class="form-control">
                                     <option>lorem</option>
                                     <option>lorem</option>
@@ -913,116 +870,42 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Family Status</label>
+                                  <label>Cast</label>
+                                     <input type="text" class="form-control" placeholder="cast">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Manglik</label>
+                                  <input type="text" class="form-control" placeholder="Manglik">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Marital Status</label>
                                   <select class="form-control">
-                                    <option>lorem</option>
-                                    <option>lorem</option>
+                                    <option>Yes</option>
+                                    <option>no</option>
                                   </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Father Occupation</label>
-                                  <input type="text" class="form-control" placeholder="Retired">
+                                  <label>Annual Income</label>
+                                  <select class="form-control">
+                                    <option>1,20,000 to 2,50,000</option>
+                                    <option>3,20,000 to 4,50,000</option>
+                                  </select>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Mother Occupation</label>
-                                  <input type="text" class="form-control" placeholder="HouseWife">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Family Origin</label>
-                                  <input type="text" class="form-control" placeholder="Family Origin">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>No. of Brothers</label>
-                                  <input type="text" class="form-control" placeholder="2 Elder Brothers">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>No. of Sister</label>
-                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
-                                </div>
-                              </div>
-                            
-                              <div class="col-md-6">
+                              
+                              <div class="col-md-12">
                                 <button class="btn btn-primary btn-up">Submit</button>
                               </div>
                             </div>
                           </form>
                         </div>
-                        <div *ngIf="!togglecheckpartner" class="info-text">
-                          <form>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Family Values</label>
-                                  <input type="text" class="form-control" placeholder="family Values">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Family Type</label>
-                                  <select class="form-control">
-                                    <option>lorem</option>
-                                    <option>lorem</option>
-                                    <option>lorem</option>
-                                    <option>lorem</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Family Status</label>
-                                  <select class="form-control">
-                                    <option>lorem</option>
-                                    <option>lorem</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Father Occupation</label>
-                                  <input type="text" class="form-control" placeholder="Retired">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Mother Occupation</label>
-                                  <input type="text" class="form-control" placeholder="HouseWife">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Family Origin</label>
-                                  <input type="text" class="form-control" placeholder="Family Origin">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>No. of Brothers</label>
-                                  <input type="text" class="form-control" placeholder="2 Elder Brothers">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>No. of Sister</label>
-                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
-                                </div>
-                              </div>
-                            
-                              <div class="col-md-6">
-                                <button class="btn btn-primary btn-up">Update</button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>
