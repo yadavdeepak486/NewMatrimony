@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class VerticalListingsLeftSidebarComponent implements OnInit {
   users: any;
+  ngStyle:boolean= false;
   constructor(
     public userService: UserService,
     private router: Router,
@@ -289,6 +290,9 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     this.userService.getallprofiles().subscribe(
       (response: any) => {
         console.log(response);
+        // if(response.data.photo_privacy){
+        //   this.ngStyle = true
+        // }
         this.users = response.data;
         //console.log(this.users[0].Age);
       },
@@ -327,4 +331,6 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
       }
     );
   }
+
+  
 }
