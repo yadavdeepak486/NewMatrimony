@@ -5,10 +5,9 @@ import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-photo-request',
   templateUrl: './photo-request.component.html',
-  styleUrls: ['./photo-request.component.scss']
+  styleUrls: ['./photo-request.component.scss'],
 })
 export class PhotoRequestComponent implements OnInit {
-
   users: any;
   constructor(public userService: UserService, private router: Router) {}
 
@@ -282,7 +281,7 @@ export class PhotoRequestComponent implements OnInit {
   verticalListings: number = 1;
 
   getallUsers() {
-    this.userService.sentinterest().subscribe(
+    this.userService.mysentphotoreq().subscribe(
       (response: any) => {
         console.log(response);
         this.users = response.data;

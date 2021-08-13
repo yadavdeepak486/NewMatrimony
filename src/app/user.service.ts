@@ -12,8 +12,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -177,17 +177,91 @@ export class UserService {
     });
   }
 
-  // userinfo(data) {
-  //   let header = new HttpHeaders().set(
-  //     'auth-token',
-  //     localStorage.getItem('auth-token')
-  //   );
-  //   return this.http.post(
-  //     `${this.backendurl}/user/setting`,
-  //     {
-  //       headers: header,
-  //     },
-  //     data
-  //   );
-  // }
+  addviewprofile(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/addprofileview/${id}`, {
+      headers: header,
+    });
+  }
+
+  showmyprofileviewedby() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/myprofileviewedby`, {
+      headers: header,
+    });
+  }
+
+  sendphotoreq(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/addphotoreq/${id}`, {
+      headers: header,
+    });
+  }
+
+  mysentphotoreq() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/sentphotoreq`, {
+      headers: header,
+    });
+  }
+
+  myreceivedphotoreq() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/recievedphotoreq`, {
+      headers: header,
+    });
+  }
+
+  createchatroom(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/addchatroom/${id}`, {
+      headers: header,
+    });
+  }
+
+  mychatroom() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/mychatroom`, {
+      headers: header,
+    });
+  }
+
+  sendmsg(data, id, rid) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.post(
+      `${this.backendurl}/user/addchat/${id}/${rid}`,
+      data,
+      {
+        headers: header,
+      }
+    );
+  }
+
+  chatsroom(id) {
+    return this.http.get(`${this.backendurl}/user/chatroom/${id}`);
+  }
 }

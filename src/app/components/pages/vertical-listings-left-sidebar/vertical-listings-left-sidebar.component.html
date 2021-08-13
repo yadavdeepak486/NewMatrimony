@@ -352,7 +352,7 @@
 
         <div *ngIf="users" class="row">
           <div class="col-lg-12 col-md-12"
-            *ngFor="let Content of users | paginate: { itemsPerPage: 15, currentPage: verticalListings }">
+            *ngFor="let Content of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
             <div class="single-listings-item">
               <div class="row m-0">
                 <div class="col-lg-4 col-md-4 p-0">
@@ -433,12 +433,19 @@
                           style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">Send Interest</p>
                       </li>
-                      <li><i class="bx bx-chat" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                      <li><i (click)="startchat(Content._id)" class="bx bx-chat"
+                          style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">Chat</p>
                       </li>
                       <li><i (click)="addtoshortlist(Content._id)" class="bx bx-list-plus"
                           style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">Shortlist</p>
+                      </li>
+
+
+                      <li><i (click)="sendphotoreq(Content._id)" class="bx bx-lock-open-alt"
+                          style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                        <p class="i_t">View Profile</p>
                       </li>
 
                       <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>

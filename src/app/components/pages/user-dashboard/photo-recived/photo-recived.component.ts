@@ -5,10 +5,9 @@ import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-photo-recived',
   templateUrl: './photo-recived.component.html',
-  styleUrls: ['./photo-recived.component.scss']
+  styleUrls: ['./photo-recived.component.scss'],
 })
 export class PhotoRecivedComponent implements OnInit {
-
   users: any;
   constructor(public userService: UserService, private router: Router) {}
 
@@ -282,7 +281,7 @@ export class PhotoRecivedComponent implements OnInit {
   verticalListings: number = 1;
 
   getallUsers() {
-    this.userService.sentinterest().subscribe(
+    this.userService.myreceivedphotoreq().subscribe(
       (response: any) => {
         console.log(response);
         this.users = response.data;
@@ -298,4 +297,3 @@ export class PhotoRecivedComponent implements OnInit {
     this.router.navigate(['profile-detail', id]);
   }
 }
-
