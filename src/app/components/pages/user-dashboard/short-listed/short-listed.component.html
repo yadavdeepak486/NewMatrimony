@@ -8,7 +8,7 @@
   <!-- Start -->
   <div class="row">
     <!-- Start Listings Area -->
-    <section class="listings-area ">
+    <section class="listings-area st-section ">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12 ">
@@ -47,22 +47,48 @@
 
                         </div>
                         <ul class="listings-meta">
-                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i
-                                class=" bx bx-user"></i>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i class=" bx bx-user"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                               <p class="i_t">Profile</p>
-                            </a></li>
-                          <li><i class="flaticon-heart"></i>
-                            <p class="i_t">Sent Interest</p>
+                            </a>
                           </li>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i class=" flaticon-heart"
+                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                          <p class="i_t">Cancel</p>
+                          </a>
+                          </li>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i class=" flaticon-heart"
+                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                          <p class="i_t">Cancel</p>
+                          </a>
+                          </li>
+                          <li><a routerLink="/user-dashboard/user-chat"><i class=" bx bx-chat"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Chat</p>
+                            </a>
+                          </li>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i
+                                class=" bx bx-phone-call" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Call</p>
+                            </a>
+                          </li>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i
+                                class=" bx bx-list-plus" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Shortlist</p>
+                            </a>
+                          </li>
+                          <!-- <li><i class="flaticon-heart"></i>
+                            <p class="i_t">Sent Interest</p>
+                          </li> -->
                           <!-- <li><i class='bx bx-spreadsheet'></i>
                                                         <p class="i_t">{{Content.City}}</p>
                                                     </li> -->
-                          <li><i class=" bx bx-block"></i>
+                          <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                             <p class="i_t">Block</p>
                           </li>
-                          <li><i class=" bx bx-error-circle"></i>
+                          <!-- <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                             <p class="i_t">Report</p>
-                          </li>
+                          </li> -->
                         </ul>
                       </div>
                     </div>

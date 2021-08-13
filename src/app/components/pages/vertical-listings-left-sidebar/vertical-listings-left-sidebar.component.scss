@@ -1,3 +1,9 @@
+// blur css 
+.img-blur{
+  overflow: hidden !important;
+}
+// close 
+
 .listings-area {
   position: relative;
   z-index: 1;
@@ -1122,4 +1128,9 @@ span.mds {
 }
 p.i_t {
   font-size: 12px;
+}
+
+.dt ul{
+  padding: 0px;
+  list-style: none;
 }

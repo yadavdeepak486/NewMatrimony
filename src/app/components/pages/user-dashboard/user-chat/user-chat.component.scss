@@ -1,5 +1,9 @@
 @import "../user-dashboard.component.scss";
 
+img {
+    max-width: none !important;
+    height: 50px !important;
+}
 .chat-content-area {
     margin-bottom: 30px;
 

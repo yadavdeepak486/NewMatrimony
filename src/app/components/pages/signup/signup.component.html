@@ -207,7 +207,7 @@
             <span class="already-account">Already have an account? <a
                 style="cursor: pointer; color: blue; font-weight: 500;" href="/login">Login</a></span>
           </div>
-          <div *ngIf="otpsection" class="modal-content rs-3">
+          <div *ngIf="otpsection  togglembcheck" class="modal-content rs-3">
             <h2 class="d-flex justify-content-center tx-v"> Verify  your Mobile number</h2>
             <h4 class="d-flex justify-content-center sub-title tx-ch"><span>Please check the otp sent to your
                 Device
@@ -227,10 +227,22 @@
                 <button type="button" class="btn-ft-set" (click)="resendotp()">Resend OTP</button>
                 <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Verify</a></span></button>
               </div>
-              <div class="mb-chn">
-                <h3 class="ch-op">Change Mobile Number</h3>
-              </div>
+              
             </form>
+          </div>
+          <div class="mb-chn">
+            <h3 class="ch-op">
+              <a href="javascript:void(0);" (click)="changenumber()">Change Mobile Number</a>
+            </h3>
+            <div *ngIf="!togglembcheck" class="add-number">
+               <form>
+                  <div class="form-group">
+                     <label>add new number</label>
+                     <input type="text" class="form-control" placeholder="add new Number" >
+                  </div>
+                  <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Submit</a></span></button>
+               </form>
+            </div>
           </div>
         </div>
       </div>

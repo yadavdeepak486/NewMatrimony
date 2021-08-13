@@ -54,47 +54,72 @@
                                 <td class="wd1">{{mydetail?.Gender || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Age:</td>
-                                <td class="wd1">{{mydetail?.Age || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
                                 <td class="wd1">Date of Birth:</td>
                                 <td class="wd1">{{mydetail?.DOB || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Place Of Birth:</td>
-                                <td class="wd1">{{mydetail?.POB || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Marital Status:</td>
                                 <td class="wd1">{{mydetail?.Maritalstatus?.name || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Children Status:</td>
+                                <td class="wd1">Mother Tounge:</td>
+                                <td class="wd1">{{mydetail?.Language?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Religion:</td>
+                                <td class="wd1">{{mydetail?.Religion?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Caste</td>
+                                <td class="wd1">{{mydetail?.Caste?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Subcaste(Paternal)</td>
+                                <td class="wd1">{{mydetail?.Caste?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Subcaste(Maternal)</td>
+                                <td class="wd1">{{mydetail?.Caste?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Children (It Any):</td>
                                 <td class="wd1">{{mydetail?.childrenlivingstatus || "No Children"}}</td>
                               </tr>
                               <tr class="wd">
+                                <td class="wd1">Children Status:</td>
+                                <td class="wd1">{{mydetail?.childrenlivingstatus || "No Children"}}</td>
+                              </tr>
+                              <!-- <tr class="wd">
+                                <td class="wd1">Age:</td>
+                                <td class="wd1">{{mydetail?.Age || "not mentioned"}}</td>
+                              </tr> -->
+                              
+                              <!-- <tr class="wd">
+                                <td class="wd1">Place Of Birth:</td>
+                                <td class="wd1">{{mydetail?.POB || "not mentioned"}}</td>
+                              </tr> -->
+                              
+                              <!-- <tr class="wd">
+                                <td class="wd1">Children Status:</td>
+                                <td class="wd1">{{mydetail?.childrenlivingstatus || "No Children"}}</td>
+                              </tr> -->
+                              <!-- <tr class="wd">
                                 <td class="wd1">Time of Birth:</td>
                                 <td class="wd1">{{mydetail?.TOB || "not mentioned"}}</td>
-                              </tr>
+                              </tr> -->
                             </tbody>
                           </table>
                         </div>
                         <!-- form -->
                         <div  *ngIf="!togglecheck" class="info-text">
                           <div class="card card-body bd-none">
-                            <form>
+                            <form [formGroup]="editbasicinformation"  ngNativeValidate>
                                <div class="row">
                                  <div class="col-md-6">
                                    <div class="form-group">
-                                     <label>Name</label>
-                                     <input type="text" class="form-control" placeholder="Name">
-                                   </div>
-                                 </div>
-                                 <div class="col-md-6">
-                                   <div class="form-group">
                                      <label>Gender</label>
-                                     <select class="form-control">
+                                     <select class="form-control" placeholder="Name" formControlName="gender"
+                                     required>
                                         <option>Male</option>
                                         <option>Female</option>
                                      </select>
@@ -103,25 +128,30 @@
                                  <div class="col-md-6">
                                    <div class="form-group">
                                      <label>Age</label>
-                                     <input type="text" class="form-control" placeholder="Age">
+                                     <input type="text" class="form-control" placeholder="Age" formControlName="age"
+                                     required>
                                    </div>
                                  </div>
                                  <div class="col-md-6">
                                    <div class="form-group">
                                      <label>Date Of Birth</label>
-                                     <input type="date" class="form-control" placeholder="DOB">
+                                     <input type="date" class="form-control" placeholder="DOB" formControlName="dateofbirth"
+                                     required>
                                    </div>
                                  </div>
                                  <div class="col-md-6">
                                    <div class="form-group">
                                      <label>Place of Birth</label>
-                                     <input type="text" class="form-control" placeholder="Place Of Birth">
+                                     <input type="text" class="form-control" placeholder="Place Of Birth"
+                                     formControlName="placeofbirth"
+                                     required>
                                    </div>
                                  </div>
                                  <div class="col-md-6">
                                    <div class="form-group">
                                      <label>Marital Status</label>
-                                     <select name="" id="" class="form-control">
+                                     <select name="" id="" class="form-control" formControlName="maritalstatus"
+                                     required>
                                          <option>Married</option>
                                          <option>Unmarried</option>
                                      </select>
@@ -130,7 +160,8 @@
                                  <div class="col-md-6">
                                    <div class="form-group">
                                      <label>Children Status</label>
-                                     <select name="" id="" class="form-control" aria-placeholder="Children Status:">
+                                     <select name="" id="" class="form-control" formControlName="childrenstatus"
+                                     required>
                                          <option>yes</option>
                                          <option>no</option>
                                      </select>
@@ -139,7 +170,9 @@
                                  <div class="col-md-6">
                                    <div class="form-group">
                                      <label>Time of Birth</label>
-                                     <input type="time" class="form-control" placeholder="Time Of Birth">
+                                     <input type="time" class="form-control" placeholder="Time Of Birth"
+                                     formControlName="timeofbirth"
+                                     required>
                                    </div>
                                  </div>
                                  <div class="col-md-6">
@@ -151,16 +184,303 @@
                         </div>
                         <!-- close -->
                       </div>
-                      <!-- discription -->
+
+                       <!-- family detail -->
+                       <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Family Details</h3>
+                        </div>
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="familydetail()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckfamily" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Family Type:</td>
+                                <td class="wd1">{{mydetail?.Familytype?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Family Values:</td>
+                                <td class="wd1">{{mydetail?.Familyvalues?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Family Status:</td>
+                                <td class="wd1">{{mydetail?.FamilyStatus?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Father Occupation:</td>
+                                <td class="wd1">{{mydetail?.Fathersoccupation?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Mother Occupation:</td>
+                                <td class="wd1">{{mydetail?.Mothersoccupation?.name || "not mentioned"}}</td>
+                              </tr>
+                              <!-- <tr class="wd">
+                                <td class="wd1">Family Origin:</td>
+                                <td class="wd1">{{mydetail?.FamilyOrigin || "not mentioned"}}</td>
+                              </tr> -->
+                              <tr class="wd">
+                                <td class="wd1">No. of Elder Brothers:</td>
+                                <td class="wd1">{{mydetail?.noofelderbrothers || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Younger Brothers:</td>
+                                <td class="wd1">{{mydetail?.noofyoungerbrothers || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Elder Sisters:</td>
+                                <td class="wd1">{{mydetail?.noofeldersisters || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Younger Sisters:</td>
+                                <td class="wd1">{{mydetail?.noofyoungersisters || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Married Brothers:</td>
+                                <td class="wd1">{{mydetail?.marriedbrothers || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Married Sisters:</td>
+                                <td class="wd1">{{mydetail?.marriedsisters || "not mentioned"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckfamily"class="info-text">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Type</label>
+                                  <select class="form-control">
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Values</label>
+                                  <input type="text" class="form-control" placeholder="family Values">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Status</label>
+                                  <select class="form-control">
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Father Occupation</label>
+                                  <input type="text" class="form-control" placeholder="Retired">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Mother Occupation</label>
+                                  <input type="text" class="form-control" placeholder="HouseWife">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Origin</label>
+                                  <input type="text" class="form-control" placeholder="Family Origin">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No. of Elder Brothers</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Brothers">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No. of Elder Sisters</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No.of Younger Brothers</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No.of Younger Sisters</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No.of Married Brothers</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No.of Married Sisters</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <button class="btn btn-primary btn-up">Update</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                         <!-- Physical Status and Lifestyle -->
                       <div class="content-box">
                         <div class="heading-title">
-                          <h3>About</h3>
+                          <h3>Physical Status & Eating Habits</h3>
+                        </div>
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="physicaldetail()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckphysical" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Height:</td>
+                                <td class="wd1">{{mydetail?.Height?.feetinchvalue}},
+                                  ( {{mydetail?.Height?.cmvalue+"Cms"}} )</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Blood Group:</td>
+                                <td class="wd1">{{mydetail?.BloodGroup || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Body Type:</td>
+                                <td class="wd1">{{mydetail?.Diet || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Smoke Habit:</td>
+                                <td class="wd1">{{mydetail?.Smoke || "No"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Special Case:</td>
+                                <td class="wd1">{{mydetail?.specialcase || "not mentioned"}}</td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckphysical"class="info-text">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Height</label>
+                                  <input type="text" class="form-control" placeholder="Sft 4in ( 162cm )">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Weight</label>
+                                  <input type="text" class="form-control" placeholder="48">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Blood Group</label>
+                                  <select class="form-control">
+                                    <option>A+</option>
+                                    <option>A-</option>
+                                    <option>B+</option>
+                                    <option>O+</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Complexion</label>
+                                  <input type="text" class="form-control" placeholder="Complexion">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Diet</label>
+                                  <select class="form-control">
+                                    <option>yes</option>
+                                    <option>no</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Smoke</label>
+                                  <select class="form-control">
+                                    <option>yes</option>
+                                    <option>no</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Drink</label>
+                                  <select class="form-control">
+                                    <option>yes</option>
+                                    <option>no</option>
+                                  </select>
+                                </div>
+                              </div>
+                             
+                             
+                              <div class="col-md-12">
+                                <button class="btn btn-primary btn-up">Update</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                         
+                       <!-- discription -->
+                       <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Contact Details</h3>
                         </div>
                         <div class="edit">
                           <a href="javascript:void();"><i class="bx bx-edit" (click)="formtwo()"></i></a>
                         </div>
                         <div  *ngIf="togglechecktwo" class="info-text">
-                          {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Mobile No:</td>
+                                <td class="wd1">{{mydetail?.mobileno || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Alternate Mobile No :</td>
+                                <td class="wd1">{{mydetail?.alternate || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Whatsapp No:</td>
+                                <td class="wd1">{{mydetail?.whatsapp || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Email Address:</td>
+                                <td class="wd1">{{mydetail?.email || "No"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Living Town:</td>
+                                <td class="wd1">{{mydetail?.livingtown || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Home/Native place:</td>
+                                <td class="wd1">{{mydetail?.nativeplace || "not mentioned"}}</td>
+                              </tr>
+
+                            </tbody>
+                          </table>
                         </div>
                         <div  *ngIf="!togglechecktwo" class="info-text">
                           <form>
@@ -190,8 +510,8 @@
                          </form>
                         </div>
                       </div>
-                      <!-- discription -->
-                      <!-- education -->
+                       
+                         <!-- education -->
                       <div class="content-box">
                         <div class="heading-title">
                           <h3>Education and Occupation</h3>
@@ -203,12 +523,16 @@
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
-                                <td class="wd1">Education:</td>
+                                <td class="wd1">Heighest Education:</td>
                                 <td class="wd1">{{mydetail?.Education?.degree || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Education Details:</td>
                                 <td class="wd1">{{mydetail?.Education?.name}} ,{{mydetail?.Education?.place}} </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Employee In:</td>
+                                <td class="wd1">{{mydetail?.Employedin?.name || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Occupation:</td>
@@ -218,10 +542,7 @@
                                 <td class="wd1">Occupation Detail:</td>
                                 <td class="wd1">{{mydetail?.Occupation?.name || "not mentioned"}}</td>
                               </tr>
-                              <tr class="wd">
-                                <td class="wd1">Employee In:</td>
-                                <td class="wd1">{{mydetail?.Employedin?.name || "not mentioned"}}</td>
-                              </tr>
+                              
                               <tr class="wd">
                                 <td class="wd1">Annual Income:</td>
                                 <td class="wd1">{{mydetail?.Annualincome || "0"}}</td>
@@ -288,32 +609,77 @@
                             </div>
                           </form>
                         </div>
+                      </div>                      
+                      
+                      <!-- discription -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>About</h3>
+                        </div>
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="formtwo()"></i></a>
+                        </div>
+                        <div  *ngIf="togglechecktwo" class="info-text">
+                          {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
+                        </div>
+                        <div  *ngIf="!togglechecktwo" class="info-text">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label>Descriptions</label>
+                                  <textarea id="w3review" name="w3review" rows="5" cols="100">
+                                    
+                                    </textarea>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Gender</label>
+                                  <select class="form-control">
+                                     <option>Male</option>
+                                     <option>Female</option>
+                                  </select>
+                                </div>
+                              </div>
+            
+                              <div class="col-md-12">
+                                <button class="btn btn-primary btn-up">Update</button>
+                              </div>
+                            </div>
+                         </form>
+                        </div>
                       </div>
+                      <!-- discription -->
+                    
                       <!-- socio religion background -->
                       <div class="content-box">
                         <div class="heading-title">
-                          <h3>Socio Religious Background</h3>
+                          <h3>Assets & Properties</h3>
                         </div>
-                        <div class="info-text">
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="socioreligous()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckreligous"class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
-                                <td class="wd1">Religion:</td>
-                                <td class="wd1">{{mydetail?.Religion?.name || "not mentioned"}}</td>
+                                <td class="wd1">Own Aggriculture Land:</td>
+                                <td class="wd1">{{mydetail?.Own || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Caste/division</td>
-                                <td class="wd1">{{mydetail?.Caste?.name || "not mentioned"}}</td>
+                                <td class="wd1">Own Commercial Land:</td>
+                                <td class="wd1">{{mydetail?.commercial|| "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Manglik/Dosham:</td>
-                                <td class="wd1">{{mydetail?.Manglik || "not mentioned"}}</td>
+                                <td class="wd1">House:</td>
+                                <td class="wd1">{{mydetail?.house || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Gothram:</td>
-                                <td class="wd1">{{mydetail?.Gothram || "not mentioned"}}</td>
+                                <td class="wd1">Own Car:</td>
+                                <td class="wd1">{{mydetail?.Car || "not mentioned"}}</td>
                               </tr>
-                              <tr class="wd">
+                              <!-- <tr class="wd">
                                 <td class="wd1">Language:</td>
                                 <td class="wd1">{{mydetail?.Language?.name || "not mentioned"}}</td>
                               </tr>
@@ -328,149 +694,164 @@
                               <tr class="wd">
                                 <td class="wd1">Horoscope Match:</td>
                                 <td class="wd1">{{mydetail?.Horosmatch || "not mentioned"}}</td>
-                              </tr>
+                              </tr> -->
                             </tbody>
                           </table>
                         </div>
+                        <div *ngIf="!togglecheckreligous"class="info-text">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Religion</label>
+                                  <select class="form-control">
+                                      <option>Hindu</option>
+                                      <option>Jain</option>
+                                      <option>Christian</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Caste/division</label>
+                                  <input type="text" class="form-control" placeholder="Caste">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Manglik/Dosham</label>
+                                  <select class="form-control">
+                                    <option>yes</option>
+                                    <option>no</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Gothram</label>
+                                  <input type="text" class="form-control" placeholder="Gothram">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Language</label>
+                                  <select class="form-control">
+                                    <option>Hindi</option>
+                                    <option>English</option>
+                                    <option>both</option>
+                                 </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Star</label>
+                                  <input type="text" class="form-control" placeholder="Star">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Moonsign</label>
+                                  <input type="text" class="form-control" placeholder="Moonsign">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Horoscope Match</label>
+                                  <input type="text" class="form-control" placeholder="Horoscope Match">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <button class="btn btn-primary btn-up">Update</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
                       </div>
-                      <!-- Physical Status and Lifestyle -->
+                    
+                        <!-- heroscope detail -->
                       <div class="content-box">
                         <div class="heading-title">
-                          <h3>Physical Status and Lifestyle</h3>
+                          <h3>Horoscope details </h3>
                         </div>
                         <div class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
-                                <td class="wd1">Height:</td>
-                                <td class="wd1">{{mydetail?.Height?.feetinchvalue}},
-                                  ( {{mydetail?.Height?.cmvalue+"Cms"}} )</td>
+                                <td class="wd1">Manglik:</td>
+                                <td class="wd1">{{mydetail?.Manglik || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Weight</td>
-                                <td class="wd1">{{mydetail?.Weight || "not mentioned"}}</td>
+                                <td class="wd1">Birth Time:</td>
+                                <td class="wd1">{{mydetail?.birthtime || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Blood Group:</td>
-                                <td class="wd1">{{mydetail?.BloodGroup || "not mentioned"}}</td>
+                                <td class="wd1">Birth place:</td>
+                                <td class="wd1">{{mydetail?.birthplace || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Complexion:</td>
-                                <td class="wd1">{{mydetail?.Complexion || "not mentioned"}}</td>
+                                <td class="wd1">Sun sign (shurya Rashi):</td>
+                                <td class="wd1">{{mydetail?.sun || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Diet:</td>
-                                <td class="wd1">{{mydetail?.Diet || "not mentioned"}}</td>
+                                <td class="wd1">Moonsign:</td>
+                                <td class="wd1">{{mydetail?.Moonsign?.name || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Smoke:</td>
-                                <td class="wd1">{{mydetail?.Smoke || "No"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Drink:</td>
-                                <td class="wd1">{{mydetail?.Drink || "No"}}</td>
-                              </tr>
+                                <td class="wd1">Horoscope Match:</td>
+                                <td class="wd1">{{mydetail?.Horosmatch || "not mentioned"}}</td>
+                              </tr> 
+                            </tbody>
+                       </table> 
+                        </div>
+                      </div>
 
-                            </tbody>
-                          </table>
+                        <!-- heroscope detail -->
+                        <div class="content-box">
+                          <div class="heading-title">
+                            <h3>Hobbies and Details </h3>
+                          </div>
+                          <!-- <div class="info-text">
+                            <table class="tb-text">
+                              <tbody class="tb-text">
+                                <tr class="wd">
+                                  <td class="wd1">Manglik:</td>
+                                  <td class="wd1">{{mydetail?.Manglik || "not mentioned"}}</td>
+                                </tr>
+                                <tr class="wd">
+                                  <td class="wd1">Birth Time:</td>
+                                  <td class="wd1">{{mydetail?.birthtime || "not mentioned"}}</td>
+                                </tr>
+                                <tr class="wd">
+                                  <td class="wd1">Birth place:</td>
+                                  <td class="wd1">{{mydetail?.birthplace || "not mentioned"}}</td>
+                                </tr>
+                                <tr class="wd">
+                                  <td class="wd1">Sun sign (shurya Rashi):</td>
+                                  <td class="wd1">{{mydetail?.sun || "not mentioned"}}</td>
+                                </tr>
+                                <tr class="wd">
+                                  <td class="wd1">Moonsign:</td>
+                                  <td class="wd1">{{mydetail?.Moonsign?.name || "not mentioned"}}</td>
+                                </tr>
+                                <tr class="wd">
+                                  <td class="wd1">Horoscope Match:</td>
+                                  <td class="wd1">{{mydetail?.Horosmatch || "not mentioned"}}</td>
+                                </tr> 
+                              </tbody>
+                            </table> 
+                          </div> -->
                         </div>
-                      </div>
-                      <!-- profile description -->
-                      <div class="content-box">
-                        <div class="heading-title">
-                          <h3>Profile Description</h3>
-                        </div>
-                        <div class="info-text">
-                          <h3>dummy Account</h3>
-                          <!-- <table class="tb-text">
-                                                       <tbody class="tb-text">
-                                                           <tr class="wd">
-                                                              <td class="wd1">Height:</td>
-                                                              <td class="wd1">Sft 4in ( 162cm )</td>
-                                                           </tr>
-                                                           <tr class="wd">
-                                                              <td class="wd1">Weight</td>
-                                                              <td class="wd1">Chaudhary-girth</td>
-                                                           </tr>
-                                                           <tr class="wd">
-                                                              <td class="wd1">Blood Group:</td>
-                                                              <td class="wd1">no</td>
-                                                           </tr>
-                                                           <tr class="wd">
-                                                              <td class="wd1">Complexion:</td>
-                                                              <td class="wd1">No</td>
-                                                           </tr>
-                                                           <tr class="wd">
-                                                              <td class="wd1">Diet:</td>
-                                                              <td class="wd1">no</td>
-                                                           </tr>
-                                                           <tr class="wd">
-                                                              <td class="wd1">Smoke:</td>
-                                                              <td class="wd1">no</td>
-                                                            </tr>
-                                                            <tr class="wd">
-                                                              <td class="wd1">Drink:</td>
-                                                              <td class="wd1">no</td>
-                                                            </tr>
-                                                            <tr class="wd">
-                                                              <td class="wd1">Horoscope Match:</td>
-                                                              <td class="wd1">no</td>
-                                                            </tr>
-                                                       </tbody>
-                                                  </table> -->
-                        </div>
-                      </div>
-                      <!-- family detail -->
-                      <div class="content-box">
-                        <div class="heading-title">
-                          <h3>Family Details</h3>
-                        </div>
-                        <div class="info-text">
-                          <table class="tb-text">
-                            <tbody class="tb-text">
-                              <tr class="wd">
-                                <td class="wd1">Family Values:</td>
-                                <td class="wd1">{{mydetail?.Familyvalues?.name || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Family Type:</td>
-                                <td class="wd1">{{mydetail?.FamilyType || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Family Status:</td>
-                                <td class="wd1">{{mydetail?.FamilyStatus?.name || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Father Occupation:</td>
-                                <td class="wd1">{{mydetail?.Fathersoccupation?.name || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Mother Occupation:</td>
-                                <td class="wd1">{{mydetail?.Mothersoccupation?.name || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Family Origin:</td>
-                                <td class="wd1">{{mydetail?.FamilyOrigin || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">No. of Brothers:</td>
-                                <td class="wd1">{{mydetail?.noofbrothers || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">No. of Sister:</td>
-                                <td class="wd1">{{mydetail?.noofsisters || "not mentioned"}}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
+
                       <!-- Partner Expectation -->
                       <div class="content-box">
                         <div class="heading-title">
-                          <h3>Partner Expectation</h3>
+                          <h3>Desired Partner Details</h3>
                         </div>
-                        <div class="info-text">
-                          <table class="tb-text">
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="partnerexp()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckpartner" class="info-text">
+                          <!-- <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
                                 <td class="wd1">Age Range:</td>
@@ -497,7 +878,150 @@
                                 <td class="wd1">{{mydetail?.PE_HaveChildren || "doesn't matter"}}</td>
                               </tr>
                             </tbody>
-                          </table>
+                          </table> -->
+                           
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Age</label>
+                                  <input type="text" class="form-control" placeholder="Example 24 to 30 ">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Height</label>
+                                  <input type="text" class="form-control" placeholder="Example 5'4 to 5'8 ">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Occupation</label>
+                                  <input type="text" class="form-control" placeholder="Occupation">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Type</label>
+                                  <select class="form-control">
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Status</label>
+                                  <select class="form-control">
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Father Occupation</label>
+                                  <input type="text" class="form-control" placeholder="Retired">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Mother Occupation</label>
+                                  <input type="text" class="form-control" placeholder="HouseWife">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Origin</label>
+                                  <input type="text" class="form-control" placeholder="Family Origin">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No. of Brothers</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Brothers">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No. of Sister</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
+                                </div>
+                              </div>
+                            
+                              <div class="col-md-6">
+                                <button class="btn btn-primary btn-up">Submit</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div *ngIf="!togglecheckpartner" class="info-text">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Values</label>
+                                  <input type="text" class="form-control" placeholder="family Values">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Type</label>
+                                  <select class="form-control">
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Status</label>
+                                  <select class="form-control">
+                                    <option>lorem</option>
+                                    <option>lorem</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Father Occupation</label>
+                                  <input type="text" class="form-control" placeholder="Retired">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Mother Occupation</label>
+                                  <input type="text" class="form-control" placeholder="HouseWife">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Origin</label>
+                                  <input type="text" class="form-control" placeholder="Family Origin">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No. of Brothers</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Brothers">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No. of Sister</label>
+                                  <input type="text" class="form-control" placeholder="2 Elder Sister's">
+                                </div>
+                              </div>
+                            
+                              <div class="col-md-6">
+                                <button class="btn btn-primary btn-up">Update</button>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>

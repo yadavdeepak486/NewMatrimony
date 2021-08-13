@@ -355,14 +355,13 @@
             *ngFor="let Content of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
             <div class="single-listings-item">
               <div class="row m-0">
-                <div class="col-lg-4 col-md-4 p-0">
-                  <div class="listings-image" style="background-image: url({{Content.Photo1}});">
+                <div class="col-lg-4 col-md-4 p-0 img-blur">
+                  <div class="listings-image" style="background-image: url({{Content.Photo1}});" >
                     <img [src]="Content.Photo1" alt="image">
                     <!-- <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
                     <a routerLink="/profile-detail/{{Content._id}}" class="link-btn"></a>
                   </div>
                 </div>
-
                 <div class="col-lg-8 col-md-8 p-0">
                   <div class="listings-content">
                     <span class="status ">
@@ -372,57 +371,21 @@
                     <div class="d-flex align-items-center justify-content-between">
                     </div>
                     <div class="dt">
-                      <table class="dt-tb">
-                        <tbody>
-                          <tr>
-                            <td class="py-1"><span><strong>Marital Status:</strong></span>
-                            </td>
-                            <td *ngIf="Content.Maritalstatus" class="py-1   fw-400">
-                              {{Content.Maritalstatus.name}}
-                            </td>
-                            <td class="py-1">
-                              <span><strong>First Language</strong></span>
-                            </td>
-                            <td *ngIf="Content.Language" class="py-1 fw-400">
-                              {{Content.Language.name}}
-
-                            </td>
-
-                          </tr>
-                          <tr>
-
-                            <td class="py-1 w-25">
-                              <span><strong>Age:</strong></span>
-                            </td>
-                            <td class="py-1 w-25   fw-400">{{Content.Age}}</td>
-                            <td class="py-1 w-25"><span><strong>Height:</strong></span></td>
-                            <td class="py-1 w-25 fw-400">
-                              {{Content?.Height?.feetinchvalue}}
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="py-1"><span><strong>Religion:</strong></span></td>
-                            <td class="py-1 fw-400">
-                              {{Content.Religion?.name}}
-                            </td>
-                            <td class="py-1">
-                              <span><strong>Caste</strong></span>
-                            </td>
-                            <td class="py-1 fw-400">
-                              {{Content.Caste?.name}}
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td class="py-1"><span><strong>location:</strong></span>
-                            </td>
-                            <td class="py-1 fw-400">
-                              {{Content.LCity?.name}}{{Content.LState?.name}}{{Content.LCountry?.name}}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
+                      <ul>
+                        <li><span> {{Content?.Maritalstatus?.name}}</span></li>
+                        <li>{{Content?.Age}} Yrs,
+                          {{Content?.Height?.feetinchvalue}}
+                          ({{Content?.Height?.cmvalue}} cm) <span></span></li>
+                        <li>{{Content?.Religion?.name || "Religion N/A"}},
+                          <span>{{Content?.Caste?.name || "Caste N/A"}}</span>
+                        </li>
+                        <li><b> From: </b><span> {{Content?.City?.name}},
+                            {{Content?.State?.name}},
+                            {{Content?.Country?.name}}</span></li>
+                        <li><b>Living in:</b> <span>{{Content?.LCity?.name}},
+                            {{Content?.LState?.name}},
+                            {{Content?.LCountry?.name}}</span> </li>
+                      </ul>
                     </div>
                     <ul class="listings-meta">
                       <li><a routerLink="/profile-detail/{{Content._id}}"><i class=" bx bx-user"

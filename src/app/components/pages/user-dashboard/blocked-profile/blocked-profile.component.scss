@@ -427,9 +427,10 @@
         left: 0;
         top: 5px;
       }
+      display: flex;
       li {
         display: inline-block;
-        margin-right: 30px;
+        margin-right: 14px;
         text-align: center;
         color: var(--optionalColor);
         font: {
@@ -1134,4 +1135,8 @@ span.mds {
 }
 p.i_t {
   font-size: 12px;
+}
+section.listings-area.st-section {
+  width: 100%;
+  display: inline-block;
 }

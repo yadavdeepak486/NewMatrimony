@@ -11,6 +11,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
+  togglembcheck: boolean = true;
   defaultValue: any = {
     name: 'Deutschland',
     alpha2Code: 'DE',
@@ -159,4 +160,17 @@ export class SignupComponent implements OnInit {
       }
     );
   }
+
+  changenumber(){
+    console.log("button clicked")
+    if(this.togglembcheck == false){
+      this.togglembcheck = true
+    }
+    else {
+    this.togglembcheck = false
+    }
+  }
+
 }
+
+

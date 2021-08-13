@@ -1,5 +1,13 @@
 @import "../user-dashboard.component.scss";
 
+// css 12/8/21
+section.listings-area.st-section {
+    width: 100%;
+    display: inline-block;
+}
+// close
+
+
 // new css
 .dt ul{
     padding: 0px;
@@ -248,7 +256,7 @@
 }
 .single-listings-item {
     margin-bottom: 30px;
-    border: 1px solid var(--mainColor);
+    box-shadow: 2px 4px 14px rgb(0 0 0 / 28%);
     border-radius: 5px;
     background-color: var(--whiteColor);
 
@@ -426,9 +434,10 @@
                 left: 0;
                 top: 5px;
             };
+            display: flex;
             li {
                 display: inline-block;
-                margin-right: 30px;
+                margin-right: 14px;
                 text-align: center;
                 color: var(--optionalColor);
                 font: {
