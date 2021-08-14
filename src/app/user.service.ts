@@ -12,8 +12,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -263,5 +263,9 @@ export class UserService {
 
   chatsroom(id) {
     return this.http.get(`${this.backendurl}/user/chatroom/${id}`);
+  }
+
+  getbplan() {
+    return this.http.get(`${this.backendurl}/admin/viewoneplan/BPlan`);
   }
 }

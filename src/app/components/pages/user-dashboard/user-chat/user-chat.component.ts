@@ -32,6 +32,7 @@ export class UserChatComponent implements OnInit {
     // this.id = this.route.snapshot.params['id'];
     // this.imageandname(this.id);
     this.mychatroom();
+    //this.refreshchat();
   }
 
   getmydetails() {
@@ -78,7 +79,7 @@ export class UserChatComponent implements OnInit {
           console.log(tosetid);
           // this.chatwith(tosetid, response.data[0].chatroom);
         }
-        this.chatingroom = response.data[0]._id;
+        //this.chatingroom = response.data[0]._id;
       },
       (error) => {
         console.log(error);
@@ -91,6 +92,7 @@ export class UserChatComponent implements OnInit {
     this.chatingroom = roomid;
     console.log(this.chatingroom);
     this.imageandname(id);
+
     this.userService.chatsroom(this.chatingroom).subscribe(
       (response: any) => {
         console.log(response);
@@ -127,7 +129,7 @@ export class UserChatComponent implements OnInit {
           this.chatform.reset();
           this.chatwith(this.otheruser._id, this.chatingroom);
           console.log(this.chatingroom);
-          //this.refreshchat(this.chatingroom);
+          this.refreshchat(response.data.chatroom);
         },
         (error) => {
           console.log(error);

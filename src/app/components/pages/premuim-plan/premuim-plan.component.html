@@ -1,95 +1,96 @@
 <app-navbar-style-one></app-navbar-style-one>
-   
+
 <section class="pt-70 pb-50 bg-plan">
-     <div class="container">
-         <div class="row">
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="single-pricing-box text-center">
-                        <h3 class="plan-st-1 st-bronze">Bronze  <span class="plan-st-2"></span></h3>
-                        <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
-                        <h2>₹ 1,212</h2>
-                        <p>₹ 404 Per Month</p>
-                        <a href="javascript:void(0);" class="btn-con">Continue</a>
-                        <div class="pricing-features">
-                            <ul class="text-left">
-                                <li class="st-black"> Send Unlimited Messages</li>
-                                <li class="st-black"> View upto 150 Contact Number</li>
-                                <li ><del>View upto 150 Contact Number</del></li>
-                                <li ><del>View upto 150 Contact Number</del></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="single-pricing-box text-center">
-                        <h3 class="plan-st-1 st-silver">Silver  <span class="plan-st-2"></span></h3>
-                        <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
-                        <h2>₹ 1,212</h2>
-                        <p>₹ 404 Per Month</p>
-                        <a href="javascript:void(0);" class="btn-con">Continue</a>
-                        <div class="pricing-features">
-                            <ul class="text-left">
-                                <li class="st-black"> Send Unlimited Messages</li>
-                                <li class="st-black"> View upto 150 Contact Number</li>
-                                <li class="st-black">View upto 150 Contact Number</li>
-                                <li ><del>View upto 150 Contact Number</del></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="single-pricing-box text-center">
-                        <h3 class="plan-st-1 st-silver">Silver Plus  <span class="plan-st-2"></span></h3>
-                        <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
-                        <h2>₹ 1,212</h2>
-                        <p>₹ 404 Per Month</p>
-                        <a href="javascript:void(0);" class="btn-con">Continue</a>
-                        <div class="pricing-features">
-                            <ul class="text-left">
-                                <li class="st-black"> Send Unlimited Messages</li>
-                                <li class="st-black"> View upto 150 Contact Number</li>
-                                <li ><del>View upto 150 Contact Number</del></li>
-                                <li ><del>View upto 150 Contact Number</del></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="single-pricing-box text-center">
-                        <h3 class="plan-st-1 st-gold">Gold  <span class="plan-st-2"></span></h3>
-                        <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
-                        <h2>₹ 1,212</h2>
-                        <p>₹ 404 Per Month</p>
-                        <a href="javascript:void(0);" class="btn-con">Continue</a>
-                        <div class="pricing-features">
-                            <ul class="text-left">
-                                <li  class="st-black"> Send Unlimited Messages</li>
-                                <li class="st-black"> View upto 150 Contact Number</li>
-                                <li ><del>View upto 150 Contact Number</del></li>
-                                <li ><del>View upto 150 Contact Number</del></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="single-pricing-box text-center">
-                        <h3 class="plan-st-1  st-gold">Gold Plus <span class="plan-st-2"></span></h3>
-                        <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
-                        <h2>₹ 1,212</h2>
-                        <p>₹ 404 Per Month</p>
-                        <a href="javascript:void(0);" class="btn-con">Continue</a>
-                        <div class="pricing-features">
-                            <ul class="text-left">
-                                <li class="st-black"> Send Unlimited Messages</li>
-                                <li class="st-black"> View upto 150 Contact Number</li>
-                                <li class="st-black"> View upto 150 Contact Number</li>
-                                <li class="st-black"> View upto 150 Contact Number</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-         </div>
-     </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <div class="single-pricing-box text-center">
+          <h3 class="plan-st-1 st-bronze">{{bplan?.plantitle}} <span class="plan-st-2"></span></h3>
+          <p class="st-green">75% Off <del class="st-del">₹ {{bplan?.website_rate*100/75 | number : '1.0-0'}}</del>
+          </p>
+          <h2>₹ {{bplan?.website_rate}}</h2>
+          <p>₹ {{bplan?.website_rate}} Per Month</p>
+          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <div class="pricing-features">
+            <ul class="text-left">
+              <li class="st-black"> Send {{bplan?.num_chat_init}} Messages</li>
+              <li class="st-black"> View upto {{bplan?.num_view_contacts_details}} Contact Number</li>
+              <li><del>View upto 150 Contact Number</del></li>
+              <li><del>View upto 150 Contact Number</del></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <div class="single-pricing-box text-center">
+          <h3 class="plan-st-1 st-silver">Silver <span class="plan-st-2"></span></h3>
+          <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
+          <h2>₹ 1,212</h2>
+          <p>₹ 404 Per Month</p>
+          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <div class="pricing-features">
+            <ul class="text-left">
+              <li class="st-black"> Send Unlimited Messages</li>
+              <li class="st-black"> View upto 150 Contact Number</li>
+              <li class="st-black">View upto 150 Contact Number</li>
+              <li><del>View upto 150 Contact Number</del></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <div class="single-pricing-box text-center">
+          <h3 class="plan-st-1 st-silver">Silver Plus <span class="plan-st-2"></span></h3>
+          <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
+          <h2>₹ 1,212</h2>
+          <p>₹ 404 Per Month</p>
+          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <div class="pricing-features">
+            <ul class="text-left">
+              <li class="st-black"> Send Unlimited Messages</li>
+              <li class="st-black"> View upto 150 Contact Number</li>
+              <li><del>View upto 150 Contact Number</del></li>
+              <li><del>View upto 150 Contact Number</del></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <div class="single-pricing-box text-center">
+          <h3 class="plan-st-1 st-gold">Gold <span class="plan-st-2"></span></h3>
+          <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
+          <h2>₹ 1,212</h2>
+          <p>₹ 404 Per Month</p>
+          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <div class="pricing-features">
+            <ul class="text-left">
+              <li class="st-black"> Send Unlimited Messages</li>
+              <li class="st-black"> View upto 150 Contact Number</li>
+              <li><del>View upto 150 Contact Number</del></li>
+              <li><del>View upto 150 Contact Number</del></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <div class="single-pricing-box text-center">
+          <h3 class="plan-st-1  st-gold">Gold Plus <span class="plan-st-2"></span></h3>
+          <p class="st-green">75% Off <del class="st-del">₹ 4,850</del></p>
+          <h2>₹ 1,212</h2>
+          <p>₹ 404 Per Month</p>
+          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <div class="pricing-features">
+            <ul class="text-left">
+              <li class="st-black"> Send Unlimited Messages</li>
+              <li class="st-black"> View upto 150 Contact Number</li>
+              <li class="st-black"> View upto 150 Contact Number</li>
+              <li class="st-black"> View upto 150 Contact Number</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </section>
 

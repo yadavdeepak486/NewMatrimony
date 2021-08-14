@@ -3,96 +3,117 @@
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
 
-    <app-dashboard-navbar></app-dashboard-navbar>
+  <app-dashboard-navbar></app-dashboard-navbar>
 
-    <!-- Breadcrumb Area -->
-     <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-        <h1>{{Content.title}}</h1>
-        <ol class="breadcrumb">
-            <li class="item"><a routerLink="/">Home</a></li>
-            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-            <li class="item">{{Content.title}}</li>
-        </ol>
-    </div> 
-    <!-- End Breadcrumb Area -->
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/">Home</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}}</li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
 
-    <!-- Start -->
-    <div _ngcontent-rqo-c140="" class="bx-right"><a _ngcontent-rqo-c140="" href="/premium-package/add-new-package" class="btn btn-success rs-btn">Add New Package</a></div>
-    <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <h3 >All Packages</h3>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>image</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Status</th>
-                                    <th>Options</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr >
-                                    <td class="#">
-                                       1 
-                                    </td>
-                                    <td class="image">
-                                        <img src="assets/img/user1.png" class="img-table" />
-                                    </td>
-            
-                                    <td class="name">
-                                        lorem
-                                    </td>
-                                    <td class="Price">
-                                       $46
-                                    </td>
-                                    <td class="Status">
-                                       ghghgh
-                                    </td>
-                                    <td class="Options">
-                                        <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i class=' bx bx-edit'></i> </a>
-                                        <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
-                                    </td>
-                                </tr>
-                                <tr >
-                                    <td class="#">
-                                       2
-                                    </td>
-                                    <td class="image">
-                                        <img src="assets/img/user1.png" class="img-table" />
-                                    </td>
-            
-                                    <td class="name">
-                                        lorem
-                                    </td>
-                                    <td class="Price">
-                                       $46
-                                    </td>
-                                    <td class="Status">
-                                      Active
-                                    </td>
-                                    <td class="Options">
-                                        <a href="#" class="st-i" data-toggle="modal" data-target="#exampleModalLong"><i class=' bx bx-edit'></i> </a>
-                                        <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            
+  <!-- Start -->
+  <div _ngcontent-rqo-c140="" class="bx-right"><a _ngcontent-rqo-c140="" href="/premium-package/add-new-package"
+      class="btn btn-success rs-btn">Add New Package</a></div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <h3>All Packages</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Profile Display to Others</th>
+                <th>Profile Updation</th>
+                <th>Send Interest</th>
+                <th>Receive Interest</th>
+                <th>Initiate Chat</th>
+                <th>View Contact Details</th>
+                <th>Praposal Shortlist</th>
+                <th>Boost Profile</th>
+                <th>Compensate Married/Switched-Off Numbers</th>
+                <th>Relationship Manager</th>
+                <th>Talk on Behalf</th>
+                <th>Plan Validity(days)</th>
+                <th>Website Rate(Rupees)</th>
+                <th>App Rate(Rupees)</th>
+                <th>IOS Rate(Rupees)</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let plan of plans">
+                <td class="#">
+                  {{plan?.plantitle}}({{plan?.plankey}})
+                </td>
+                <td class="#">
+                  {{plan?.profile_displayed_other}}
+                </td>
+                <td class="#">
+                  {{plan?.profile_updation}}
+                </td>
+                <td class="name">
+                  {{plan?.send_interest}}(Unlimited)
+                </td>
+                <td class="email">
+                  {{plan?.receive_interest}}(Unlimited)
+                </td>
+                <td class="phone">
+                  {{plan?.num_chat_init}}
+                </td>
+                <td class="role">
+                  {{plan?.num_view_contacts_details}}
+                </td>
+                <td class="role">
+                  {{plan?.profile_shortlisting}}
+                </td>
+                <td class="role">
+                  {{plan?.profile_booster}}
+                </td>
+                <td class="role">
+                  {{plan?.comp_married_switched_num}}
+                </td>
+                <td class="role">
+                  {{plan?.relationship_manager}}
+                </td>
+                <td class="role">
+                  {{plan?.talk_on_behalf}}
+                </td>
+                <td class="role">
+                  {{plan?.plan_validity}}
+                </td>
+                <td class="role">
+                  {{plan?.website_rate}}
+                </td>
+                <td class="role">
+                  {{plan?.app_rate}}
+                </td>
+                <td class="role">
+                  {{plan?.ios_rate}}
+                </td>
+                <td class="option">
+                  <a class="st-i"><i class=' bx bx-pencil' (click)="getoneplan(plan._id)"></i> </a>
+                  <a class="st-i2"><i class=' bx bx-minus' (click)="deleteplan(plan._id)"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
-    </div> 
-    <!-- End -->
 
-    <div class="flex-grow-1"></div>
-    
-    <app-copyrights></app-copyrights>
+  </div>
+  <!-- End -->
+
+  <div class="flex-grow-1"></div>
+
+  <app-copyrights></app-copyrights>
 
 </div>
 <!-- End Main Content Wrapper Area -->
-

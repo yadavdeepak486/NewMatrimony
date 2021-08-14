@@ -35,7 +35,7 @@
 
                   <div class="user-name">
                     <h6>{{room?.receiver?.firstName}} {{room?.receiver?.LastName}}</h6>
-                    <span class="d-block">last msg...</span>
+                    <span class="d-block"></span>
                   </div>
                 </div>
               </li>
@@ -52,7 +52,7 @@
 
                   <div *ngIf="mydetail._id == room.receiver._id" class="user-name">
                     <h6>{{room?.sender?.firstName}} {{room?.sender?.LastName}}</h6>
-                    <span class="d-block">last msg...</span>
+                    <span class="d-block"></span>
                   </div>
                 </div>
               </li>
@@ -171,7 +171,7 @@
             <div class="chat-list-header d-flex align-items-center">
               <div class="header-left d-flex align-items-center mr-3">
                 <div class="avatar mr-3">
-                  <img [src]="otheruser?.Photo1 || path1" width="70" height="70" class="rounded-circle" alt="image">
+                  <img [src]="otheruser?.Photo1 || path1" width="50" height="50" class="rounded-circle" alt="image">
                   <span class="status-online"></span>
                 </div>
                 <h6 class="mb-0">{{otheruser?.Name}}{{otheruser?.firstName}} {{otheruser?.LastName}}</h6>

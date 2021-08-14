@@ -3,133 +3,240 @@
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
 
-    <app-dashboard-navbar></app-dashboard-navbar>
+  <app-dashboard-navbar></app-dashboard-navbar>
 
-    <!-- Breadcrumb Area -->
-    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-        <h1>{{Content.title}}</h1>
-        <ol class="breadcrumb">
-            <li class="item"><a routerLink="/">Pages</a></li>
-            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-            <li class="item">{{Content.title}}</li>
-        </ol>
-    </div>
-    <!-- End Breadcrumb Area -->
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/">Pages</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}}</li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
 
-    <!-- Start -->
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <div class="card">
-                <h3>Add New Package</h3>
-                <form class="bd-n">
-                    <div class="row">
-                        <div class="form-group fg-w">
-                            <div class="col-lg-4">
-                                <label>Name </label>
-                            </div>
-                            <div class="col-lg-8">
-                              <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="" placeholder=" Name" >
-                              </div>
-                            </div>
-                        </div>
-                        <div class="form-group fg-w">
-                          <div class="col-lg-4">
-                              <label>Price</label>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="input-group mb-3">
-                              <input type="text" class="form-control" id="" placeholder="Price" >
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group fg-w">
-                            <div class="col-lg-4">
-                                <label>Package Image</label>
-                            </div>
-                            <div class="col-lg-8">
-                              <div class="input-group mb-3">
-                                <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        <div class="form-group fg-w">
-                          <div class="col-lg-4">
-                              <label>Express Interest
-                            </label>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="input-group mb-3">
-                              <input type="text" class="form-control" id="" placeholder="Eg. 10" >
-                            </div>
-                          </div>
-                        </div>
-                          <div class="form-group fg-w">
-                            <div class="col-lg-4">
-                                <label>Photo Gallery</label>
-                            </div>
-                            <div class="col-lg-8">
-                              <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="" placeholder="Eg. 10" >
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-group fg-w">
-                            <div class="col-lg-4">
-                                <label>View Contact Info</label>
-                            </div>
-                            <div class="col-lg-8">
-                              <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="" placeholder="Eg. 10" >
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-group fg-w">
-                            <div class="col-lg-4">
-                                <label>Validity For</label>
-                            </div>
-                            <div class="col-lg-8">
-                              <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="" placeholder="Eg. 10" >
-                              </div>
-                            </div>
-                          </div>
-                        
-                          <div class="form-group fg-w">
-                            <div class="col-lg-4">
-                                <label>Auto Profile Matching Show
-                                </label>
-                            </div>
-                            <div class="col-lg-8">
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                          </div>
-
-                        <div class="form-group fg-w">
-                            <button class="btn btn-primary ml-3 mt-2">Add New Package</button>
-                        </div>
-                    </div>
-                </form>
+  <!-- Start -->
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <h3>Add New Package</h3>
+        <form [formGroup]="addplan" (ngSubmit)="submitplan()" class="bd-n">
+          <div class="row">
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Title </label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Gold" formControlName="plantitle">
+                </div>
+              </div>
             </div>
 
-        </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Plan Key</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="BPlan,SPlan,SPPlan,GPlan,GPPlan"
+                    formControlName="plankey">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Profile Visible</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control" formControlName="profile_displayed_other">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Profile Updation </label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control" formControlName="profile_updation">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Send Interest</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="-1" formControlName="send_interest">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Receive Interest</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="-1" formControlName="receive_interest">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Initiate Chat</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="30" formControlName="num_chat_init">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>View contacts</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="30"
+                    formControlName="num_view_contacts_details">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Praposal Shortlist</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control" formControlName="profile_shortlisting">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Boost Profile</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control" formControlName="profile_booster">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Compensate Married/Switched Off Numbers</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control" formControlName="comp_married_switched_num">
+                </div>
+              </div>
+            </div>
 
 
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Relationship Manager</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control" formControlName="relationship_manager">
+                </div>
+              </div>
+            </div>
 
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Talk on Behalf</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control" value="false" formControlName="talk_on_behalf">
+                </div>
+              </div>
+            </div>
 
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Plan Validity(days)</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="30" formControlName="plan_validity">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Website Rate(Rupees)</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="1000" formControlName="website_rate">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>App Rate(Rupees)</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="1200" formControlName="app_rate">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>IOS Rate(Rupees)</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="1500" formControlName="ios_rate">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>#Order</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="1" formControlName="sortorder">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <button class="btn btn-primary ml-3 mt-2">Add New Package</button>
+            </div>
+          </div>
+        </form>
+      </div>
 
     </div>
-    <!-- End -->
 
-    <div class="flex-grow-1"></div>
 
-    <app-copyrights></app-copyrights>
+
+
+
+  </div>
+  <!-- End -->
+
+  <div class="flex-grow-1"></div>
+
+  <app-copyrights></app-copyrights>
 
 </div>
 <!-- End Main Content Wrapper Area -->
