@@ -175,7 +175,7 @@
                                      required>
                                    </div>
                                  </div>
-                                 <div class="col-md-6">
+                                 <div class="col-md-12">
                                    <button class="btn btn-primary btn-up">Update</button>
                                  </div>
                                </div>
@@ -738,7 +738,10 @@
                         <div class="heading-title">
                           <h3>Horoscope details </h3>
                         </div>
-                        <div class="info-text">
+                        <div class="edit">
+                          <a href="javascript:void();"><i class="bx bx-edit" (click)="horoscope()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckhoroscope" class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
@@ -767,6 +770,51 @@
                               </tr> 
                             </tbody>
                        </table> 
+                        </div>
+                        <div *ngIf=" !togglecheckhoroscope" class="info-text">
+                          <form>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Manglik</label>
+                                  <input type="text" class="form-control" placeholder=" ">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Birth Time</label>
+                                  <input type="time" class="form-control" placeholder="">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Birth place</label>
+                                  <input type="text" class="form-control" placeholder="">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Sun sign (shurya Rashi)</label>
+                                  <input type="text" class="form-control" placeholder="">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Moonsign</label>
+                                  <input type="text" class="form-control" placeholder="">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Horoscope Match</label>
+                                  <input type="text" class="form-control" placeholder="">
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <button class="btn btn-primary btn-up">Update</button>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
 
@@ -808,8 +856,38 @@
                               </tbody>
                             </table> 
                           </div> 
-                          <div *ngIf=" !togglecheckpartner"class="info-text">
-                              <h1>dfdfddfdfdfd</h1>
+                          <div *ngIf="!togglecheckpartner"class="info-text">
+                            <form>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Hobby1</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Hobby12</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Hobby3</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Hobby4</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-12">
+                                  <button class="btn btn-primary btn-up">Submit</button>
+                                </div>
+                              </div>
+                            </form>
                           </div>
                         </div>
 
@@ -834,10 +912,13 @@
                                 </div>
                               </div>
                               <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Education</label>
-                                  <input type="text" class="form-control" placeholder="Education">
-                                </div>
+                                  <mat-form-field appearance="fill" class="slt" style="width:100%">
+                                    <mat-label>Education</mat-label>
+                                    <mat-select [formControl]="educationslt" multiple>
+                                      <mat-option *ngFor="let educationslt of educationsltList" [value]="educationslt">{{educationslt}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -858,21 +939,20 @@
                                 </div>
                               </div>
                               <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Religion</label>
-                                  <select class="form-control">
-                                    <option>lorem</option>
-                                    <option>lorem</option>
-                                    <option>lorem</option>
-                                    <option>lorem</option>
-                                  </select>
-                                </div>
+                                <mat-form-field appearance="fill" class="slt" style="width:100%">
+                                  <mat-label>Religion</mat-label>
+                                  <mat-select [formControl]="religionslt" multiple>
+                                    <mat-option *ngFor="let religionslt of religionsltList" [value]="religionslt">{{religionslt}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
                               </div>
                               <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Cast</label>
-                                     <input type="text" class="form-control" placeholder="cast">
-                                </div>
+                                <mat-form-field appearance="fill" class="slt" style="width:100%">
+                                  <mat-label>Cast</mat-label>
+                                  <mat-select [formControl]="castslt" multiple>
+                                    <mat-option *ngFor="let castslt of castsltList" [value]="castslt">{{castslt}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">

@@ -25,7 +25,7 @@
             <label class="d-block list-group-label mt-0">Chats</label>
 
             <ul *ngFor="let room of rooms" class="list-group list-group-user list-unstyled mb-0">
-              <li *ngIf="mydetail?._id == room.sender?._id" (click)=chatwith(room?.receiver?._id,room?._id)>
+              <li *ngIf="mydetail?._id == room.sender?._id" (click)=chatwith(room?.receiver?._id,room?._id) class="st-list-pd">
                 <div class="d-flex align-items-center">
                   <div class="avatar mr-3">
                     <img [src]="room?.receiver?.Photo1 || path1" width="50" height="50" class="rounded-circle"
@@ -33,7 +33,7 @@
                     <span class="status-busy"></span>
                   </div>
 
-                  <div class="user-name">
+                  <div class="user-name st-u-img">
                     <h6>{{room?.receiver?.firstName}} {{room?.receiver?.LastName}}</h6>
                     <span class="d-block">last msg...</span>
                   </div>
@@ -171,7 +171,7 @@
             <div class="chat-list-header d-flex align-items-center">
               <div class="header-left d-flex align-items-center mr-3">
                 <div class="avatar mr-3">
-                  <img [src]="otheruser?.Photo1 || path1" width="70" height="70" class="rounded-circle" alt="image">
+                  <img [src]="otheruser?.Photo1 || path1" width="50" height="50" class="rounded-circle" alt="image">
                   <span class="status-online"></span>
                 </div>
                 <h6 class="mb-0">{{otheruser?.Name}}{{otheruser?.firstName}} {{otheruser?.LastName}}</h6>
@@ -213,9 +213,19 @@
                   </div>
 
                   <div class="chat-body">
-                    <div class="chat-message">
-                      <p>{{chat.msg}}</p>
+                    <div class="chat-message dropdown ">
+                      <button class="dropdown-toggle btn-drp" type="button" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false"><i class='bx bx-dots-vertical-rounded'></i></button>
+                      <p>{{chat.msg}} </p>
                       <span class="time d-block">{{chat.createdAt | date :'short' }}</span>
+                      <div class="dropdown-menu st-dr">
+                        <!-- <a class="dropdown-item d-flex align-items-center" href="#"><i class='bx bx-pin'></i> Pin to
+                          Top</a> -->
+                        <a class="dropdown-item d-flex align-items-center" href="#"><i class='bx bx-trash'></i> Delete
+                          Chat</a>
+                        <!-- <a class="dropdown-item d-flex align-items-center" href="#"><i class='bx bx-block'></i>
+                          Block</a> -->
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -507,10 +517,10 @@
             </div>
 
             <div class="chat-list-footer">
-              <form [formGroup]="chatform" (ngSubmit)="sendmsg()" class="d-flex align-items-center">
+              <form [formGroup]="chatform" (ngSubmit)="sendmsg()" class="d-flex align-items-center" ngNativeValidate>
 
 
-                <input type="text" class="form-control" placeholder="Type your message..." formControlName="msg">
+                <input type="text" class="form-control" placeholder="Type your message..." formControlName="msg" required>
 
                 <button type="submit" class="send-btn d-inline-block">Send <i class="bx bx-paper-plane"></i></button>
               </form>
