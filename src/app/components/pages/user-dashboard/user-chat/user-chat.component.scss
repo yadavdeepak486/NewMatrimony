@@ -1,5 +1,39 @@
 @import "../user-dashboard.component.scss";
 
+// user-chat
+.user-name.st-u-img {
+    padding-bottom: 6px !important;
+    border-bottom: 1px solid #ccccccd4 !important;
+    width: 100%;
+}
+li.st-list-pd {
+    padding-bottom: 10px !important;
+}
+
+button.dropdown-toggle.btn-drp {
+    background: none !important;
+    border: none!important;
+    color: #fff !important;
+    font-size: 16px !important;
+    float: right !important;
+    width: 15px !important;
+}
+.dropdown-toggle::after {
+    display: none !important;
+    margin-left: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+.dropdown-menu.st-dr.show {
+    left: -100px !important;
+    
+}
+
+// close
+
 img {
   max-width: none !important;
   height: 50px !important;
