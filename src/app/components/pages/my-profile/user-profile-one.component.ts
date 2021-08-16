@@ -36,12 +36,40 @@ export class UserProfileOneComponent implements OnInit {
     gender: new FormControl(''),
     age: new FormControl(''),
     dateofbirth: new FormControl(''),
-    placeofbirth: new FormControl(''),
     maritalstatus: new FormControl(''),
+    mothertounge: new FormControl(''),
+    religion: new FormControl(''),
+    caste: new FormControl(''),
+    castepaternal: new FormControl(''),
+    castematernal: new FormControl(''),
+    childrenitany: new FormControl(''),
     childrenstatus: new FormControl(''),
-    timeofbirth: new FormControl(''),
+   
+  });
+
+  editfamilydetail = new FormGroup({
+    familytype: new FormControl(''),
+    familyvalues: new FormControl(''),
+    familystatus: new FormControl(''),
+    fatheroccupation: new FormControl(''),
+    motheroccupation: new FormControl(''),
+    nofelderbrothers: new FormControl(''),
+    nofyoungerbrothers: new FormControl(''),
+    nofeldersister: new FormControl(''),
+    nofyoungersister: new FormControl(''),
+    nofmarriedbrother: new FormControl(''),
+    nofmarriedsister: new FormControl(''),
 
   });
+
+  editphysicalstatus = new FormControl({
+    height: new FormControl(''),
+    bloodgroup: new FormControl (''),
+    bodytype: new FormControl (''),
+    smokehabit: new FormControl(''),
+    specialcase: new FormControl (''),
+
+  })
 
   constructor(public userService: UserService) {}
 
@@ -80,10 +108,39 @@ export class UserProfileOneComponent implements OnInit {
       gender: this.mydetail.Gender,
       age: this.mydetail.Age,
       dateofbirth: this.mydetail.DOB,
-      placeofbirth: this.mydetail.POB ,
       maritalstatus: this.mydetail._id,
-      childrenstatus: this.mydetail._id,
-      timeofbirth: this.mydetail.TOB
+      mothertounge: this.mydetail.PE_MotherTongue,
+      religion: this.mydetail.Religion,
+      caste: this.mydetail.Caste,
+      castepaternal: this.mydetail.PSubcaste,
+      castematernal: this.mydetail.MSubcaste,
+      childrenitany: this.mydetail._id,
+      childrenstatus: this.mydetail._id
+      
+    })
+
+    this.editfamilydetail.setValue({
+      familytype: this.mydetail.FamilyType,
+      familyvalues: this.mydetail.FamilyOrigin,
+      familystatus: this.mydetail.FamilyStatus,
+      fatheroccupation: this.mydetail.Fathersoccupation,
+      motheroccupation: this.mydetail.Mothersoccupation,
+      nofelderbrothers: this.mydetail.noofbrothers,
+      nofyoungerbrothers: this.mydetail.noyubrothers,
+      nofeldersister: this.mydetail.noofsisters,
+      nofyoungersister: this.mydetail.noyusisters,
+      nofmarriedbrother: this.mydetail.nbm,
+      nofmarriedsister: this.mydetail.nsm
+        
+    })
+
+    this.editphysicalstatus.setValue({
+      height: this.mydetail.Height,
+      bloodgroup: this.mydetail.BloodGroup,
+      bodytype:  this.mydetail.Bodytype,
+      smokehabit: this.mydetail.Smoke,
+      specialcase: this.mydetail.Spe_cases
+      
     })
   }
 
