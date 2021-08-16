@@ -16,12 +16,28 @@ export class StaffRoleComponent implements OnInit {
   role = new FormGroup({
     sortorder: new FormControl(''),
     name: new FormControl(''),
+    edit_profileattribute: new FormControl(''),
+    edit_plans: new FormControl(''),
+    edit_userprofile: new FormControl(''),
+    edit_staff: new FormControl(''),
+    edit_happystory: new FormControl(''),
+    edit_otpsystem: new FormControl(''),
+    edit_websitesetup: new FormControl(''),
+    edit_othersetting: new FormControl(''),
   });
 
   editrole = new FormGroup({
     id: new FormControl(''),
     sortorder: new FormControl(''),
     name: new FormControl(''),
+    edit_profileattribute: new FormControl(''),
+    edit_plans: new FormControl(''),
+    edit_userprofile: new FormControl(''),
+    edit_staff: new FormControl(''),
+    edit_happystory: new FormControl(''),
+    edit_otpsystem: new FormControl(''),
+    edit_websitesetup: new FormControl(''),
+    edit_othersetting: new FormControl(''),
   });
   constructor(
     public adminService: AdminService,

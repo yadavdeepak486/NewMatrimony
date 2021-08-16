@@ -36,6 +36,8 @@
                       <div class="listings-content">
                         <div class="pf- box">
                           <p class="txt-user">Matri ID: {{mydetail?.Prefix}}{{mydetail?.MatriID}}<span></span></p>
+                          <p class="txt-user">Name: {{mydetail?.Name}}{{mydetail?.firstName}}
+                            {{mydetail?.LastName}}<span></span></p>
                           <p class="txt-user">MB NO: {{mydetail?.Mobile}}<span></span></p>
                           <p class="txt-user">DOB: {{mydetail?.DOB}}<span></span></p>
                           <p class="txt-user"> {{mydetail?.Gender}},
@@ -47,7 +49,7 @@
                             In: {{mydetail?.LCity?.name}}, {{mydetail?.LState?.name}}, {{mydetail?.LCountry?.name}}
                           </p>
                         </div>
-                        <a href="javascript:void(0);" class="updt">Update Your Details</a>
+                        <a class="updt">Complete Your Details</a>
                       </div>
                     </div>
                   </div>
@@ -67,7 +69,8 @@
         <div class="row">
           <div class="col-lg-9">
             <div class="bd-r">
-              <h3 class="hd-1">Hi Himanshi, Your profile Is 60% complete, We recomend to complete profile 100%.</h3>
+              <h3 class="hd-1">Hi {{mydetail?.Name}}{{mydetail?.firstName}}, Your profile Is 60% complete, We recomend
+                to complete profile 100%.</h3>
               <p>Click below details with * mark to increase %age of your profile:</p>
               <ul class="xt">
                 <li><span style="color: red;">*</span>Basic Details</li>

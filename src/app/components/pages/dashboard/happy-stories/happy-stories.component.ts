@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
@@ -13,11 +13,21 @@ export class HappyStoriesComponent implements OnInit {
   content: any = '';
   allstory: any;
   addstory = false;
+  editstory = false;
   deffilePath1 = 'assets/img/couple-vector.png';
   filePath1: any;
   filePath2: any;
   filePath3: any;
+
+  editimg1: any;
+  editimg2: any;
+  editimg3: any;
+
+  fileeditPath1: any;
+  fileeditPath2: any;
+  fileeditPath3: any;
   storyform: FormGroup;
+  editstoryform: FormGroup;
   selectedFiles: FileList;
 
   //filePath1: any;
@@ -38,6 +48,15 @@ export class HappyStoriesComponent implements OnInit {
       img2: [''],
       img3: [''],
     });
+
+    // this.editstoryform = this.formBuilder.group({
+    //   title: '',
+    //   desc: '',
+    //   sortorder: '',
+    //   img1: [''],
+    //   img2: [''],
+    //   img3: [''],
+    // });
   }
   breadcrumb = [
     {
@@ -58,12 +77,59 @@ export class HappyStoriesComponent implements OnInit {
     );
   }
 
-  getonestory() {
-    this.toastr.info('Implimentation to be done');
+  getonestory(id) {
+    console.log(id);
+    this.editstoryform = this.formBuilder.group({
+      id: '',
+      title: '',
+      desc: '',
+      sortorder: '',
+      img1: [''],
+      img2: [''],
+      img3: [''],
+    });
+    this.adminService.onehappystory(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.editstory = true;
+        this.editstoryform.setValue({
+          id: response.data?._id ? response.data?._id : null,
+          title: response.data?.title ? response.data?.title : null,
+          desc: response.data?.desc ? response.data?.desc : null,
+          sortorder: response.data?.sortorder ? response.data?.sortorder : null,
+          img1: [response.data?.img1 ? response.data?.img1 : null],
+          img2: [response.data?.img2 ? response.data?.img2 : null],
+          img3: [response.data?.img3 ? response.data?.img3 : null],
+        });
+        this.editimg1 = response.data.img1;
+        this.editimg2 = response.data.img2;
+        this.editimg3 = response.data.img3;
+        console.log(this.editstoryform.value);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-  deletestory() {
-    this.toastr.info('Implimentation to be done');
+  canceleditstoryform() {
+    this.editstoryform.reset();
+    this.editstory = false;
+  }
+
+  deletestory(id) {
+    console.log(id);
+    this.adminService.deletehappystory(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        // this.allstory = response.data;
+        this.toastr.info('Happy Story deleted successfully');
+        this.getallhappystories();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   imagePreview1(e) {
@@ -105,6 +171,45 @@ export class HappyStoriesComponent implements OnInit {
     };
   }
 
+  imageeditPreview1(e) {
+    const file = e.target.files[0];
+    if (file) {
+      this.editstoryform.get('img1').setValue(file);
+    }
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.fileeditPath1 = reader.result;
+    };
+  }
+
+  imageeditPreview2(e) {
+    const file = e.target.files[0];
+    if (file) {
+      this.editstoryform.get('img2').setValue(file);
+    }
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.fileeditPath2 = reader.result;
+    };
+  }
+
+  imageeditPreview3(e) {
+    const file = e.target.files[0];
+    if (file) {
+      this.editstoryform.get('img3').setValue(file);
+    }
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.fileeditPath3 = reader.result;
+    };
+  }
+
   blured = false;
   focused = false;
 
@@ -138,8 +243,8 @@ export class HappyStoriesComponent implements OnInit {
   }
 
   cancelstoryform() {
+    this.storyform.reset();
     this.addstory = false;
-    console.log('cancel story clicked');
   }
 
   submitForm() {
@@ -156,5 +261,24 @@ export class HappyStoriesComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  updatestory() {
+    console.log(this.editstoryform.value.id);
+    console.log(this.editstoryform.value);
+    this.adminService
+      .updatehappystory(this.editstoryform.value.id, this.editstoryform.value)
+      .subscribe(
+        (response: any) => {
+          this.getallhappystories();
+          this.toastr.success('Story updated succesfully');
+          this.editstoryform.reset();
+          this.editstory = false;
+        },
+        (error) => {
+          this.toastr.error('Error Occured');
+          console.log(error);
+        }
+      );
   }
 }

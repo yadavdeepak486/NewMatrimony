@@ -13,9 +13,16 @@ export class LoginComponent implements OnInit {
   auth: any;
   usertype: any;
   forgotpassword = false;
+  verifyotp = false;
   signin = new FormGroup({
     Mobile: new FormControl(''),
     password: new FormControl(''),
+    Email: new FormControl(''),
+  });
+
+  forgotpasswordform = new FormGroup({
+    Mobile: new FormControl(''),
+    Email: new FormControl(''),
   });
   constructor(
     public userService: UserService,
@@ -26,7 +33,29 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   userlogin() {
-    console.log(this.signin.value);
+    console.log(this.signin.value.Mobile);
+    function isNumeric(n) {
+      console.log(!isNaN(parseFloat(n)) && isFinite(n));
+      return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+    if (isNumeric(this.signin.value.Mobile) == true) {
+      console.log('this is a number');
+      this.signin.setValue({
+        Mobile: this.signin.value.Mobile,
+        password: this.signin.value.password,
+        Email: '',
+      });
+      console.log(this.signin.value);
+    } else {
+      console.log('this is a string');
+      this.signin.setValue({
+        Mobile: '',
+        password: this.signin.value.password,
+        Email: this.signin.value.Mobile,
+      });
+      console.log(this.signin.value);
+    }
+
     this.userService.login(this.signin.value).subscribe(
       (response: any) => {
         this.toastr.success('Welcome to Himachal Matrimony');
@@ -45,5 +74,10 @@ export class LoginComponent implements OnInit {
   forgetpassword() {
     console.log('forget password');
     this.forgotpassword = true;
+  }
+
+  sendotp() {
+    console.log(this.forgotpasswordform.value);
+    console.log('otp send to mobile');
   }
 }
