@@ -8,6 +8,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class UserProfileTwoComponent implements OnInit {
   mydetail: any;
+  
   constructor(public userService: UserService) {}
 
   ngOnInit(): void {
@@ -40,4 +41,7 @@ export class UserProfileTwoComponent implements OnInit {
       }
     );
   }
+
+  
+
 }

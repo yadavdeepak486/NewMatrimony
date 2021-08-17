@@ -171,6 +171,9 @@ import { InterestSentComponent } from './components/pages/user-dashboard/interes
 import { PhotoRequestComponent } from './components/pages/user-dashboard/photo-request/photo-request.component';
 import { BlockedProfileComponent } from './components/pages/user-dashboard/blocked-profile/blocked-profile.component';
 import { PhotoRecivedComponent } from './components/pages/user-dashboard/photo-recived/photo-recived.component';
+import { FollowupComponent } from './components/pages/dashboard/followup/followup.component';
+import { AddCommentComponent } from './components/pages/dashboard/followup/add-comment/add-comment.component';
+import { ViewCommentComponent } from './components/pages/dashboard/followup/view-comment/view-comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -325,6 +328,9 @@ import { PhotoRecivedComponent } from './components/pages/user-dashboard/photo-r
     PhotoRequestComponent,
     BlockedProfileComponent,
     PhotoRecivedComponent,
+    FollowupComponent,
+    AddCommentComponent,
+    ViewCommentComponent,
   ],
   imports: [
     BrowserModule,

@@ -127,6 +127,9 @@ import { InterestSentComponent } from './components/pages/user-dashboard/interes
 import { PhotoRecivedComponent } from './components/pages/user-dashboard/photo-recived/photo-recived.component';
 import { PhotoRequestComponent } from './components/pages/user-dashboard/photo-request/photo-request.component';
 import { ShortListedComponent } from './components/pages/user-dashboard/short-listed/short-listed.component';
+import { FollowupComponent } from './components/pages/dashboard/followup/followup.component';
+import { AddCommentComponent } from './components/pages/dashboard/followup/add-comment/add-comment.component';
+import { ViewCommentComponent } from './components/pages/dashboard/followup/view-comment/view-comment.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -205,6 +208,12 @@ const routes: Routes = [
   { path: 'profile-attributes/religions', component: ReligionsComponent },
   { path: 'profile-attributes/caste', component: CasteComponent },
   { path: 'profile-attributes/subcaste', component: SubcasteComponent },
+
+  { path: 'followup', component: FollowupComponent },
+  { path: 'add-comment', component: AddCommentComponent },
+  { path: 'view-comment', component: ViewCommentComponent },
+
+
   {
     path: 'profile-attributes/member-language',
     component: MemberLanguageComponent,

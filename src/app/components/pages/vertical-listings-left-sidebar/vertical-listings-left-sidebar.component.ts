@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-vertical-listings-left-sidebar',
@@ -11,8 +13,21 @@ import { ToastrService } from 'ngx-toastr';
 export class VerticalListingsLeftSidebarComponent implements OnInit {
   users: any;
   ngStyle: boolean = false;
+
+  allmaritalstatus:any;
+  allreligion:any;
+  allcountry: any;
+  allstate: any;
+  allcity: any;
+  allcaste:any;
+  allheights: any;
+  alllanguage: any;
+  
+  //maritalstatus = new FormControl();
+  maritalstatusList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   constructor(
     public userService: UserService,
+    public adminService: AdminService,
     private router: Router,
     public toastr: ToastrService
   ) {}
@@ -20,6 +35,13 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   ngOnInit(): void {
     this.resetOption = [this.options[0]];
     this.getallUsers();
+    this.getmaritalstatus();
+    this.getallreligion();
+    this.allcountrys();
+    this.allstate();
+    this.allcity();
+    this.getallheights();
+    this.getalllanguage()
   }
 
   pageTitleContent = [
@@ -286,6 +308,108 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
 
   verticalListings: number = 1;
 
+
+  getmaritalstatus() {
+    this.adminService.getallmaritalstatus().subscribe(
+      (response: any) => {
+        // console.log(response);
+        this.allmaritalstatus = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getallreligion() {
+    this.adminService.getallreligion().subscribe(
+      (response: any) => {
+        this.allreligion = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  allcountrys() {
+    this.adminService.allcountry().subscribe(
+      (response: any) => {
+        this.allcountry = response.data;
+        //console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  
+
+  stateofcountry(id) {
+    console.log(id);
+    this.adminService.statebycountry(id).subscribe(
+      (response: any) => {
+        this.allstate = response.data;
+        //console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  cityofstate(id) {
+    console.log(id);
+    this.adminService.citybystate(id).subscribe(
+      (response: any) => {
+        this.allcity = response.data;
+        //console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  castofrelgion(id) {
+    console.log(id);
+    this.adminService.castesofreligion(id).subscribe(
+      (response: any) => {
+        this.allcaste = response.data;
+        //console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getallheights() {
+    this.adminService.getallheight().subscribe(
+      (response: any) => {
+        this.allheights = response.data;
+        // console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getalllanguage() {
+    this.adminService.getalllanguage().subscribe(
+      (response: any) => {
+        this.alllanguage = response.data;
+        //console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+ 
   getallUsers() {
     this.userService.getallprofiles().subscribe(
       (response: any) => {

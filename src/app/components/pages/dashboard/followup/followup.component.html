@@ -1,0 +1,462 @@
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div>
+    <!-- End Breadcrumb Area -->
+
+    <!-- Start -->
+    <div class="row">
+        <div class="padding">
+            <div class="row ">
+                <div class="col-lg-12">
+                    <div class="b-b b-theme nav-active-theme mb-3">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item"><a class="nav-link active st-ntab" id="today-tab" data-toggle="tab" href="#today" role="tab" aria-controls="today" aria-selected="true">Today Followup <span style="color:#f00;">(0)</span></a></li>
+                            <li class="nav-item"><a class="nav-link st-ntab" id="previous-tab" data-toggle="tab" href="#previous" role="tab" aria-controls="previous" aria-selected="false">Previous Followup <span style="color:#f00;">(6)</span></a></li>
+                            <li class="nav-item"><a class="nav-link st-ntab" id="next-tab" data-toggle="tab" href="#next" role="tab" aria-controls="next" aria-selected="false">Next Followup <span style="color:#f00;">(0)</span></a></li>
+                            <li class="nav-item"><a class="nav-link st-ntab" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="false">Pending Followup <span style="color:#f00;">(3)</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content mb-4">
+                        <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
+                            <div class="follow-content">
+                                <h3 class="ft-name">Rohit Sharma</h3>
+                                <table class="ft-table">
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Gender</td>
+                                        <td class="ft-td">:  Male</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Email</td>
+                                        <td class="ft-td">:  Disable in demo</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Country Name</td>
+                                        <td class="ft-td">:  India</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Registered On</td>
+                                        <td class="ft-td">:   N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Staff</td>
+                                        <td class="ft-td">:  info@gmail.com</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Franchise</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Followup Date</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Commented On</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Comment</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                </table>
+                                <div class="ft-btn">
+                                    <a href="add-comment" class="btn-add">Add Comment</a>
+                                    <button class="btn-view"> View Comment</button>
+                                </div>
+                            </div>
+                            <div class="follow-content">
+                                <h3 class="ft-name">Rahul Sharma</h3>
+                                <table class="ft-table">
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Gender</td>
+                                        <td class="ft-td">:  Male</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Email</td>
+                                        <td class="ft-td">:  Disable in demo</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Country Name</td>
+                                        <td class="ft-td">:  India</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Registered On</td>
+                                        <td class="ft-td">:   N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Staff</td>
+                                        <td class="ft-td">:  info@gmail.com</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Franchise</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Followup Date</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Commented On</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Comment</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                </table>
+                                <div class="ft-btn">
+                                    <a href="add-comment" class="btn-add">Add Comment</a>
+                                    <!-- <button class="btn-add">Add Comment</button> -->
+                                    <button class="btn-view"> View Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="previous" role="tabpanel" aria-labelledby="previous-tab">
+                            <div class="follow-content">
+                                <h3 class="ft-name">Rohit Sharma</h3>
+                                <table class="ft-table">
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Gender</td>
+                                        <td class="ft-td">:  Male</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Email</td>
+                                        <td class="ft-td">:  Disable in demo</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Country Name</td>
+                                        <td class="ft-td">:  India</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Registered On</td>
+                                        <td class="ft-td">:   N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Staff</td>
+                                        <td class="ft-td">:  info@gmail.com</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Franchise</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Followup Date</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Commented On</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Comment</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                </table>
+                                <div class="ft-btn">
+                                    <a href="add-comment" class="btn-add">Add Comment</a>
+                                    <button class="btn-view"> View Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="next" role="tabpanel" aria-labelledby="next-tab">
+                            <div class="follow-content">
+                                <h3 class="ft-name">Rohit Sharma</h3>
+                                <table class="ft-table">
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Gender</td>
+                                        <td class="ft-td">:  Male</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Email</td>
+                                        <td class="ft-td">:  Disable in demo</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Country Name</td>
+                                        <td class="ft-td">:  India</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Registered On</td>
+                                        <td class="ft-td">:   N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Staff</td>
+                                        <td class="ft-td">:  info@gmail.com</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Franchise</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Followup Date</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Commented On</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Comment</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                </table>
+                                <div class="ft-btn">
+                                    <a href="add-comment" class="btn-add">Add Comment</a>
+                                    <button class="btn-view"> View Comment</button>
+                                </div>
+                            </div>
+
+                            <div class="follow-content">
+                                <h3 class="ft-name">Rohit Sharma</h3>
+                                <table class="ft-table">
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Gender</td>
+                                        <td class="ft-td">:  Male</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Email</td>
+                                        <td class="ft-td">:  Disable in demo</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Country Name</td>
+                                        <td class="ft-td">:  India</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Registered On</td>
+                                        <td class="ft-td">:   N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Staff</td>
+                                        <td class="ft-td">:  info@gmail.com</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Franchise</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Followup Date</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Commented On</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Comment</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                </table>
+                                <div class="ft-btn">
+                                    <a href="add-comment" class="btn-add">Add Comment</a>
+                                    <button class="btn-view"> View Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+                            <div class="follow-content">
+                                <h3 class="ft-name">Rohit Sharma</h3>
+                                <table class="ft-table">
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Gender</td>
+                                        <td class="ft-td">:  Male</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Email</td>
+                                        <td class="ft-td">:  Disable in demo</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Country Name</td>
+                                        <td class="ft-td">:  India</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Registered On</td>
+                                        <td class="ft-td">:   N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Staff</td>
+                                        <td class="ft-td">:  info@gmail.com</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Assigned To Franchise</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Followup Date</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Commented On</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                    <tr class="ft-tr">
+                                        <td class="ft-td">Comment</td>
+                                        <td class="ft-td">:  N/A</td>
+                                    </tr>
+                                </table>
+                                <div class="ft-btn">
+                                    <a href="add-comment" class="btn-add">Add Comment</a>
+                                    <button class="btn-view"> View Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Start -->
+    <!-- <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="earnings-box">
+                <h3>Earnings <span class="comission-taken">Fee: 10%</span></h3>
+
+                <ul>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-cart'></i>
+                        </div>
+                        <ul>
+                            <li>Date: 17/08/2020</li>
+                            <li>Order: #181812</li>
+                            <li class="price">$200.00</li>
+                            <li class="fee-price">Fee: $20.00</li>
+                            <li class="price">Net Earning: <strong>$180.00</strong></li>
+                        </ul>
+                        <span>Farmis Restaurant</span>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-shopping-bag'></i>
+                        </div>
+                        <ul>
+                            <li>Date: 16/08/2020</li>
+                            <li>Order: #181811</li>
+                            <li class="price">$76.00</li>
+                            <li class="fee-price">Fee: $6.00</li>
+                            <li class="price">Net Earning: <strong>$70.00</strong></li>
+                        </ul>
+                        <span>Shopping Complex Center</span>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-cart'></i>
+                        </div>
+                        <ul>
+                            <li>Date: 15/08/2020</li>
+                            <li>Order: #181810</li>
+                            <li class="price">$80.00</li>
+                            <li class="fee-price">Fee: $5.00</li>
+                            <li class="price">Net Earning: <strong>$75.00</strong></li>
+                        </ul>
+                        <span>Gym Training Center</span>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-shopping-bag'></i>
+                        </div>
+                        <ul>
+                            <li>Date: 14/08/2020</li>
+                            <li>Order: #181809</li>
+                            <li class="price">$150.00</li>
+                            <li class="fee-price">Fee: $25.00</li>
+                            <li class="price">Net Earning: <strong>$125.00</strong></li>
+                        </ul>
+                        <span>The Magician Restaurant</span>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-cart'></i>
+                        </div>
+                        <ul>
+                            <li>Date: 13/08/2020</li>
+                            <li>Order: #181808</li>
+                            <li class="price">$100.00</li>
+                            <li class="fee-price">Fee: $10.00</li>
+                            <li class="price">Net Earning: <strong>$90.00</strong></li>
+                        </ul>
+                        <span>Oriental Shopping Center</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="earnings-box">
+                <h3>Payout History</h3>
+
+                <ul>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-wallet'></i>
+                        </div>
+                        <ul>
+                            <li class="unpaid">Unpaid</li>
+                            <li>Period: 08/2020</li>
+                        </ul>
+                        <span>$100.00</span>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-wallet'></i>
+                        </div>
+                        <ul>
+                            <li class="paid">Paid</li>
+                            <li>Period: 07/2020</li>
+                        </ul>
+                        <span>$70.00</span>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-wallet'></i>
+                        </div>
+                        <ul>
+                            <li class="unpaid">Unpaid</li>
+                            <li>Period: 06/2020</li>
+                        </ul>
+                        <span>$75.00</span>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-wallet'></i>
+                        </div>
+                        <ul>
+                            <li class="unpaid">Unpaid</li>
+                            <li>Period: 05/2020</li>
+                        </ul>
+                        <span>$125.00</span>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <i class='bx bx-wallet'></i>
+                        </div>
+                        <ul>
+                            <li class="paid">Paid</li>
+                            <li>Period: 04/2020</li>
+                        </ul>
+                        <span>$90.00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+    <!-- End -->
+
+    <div class="flex-grow-1"></div>
+    
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->
