@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
     alpha3Code: 'DEU',
     numericCode: '276',
   };
+  sessionid: any;
   hide = true;
   auth: any;
   usertype: any;
@@ -46,6 +47,8 @@ export class SignupComponent implements OnInit {
     input2: new FormControl('', Validators.required),
     input3: new FormControl('', Validators.required),
     input4: new FormControl('', Validators.required),
+    input5: new FormControl('', Validators.required),
+    input6: new FormControl('', Validators.required),
   });
   otpsection = false;
   success = false;
@@ -128,6 +131,12 @@ export class SignupComponent implements OnInit {
       .subscribe(
         (response: any) => {
           console.log(response);
+
+          console.log(response.response.body);
+          const bodyresp = JSON.parse(response.response.body);
+          console.log(bodyresp);
+          this.sessionid = bodyresp.Details;
+          localStorage.setItem('sessionid', this.sessionid);
         },
         (error) => {
           console.log(error);
@@ -139,13 +148,18 @@ export class SignupComponent implements OnInit {
   }
 
   verifyotp() {
-    const mainotp = `${this.verifyotpform.value.input1}${this.verifyotpform.value.input2}${this.verifyotpform.value.input3}${this.verifyotpform.value.input4}`;
+    const mainotp = `${this.verifyotpform.value.input1}${this.verifyotpform.value.input2}${this.verifyotpform.value.input3}${this.verifyotpform.value.input4}${this.verifyotpform.value.input5}${this.verifyotpform.value.input6}`;
     const intotp = parseInt(mainotp, 10);
     console.log(intotp);
     console.log(this.mobilenumber);
+    console.log(this.sessionid);
+    const getsessionid = localStorage.getItem('sessionid');
+    console.log(getsessionid);
+    // dd4329b8-9d8a-4137-800d-1b2494a837f0
     const grpobj = {
       otp: intotp,
       Mobile: this.mobilenumber,
+      session_id: this.sessionid || getsessionid,
     };
     console.log(grpobj);
     this.userService.verifyotp(grpobj).subscribe(
@@ -153,6 +167,7 @@ export class SignupComponent implements OnInit {
         console.log(response);
         this.toastr.success('Registration successfull');
         this.routes.navigate(['/user-info']);
+        localStorage.setItem('sessionid', '');
       },
       (error) => {
         console.log(error);
@@ -161,16 +176,12 @@ export class SignupComponent implements OnInit {
     );
   }
 
-  changenumber(){
-    console.log("button clicked")
-    if(this.togglembcheck == false){
-      this.togglembcheck = true
-    }
-    else {
-    this.togglembcheck = false
+  changenumber() {
+    console.log('button clicked');
+    if (this.togglembcheck == false) {
+      this.togglembcheck = true;
+    } else {
+      this.togglembcheck = false;
     }
   }
-
 }
-
-

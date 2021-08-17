@@ -11,6 +11,10 @@ import { UserService } from 'src/app/user.service';
 export class PremuimPlanComponent implements OnInit {
   plans: any;
   bplan: any;
+  splan: any;
+  spplan: any;
+  gplan: any;
+  gpplan: any;
   constructor(
     private adminService: AdminService,
     public userService: UserService,
@@ -20,6 +24,10 @@ export class PremuimPlanComponent implements OnInit {
   ngOnInit(): void {
     this.getPlans();
     this.getBPlan();
+    this.getSPlan();
+    this.getSPPlan();
+    this.getGPlan();
+    this.getGPPlan();
   }
   //   monthlyPricing = [
   //     {
@@ -261,10 +269,63 @@ export class PremuimPlanComponent implements OnInit {
   }
 
   getBPlan() {
-    this.userService.getbplan().subscribe(
+    const id = 'BPlan';
+    this.userService.getplan(id).subscribe(
       (response: any) => {
         console.log(response);
         this.bplan = response.data;
+      },
+      (error) => {
+        this.toastr.error('Network Error');
+      }
+    );
+  }
+
+  getSPlan() {
+    const id = 'SPlan';
+    this.userService.getplan(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.splan = response.data;
+      },
+      (error) => {
+        this.toastr.error('Network Error');
+      }
+    );
+  }
+
+  getSPPlan() {
+    const id = 'SPPlan';
+    this.userService.getplan(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.spplan = response.data;
+      },
+      (error) => {
+        this.toastr.error('Network Error');
+      }
+    );
+  }
+
+  getGPlan() {
+    const id = 'GPlan';
+    this.userService.getplan(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.gplan = response.data;
+      },
+      (error) => {
+        this.toastr.error('Network Error');
+      }
+    );
+  }
+
+  getGPPlan() {
+    const id = 'GPPlan';
+    this.userService.getplan(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.gpplan = response.data;
       },
       (error) => {
         this.toastr.error('Network Error');

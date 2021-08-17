@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/user.service';
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss'],
 })
-export class UserInfoComponent implements OnInit, OnChanges {
+export class UserInfoComponent implements OnInit {
   allreligion: any;
   allcaste: any;
   allheights: any;
@@ -63,9 +63,9 @@ export class UserInfoComponent implements OnInit, OnChanges {
     this.getalllanguage();
   }
 
-  ngOnChanges(): void {
-    console.log(this.selectedreligion.value);
-  }
+  // ngOnChanges(): void {
+  //   console.log(this.selectedreligion.value);
+  // }
 
   getallreligion() {
     this.adminService.getallreligion().subscribe(
@@ -150,18 +150,6 @@ export class UserInfoComponent implements OnInit, OnChanges {
     );
   }
 
-  /*
-  allstates() {
-    this.adminService.allstate().subscribe(
-      (response: any) => {
-        this.allstate = response.data;
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  } */
   lstateofcountry(id) {
     console.log(id);
     this.adminService.statebycountry(id).subscribe(

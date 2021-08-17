@@ -265,7 +265,7 @@ export class UserService {
     return this.http.get(`${this.backendurl}/user/chatroom/${id}`);
   }
 
-  getbplan() {
-    return this.http.get(`${this.backendurl}/admin/viewoneplan/BPlan`);
+  getplan(id) {
+    return this.http.get(`${this.backendurl}/admin/viewoneplan/${id}`);
   }
 }
