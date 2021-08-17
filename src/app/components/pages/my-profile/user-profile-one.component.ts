@@ -54,7 +54,6 @@ export class UserProfileOneComponent implements OnInit {
   castsltList: string[] = ['Jain', 'Christian', 'Balmiki', 'Bhanjra'];
 
   editbasicinformation = new FormGroup({
-<<<<<<< HEAD
     firstName: new FormControl(''),
     LastName: new FormControl(''),
     Gender: new FormControl(''),
@@ -69,34 +68,6 @@ export class UserProfileOneComponent implements OnInit {
     childrenlivingstatus: new FormControl(''),
     TOB: new FormControl(''),
   });
-=======
-    gender: new FormControl(''),
-    age: new FormControl(''),
-    dateofbirth: new FormControl(''),
-    maritalstatus: new FormControl(''),
-    mothertounge: new FormControl(''),
-    religion: new FormControl(''),
-    caste: new FormControl(''),
-    castepaternal: new FormControl(''),
-    castematernal: new FormControl(''),
-    childrenitany: new FormControl(''),
-    childrenstatus: new FormControl(''),
-   
-  });
-
-  editfamilydetail = new FormGroup({
-    familytype: new FormControl(''),
-    familyvalues: new FormControl(''),
-    familystatus: new FormControl(''),
-    fatheroccupation: new FormControl(''),
-    motheroccupation: new FormControl(''),
-    nofelderbrothers: new FormControl(''),
-    nofyoungerbrothers: new FormControl(''),
-    nofeldersister: new FormControl(''),
-    nofyoungersister: new FormControl(''),
-    nofmarriedbrother: new FormControl(''),
-    nofmarriedsister: new FormControl(''),
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
 
   editfamilydetailform = new FormGroup({
     FamilyType: new FormControl(''),
@@ -113,25 +84,12 @@ export class UserProfileOneComponent implements OnInit {
     nsm: new FormControl(''),
   });
 
-<<<<<<< HEAD
   constructor(
     public userService: UserService,
     public adminService: AdminService,
     private toastr: ToastrService,
     public routes: Router
   ) {}
-=======
-  editphysicalstatus = new FormControl({
-    height: new FormControl(''),
-    bloodgroup: new FormControl (''),
-    bodytype: new FormControl (''),
-    smokehabit: new FormControl(''),
-    specialcase: new FormControl (''),
-
-  })
-
-  constructor(public userService: UserService) {}
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
 
   ngOnInit(): void {
     this.getmydetails();
@@ -164,7 +122,6 @@ export class UserProfileOneComponent implements OnInit {
     );
   }
 
-<<<<<<< HEAD
   // imagePreview(e) {
   //   const file = e.target.files[0];
   //   console.log(file);
@@ -192,67 +149,6 @@ export class UserProfileOneComponent implements OnInit {
         console.log(error);
       }
     );
-=======
-  formone(){
-    console.log("button clicked")
-    if(this.togglecheck == false){
-      this.togglecheck = true
-    }
-    else {
-    this.togglecheck = false
-    }
-    if(this.mydetail !== undefined)
-
-    this.editbasicinformation.setValue({
-      // name: this.mydetail.name,
-      gender: this.mydetail.Gender,
-      age: this.mydetail.Age,
-      dateofbirth: this.mydetail.DOB,
-      maritalstatus: this.mydetail._id,
-      mothertounge: this.mydetail.PE_MotherTongue,
-      religion: this.mydetail.Religion,
-      caste: this.mydetail.Caste,
-      castepaternal: this.mydetail.PSubcaste,
-      castematernal: this.mydetail.MSubcaste,
-      childrenitany: this.mydetail._id,
-      childrenstatus: this.mydetail._id
-      
-    })
-
-    this.editfamilydetail.setValue({
-      familytype: this.mydetail.FamilyType,
-      familyvalues: this.mydetail.FamilyOrigin,
-      familystatus: this.mydetail.FamilyStatus,
-      fatheroccupation: this.mydetail.Fathersoccupation,
-      motheroccupation: this.mydetail.Mothersoccupation,
-      nofelderbrothers: this.mydetail.noofbrothers,
-      nofyoungerbrothers: this.mydetail.noyubrothers,
-      nofeldersister: this.mydetail.noofsisters,
-      nofyoungersister: this.mydetail.noyusisters,
-      nofmarriedbrother: this.mydetail.nbm,
-      nofmarriedsister: this.mydetail.nsm
-        
-    })
-
-    this.editphysicalstatus.setValue({
-      height: this.mydetail.Height,
-      bloodgroup: this.mydetail.BloodGroup,
-      bodytype:  this.mydetail.Bodytype,
-      smokehabit: this.mydetail.Smoke,
-      specialcase: this.mydetail.Spe_cases
-      
-    })
-  }
-
-  formtwo(){
-    console.log("button clicked")
-    if(this.togglechecktwo == false){
-      this.togglechecktwo = true
-    }
-    else {
-    this.togglechecktwo = false
-    }
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
   }
 
   getallreligion() {

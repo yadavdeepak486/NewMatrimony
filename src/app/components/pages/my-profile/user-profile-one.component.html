@@ -76,19 +76,11 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Subcaste(Paternal)</td>
-<<<<<<< HEAD
                                 <td class="wd1">{{mydetail?.PSubcaste || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Subcaste(Maternal)</td>
                                 <td class="wd1">{{mydetail?.MSubcaste || "not mentioned"}}</td>
-=======
-                                <td class="wd1">{{mydetail?.PSubcaste?.name || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Subcaste(Maternal)</td>
-                                <td class="wd1">{{mydetail?.MSubcaste?.name || "not mentioned"}}</td>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Children (If Any):</td>
@@ -109,7 +101,6 @@
                         <!--  -->
                         <div *ngIf="!togglecheck" class="info-text">
                           <div class="card card-body bd-none">
-<<<<<<< HEAD
                             <form [formGroup]="editbasicinformation" (ngSubmit)="updatedata()" ngNativeValidate>
                               <div class="row">
                                 <div class="col-md-6">
@@ -241,108 +232,6 @@
                                     class="btn btn-primary btn-up">Cancel</button>
                                 </div>
                               </div>
-=======
-                            <form [formGroup]="editbasicinformation"  ngNativeValidate>
-                               <div class="row">
-                                 <div class="col-md-6">
-                                   <div class="form-group">
-                                     <label>Gender</label>
-                                     <select class="form-control" placeholder="Name" formControlName="gender"
-                                     required>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                     </select>
-                                   </div>
-                                 </div>
-                                 <div class="col-md-6">
-                                   <div class="form-group">
-                                     <label>Age</label>
-                                     <input type="text" class="form-control" placeholder="Age" formControlName="age"
-                                     required>
-                                   </div>
-                                 </div>
-                                 <div class="col-md-6">
-                                   <div class="form-group">
-                                     <label>Date Of Birth</label>
-                                     <input type="date" class="form-control" placeholder="DOB" formControlName="dateofbirth"
-                                     required>
-                                   </div>
-                                 </div>
-                                 <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label>Marital Status</label>
-                                    <select name="" id="" class="form-control" formControlName="maritalstatus"
-                                    required>
-                                        <option>Married</option>
-                                        <option>Unmarried</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                 <div class="col-md-6">
-                                   <div class="form-group">
-                                     <label>Mother Tounge</label>
-                                     <input type="text" class="form-control" placeholder=""
-                                     formControlName="mothertounge"
-                                     required>
-                                   </div>
-                                 </div>
-                                 <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label>Religion</label>
-                                    <input type="text" class="form-control" placeholder=""
-                                    formControlName="religion"
-                                    required>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label>Caste</label>
-                                    <input type="text" class="form-control" placeholder=""
-                                    formControlName="Caste"
-                                    required>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label>Subcaste(Paternal)</label>
-                                    <input type="text" class="form-control" placeholder=""
-                                    formControlName="castepaternal"
-                                    required>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label>Subcaste(Maternal)</label>
-                                    <input type="text" class="form-control" placeholder=""
-                                    formControlName="castematernal"
-                                    required>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label>Children (It Any</label>
-                                    <select name="" id="" class="form-control" formControlName="childrenitany"
-                                    required>
-                                        <option>yes</option>
-                                        <option>no</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                 <div class="col-md-6">
-                                   <div class="form-group">
-                                     <label>Children Status</label>
-                                     <select name="" id="" class="form-control" formControlName="childrenstatus"
-                                     required>
-                                         <option>yes</option>
-                                         <option>no</option>
-                                     </select>
-                                   </div>
-                                 </div>
-                                 <div class="col-md-12">
-                                   <button class="btn btn-primary btn-up">Update</button>
-                                 </div>
-                               </div>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                             </form>
                           </div>
                         </div>
@@ -391,11 +280,7 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">No. of Younger Brothers:</td>
-<<<<<<< HEAD
                                 <td class="wd1">{{mydetail?.noyubrothers || "not mentioned"}}</td>
-=======
-                                <td class="wd1">{{mydetail?.noyubrother || "not mentioned"}}</td>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">No. of Elder Sisters:</td>
@@ -416,18 +301,12 @@
                             </tbody>
                           </table>
                         </div>
-<<<<<<< HEAD
                         <!-- *ngIf="!togglecheckfamily"  -->
                         <div *ngIf="!togglecheckfamily" class="info-text">
                           <form [formGroup]="editfamilydetailform" (ngSubmit)="updatefamily()" ngNativeValidate>
-=======
-                        <div *ngIf="!togglecheckfamily"class="info-text">
-                          <form [formGroup]="editbasicinformation"  ngNativeValidate>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                             <div class="row">
                               <div class="col-md-6">
-                                <div class="form-group" formControlName="familytype"
-                                required>
+                                <div class="form-group" formControlName="familytype" required>
                                   <label>Family Type</label>
                                   <select class="form-control" formControlName="FamilyType">
                                     <option value="nuclear">Nuclear</option>
@@ -439,122 +318,79 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Family Values</label>
-<<<<<<< HEAD
                                   <select class="form-control" formControlName="Familyvalues">
                                     <option [value]="familyvalue._id" *ngFor="let familyvalue of allfamilyvalues">
                                       {{familyvalue?.name}}</option>
                                   </select>
-=======
-                                  <input type="text" class="form-control" placeholder="family Values" formcontrolName="familyvalues" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Family Status</label>
-<<<<<<< HEAD
                                   <select class="form-control" formControlName="FamilyStatus">
                                     <option [value]="familystatus._id" *ngFor="let familystatus of allfamilystatus">
                                       {{familystatus?.name}}</option>
-=======
-                                  <select class="form-control" formcontrolName="familystatus" required>
-                                    <option>lorem</option>
-                                    <option>lorem</option>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                   </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Father Occupation</label>
-<<<<<<< HEAD
                                   <input type="text" class="form-control" placeholder="Teacher"
                                     formControlName="Fathersoccupation">
-=======
-                                  <input type="text" class="form-control" placeholder="Retired" formcontrolName="fatheroccupation" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Mother Occupation</label>
-<<<<<<< HEAD
                                   <input type="text" class="form-control" placeholder="Doctor"
                                     formControlName="Mothersoccupation">
-=======
-                                  <input type="text" class="form-control" placeholder="HouseWife" formcontrolName="motheroccupation" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div>
                               <!-- <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Family Origin</label>
-<<<<<<< HEAD
                                   <input type="text" class="form-control" placeholder="Kanpur"
                                     formControlName="FamilyOrigin">
-=======
-                                  <input type="text" class="form-control" placeholder="Family Origin" formcontrolName="" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div> -->
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No. of Elder Brothers</label>
-<<<<<<< HEAD
                                   <input type="number" class="form-control" placeholder="2"
                                     formControlName="noofbrothers">
-=======
-                                  <input type="text" class="form-control" placeholder="" formcontrolName="nofelderbrothers" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No. of Elder Sisters</label>
-<<<<<<< HEAD
                                   <input type="number" class="form-control" placeholder="2"
                                     formControlName="noofsisters">
-=======
-                                  <input type="text" class="form-control" placeholder="" formcontrolName="nofeldersister" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No.of Younger Brothers</label>
-<<<<<<< HEAD
                                   <input type="number" class="form-control" placeholder="2"
                                     formControlName="noyubrothers">
-=======
-                                  <input type="text" class="form-control" placeholder="" formcontrolName="nofyoungerbrothers" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No.of Younger Sisters</label>
-<<<<<<< HEAD
                                   <input type="number" class="form-control" placeholder="2"
                                     formControlName="noyusisters">
-=======
-                                  <input type="text" class="form-control" placeholder="" formcontrolName="nofyoungersister" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No.of Married Brothers</label>
-<<<<<<< HEAD
                                   <input type="number" class="form-control" placeholder="2" formControlName="nbm">
-=======
-                                  <input type="text" class="form-control" placeholder="" formcontrolName="nofmarriedbrother" required>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No.of Married Sisters</label>
-<<<<<<< HEAD
                                   <input type="number" class="form-control" placeholder="2" formControlName="nsm">
                                 </div>
                               </div>
@@ -563,13 +399,6 @@
                                   class="btn btn-primary btn-up">Update</button>
                                 <button type="button" (click)="cancelfamilyform()"
                                   class="btn btn-primary btn-up">Cancel</button>
-=======
-                                  <input type="text" class="form-control" placeholder="" formcontrolName="nofmarriedsister" required>
-                                </div>
-                              </div>
-                              <div class="col-md-12">
-                                <button class="btn btn-primary btn-up">Update</button>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                               </div>
                             </div>
                           </form>
@@ -612,22 +441,18 @@
                             </tbody>
                           </table>
                         </div>
-<<<<<<< HEAD
                         <div *ngIf="!togglecheckphysical" class="info-text">
                           <form>
-=======
-                        <div *ngIf="!togglecheckphysical"class="info-text">
-                          <form  [formGroup]="editphysicalstatus"  ngNativeValidate>
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Height</label>
-                                  <input type="text" class="form-control" placeholder="" formControlName="height" required>
+                                  <input type="text" class="form-control" placeholder="" formControlName="height"
+                                    required>
                                 </div>
                               </div>
                               <div class="col-md-6">
-                                <div class="form-group" >
+                                <div class="form-group">
                                   <label>Blood Group</label>
                                   <select class="form-control" formControlName="bloodgroup" required>
                                     <option>A+</option>
@@ -640,10 +465,11 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Body Type</label>
-                                  <input type="text" class="form-control" placeholder="" formControlName="bodytype" required>
+                                  <input type="text" class="form-control" placeholder="" formControlName="bodytype"
+                                    required>
                                 </div>
                               </div>
-                              
+
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Smoke Habit</label>
@@ -656,7 +482,8 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Special Case</label>
-                                  <input type="text" class="form-control" placeholder="" formControlName="specialcase" required>
+                                  <input type="text" class="form-control" placeholder="" formControlName="specialcase"
+                                    required>
                                 </div>
                               </div>
 
@@ -1138,7 +965,6 @@
                                 </div>
                               </div>
                               <div class="col-md-6">
-<<<<<<< HEAD
                                 <mat-form-field appearance="fill" class="slt" style="width:100%">
                                   <mat-label>Education</mat-label>
                                   <mat-select [formControl]="educationslt" multiple>
@@ -1147,15 +973,6 @@
                                   </mat-select>
                                 </mat-form-field>
 
-=======
-                                  <mat-form-field appearance="outline" class="slt" style="width:100%">
-                                    <mat-label>Education</mat-label>
-                                    <mat-select [formControl]="educationslt" multiple>
-                                      <mat-option *ngFor="let educationslt of educationsltList" [value]="educationslt">{{educationslt}}</mat-option>
-                                    </mat-select>
-                                  </mat-form-field>
-                                
->>>>>>> a4a11b84302b7b63af79d05057199f9b95fc0889
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
