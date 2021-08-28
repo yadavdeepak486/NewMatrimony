@@ -26,8 +26,7 @@
           <div class="tab-vertical">
             <ul class="nav nav-tabs" id="myTab3" role="tablist">
               <li class="nav-item"> <a class="nav-link active" id="home-vertical-tab" data-toggle="tab"
-                  href="#home-vertical" role="tab" aria-controls="home" aria-selected="true">Mobile Number
-                  Verification</a> </li>
+                  href="#home-vertical" role="tab" aria-controls="home" aria-selected="true">OTP Template</a> </li>
               <li class="nav-item"> <a class="nav-link" id="profile-vertical-tab" data-toggle="tab"
                   href="#profile-vertical" role="tab" aria-controls="profile" aria-selected="false">Account Opening By
                   Admin</a> </li>
@@ -45,19 +44,35 @@
             <div class="tab-content" id="myTabContent3">
               <div class="tab-pane fade show active" id="home-vertical" role="tabpanel"
                 aria-labelledby="home-vertical-tab">
-                <h3>editor1</h3>
+                <h4>OTP Template</h4>
+                <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                  (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                </quill-editor>
+                <div class="ql-container ql-snow" style="border-width: 0;">
+                  <div class="ql-editor" [innerHTML]="data">
+                  </div>
+                </div>
 
               </div>
               <div class="tab-pane fade" id="profile-vertical" role="tabpanel" aria-labelledby="profile-vertical-tab">
-                <h3>editor1</h3>
+                <h4>Account Opening Template</h4>
+                <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                  (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                </quill-editor>
 
               </div>
               <div class="tab-pane fade" id="contact-vertical" role="tabpanel" aria-labelledby="contact-vertical-tab">
-                <h3>Tab Heading</h3>
+                <h4>Account Approval</h4>
+                <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                  (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                </quill-editor>
 
               </div>
               <div class="tab-pane fade" id="vertical-four" role="tabpanel" aria-labelledby="four-vertical-tab">
-                <h3>text 4 editor</h3>
+                <h4>Manual Payment Approval</h4>
+                <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                  (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                </quill-editor>
 
               </div>
               <div class="tab-pane fade" id="vertical-five" role="tabpanel" aria-labelledby="five-vertical-tab">

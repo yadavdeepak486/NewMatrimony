@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
     input5: new FormControl('', Validators.required),
     input6: new FormControl('', Validators.required),
   });
-  otpsection = false;
+  otpsection = true;
   success = false;
   constructor(
     public userService: UserService,

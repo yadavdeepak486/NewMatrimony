@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
 
   constructor(public http: HttpClient) {}
@@ -85,6 +85,12 @@ export class AdminService {
   }
   castesofreligion(id) {
     return this.http.get(`${this.backendurl}/admin/castesofreligion/${id}`);
+  }
+  multiplecaste(data) {
+    return this.http.post(
+      `${this.backendurl}/admin/manycastesofreligion`,
+      data
+    );
   }
 
   //language
@@ -175,6 +181,11 @@ export class AdminService {
   statebycountry(id) {
     return this.http.get(`${this.backendurl}/admin/statebycountry/${id}`);
   }
+
+  allstateofcountry(data) {
+    return this.http.post(`${this.backendurl}/admin/stateofscountry`, data);
+  }
+
   editstate(id, data) {
     return this.http.post(`${this.backendurl}/admin/editstate/${id}`, data);
   }
@@ -402,6 +413,23 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/addlogo`, formData);
   }
 
+  editlogo(id, data) {
+    const formData: FormData = new FormData();
+    formData.append('title', data?.title);
+    formData.append('logo', data?.logo);
+    formData.append('website', data.website);
+
+    return this.http.post(`${this.backendurl}/admin/editlogo/${id}`, formData);
+  }
+
+  onelogo(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonelogo/${id}`);
+  }
+
+  deletelogo(id) {
+    return this.http.get(`${this.backendurl}/admin/deletelogo/${id}`);
+  }
+
   //happy story
   getallhappystory() {
     return this.http.get(`${this.backendurl}/admin/allhappystory`);
@@ -458,5 +486,15 @@ export class AdminService {
 
   allplans() {
     return this.http.get(`${this.backendurl}/admin/allplan`);
+  }
+
+  otpbal() {
+    return this.http.get(
+      `http://2factor.in/API/V1/8a6e826a-b96c-11e7-94da-0200cd936042/BAL/SMS`
+    );
+  }
+
+  stafflogin(data) {
+    return this.http.post(`${this.backendurl}/admin/login`, data);
   }
 }

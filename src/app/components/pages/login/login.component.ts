@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   });
   constructor(
     public userService: UserService,
+    public adminService: AdminService,
     public routes: Router,
     public toastr: ToastrService
   ) {}
@@ -65,7 +67,28 @@ export class LoginComponent implements OnInit {
         this.routes.navigate(['/vertical-listings-left-sidebar']);
       },
       (error) => {
-        this.toastr.error('Some error occured');
+        //this.toastr.error(error.error.msg);
+        if (error.error.msg == 'User Doesnot Exist') {
+          this.stafflogin(this.signin.value);
+        } else {
+          this.toastr.error(error.error.msg);
+        }
+      }
+    );
+  }
+
+  stafflogin(data) {
+    console.log('staff login requested');
+    console.log(data);
+    this.adminService.stafflogin(data).subscribe(
+      (response: any) => {
+        this.toastr.success(`Welcome ${response?.user?.role?.name}`);
+        console.log(response);
+        console.log(response.user_type);
+        this.routes.navigate(['/dashboard']);
+      },
+      (error) => {
+        this.toastr.error(error.error.msg);
         console.log(error);
       }
     );

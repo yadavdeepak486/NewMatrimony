@@ -38,20 +38,20 @@
             <tbody>
               <tr *ngFor="let staff of allstaff">
                 <td class="#">
-                  {{staff.Prefix}}{{staff.staffID}}
+                  {{staff?.Prefix}}{{staff?.staffID}}
                 </td>
                 <td class="name">
-                  {{staff.firstname}} {{staff.lastname}}
+                  {{staff?.firstname}} {{staff?.lastname}}
                 </td>
 
                 <td class="email">
-                  {{staff.email}}
+                  {{staff?.Email}}
                 </td>
                 <td class="phone">
-                  {{staff.phone}}
+                  {{staff?.Mobile}}
                 </td>
                 <td class="role">
-                  {{staff.role.name}}
+                  {{staff?.role.name}}
                 </td>
                 <td class="option">
                   <a class="st-i"><i class=' bx bx-pencil' (click)="getonestaff(staff._id)"></i> </a>
