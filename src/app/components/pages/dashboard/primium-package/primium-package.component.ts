@@ -11,6 +11,7 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class PrimiumPackageComponent implements OnInit {
   plans: any;
+  toggleeditplan: boolean = true;
   addplantab = false;
   constructor(
     private adminService: AdminService,
@@ -19,6 +20,28 @@ export class PrimiumPackageComponent implements OnInit {
   ) {}
 
   addplan = new FormGroup({
+    plantitle: new FormControl(''), //m
+    plankey: new FormControl(''), //m
+    profile_displayed_other: new FormControl(''), //b
+    profile_updation: new FormControl(''), //b
+    send_interest: new FormControl(''), //number -1
+    receive_interest: new FormControl(''), //number -1
+    num_chat_init: new FormControl(''), //num
+    num_view_contacts_details: new FormControl(''), //num
+    profile_shortlisting: new FormControl(''), //b
+    profile_booster: new FormControl(''), //b
+    comp_married_switched_num: new FormControl(''), //b
+    relationship_manager: new FormControl(''), //b
+    talk_on_behalf: new FormControl(''), //b
+    plan_validity: new FormControl(''), //number
+    website_rate: new FormControl(''), //number
+    app_rate: new FormControl(''), //number
+    ios_rate: new FormControl(''), //number
+    sortorder: new FormControl(''), //number
+  });
+
+  editplan = new FormGroup({
+    id: new FormControl(''), //m
     plantitle: new FormControl(''), //m
     plankey: new FormControl(''), //m
     profile_displayed_other: new FormControl(''), //b
@@ -95,5 +118,14 @@ export class PrimiumPackageComponent implements OnInit {
   hideaddplantab() {
     console.log('hide tab button');
     this.addplantab = false;
+  }
+
+  editplanchk() {
+    console.log('button clicked');
+    if (this.toggleeditplan == false) {
+      this.toggleeditplan = true;
+    } else {
+      this.toggleeditplan = false;
+    }
   }
 }

@@ -11,6 +11,7 @@ import { AdminService } from 'src/app/admin.service';
 export class UpdateComponent implements OnInit {
   addlogo = false;
   alllogo: any;
+  toggleeditlogo:boolean= true;
   deffilePath1 = 'assets/img/couple-vector.png';
   tosendpath: any;
   logoform: FormGroup;
@@ -94,5 +95,14 @@ export class UpdateComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  editlogo(){
+    console.log('button clicked');
+    if (this.toggleeditlogo == false) {
+      this.toggleeditlogo = true;
+    } else {
+      this.toggleeditlogo = false;
+    }
   }
 }

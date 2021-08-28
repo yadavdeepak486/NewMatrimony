@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./set-otp.component.scss']
 })
 export class SetOtpComponent implements OnInit {
-
+  toggleeditotp:boolean= true;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,4 +17,14 @@ export class SetOtpComponent implements OnInit {
         subTitle: 'Members'
     }
 ]
+
+
+editotpchk() {
+  console.log('button clicked');
+  if (this.toggleeditotp == false) {
+    this.toggleeditotp = true;
+  } else {
+    this.toggleeditotp = false;
+  }
+ }
 }

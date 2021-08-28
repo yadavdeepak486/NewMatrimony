@@ -9,6 +9,7 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class AllStaffComponent implements OnInit {
   allstaff: any;
+  toggleeditstaff: boolean=true;
   constructor(
     public adminService: AdminService,
     private toastr: ToastrService
@@ -52,5 +53,14 @@ export class AllStaffComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  editstaffchk() {
+    console.log('button clicked');
+    if (this.toggleeditstaff == false) {
+      this.toggleeditstaff = true;
+    } else {
+      this.toggleeditstaff = false;
+    }
   }
 }

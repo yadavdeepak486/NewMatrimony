@@ -16,8 +16,131 @@
     </div>
     <!-- End Breadcrumb Area -->
 
+     <!-- Start -->
+     <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-form-field appearance="outline">
+                <mat-label>Agent</mat-label>
+                <mat-select [formControl]="users" multiple>
+                  <mat-option *ngFor="let users of usersList" [value]="users">{{users}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+           
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="stats-card-box">
+                <span class="sub-title">Total Follow Up </span>
+                <h3>01</h3>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="stats-card-box">
+                <span class="sub-title">Today Follow Up  </span>
+                <h3>06</h3>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
+            <div class="stats-card-box">
+                <span class="sub-title">Previous Follow Up</span>
+                <h3>08</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
+            <div class="stats-card-box">
+                <span class="sub-title">Followed</span>
+                <h3>08</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="stats-card-box st-blue">
+                <span class="sub-title">Attend  </span>
+                <h3>05</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="stats-card-box st-pink">
+                <span class="sub-title">Not Attend </span>
+                <h3>08</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="stats-card-box st-light-b">
+                <span class="sub-title">Busy</span>
+                <h3>08</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="stats-card-box st-parple">
+                <span class="sub-title">Forwarded</span>
+                <h3>08</h3>
+            </div>
+        </div>
+    </div>
+     <!-- End -->
+    <!-- Start followuptable -->
+
+        <div class="bookings-listings-box">
+            <!-- <h3>Booking Requests</h3> -->
+        
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Matri ID</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Assigned to</th>
+                            <th>Followup Date</th>
+                            <th>Next Followup</th>
+                            <th>Responce</th>
+                            <th>Call Direction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="matri Id">
+                               
+                            </td>
+                            <td class="name">
+
+                            </td>
+                            <td class="status">
+
+                            </td>
+                            <td class="assigned">
+
+                            </td>
+                            <td class="followupdate">
+
+                            </td>
+                            <td class="nextfollowup">
+
+                            </td>
+                            <td class="responce">
+
+                            </td>
+                            <td class="calldirectio">
+
+                            </td>
+                            <!-- <td class="action">
+                                <a href="#" class="default-btn"><i class='bx bx-check-circle'></i> Approve</a>
+                                <a href="#" class="default-btn danger"><i class='bx bx-x-circle'></i> Reject</a>
+                            </td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <!-- Start followuptable  Close-->
+
     <!-- Start -->
-    <div class="row">
+    <!-- <div class="row">
         <div class="padding">
             <div class="row ">
                 <div class="col-lg-12">
@@ -118,7 +241,7 @@
                                 </table>
                                 <div class="ft-btn">
                                     <a href="add-comment" class="btn-add">Add Comment</a>
-                                    <!-- <button class="btn-add">Add Comment</button> -->
+
                                     <button class="btn-view"> View Comment</button>
                                 </div>
                             </div>
@@ -314,7 +437,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End -->
 
     <!-- Start -->

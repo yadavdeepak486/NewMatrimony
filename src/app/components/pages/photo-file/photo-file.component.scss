@@ -92,7 +92,7 @@ input[type="file"] {
 }
 
 .custom-file-upload {
-  display: block;
+  display: inline-block;
   color: white;
   width: 100px;
   margin: auto;
@@ -106,3 +106,17 @@ input[type="file"] {
 i:hover {
   opacity: 0.75 !important;
 }
+
+button.btn-denger.st-cancel {
+  margin-left: 6px;
+  background: #f00;
+  border: navajowhite;
+  padding: 7px 22px;
+  border-radius: 100px;
+  color: #fff;
+}
+
+// img upload css
+
+
+// close

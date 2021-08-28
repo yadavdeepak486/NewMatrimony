@@ -1,5 +1,17 @@
 @import "../dashboard.component.scss";
 
+
+// css for form
+.form-group.fg-w {
+    width: 100%;
+    display: inline-flex !important;
+  }
+
+.int-chk{
+    height: 18px !important;
+    margin-top: 5px;
+}
+// close
 .st-i i{
     font-size: 20px;
     margin-right: 20px;

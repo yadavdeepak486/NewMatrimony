@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-
+  toggleaddpage: boolean= true;
+  toggleeditpage: boolean= true;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,4 +18,24 @@ export class PagesComponent implements OnInit {
         subTitle: 'Dashboard'
     }
 ]
+
+addpage(){
+  console.log('button clicked');
+  if (this.toggleaddpage == false) {
+    this.toggleaddpage = true;
+  } 
+  else {
+    this.toggleaddpage = false;
+  }
+  }
+
+  editpage(){
+    console.log('button clicked');
+    if (this.toggleeditpage == false) {
+      this.toggleeditpage = true;
+    } 
+    else {
+      this.toggleeditpage = false;
+    }
+    }
 }

@@ -174,6 +174,8 @@ import { PhotoRecivedComponent } from './components/pages/user-dashboard/photo-r
 import { FollowupComponent } from './components/pages/dashboard/followup/followup.component';
 import { AddCommentComponent } from './components/pages/dashboard/followup/add-comment/add-comment.component';
 import { ViewCommentComponent } from './components/pages/dashboard/followup/view-comment/view-comment.component';
+import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
+import { TermsandconditionComponent } from './components/pages/termsandcondition/termsandcondition.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -331,6 +333,8 @@ import { ViewCommentComponent } from './components/pages/dashboard/followup/view
     FollowupComponent,
     AddCommentComponent,
     ViewCommentComponent,
+    PrivacyPolicyComponent,
+    TermsandconditionComponent,
   ],
   imports: [
     BrowserModule,
