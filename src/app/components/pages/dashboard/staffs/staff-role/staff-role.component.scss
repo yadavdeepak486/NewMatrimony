@@ -1,5 +1,17 @@
 @import "../../dashboard.component.scss";
 
+// css for checkbox
+input.form-control.st-chk {
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin: 2px 0px;
+}
+.btn-bx{
+    width: 100%;
+    margin: 10px 0px;
+}
+// close
 .st-i i{
     font-size: 20px;
     margin-right: 20px;

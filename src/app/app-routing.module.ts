@@ -130,6 +130,8 @@ import { ShortListedComponent } from './components/pages/user-dashboard/short-li
 import { FollowupComponent } from './components/pages/dashboard/followup/followup.component';
 import { AddCommentComponent } from './components/pages/dashboard/followup/add-comment/add-comment.component';
 import { ViewCommentComponent } from './components/pages/dashboard/followup/view-comment/view-comment.component';
+import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
+import { TermsandconditionComponent } from './components/pages/termsandcondition/termsandcondition.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -260,6 +262,9 @@ const routes: Routes = [
   { path: 'website-setup/pages', component: PagesComponent },
   { path: 'website-setup/appearance', component: AppearanceComponent },
   { path: 'website-setup/pages/add-new-page', component: AddNewPageComponent },
+
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'termsandcondition', component: TermsandconditionComponent },
 
   // setting
   { path: 'settings/currency', component: CurrencyComponent },

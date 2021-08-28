@@ -74,7 +74,8 @@ img.img-pro {
           &:hover,
           &:focus,
           &.active {
-            color: var(--mainColor);
+            // color: var(--mainColor);
+            color: #076ead ;
           }
         }
         .dropdown-toggle {
@@ -471,7 +472,7 @@ label.lb-ser {
 
 .navbar-style-two {
   // position: absolute;
-  background-color: #221638;
+  background-color: #f00;
   top: 0;
   left: 0;
   right: 0;
@@ -488,13 +489,15 @@ label.lb-ser {
             &:hover,
             &:focus,
             &.active {
-              color: var(--mainColor);
+              // color: var(--mainColor);
+              color: #000;
             }
           }
           &:hover,
           &.active {
             a {
-              color: var(--mainColor);
+              // color: var(--mainColor);
+              color: #000;
             }
           }
           .dropdown-menu {
@@ -656,13 +659,19 @@ label.lb-ser {
             }
           }
           .default-btn {
-            color: var(--mainColor2);
-            border-color: var(--mainColor2);
+            // color: var(--mainColor2);
+            // border-color: var(--mainColor2);
+            color: #fff;
+            background: #125809;
 
             &:hover {
-              background-color: var(--mainColor);
-              color: var(--whiteColor);
-              border-color: var(--mainColor);
+              // background-color: var(--mainColor);
+              // color: var(--whiteColor);
+              // border-color: var(--mainColor);
+              background-color:#fff;
+              color: #125809;
+              
+
             }
           }
         }
@@ -670,7 +679,8 @@ label.lb-ser {
     }
   }
   &.is-sticky {
-    background-color: var(--blackColor) !important;
+    // background-color: var(--blackColor) !important;
+    background-color: #f00!important;
   }
   .others-option-for-responsive {
     .dot-menu {
@@ -1205,7 +1215,7 @@ label.lb-ser {
 
 // new css
 a.default-btn.btn-lr {
-  background-color: #f00 !important;
+  background-color:#076ead !important;
   color: #fff !important;
   border: none;
 }

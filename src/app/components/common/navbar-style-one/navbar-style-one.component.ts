@@ -9,6 +9,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./navbar-style-one.component.scss'],
 })
 export class NavbarStyleOneComponent implements OnInit {
+ 
   checkauth = false;
   abcd = false;
   logo: any;
@@ -47,4 +48,6 @@ export class NavbarStyleOneComponent implements OnInit {
     this.checkauth = false;
     this.routes.navigate(['/']);
   }
+
+  
 }

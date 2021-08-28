@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-methods.component.scss']
 })
 export class PaymentMethodsComponent implements OnInit {
-
+  togglepaymentedit:boolean= true;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,4 +17,14 @@ export class PaymentMethodsComponent implements OnInit {
         subTitle: 'Settings'
     }
 ]
+
+editpayment(){
+  console.log('button clicked');
+  if (this.togglepaymentedit == false) {
+    this.togglepaymentedit = true;
+  } else {
+    this.togglepaymentedit = false;
+  }
+ 
+}
 }

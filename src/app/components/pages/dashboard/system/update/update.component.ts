@@ -12,6 +12,7 @@ export class UpdateComponent implements OnInit {
   addlogo = false;
   editlogo = false;
   alllogo: any;
+  toggleeditlogo: boolean = true;
   deffilePath1 = 'assets/img/couple-vector.png';
   tosendpath: any;
   logoform: FormGroup;

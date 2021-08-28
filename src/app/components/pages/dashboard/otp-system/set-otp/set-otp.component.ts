@@ -30,4 +30,14 @@ export class SetOtpComponent implements OnInit {
       }
     );
   }
+  toggleeditotp: boolean = true;
+
+  editotpchk() {
+    console.log('button clicked');
+    if (this.toggleeditotp == false) {
+      this.toggleeditotp = true;
+    } else {
+      this.toggleeditotp = false;
+    }
+  }
 }

@@ -23,7 +23,7 @@
 
   <div *ngIf="addplantab" class="row">
     <div class="col-lg-8 offset-lg-2">
-      <div class="card">
+      <div  class="card">
         <h3>Add New Package</h3>
         <form [formGroup]="addplan" (ngSubmit)="submitplan()" class="bd-n">
           <div class="row">
@@ -57,7 +57,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control" formControlName="profile_displayed_other">
+                  <input type="checkbox" class="form-control int-chk" formControlName="profile_displayed_other">
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control" formControlName="profile_updation">
+                  <input type="checkbox" class="form-control int-chk"  formControlName="profile_updation">
                 </div>
               </div>
             </div>
@@ -120,7 +120,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control" formControlName="profile_shortlisting">
+                  <input type="checkbox" class="form-control int-chk" formControlName="profile_shortlisting">
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control" formControlName="profile_booster">
+                  <input type="checkbox" class="form-control int-chk" formControlName="profile_booster">
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control" formControlName="comp_married_switched_num">
+                  <input type="checkbox" class="form-control int-chk" formControlName="comp_married_switched_num">
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control" formControlName="relationship_manager">
+                  <input type="checkbox" class="form-control int-chk" formControlName="relationship_manager">
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control" value="false" formControlName="talk_on_behalf">
+                  <input type="checkbox" class="form-control int-chk" value="false" formControlName="talk_on_behalf">
                 </div>
               </div>
             </div>
@@ -234,8 +234,8 @@
 
 
 
-  <div class="row">
-    <div class="col-lg-12">
+  <div *ngIf="!addplantab" class="row">
+    <div  *ngIf="toggleeditplan" class="col-lg-12">
       <div class="card">
         <h3>All Packages</h3>
         <div class="table-responsive">
@@ -312,7 +312,7 @@
                   {{plan?.ios_rate}}
                 </td>
                 <td class="option">
-                  <a class="st-i"><i class=' bx bx-pencil' (click)="getoneplan(plan._id)"></i> </a>
+                  <a class="st-i"><i class=' bx bx-pencil'  (click)="editplanchk()"></i> </a>
                   <a class="st-i2"><i class=' bx bx-minus' (click)="deleteplan(plan._id)"></i></a>
                 </td>
               </tr>
@@ -322,7 +322,216 @@
       </div>
     </div>
 
+    <!-- edit plan -->
+    <div class="col-lg-8 offset-lg-2">
+      <div *ngIf=" !toggleeditplan" class="card">
+        <h3>Edit Package</h3>
+        <form [formGroup]="addplan" (ngSubmit)="submitplan()" class="bd-n">
+          <div class="row">
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Title </label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Gold" formControlName="plantitle">
+                </div>
+              </div>
+            </div>
 
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Plan Key</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="BPlan,SPlan,SPPlan,GPlan,GPPlan"
+                    formControlName="plankey">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Profile Visible</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control int-chk" formControlName="profile_displayed_other">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Profile Updation </label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control int-chk"  formControlName="profile_updation">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Send Interest</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="-1" formControlName="send_interest">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Receive Interest</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="-1" formControlName="receive_interest">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Initiate Chat</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="30" formControlName="num_chat_init">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>View contacts</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="30"
+                    formControlName="num_view_contacts_details">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Praposal Shortlist</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control int-chk" formControlName="profile_shortlisting">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Boost Profile</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control int-chk" formControlName="profile_booster">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Compensate Married/Switched Off Numbers</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control int-chk" formControlName="comp_married_switched_num">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Relationship Manager</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control int-chk" formControlName="relationship_manager">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Talk on Behalf</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="checkbox" class="form-control int-chk" value="false" formControlName="talk_on_behalf">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Plan Validity(days)</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="30" formControlName="plan_validity">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Website Rate(Rupees)</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="1000" formControlName="website_rate">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>App Rate(Rupees)</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="1200" formControlName="app_rate">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>IOS Rate(Rupees)</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="1500" formControlName="ios_rate">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>#Order</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="1" formControlName="sortorder">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <button type="submit" class="btn btn-primary ml-3 mt-2">Update</button>
+              <button type="button" (click)="hideaddplantab()" class="btn btn-primary ml-3 mt-2">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- close -->
   </div>
   <!-- End -->
 

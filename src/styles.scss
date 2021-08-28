@@ -5,7 +5,8 @@
 :root {
   --fontFamily: "Poppins", sans-serif;
   --mainColor: #ff0000;//ff0000
-  --mainColor2: #1ee2e9;
+  // --mainColor2: #1ee2e9;
+  --mainColor2: #007bff;
   --optionalColor: #666666;
   --whiteColor: #ffffff;
   --blackColor: #221638;//221638
@@ -104,7 +105,8 @@ p {
   background-color: #f5f5f5;
 }
 .bg-main-color {
-  background-color: var(--mainColor2);
+  // background-color: var(--mainColor2);
+  background-color: #f00;
 
   .section-title {
     p {
@@ -167,7 +169,7 @@ p {
   transition: var(--transition);
   border: none;
   text-align: center;
-  border: 1px solid #96e3e3;
+  // border: 1px solid #96e3e3;
   box-shadow: 4px 4px #b2eaea;
   background-color: var(--whiteColor);
   color: var(--blackColor);

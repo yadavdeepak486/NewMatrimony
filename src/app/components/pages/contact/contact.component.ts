@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
             title: 'Our Address',
             info: [
                 {
-                    text: '175 5th Ave, New York, NY 10010, United States'
+                    text: 'Nagrota Bagwan Kangra, Himachal Pradesh'
                 }
             ]
         },
@@ -27,10 +27,10 @@ export class ContactComponent implements OnInit {
             title: 'Email Us',
             info: [
                 {
-                    text: '(+44) - 45789 - 5789'
+                    text: '9459143712'
                 },
                 {
-                    text: 'hello@vesax.com'
+                    text: 'care@himachalirishta.com'
                 }
             ]
         },

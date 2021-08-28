@@ -20,14 +20,14 @@ export class AboutUsComponent implements OnInit {
     ]
     aboutContent = [
         {
-            title: 'How We Were Established',
+            title: 'Welcome to Himachali Rishta .com',
             subTitle: 'Check video presentation to find out more about us.',
             paragraph: [
                 {
-                    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                    text: "Himachali Rishta.com (www.himachalirishta.com) is himachal's first matrimonial website.We help you to search you a better match in all community of Himachal Pradesh,"
                 },
                 {
-                    text: "Every month they moved their money the old way – which wasted their time and money. So they invented a beautifully simple workaround that became a billion-dollar business."
+                    text: "We Provide Bride and groom searc for the Himachali Community Like,Brahmin,Vaishya, Sood,Choudhary,Ghirath (Girth ), Dogra,Rajput,Kaistha,Gaddi Community etc"
                 }
             ]
         }

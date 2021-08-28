@@ -38,7 +38,7 @@
                             </ul> -->
             </li>
 
-            <li class="nav-item ">
+            <li *ngIf="checkauth"  class="nav-item ">
               <a routerLink="/vertical-listings-left-sidebar" class="nav-link" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">Search</a>
 
@@ -73,7 +73,7 @@
                             </ul> -->
             </li>
 
-            <li class="nav-item">
+            <li *ngIf="checkauth"  class="nav-item">
               <a routerLink="/premium-plan" class="nav-link" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">Upgrade Now</a>
               <!-- <ul class="dropdown-menu">
@@ -154,7 +154,29 @@
                 [routerLinkActiveOptions]="{exact: true}">My Profile</a>
 
             </li>
+
+            <li class="nav-item ">
+                <a routerLink="/demo" class="nav-link" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact: true}">Success Story</a>
+              </li>
+  
+              <li class="nav-item">
+                <a routerLink="/about" class="nav-link" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact: true}">About Us</a>
+               
+              </li>
+  
+              <li class="nav-item">
+                  <a routerLink="/contact" class="nav-link" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
+                 
+              </li>
           </ul>
+
+         <!-- without login  menu-->
+           
+            
+            <!-- close -->
 
           <div class="others-option d-flex align-items-center">
             <!-- <div class="option-item">
@@ -163,7 +185,7 @@
 
             <div *ngIf="!checkauth" class="option-item">
               <a class="default-btn btn-lr" href="/login"><i class="flaticon-user"></i> Login</a>
-              <a class="default-btn" href="/signup"><i class="flaticon-user"></i> Register</a>
+              <a class="default-btn" href="/"><i class="flaticon-user"></i> Register</a>
             </div>
             <!-- <div *ngIf="abcd" class="dropdown profile-nav-item">
               <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -219,9 +241,13 @@
             <!-- profile btn -->
           </div>
         </div>
+
+         
       </nav>
     </div>
   </div>
+
+  
 
   <div class="others-option-for-responsive">
     <div class="container">
