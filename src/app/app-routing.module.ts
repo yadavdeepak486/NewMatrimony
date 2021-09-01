@@ -344,6 +344,10 @@ const routes: Routes = [
     path: 'user-dashboard/profile-content',
     component: ProfileContentComponent,
   },
+  {
+    path: 'user-dashboard/profile-content/:id',
+    component: ProfileContentComponent,
+  },
   { path: 'user-dashboard/profile-list', component: ProfileListComponent },
 
   // staffs

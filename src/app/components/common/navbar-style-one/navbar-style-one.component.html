@@ -3,10 +3,10 @@
   <div class="vesax-responsive-nav">
     <div class="container">
       <div class="vesax-responsive-menu">
-        <!-- <div class="logo">
-                    <a routerLink="/"><img src="assets/img/logo.png" alt="logo"></a>
-                </div> -->
-        <h2 style="color: #fff;" routerLink="/">Logo</h2>
+        <a class="navbar-brand" style="color: white;
+        font-size: 1rem;" routerLink="/"><img style="width: 48px;" [src]="filepath ||stndpath" alt="logo" />
+          {{logo?.title}}</a>
+        <!-- <h2 style="color: #fff;" routerLink="/">Logo</h2> -->
       </div>
     </div>
   </div>
@@ -262,18 +262,27 @@
       <div class="container">
         <div class="option-inner">
           <div class="others-option">
-            <div class="option-item">
+            <!-- <div class="option-item">
               <form class="navbar-search-box">
                 <label><i class="flaticon-search"></i></label>
                 <input type="text" class="input-search" placeholder="What are you looking for?">
               </form>
-            </div>
+            </div> -->
 
-            <div class="option-item">
+            <div *ngIf="!checkauth" class="option-item">
               <a class="default-btn btn-lr" href="/login"><i class="flaticon-user"></i> Login</a>
-              <a class="default-btn" href="/signup"><i class="flaticon-user"></i> Register</a>
+              <a class="default-btn" href="/"><i class="flaticon-user"></i> Register</a>
             </div>
 
+             <!-- profile btn -->
+             <div *ngIf="checkauth" class="option-item">
+                <img src="assets/img/user1.png" class="img-pro" />
+                <span>
+                  <a class="default-btn bt-rm" (click)="logout()"><i class="flaticon-user" style="color: #1ee2e9;"></i>
+                    Logout</a>
+                </span>
+              </div>
+              <!-- profile btn -->
 
             <!-- <div class="option-item">
               <a routerLink="/dashboard-add-listings" class="default-btn"><i class="flaticon-more"></i>

@@ -672,7 +672,7 @@
                         <div class="edit">
                           <a href="javascript:void();"><i class="bx bx-edit" (click)="formtwo()"></i></a>
                         </div>
-                        <div *ngIf="togglechecktwo" class="info-text">
+                        <div *ngIf="togglechecktwo" class="info-text st-about">
                           {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
                         </div>
                         <div *ngIf="!togglechecktwo" class="info-text">
@@ -965,7 +965,7 @@
                                 </div>
                               </div>
                               <div class="col-md-6">
-                                <mat-form-field appearance="fill" class="slt" style="width:100%">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
                                   <mat-label>Education</mat-label>
                                   <mat-select [formControl]="educationslt" multiple>
                                     <mat-option *ngFor="let educationslt of educationsltList" [value]="educationslt">

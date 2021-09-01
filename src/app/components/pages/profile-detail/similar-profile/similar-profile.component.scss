@@ -1,3 +1,10 @@
+// simlar image css
+.img-simlar {
+    padding: 53px;
+    background-size: cover;
+}
+// 
+
 .events-item-list {
     margin-bottom: 30px;
 
@@ -267,7 +274,9 @@
 
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
-
+    .img-simlar{
+        padding: 80px;
+    }
     .events-item-list {
         h2 {
             margin-bottom: 30px;
@@ -307,7 +316,7 @@
     .single-events-box {
         .image {
             height: auto;
-            background-image: unset !important;
+            // background-image:  !important;
 
             img {
                 display: inline-block;

@@ -180,7 +180,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="lb-ser">Create your password to Login <span style="color: red;">*</span></label>
-                    <mat-form-field appearance="fill" class="mb-w">
+                    <mat-form-field appearance="outline" class="mb-w">
                       <mat-label>Enter your password</mat-label>
                       <input matInput [type]="hide ? 'password' : 'text'" formControlName="ConfirmPassword" required>
                       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"

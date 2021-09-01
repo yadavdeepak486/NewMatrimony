@@ -38,7 +38,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     this.getmaritalstatus();
     this.getallreligion();
     this.allcountrys();
-    this.allstate();
+    // this.allstate();
     this.allcity();
     this.getallheights();
     this.getalllanguage()
@@ -479,6 +479,10 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        if(error.error.msg == "Already Exists"){
+          this.router.navigate(['user-dashboard/user-chat']);
+        }
+
       }
     );
   }

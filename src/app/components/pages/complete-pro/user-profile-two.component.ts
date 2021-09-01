@@ -42,6 +42,6 @@ export class UserProfileTwoComponent implements OnInit {
     );
   }
 
-  
+ 
 
 }

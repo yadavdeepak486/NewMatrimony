@@ -1,3 +1,36 @@
+// table css
+.ab-content {
+    width: 100%;
+    display: inline-block;
+    padding: 20px;
+}
+.wd{
+    width: 50%;
+    float: left;
+  }
+  .wd1{
+    width: 50%;
+    float: left;
+  }
+  .tb-text{
+    width: 100%;
+    // padding: 16px 12px !important;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 30px;
+}
+img.st-img-g {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+}
+  // 
+
+.st-block{
+    display: block !important;
+}
+
 .pricing-tabs {
     .nav-tabs {
         border: none;
@@ -227,6 +260,16 @@ table.tb-pdetail {
             }
         }
     }
+
+    // new mobile css
+    .pft-bx1 {
+        width: 44% !important;
+        margin-left: 0px !important;
+    }
+   .wd{
+       width: 100%;
+   }
+    // close
 
 }
 

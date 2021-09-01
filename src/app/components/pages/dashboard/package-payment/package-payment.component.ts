@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./package-payment.component.scss']
 })
 export class PackagePaymentComponent implements OnInit {
-
+  toggleeditpackage:boolean=true;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,4 +17,13 @@ export class PackagePaymentComponent implements OnInit {
         subTitle: 'Dashboard'
     }
 ]
+
+addpackagepayment(){
+  console.log('button clicked');
+  if (this.toggleeditpackage == false) {
+    this.toggleeditpackage = true;
+  } else {
+    this.toggleeditpackage = false;
+  }
+}
 }

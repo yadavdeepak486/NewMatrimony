@@ -1,7 +1,33 @@
-@import "../../dashboard.component.scss";
 
 @import "../../dashboard.component.scss";
 @import "../../../vertical-listings-left-sidebar/vertical-listings-left-sidebar.component.scss";
+
+// ad-search css
+button.btn.btn-primary.st-searchbtn {
+  background: #28a745;
+  border: none !important;
+  padding: 10px 20px;
+  border-radius: 100px;
+  
+}
+form.ad-srch.ng-untouched.ng-pristine.ng-valid {
+  margin-top: 20px;
+  border-radius: 0px;
+  padding: 20px;
+  background: #ffff;
+}
+
+label{
+  font-size: 12px;
+  color:#6f6666;
+}
+button.btn.btn-primary.btn-cncl {
+  margin-right: 15px;
+  padding: 8px 16px;
+}
+
+// close
+
 
 // new css
 span.sp-1 {
