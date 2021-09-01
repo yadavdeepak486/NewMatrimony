@@ -12,8 +12,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -277,5 +277,20 @@ export class UserService {
     return this.http.post(`${this.backendurl}/user/filtereduser`, data, {
       headers: header,
     });
+  }
+
+  finduser(data) {
+    return this.http.post(`${this.backendurl}/user/finduser`, data);
+  }
+
+  resetpassword(data) {
+    return this.http.post(`${this.backendurl}/user/resetpassword`, data);
+  }
+
+  getmyip() {
+    // https://ipinfo.io/json
+    return this.http.get(
+      `https://api.ipfind.com/me?auth=b4de4aba-d000-46f8-9ba0-2196c9b25ba6`
+    );
   }
 }

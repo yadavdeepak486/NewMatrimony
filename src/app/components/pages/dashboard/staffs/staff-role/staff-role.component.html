@@ -29,16 +29,44 @@
               <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>Options</th>
+                <th>Profile Attr</th>
+                <th>Package Plan</th>
+                <th>User Profile</th>
+                <th>Staff</th>
+                <th>Happy Story</th>
+                <th>OTP System</th>
+                <th>Website Settings</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let role of allrole;">
                 <td class="#">
-                  {{role.sortorder}}
+                  {{role?.sortorder}}
                 </td>
                 <td class="name">
-                  {{role.name}}
+                  {{role?.name}}
+                </td>
+                <td class="name">
+                  {{role?.edit_profileattribute}}
+                </td>
+                <td class="name">
+                  {{role?.edit_plans}}
+                </td>
+                <td class="name">
+                  {{role?.edit_userprofile}}
+                </td>
+                <td class="name">
+                  {{role?.edit_staff}}
+                </td>
+                <td class="name">
+                  {{role?.edit_happystory}}
+                </td>
+                <td class="name">
+                  {{role?.edit_otpsystem}}
+                </td>
+                <td class="name">
+                  {{role?.edit_websitesetup}}
                 </td>
                 <td class="option">
                   <a class="st-i"><i class=' bx bx-pencil' (click)="getonerole(role._id)"></i> </a>
@@ -97,7 +125,7 @@
             <input type="checkbox" class="form-control st-chk" formControlName="edit_othersetting">
           </div>
           <div class="btn-bx">
-           <button class="btn btn-primary mt-2" type="submit">Save</button>
+            <button class="btn btn-primary mt-2" type="submit">Save</button>
           </div>
         </form>
       </div>
@@ -110,6 +138,42 @@
           <input type="number" class="form-control" placeholder="5" formControlName="sortorder" required>
           <label>Name</label>
           <input type="text" class="form-control" placeholder="name" formControlName="name" required>
+
+          <div class="form-group">
+            <label>Read/Write Profile Attributes</label>
+            <input type="checkbox" class="form-control st-chk" formControlName="edit_profileattribute">
+          </div>
+          <div class="form-group">
+            <label>Read/Write Package Plans</label>
+            <input type="checkbox" class="form-control st-chk" formControlName="edit_plans">
+          </div>
+          <div class="form-group">
+            <label>Read/Write User Profile</label>
+            <input type="checkbox" class="form-control st-chk" formControlName="edit_userprofile">
+          </div>
+          <div class="form-group">
+            <label>Read/Write Staff</label>
+            <input type="checkbox" class="form-control st-chk" formControlName="edit_staff">
+          </div>
+
+          <div class="form-group">
+            <label>Read/Write Happy Story</label>
+            <input type="checkbox" class="form-control st-chk" formControlName="edit_happystory">
+          </div>
+          <div class="form-group">
+            <label>Read/Write OTP System</label>
+            <input type="checkbox" class="form-control st-chk" formControlName="edit_otpsystem">
+          </div>
+          <div class="form-group">
+            <label>Read/Write WebSite Settings</label>
+            <input type="checkbox" class="form-control st-chk" formControlName="edit_websitesetup">
+          </div>
+          <div class="form-group">
+            <label>Read/Write Other Settings</label>
+            <input type="checkbox" class="form-control st-chk" formControlName="edit_othersetting">
+          </div>
+
+
           <button class="btn btn-primary mt-2" type="submit">Update</button><button class="btn btn-primary mt-2 ml-2"
             type="submit" (click)="cancelupdate()">Cancel</button>
         </form>

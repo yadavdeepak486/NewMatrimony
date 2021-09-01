@@ -21,6 +21,15 @@ export class AddNewStaffsComponent implements OnInit {
     role: new FormControl(''),
   });
 
+  editstaff = new FormGroup({
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
+    Email: new FormControl(''),
+    Mobile: new FormControl(''),
+    password: new FormControl(''),
+    role: new FormControl(''),
+  });
+
   constructor(
     public adminService: AdminService,
     private toastr: ToastrService,
@@ -60,5 +69,9 @@ export class AddNewStaffsComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  updatestaffForm() {
+    console.log(this.editstaff.value);
   }
 }

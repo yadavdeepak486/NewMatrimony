@@ -28,6 +28,7 @@ export class PhotoFileComponent implements OnInit {
   filePath1: any;
   filePath2: any;
   filePath3: any;
+
   tosendpath: any;
   changeimage = 'assets/img/events/img-3.png';
 
@@ -43,6 +44,8 @@ export class PhotoFileComponent implements OnInit {
   ngOnInit(): void {
     this.photo1form = this.formBuilder.group({
       Photo1: [''],
+      Photo2: [''],
+      Photo3: [''],
     });
   }
 
@@ -60,26 +63,72 @@ export class PhotoFileComponent implements OnInit {
     };
   }
 
-  submitphoto1() {
-    this.currentFile = this.selectedFiles.item(0);
-    // this.userService.upload(this.currentFile).subscribe(
-    //   (event) => {
-    //     if (event.type === HttpEventType.UploadProgress) {
-    //       this.progress = Math.round((100 * event.loaded) / event.total);
-    //     } else if (event instanceof HttpResponse) {
-    //       this.message = event.body.message;
-    //     }
-    //     console.log(event);
-    //     this.routes.navigate(['/vertical-listings-left-sidebar']);
-    //   },
-    //   (err) => {
-    //     this.progress = 0;
-    //     this.message = 'Could not upload the file!';
-    //     this.currentFile = undefined;
-    //     this.toastr.error(err.error.msg);
-    //     console.log(err);
-    //   }
-    // );
-    this.selectedFiles = undefined;
+  imagePreview1(e) {
+    const file = e.target.files[0];
+    console.log(file);
+    this.photo1form.get('Photo1').setValue(file);
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.filePath1 = reader.result;
+    };
+  }
+
+  cancelupload1() {
+    this.photo1form.get('Photo1').setValue('');
+    this.filePath1 = '';
+    console.log(this.photo1form.value);
+  }
+
+  imagePreview2(e) {
+    const file = e.target.files[0];
+    console.log(file);
+    this.photo1form.get('Photo2').setValue(file);
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.filePath2 = reader.result;
+    };
+  }
+
+  cancelupload2() {
+    this.photo1form.get('Photo2').setValue('');
+    this.filePath2 = '';
+    console.log(this.photo1form.value);
+  }
+
+  imagePreview3(e) {
+    const file = e.target.files[0];
+    console.log(file);
+    this.photo1form.get('Photo3').setValue(file);
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.filePath3 = reader.result;
+    };
+  }
+
+  cancelupload3() {
+    this.photo1form.get('Photo3').setValue('');
+    this.filePath3 = '';
+    console.log(this.photo1form.value);
+  }
+
+  submitphotos() {
+    console.log(this.photo1form.value);
+    this.userService.upload(this.photo1form.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.routes.navigate(['/vertical-listings-left-sidebar']);
+      },
+      (err) => {
+        this.message = 'Could not upload the file!';
+        this.toastr.error(err.error.msg);
+        console.log(err);
+      }
+    );
   }
 }

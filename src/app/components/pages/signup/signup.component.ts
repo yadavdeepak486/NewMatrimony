@@ -50,7 +50,12 @@ export class SignupComponent implements OnInit {
     input5: new FormControl('', Validators.required),
     input6: new FormControl('', Validators.required),
   });
-  otpsection = true;
+
+  changenumberform = new FormGroup({
+    Mobile: new FormControl('', Validators.required),
+  });
+
+  otpsection = false;
   success = false;
   constructor(
     public userService: UserService,
@@ -143,6 +148,7 @@ export class SignupComponent implements OnInit {
         }
       );
   }
+
   resendotp() {
     this.sendotp();
   }
@@ -183,5 +189,58 @@ export class SignupComponent implements OnInit {
     } else {
       this.togglembcheck = false;
     }
+  }
+
+  onDigitInput(event) {
+    let element;
+    if (event.code !== 'Backspace')
+      element = event.srcElement.nextElementSibling;
+
+    if (event.code === 'Backspace')
+      element = event.srcElement.previousElementSibling;
+
+    if (element == null) return;
+    else element.focus();
+  }
+
+  // submitchangenumber() {
+  //   console.log(this.changenumberform.value);
+  // }
+
+  changenumberotp() {
+    console.log(this.changenumberform.value.Mobile);
+    this.userService
+      .sendotp({ Mobile: this.changenumberform.value.Mobile })
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+
+          console.log(response.response.body);
+          const bodyresp = JSON.parse(response.response.body);
+          console.log(bodyresp);
+          this.sessionid = bodyresp.Details;
+          localStorage.setItem('sessionid', this.sessionid);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  submitchangenumber() {
+    console.log(this.changenumberform.value);
+    this.userService.addotheruserdetails(this.changenumberform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Mobile Number Changed');
+        this.mobilenumber = this.changenumberform.value.Mobile;
+        this.togglembcheck = true;
+        this.changenumberotp();
+        this.changenumberform.reset();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
