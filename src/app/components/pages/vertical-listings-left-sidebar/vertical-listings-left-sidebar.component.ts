@@ -65,6 +65,8 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     this.getallreligion();
     this.getallcaste();
     this.allcountrys();
+    // this.allstate();
+    this.allcity();
     this.getallstate();
     this.getallcity();
     this.getallheights();
@@ -550,6 +552,10 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        if(error.error.msg == "Already Exists"){
+          this.router.navigate(['user-dashboard/user-chat']);
+        }
+
       }
     );
   }

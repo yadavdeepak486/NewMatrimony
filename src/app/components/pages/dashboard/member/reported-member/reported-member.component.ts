@@ -10,10 +10,29 @@ import { AdminService } from 'src/app/admin.service';
 export class ReportedMemberComponent implements OnInit {
 
   allreportedusers: any;
+  plans:any;
+  allmaritalstatus:any;
+  allcity:any;
+  allreligion:any;
+  allcaste:any;
+  alleducation:any;
+  allemployedin:any;
+  genderList: string[] = ['Male', 'Female'];
+  minageList: string[] = ['18 years', '19  years','20 years','21 years','22 years','23 years', '24 years', '25 years'];
+  maxageList: string[] = ['26 years', '27  years','28 years','29 years','30 years'];
+  manglikList: string[] = ['Not Manglik', 'Manglik','Ardh Manglik'];
+
   constructor(public adminServie: AdminService) {}
 
   ngOnInit(): void {
     this.getreportedusers();
+    this.getmaritalstatus();
+    this.getallcity();
+    this.getallreligion();
+    this.getallcaste();
+    this.getalleducation();
+    this.getallemployedin();
+    this.allplans();
   }
 
   singleSelect: any = [];
@@ -173,5 +192,88 @@ export class ReportedMemberComponent implements OnInit {
       }
     );
   }
+
+   // advance search
+   getmaritalstatus() {
+    this.adminServie.getallmaritalstatus().subscribe(
+      (response: any) => {
+        // console.log(response);
+        this.allmaritalstatus = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getallcity() {
+    this.adminServie.allcity().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allcity = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getallreligion() {
+    this.adminServie.getallreligion().subscribe(
+      (response: any) => {
+        // console.log(response)
+        this.allreligion = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  getallcaste() {
+    this.adminServie.getallcaste().subscribe(
+      (response: any) => {
+        this.allcaste = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  getalleducation() {
+    this.adminServie.alleducation().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.alleducation = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  getallemployedin() {
+    this.adminServie.allemployedin().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allemployedin = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  allplans() {
+    this.adminServie.allplans().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.plans = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  // close
 }
 

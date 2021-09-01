@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/user.service';
@@ -8,7 +8,7 @@ import { UserService } from 'src/app/user.service';
   templateUrl: './profile-detail.component.html',
   styleUrls: ['./profile-detail.component.scss'],
 })
-export class ProfileDetailComponent implements OnInit {
+export class ProfileDetailComponent implements OnInit,OnDestroy {
   userdetails: any;
   id: any;
 
@@ -16,12 +16,16 @@ export class ProfileDetailComponent implements OnInit {
     public userService: UserService,
     public toastr: ToastrService,
     public route: ActivatedRoute
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.viewDetailedProfile(this.id);
     // this.addviewprofile(this.id);
+  }
+  ngOnDestroy(): void {
+    this.userdetails = ''
   }
 
   monthlyPricing = [
@@ -301,7 +305,7 @@ export class ProfileDetailComponent implements OnInit {
     },
   ];
 
-  viewDetailedProfile(id) {
+    viewDetailedProfile(id) {
     this.userService.viewoneprofile(id).subscribe(
       (response: any) => {
         console.log(response);

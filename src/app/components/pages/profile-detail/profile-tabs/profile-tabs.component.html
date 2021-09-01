@@ -1,6 +1,7 @@
 <!-- Start Pricing Area -->
 <section class="pricing-area pd-top ">
   <div class="container">
+
     <div class="pricing-tabs">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -11,16 +12,77 @@
           <a class="nav-link" id="partner-tab" data-toggle="tab" href="#partner" role="tab" aria-controls="partner"
             aria-selected="false">Partner Preference</a>
         </li>
-        <li class="nav-item" role="presentation">
+        <!-- <li class="nav-item" role="presentation">
           <a class="nav-link" id="gallery-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="gallery"
             aria-selected="false">Photo Gallery</a>
-        </li>
+        </li> -->
       </ul>
 
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="detailed" role="tabpanel">
 
           <div id="accordion">
+              
+            <div class="card">
+              <div class="card-header hd" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class=" bx bx-user i-circle"> </i>
+                    <span class="mb-0">Gallery</span>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseOne" class="collapse show st-block" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body bd-n">
+                  <div class="tab-bx1">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <div class="col-lg-4">
+                            <img [src]="userdetails?.Photo1" class="st-img-g">
+                          </div>
+                          <div class="col-lg-4">
+                            <img [src]="userdetails?.Photo2" class="st-img-g">
+                          </div>
+                          <div class="col-lg-4">
+                            <img [src]="userdetails?.Photo3" class="st-img-g">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header hd" id="headingabout">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseabout" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <i class=" bx bx-user i-circle"> </i>
+                    <span class="mb-0">About</span>
+                  </button>
+                </h5>
+              </div>
+              <div id="headingabout" class="collapse show st-block" aria-labelledby="headingabout" data-parent="#accordion">
+                <div class="card-body bd-n">
+                  <div class="tab-bx1">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-lg=12">
+                               <div class="ab-content">
+                                  {{userdetails?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
+                               </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card">
               <div class="card-header hd" id="headingOne">
                 <h5 class="mb-0">
@@ -32,70 +94,65 @@
                 </h5>
               </div>
 
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div id="collapseOne" class="collapse show st-block" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body bd-n">
                   <div class="tab-bx1">
                     <div class="row">
-                      <div class="col-sm-6">
-                        <table class="tb-pdetail">
-                          <tbody>
-                            <tr>
-                              <td><strong>First Name</strong></td>
-                              <td>{{userdetails?.Name}}</td>
+                      <div class="col-sm-12">
+                        <table class="tb-text">
+                          <tbody class="tb-text">
+                            <tr class="wd">
+                              <td class="wd1">Name:</td>
+                              <td class="wd1">{{userdetails?.Name}} {{userdetails?.firstName}} {{userdetails?.LastName}}</td>
                             </tr>
-                            <tr>
-                              <td><strong>Gender</strong></td>
-                              <td>Male</td>
+                            <tr class="wd">
+                              <td class="wd1">Gender:</td>
+                              <td class="wd1">{{userdetails?.Gender || "not mentioned"}}</td>
                             </tr>
-                            <tr>
-                              <td><strong>Age</strong></td>
-                              <td>{{userdetails?.Age}}</td>
+                            <tr class="wd">
+                              <td class="wd1">Date of Birth:</td>
+                              <td class="wd1">{{userdetails?.DOB || "not mentioned"}} ({{userdetails?.Age + " yrs"}})</td>
                             </tr>
-                            <tr>
-                              <td><strong>Religion </strong> </td>
-                              <td>{{userdetails?.Religion}}</td>
+                            <tr class="wd">
+                              <td class="wd1">Marital Status:</td>
+                              <td class="wd1">{{userdetails?.Maritalstatus?.name || "not mentioned"}}</td>
                             </tr>
-                            <tr>
-                              <td><strong>First Language</strong></td>
-                              <td>{{userdetails?.Language}}</td>
+                            <tr class="wd">
+                              <td class="wd1">Mother Tounge:</td>
+                              <td class="wd1">{{userdetails?.Language?.name || "not mentioned"}}</td>
                             </tr>
-                            <tr>
-                              <td><strong>No. of Children </strong></td>
-                              <td>0</td>
+                            <tr class="wd">
+                              <td class="wd1">Religion:</td>
+                              <td class="wd1">{{userdetails?.Religion?.name || "not mentioned"}}</td>
                             </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="col-sm-6">
-                        <table class="tb-pdetail">
-                          <tbody>
-                            <tr>
-                              <td><strong>Name</strong></td>
-                              <td>Donna</td>
+                            <tr class="wd">
+                              <td class="wd1">Caste</td>
+                              <td class="wd1">{{userdetails?.Caste?.name || "not mentioned"}}</td>
                             </tr>
-                            <tr>
-                              <td>Gender</td>
-                              <td>Female</td>
+                            <tr class="wd">
+                              <td class="wd1">Subcaste(Paternal)</td>
+                              <td class="wd1">{{userdetails?.PSubcaste || "not mentioned"}}</td>
                             </tr>
-                            <tr>
-                              <td>Age</td>
-                              <td>28</td>
+                            <tr class="wd">
+                              <td class="wd1">Subcaste(Maternal)</td>
+                              <td class="wd1">{{userdetails?.MSubcaste || "not mentioned"}}</td>
                             </tr>
-                            <tr>
-                              <td>Religion</td>
-                              <td>Islam</td>
+                            <tr class="wd">
+                              <td class="wd1">Children (If Any):</td>
+                              <td class="wd1">{{userdetails?.NoOfChild || "No Children"}}</td>
                             </tr>
-                            <tr>
-                              <td>First Language</td>
-                              <td>English</td>
+                            <tr class="wd">
+                              <td class="wd1">Children Status:</td>
+                              <td class="wd1">{{userdetails?.childrenlivingstatus || "No Children"}}</td>
                             </tr>
-                            <tr>
-                              <td>No. of Children </td>
-                              <td>0</td>
+                            <tr class="wd">
+                              <td class="wd1">Time Of Birth:</td>
+                              <td class="wd1">{{userdetails?.TOB || "No Children"}}</td>
                             </tr>
                           </tbody>
                         </table>
                       </div>
+                    
                     </div>
                   </div>
                 </div>
@@ -106,14 +163,67 @@
                 <h5 class="mb-0">
                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="false" aria-controls="collapseTwo">
-                    <i class="  bx bx-location-plus i-circle"></i>
-                    <span class="mb-0">Present Address</span>
+                    <i class="  bx bx-user i-circle"></i>
+                    <span class="mb-0">Family Details</span>
                   </button>
                 </h5>
               </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div id="collapseTwo" class="collapse st-block" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                  Present Address
+                  <div class="tab-bx1">
+                    <table class="tb-text">
+                      <tbody class="tb-text">
+                        <tr class="wd">
+                          <td class="wd1">Family Type:</td>
+                          <td class="wd1">{{userdetails?.FamilyType || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Family Values:</td>
+                          <td class="wd1">{{userdetails?.Familyvalues?.name || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Family Status:</td>
+                          <td class="wd1">{{userdetails?.FamilyStatus?.name || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Father Occupation:</td>
+                          <td class="wd1">{{userdetails?.Fathersoccupation || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Mother Occupation:</td>
+                          <td class="wd1">{{userdetails?.Mothersoccupation || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Family Origin:</td>
+                          <td class="wd1">{{userdetails?.FamilyOrigin || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">No. of Elder Brothers:</td>
+                          <td class="wd1">{{userdetails?.noofbrothers || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">No. of Younger Brothers:</td>
+                          <td class="wd1">{{userdetails?.noyubrothers || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">No. of Elder Sisters:</td>
+                          <td class="wd1">{{userdetails?.noofsisters || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">No. of Younger Sisters:</td>
+                          <td class="wd1">{{userdetails?.noyusisters || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">No. of Married Brothers:</td>
+                          <td class="wd1">{{userdetails?.nbm || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">No. of Married Sisters:</td>
+                          <td class="wd1">{{userdetails?.nsm || "not mentioned"}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -122,14 +232,216 @@
                 <h5 class="mb-0">
                   <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
                     aria-controls="collapseThree">
-                    <i class=" bx bx-phone-call i-circle"></i>
+                    <i class=" bx bx-user i-circle"></i>
+                    <span class="mb-0">Physical Status & Eating Habits</span>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseThree" class="collapse st-block" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body bd-n">
+                  <div class="tab-bx1">
+                  <table class="tb-text">
+                    <tbody class="tb-text">
+                      <tr class="wd">
+                        <td class="wd1">Height:</td>
+                        <td class="wd1">{{userdetails?.Height?.feetinchvalue}},
+                          ( {{userdetails?.Height?.cmvalue+"Cms"}} )</td>
+                      </tr>
+                      <tr class="wd">
+                        <td class="wd1">Blood Group:</td>
+                        <td class="wd1">{{userdetails?.BloodGroup || "not mentioned"}}</td>
+                      </tr>
+                      <tr class="wd">
+                        <td class="wd1">Body Type:</td>
+                        <td class="wd1">{{userdetails?.Bodytype || "not mentioned"}}</td>
+                      </tr>
+                      <tr class="wd">
+                        <td class="wd1">Smoke Habit:</td>
+                        <td class="wd1">{{userdetails?.Smoke || "No"}}</td>
+                      </tr>
+                      <tr class="wd">
+                        <td class="wd1">Special Case:</td>
+                        <td class="wd1">{{userdetails?.spe_cases || "not mentioned"}}</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header hd" id="headingfour">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                    aria-controls="collapseThree">
+                    <i class=" bx bx-user i-circle"></i>
                     <span class="mb-0">Contact Details</span>
                   </button>
                 </h5>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div id="collapsefour" class="collapse st-block" aria-labelledby="headingfour" data-parent="#accordion">
                 <div class="card-body bd-n">
-                  Contact Details
+                  <div class="tab-bx1">
+                    <table class="tb-text">
+                      <tbody class="tb-text">
+                        <tr class="wd">
+                          <td class="wd1">Mobile No:</td>
+                          <td class="wd1">{{userdetails?.mobileno || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Alternate Mobile No :</td>
+                          <td class="wd1">{{userdetails?.alternate || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Whatsapp No:</td>
+                          <td class="wd1">{{userdetails?.whatsapp || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Email Address:</td>
+                          <td class="wd1">{{userdetails?.email || "No"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Living Town:</td>
+                          <td class="wd1">{{userdetails?.livingtown || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Home/Native place:</td>
+                          <td class="wd1">{{userdetails?.nativeplace || "not mentioned"}}</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header hd" id="headingfive">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false"
+                    aria-controls="collapseFive">
+                    <i class=" bx bx-user i-circle"></i>
+                    <span class="mb-0">Education and Occupation</span>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseFive" class="collapse st-block" aria-labelledby="headingfive" data-parent="#accordion">
+                <div class="card-body bd-n">
+                  <div class="tab-bx1">
+                    <table class="tb-text">
+                      <tbody class="tb-text">
+                        <tr class="wd">
+                          <td class="wd1">Heighest Education:</td>
+                          <td class="wd1">{{userdetails?.Education?.degree || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Education Details:</td>
+                          <td class="wd1">{{userdetails?.Education?.name}} ,{{userdetails?.Education?.place}} </td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Employee In:</td>
+                          <td class="wd1">{{userdetails?.Employedin?.name || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Occupation:</td>
+                          <td class="wd1">{{userdetails?.Occupation?.name || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Occupation Detail:</td>
+                          <td class="wd1">{{userdetails?.Occupation?.name || "not mentioned"}}</td>
+                        </tr>
+
+                        <tr class="wd">
+                          <td class="wd1">Annual Income:</td>
+                          <td class="wd1">{{userdetails?.Annualincome || "0"}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header hd" id="headingsix">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false"
+                    aria-controls="collapseFive">
+                    <i class=" bx bx-user i-circle"></i>
+                    <span class="mb-0">Assets & Properties</span>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapsesix" class="collapse st-block" aria-labelledby="headingsix" data-parent="#accordion">
+                <div class="card-body bd-n">
+                  <div class="tab-bx1">
+                    <table class="tb-text">
+                      <tbody class="tb-text">
+                        <tr class="wd">
+                          <td class="wd1">Own Aggriculture Land:</td>
+                          <td class="wd1">{{userdetails?.Own || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Own Commercial Land:</td>
+                          <td class="wd1">{{userdetails?.commercial|| "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">House:</td>
+                          <td class="wd1">{{userdetails?.house || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Own Car:</td>
+                          <td class="wd1">{{userdetails?.Car || "not mentioned"}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header hd" id="headingsix">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false"
+                    aria-controls="collapseFive">
+                    <i class=" bx bx-user i-circle"></i>
+                    <span class="mb-0">Horoscope details </span>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapsesix" class="collapse st-block" aria-labelledby="headingsix" data-parent="#accordion">
+                <div class="card-body bd-n">
+                  <div class="tab-bx1">
+                    <table class="tb-text">
+                      <tbody class="tb-text">
+                        <tr class="wd">
+                          <td class="wd1">Manglik:</td>
+                          <td class="wd1">{{userdetails?.Manglik || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Birth Time:</td>
+                          <td class="wd1">{{userdetails?.birthtime || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Birth place:</td>
+                          <td class="wd1">{{userdetails?.birthplace || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Sun sign (shurya Rashi):</td>
+                          <td class="wd1">{{userdetails?.sun || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Moonsign:</td>
+                          <td class="wd1">{{userdetails?.Moonsign?.name || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Horoscope Match:</td>
+                          <td class="wd1">{{userdetails?.Horosmatch || "not mentioned"}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -224,19 +536,7 @@
             </tbody>
           </table>
         </div>
-        <div class="tab-pane fade" id="gallery" role="tabpanel">
-          <div class="row">
-            <div class="col-lg-4">
-              <img src="assets/img/listings/listings9.png">
-            </div>
-            <div class="col-lg-4">
-              <img src="assets/img/listings/listings10.png">
-            </div>
-            <div class="col-lg-4">
-              <img src="assets/img/listings/listings11.png">
-            </div>
-          </div>
-        </div>
+       
       </div>
     </div>
   </div>

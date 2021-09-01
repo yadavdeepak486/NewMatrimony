@@ -23,10 +23,7 @@
       <section class="listings-area ">
         <div class="container">
           <div class="listings-grid-sorting row align-items-center">
-            <!-- <div class="col-lg-5 col-md-4 result-count">
-                <input type="search" class="form-control" placeholder="search listing..">
-            </div> -->
-
+          
             <div class="col-lg-12 col-md-12 ">
               <form class="st-form">
                 <div class="row m-0 align-items-center">
@@ -36,24 +33,6 @@
                       <input type="text" class="form-control stint" placeholder="Search ID/Name/Mobile/Email">
                     </div>
                   </div>
-
-                  <!-- <div class="col-lg-3 col-md-6 p-0">
-                    <div class="form-group">
-                      <label><i class="flaticon-pin"></i></label>
-                      <input type="text" class="form-control" placeholder="Location">
-                    </div>
-                  </div> -->
-
-
-                  <!-- <div class="col-lg-5 col-md-6 p-0">
-                    <div class="form-group category-select">
-                      <label><i class="flaticon-category"></i></label>
-                      <ngx-select-dropdown (searchChange)="searchChange($event)" class="form-control"
-                        name="category-select" tabindex="0" [multiple]="false" [(ngModel)]="singleSelect"
-                        [config]="config" [options]="options">
-                      </ngx-select-dropdown>
-                    </div>
-                  </div> -->
 
                   <div class="col-lg-2 col-md-12 p-0">
                     <div class="submit-btn">
@@ -71,127 +50,120 @@
                   <form class="ad-srch">
                      <div class="row">
                         <div class="col-lg-3">
-                            <div class="form-group">
-                                <label>Gender</label>
-                                <select class="form-control">
-                                   <option>Male</option>
-                                   <option>Female</option>
-                                </select>
-                            </div>
+                            <mat-form-field appearance="outline">
+                              <mat-label>Gender</mat-label>
+                               <mat-select >
+                                <mat-option *ngFor="let gender of genderList" [value]="gender">{{gender}}  </mat-option>
+                              </mat-select>
+                            </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Marital status</label>
-                              <select class="form-control">
-                                 <option>Married</option>
-                                 <option>Unmarried</option>
-                              </select>
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Marital status</mat-label>
+                            <mat-select multiple>
+                              <mat-option *ngFor="let maritalstatus of allmaritalstatus" [value]="maritalstatus._id">{{maritalstatus?.name}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Age from to</label>
-                              <select class="form-control">
-                                 <option>5ft 4inch to 5ft 8inch</option>
-                                 <option></option>
-                              </select>
-                          </div>
+                              <div class="row">
+                                  <div class="col-lg-6">
+                                      <mat-form-field appearance="outline" style="width: 100%;">
+                                        <mat-label>Min Age</mat-label>
+                                        <mat-select  >
+                                        <mat-option *ngFor="let minage of minageList" [value]="minage">{{minage}} </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                  </div>
+                                  <div class="col-lg-6">
+                                      <mat-form-field appearance="outline" style="width: 100%;">
+                                        <mat-label>Max Age</mat-label>
+                                        <mat-select  >
+                                        <mat-option *ngFor="let maxage of maxageList" [value]="maxage" >{{maxage}}</mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                  </div>
+                             </div>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Living Town</label>
-                              <select class="form-control">
-                                 <option>demo</option>
-                                 <option></option>
-                              </select>
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Living City</mat-label>
+                            <mat-select multiple>
+                              <mat-option *ngFor="let city of allcity" [value]="city._id">{{city?.name}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Home Town</label>
-                              <select class="form-control">
-                                 <option>demo</option>
-                                 <option></option>
-                              </select>
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Relationship Manager</mat-label>
+                            <mat-select  multiple>
+                              <mat-option  ></mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Relationship Manager</label>
-                              <select class="form-control">
-                                 <option>demo</option>
-                                 <option></option>
-                              </select>
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Religion</mat-label>
+                            <mat-select multiple>
+                              <mat-option *ngFor="let religion of allreligion" [value]="religion._id">{{religion?.name}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Religion/cast</label>
-                              <select class="form-control">
-                                 <option>demo</option>
-                                 <option></option>
-                              </select>
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Caste</mat-label>
+                            <mat-select multiple>
+                              <mat-option *ngFor="let caste of allcaste" [value]="caste._id">{{caste?.name}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Membership Plan</label>
-                              <input type="text" class="form-control">
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Membership Plan</mat-label>
+                            <mat-select multiple>
+                              <mat-option *ngFor="let plan of plans" [value]="plan._id">{{plan?.plantitle}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Expired Membership</label>
-                              <input type="text" class="form-control">
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Expired Membership</mat-label>
+                            <mat-select multiple>
+                              <mat-option *ngFor="let plan of plans" [value]="plan._id">{{plan?.plantitle}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                              <label>Expired Membership</label>
-                              <input type="text" class="form-control">
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Education</mat-label>
+                            <mat-select multiple>
+                              <mat-option *ngFor="let education of alleducation" [value]="education._id">{{education?.name}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                            <label>Education</label>
-                            <select class="form-control">
-                              <option>demo</option>
-                              <option></option>
-                           </select>
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Employedin</mat-label>
+                            <mat-select multiple>
+                              <mat-option *ngFor="let employedin of allemployedin" [value]="employedin._id">{{employedin?.name}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                            <label>Employedin</label>
-                            <select class="form-control">
-                              <option>demo</option>
-                              <option></option>
-                           </select>
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Special case</mat-label>
+                            <mat-select  multiple>
+                              <mat-option  ></mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-3">
-                          <div class="form-group">
-                            <label>Special case</label>
-                            <select class="form-control">
-                              <option>demo</option>
-                              <option></option>
-                           </select>
-                          </div>
-                        </div>
-                        <div class="col-lg-3">
-                          <div class="form-group">
-                            <label>Profile Photo</label>
-                            <input type="file" class="form-control">
-                          </div>
-                        </div>
-                        <div class="col-lg-3">
-                          <div class="form-group">
-                            <label>Manglik</label>
-                            <select class="form-control">
-                              <option>demo</option>
-                              <option></option>
-                           </select>
-                          </div>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Manglik</mat-label>
+                            <mat-select >
+                              <mat-option *ngFor="let manglik of manglikList" [value]="manglik">{{manglik}}  </mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                         <div class="col-lg-12">
                             <button class="btn btn-primary btn-cncl">Search</button>
@@ -256,13 +228,13 @@
                         <li class="lst-txt">Plan: <span class="spn-lst">Free</span></li>
                       </ul>
                       <ul class="listings-meta pd-r">
-                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Profile View</a></li>
-                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Edit Profile</a> </li>
-                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Manage Photo</a> </li>
+                        <li><a routerLink="/user-dashboard" class="lst-profile">Profile View</a></li>
+                        <li><a routerLink="/user-dashboard/profile-content/{{Content?._id}}" class="lst-profile">Edit Profile</a> </li>
+                        <li><a routerLink="/user-dashboard/profile-content/{{Content?._id}}" class="lst-profile">Manage Photo</a> </li>
                         <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li>
                         <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li>
                         <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>
-                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Chat</a> </li>
+                        <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Chat</a> </li> -->
                       </ul>
                     </div>
                   </div>

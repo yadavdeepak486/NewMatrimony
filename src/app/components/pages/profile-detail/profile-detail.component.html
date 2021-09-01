@@ -25,7 +25,7 @@
           </div>
           <div class="col-lg-5 pft5">
             <h3 class="pft1">Like this Profile ?</h3>
-            <a (click)="sendinterest(userdetails._id)">
+            <a (click)="sendinterest(userdetails._id)" class="active">
               <div class="pft-i">
                 <i class="flaticon-heart"></i>
               </div>
@@ -48,10 +48,10 @@
               <div class="col-lg-12 col-md-12">
                 <div class="form-group profile-box">
                   <img src="{{userdetails?.Photo1}}" alt="image">
-                  <div class="file-upload">
+                  <!-- <div class="file-upload">
                     <input type="file" name="file" id="file" class="inputfile" />
                     <label for="file"><i class='bx bx-upload'></i> Upload Photo</label>
-                  </div>
+                  </div> -->
                 </div>
                 <p class="mid">Member ID: <span class="mds">{{userdetails?.Prefix}}{{userdetails?.MatriID}}</span></p>
                 <h3 class="pf-n">{{userdetails?.Name}}</h3>
@@ -64,12 +64,12 @@
                   </a>
                 </div>
                 <div class="pft-bx1 ">
-                  <a href="#">
-                    <i class="bx bx-x-circle pftcolr"></i>
-                    <p class="pftcolr">Ignore</p>
+                  <a href="/user-dashboard/user-chat">
+                    <i class="bx bx-chat pftcolr"></i>
+                    <p class="pftcolr">Chat</p>
                   </a>
                 </div>
-                <div class="pft-bx1" style="margin-left: 10px;">
+                <div class="pft-bx1" >
                   <a href="#">
                     <i class="bx bx-info-circle pftcolr"></i>
                     <p class="pftcolr">Report</p>
@@ -94,5 +94,5 @@
   </div>
 
 
-  <app-footer-style-one></app-footer-style-one>
+  <app-footer-style-two></app-footer-style-two>
   <!-- End Main Content Wrapper Area -->

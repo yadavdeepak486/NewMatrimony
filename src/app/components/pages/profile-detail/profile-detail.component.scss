@@ -1,5 +1,22 @@
 @import "../../pages/dashboard/dashboard.component.scss";
 
+// table css
+.wd{
+  width: 50%;
+  float: left;
+}
+.wd1{
+  width: 50%;
+  float: left;
+}
+// 
+.pft-i:hover{
+  background-color: #fff;
+}
+.pft-i i:hover{
+  color: #ff0000;
+}
+
 .my-profile-box {
   margin-bottom: 30px;
   background-color: var(--whiteColor);

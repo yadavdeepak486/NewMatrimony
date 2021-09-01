@@ -2,7 +2,7 @@
 
 // new css
 .vesax-nav.nav-st {
-  background-color: #221638;
+  background-color: #bb0000;
 }
 a.default-btn.bt-rm {
   position: relative;
@@ -21,7 +21,7 @@ a.default-btn.bt-rm:hover {
 }
 ul.navbar-nav.st-pd-nav {
   margin: 0 auto !important;
-  padding-left: 100px !important;
+  padding-left: 0px ;
 }
 // close
 .navbar-area {
@@ -120,10 +120,10 @@ ul.navbar-nav.st-pd-nav {
             }
             &:hover {
               &::before {
-                color: var(--mainColor);
+                color:#000;
               }
               span {
-                color: var(--mainColor);
+                color: #000;
               }
             }
           }
