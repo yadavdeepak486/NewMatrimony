@@ -14,17 +14,43 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   users: any;
   ngStyle: boolean = false;
 
-  allmaritalstatus:any;
-  allreligion:any;
+  allmaritalstatus: any;
+  allreligion: any;
   allcountry: any;
   allstate: any;
   allcity: any;
-  allcaste:any;
+  allcaste: any;
   allheights: any;
   alllanguage: any;
-  
+
+  filteruserform = new FormGroup({
+    minage: new FormControl(''),
+    maxage: new FormControl(''),
+    Maritalstatus: new FormControl(''),
+    Religion: new FormControl(''),
+    Caste: new FormControl(''),
+    Language: new FormControl(''),
+    Country: new FormControl(''),
+    State: new FormControl(''),
+    City: new FormControl(''),
+    minheight: new FormControl(''),
+    maxheight: new FormControl(''),
+  });
+
+  reliform = new FormGroup({
+    religion: new FormControl(''),
+  });
+
+  contform = new FormGroup({
+    country: new FormControl(''),
+  });
+
+  stateform = new FormGroup({
+    state: new FormControl(''),
+  });
+
   //maritalstatus = new FormControl();
-  maritalstatusList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+
   constructor(
     public userService: UserService,
     public adminService: AdminService,
@@ -37,11 +63,14 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     this.getallUsers();
     this.getmaritalstatus();
     this.getallreligion();
+    this.getallcaste();
     this.allcountrys();
     // this.allstate();
     this.allcity();
+    this.getallstate();
+    this.getallcity();
     this.getallheights();
-    this.getalllanguage()
+    this.getalllanguage();
   }
 
   pageTitleContent = [
@@ -308,7 +337,6 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
 
   verticalListings: number = 1;
 
-
   getmaritalstatus() {
     this.adminService.getallmaritalstatus().subscribe(
       (response: any) => {
@@ -344,11 +372,9 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     );
   }
 
-  
-
-  stateofcountry(id) {
-    console.log(id);
-    this.adminService.statebycountry(id).subscribe(
+  getallstate() {
+    // console.log(id);
+    this.adminService.allstate().subscribe(
       (response: any) => {
         this.allstate = response.data;
         //console.log(response);
@@ -359,9 +385,9 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     );
   }
 
-  cityofstate(id) {
-    console.log(id);
-    this.adminService.citybystate(id).subscribe(
+  getallcity() {
+    //console.log(id);
+    this.adminService.allcity().subscribe(
       (response: any) => {
         this.allcity = response.data;
         //console.log(response);
@@ -372,12 +398,60 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     );
   }
 
-  castofrelgion(id) {
-    console.log(id);
-    this.adminService.castesofreligion(id).subscribe(
+  getallcaste() {
+    console.log();
+    this.adminService.getallcaste().subscribe(
       (response: any) => {
         this.allcaste = response.data;
-        //console.log(response);
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  casteofselect(e) {
+    console.log(e);
+    this.reliform.setValue({
+      religion: e,
+    });
+    this.adminService.multiplecaste(this.reliform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allcaste = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  stateofselect(e) {
+    console.log(e);
+    this.contform.setValue({
+      country: e,
+    });
+    this.adminService.allstateofcountry(this.contform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allstate = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  cityofselect(e) {
+    console.log(e);
+    this.contform.setValue({
+      country: e,
+    });
+    this.adminService.allstateofcountry(this.contform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allstate = response.data;
       },
       (error) => {
         console.log(error);
@@ -409,7 +483,6 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     );
   }
 
- 
   getallUsers() {
     this.userService.getallprofiles().subscribe(
       (response: any) => {
@@ -483,6 +556,19 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
           this.router.navigate(['user-dashboard/user-chat']);
         }
 
+      }
+    );
+  }
+
+  filter() {
+    console.log(this.filteruserform.value);
+    this.userService.getfiltereduser(this.filteruserform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.users = response.data;
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }

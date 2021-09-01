@@ -1,8 +1,8 @@
-// blur css 
-.img-blur{
+// blur css
+.img-blur {
   overflow: hidden !important;
 }
-// close 
+// close
 
 .listings-area {
   position: relative;
@@ -828,6 +828,16 @@ button.sre-btn {
   margin-top: 30px;
   border-radius: 20px;
 }
+
+button.sre-cnl-btn {
+  background: rgb(19, 33, 163);
+  color: #fff;
+  border: navajowhite;
+  padding: 10px 21px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
 label.lb-ser {
   color: #66667f;
   font-size: 12px;
@@ -1130,7 +1140,7 @@ p.i_t {
   font-size: 12px;
 }
 
-.dt ul{
+.dt ul {
   padding: 0px;
   list-style: none;
 }

@@ -16,16 +16,16 @@ export class EducationComponent implements OnInit {
 
   education = new FormGroup({
     sortorder: new FormControl(''),
-    degree: new FormControl(''),
-    place: new FormControl(''),
+    // degree: new FormControl(''),
+    // place: new FormControl(''),
     name: new FormControl(''),
   });
 
   editeducation = new FormGroup({
     id: new FormControl(''),
     sortorder: new FormControl(''),
-    degree: new FormControl(''),
-    place: new FormControl(''),
+    // degree: new FormControl(''),
+    // place: new FormControl(''),
     name: new FormControl(''),
   });
   constructor(
@@ -78,8 +78,8 @@ export class EducationComponent implements OnInit {
         this.editeducation.setValue({
           sortorder: response.data.sortorder,
           name: response.data.name,
-          degree: response.data.degree,
-          place: response.data.place,
+          // degree: response.data.degree,
+          // place: response.data.place,
           id: response.data._id,
         });
       },
@@ -100,7 +100,7 @@ export class EducationComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.getalleducation();
-          this.toastr.success('Religion updated succesfully');
+          this.toastr.success('Education updated succesfully');
           this.editeducation.reset();
           this.editmode = false;
         },
@@ -132,7 +132,7 @@ export class EducationComponent implements OnInit {
     this.adminService.deleteeducation(id).subscribe(
       (response: any) => {
         console.log(response);
-        this.toastr.info('education deleted succesfully');
+        this.toastr.info('Education deleted succesfully');
         this.getalleducation();
       },
       (error) => {

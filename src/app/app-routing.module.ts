@@ -65,10 +65,10 @@ import { VerticalListingsLeftSidebarComponent } from './components/pages/vertica
 import { VerticalListingsRightSidebarComponent } from './components/pages/vertical-listings-right-sidebar/vertical-listings-right-sidebar.component';
 import { HeaderComponent } from './components/pages/dashboard/website-setup/header/header.component';
 import { FooterComponent } from './components/pages/dashboard/website-setup/footer/footer.component';
-import { PagerComponent } from 'ng2-smart-table/lib/components/pager/pager.component';
 import { PagesComponent } from './components/pages/dashboard/website-setup/pages/pages.component';
 import { AppearanceComponent } from './components/pages/dashboard/website-setup/appearance/appearance.component';
 import { UserGuard } from './user.guard';
+import { AdminGuard } from './admin.guard';
 import { MemberLanguageComponent } from './components/pages/dashboard/member/profile-attributes/member-language/member-language.component';
 import { CityComponent } from './components/pages/dashboard/member/profile-attributes/city/city.component';
 import { StateComponent } from './components/pages/dashboard/member/profile-attributes/state/state.component';
@@ -214,7 +214,6 @@ const routes: Routes = [
   { path: 'followup', component: FollowupComponent },
   { path: 'add-comment', component: AddCommentComponent },
   { path: 'view-comment', component: ViewCommentComponent },
-
 
   {
     path: 'profile-attributes/member-language',

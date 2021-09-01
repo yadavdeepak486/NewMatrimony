@@ -71,15 +71,15 @@ export class UserChatComponent implements OnInit {
           this.imageandname(response.data[0].sender._id);
           const tosetid = response.data[0].sender._id;
           console.log(tosetid);
-          // this.chatwith(tosetid, response.data[0].chatroom);
+          this.chatwith(tosetid, response.data[0]._id);
         } else {
           console.log('to set receiver id');
           this.imageandname(response.data[0].receiver._id);
           const tosetid = response.data[0].receiver._id;
           console.log(tosetid);
-          // this.chatwith(tosetid, response.data[0].chatroom);
+          this.chatwith(tosetid, response.data[0]._id);
         }
-        //this.chatingroom = response.data[0]._id;
+        //this.chatwith(tosetid, roomid)
       },
       (error) => {
         console.log(error);

@@ -15,8 +15,8 @@ export class AddNewStaffsComponent implements OnInit {
   staff = new FormGroup({
     firstname: new FormControl(''),
     lastname: new FormControl(''),
-    email: new FormControl(''),
-    phone: new FormControl(''),
+    Email: new FormControl(''),
+    Mobile: new FormControl(''),
     password: new FormControl(''),
     role: new FormControl(''),
   });

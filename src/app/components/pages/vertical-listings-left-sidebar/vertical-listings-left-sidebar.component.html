@@ -47,18 +47,18 @@
           <section class="widget widget_filters rs-pd">
             <h3 class="widget-title">ADVANCED SEARCH
             </h3>
-            <form>
+            <form [formGroup]="filteruserform" (ngSubmit)="filter()">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="lb-ser">Age From</label>
-                    <input type="text" placeholder="20" class="form-control">
+                    <input type="number" placeholder="20" class="form-control" formControlName="minage">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="lb-ser">To</label>
-                    <input type="text" placeholder="30" class="form-control">
+                    <input type="number" placeholder="30" class="form-control" formControlName="maxage">
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -68,28 +68,30 @@
                   </div>
                 </div>
                 <div class="col-md-12">
-                    <mat-form-field appearance="outline" style="width:100%">
-                      <mat-label>Marital Status</mat-label>
-                      <mat-select multiple>
-                        <mat-option *ngFor="let maritalstatus of allmaritalstatus" [value]="maritalstatus._id">{{maritalstatus?.name}}</mat-option>
-                      </mat-select>
-                    </mat-form-field>
+                  <mat-form-field appearance="outline" style="width:100%">
+                    <mat-label>Marital Status</mat-label>
+                    <mat-select formControlName="Maritalstatus" multiple>
+                      <mat-option *ngFor="let maritalstatus of allmaritalstatus" [value]="maritalstatus._id">
+                        {{maritalstatus?.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
                 </div>
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Religion</mat-label>
-                    <mat-select >
-                      <mat-option *ngFor="let religion of allreligion" [value]="religion._id">{{religion?.name}}</mat-option>
+                    <mat-select #reli (ngModelChange)="casteofselect($event)" formControlName="Religion" multiple>
+                      <mat-option *ngFor="let religion of allreligion" [value]="religion._id">{{religion?.name}}
+                      </mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Caste</mat-label>
-                    <mat-select >
-                      <mat-option *ngFor="let caste of allcaste" [value]="caste._id" >{{caste?.name}}</mat-option>
+                    <mat-select formControlName="Caste" multiple>
+                      <mat-option *ngFor="let caste of allcaste" [value]="caste._id">{{caste?.name}}</mat-option>
                     </mat-select>
-                  </mat-form-field> 
+                  </mat-form-field>
                 </div>
                 <!-- <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
@@ -97,13 +99,14 @@
                     <mat-select >
                       <mat-option *ngFor="let subcaste of allsubcaste" [value]="subcaste._id" >{{subcaste?.name}}</mat-option>
                     </mat-select>
-                  </mat-form-field> 
+                  </mat-form-field>
                 </div> -->
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Mother Tongue</mat-label>
-                    <mat-select >
-                      <mat-option *ngFor="let language of alllanguage" [value]="language._id">{{language?.name}}</mat-option>
+                    <mat-select formControlName="Language" multiple>
+                      <mat-option *ngFor="let language of alllanguage" [value]="language._id">{{language?.name}}
+                      </mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
@@ -116,15 +119,16 @@
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Country</mat-label>
-                    <mat-select >
-                      <mat-option *ngFor="let country of allcountry" [value]="country._id">{{country?.name}}</mat-option>
+                    <mat-select formControlName="Country" (ngModelChange)="stateofselect($event)" multiple>
+                      <mat-option *ngFor="let country of allcountry" [value]="country._id">{{country?.name}}
+                      </mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>State</mat-label>
-                    <mat-select multiple>
+                    <mat-select formControlName="State" multiple>
                       <mat-option *ngFor="let state of allstate" [value]="state._id">{{state?.name}}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -132,7 +136,7 @@
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>City</mat-label>
-                    <mat-select multiple>
+                    <mat-select formControlName="City" multiple>
                       <mat-option *ngFor="let city of allcity" [value]="city._id">{{city?.name}}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -140,35 +144,40 @@
                 <div class="col-md-6">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Min Height</mat-label>
-                    <mat-select >
-                      <mat-option *ngFor="let height of allheights" [value]="height._id" >{{height.feetinchvalue}} Feet {{height.cmvalue}} Cm</mat-option>
+                    <mat-select formControlName="minheight">
+                      <mat-option *ngFor="let height of allheights" [value]="height.cmvalue">{{height.feetinchvalue}}
+                        Feet
+                        {{height.cmvalue}} Cm</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
                 <div class="col-md-6">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Max Height</mat-label>
-                    <mat-select >
-                      <mat-option *ngFor="let height of allheights" [value]="height._id" >{{height.feetinchvalue}} Feet {{height.cmvalue}} Cm</mat-option>
+                    <mat-select formControlName="maxheight">
+                      <mat-option *ngFor="let height of allheights" [value]="height.cmvalue">{{height.feetinchvalue}}
+                        Feet
+                        {{height.cmvalue}} Cm</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
                 <div class="col-md-12">
                   <label class="lb-ser">MEMBER TYPE</label>
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                    <label class="custom-control-label" for="customCheck">Premium Member</label>
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Premium Member</label>
                     <br>
-                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                    <label class="custom-control-label" for="customCheck">Free Member</label>
+                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                    <label class="custom-control-label" for="customCheck2">Free Member</label>
                     <br>
-                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                    <label class="custom-control-label" for="customCheck">All Member</label>
+                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                    <label class="custom-control-label" for="customCheck3">All Member</label>
                   </div>
                 </div>
 
                 <div _ngcontent-xdt-c89="">
-                  <button class="sre-btn">Search</button>
+                  <button class="sre-btn" type="submit">Search</button>
+                  <button class="sre-cnl-btn" style="margin-left: 10px;" (click)="filteruserform.reset()">Reset</button>
                 </div>
               </div>
             </form>
@@ -327,7 +336,7 @@
             <div class="single-listings-item">
               <div class="row m-0">
                 <div class="col-lg-4 col-md-4 p-0 img-blur">
-                  <div class="listings-image" style="background-image: url({{Content.Photo1}});" >
+                  <div class="listings-image" style="background-image: url({{Content.Photo1}});">
                     <img [src]="Content.Photo1" alt="image">
                     <!-- <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
                     <a routerLink="/profile-detail/{{Content._id}}" class="link-btn"></a>

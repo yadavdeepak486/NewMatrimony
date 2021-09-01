@@ -1,6 +1,11 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -41,6 +46,20 @@ export class UserProfileOneComponent implements OnInit {
   allfamilyvalues: any;
   allfamilystatus: any;
   educationslt = new FormControl();
+  imageupload1: FormGroup;
+  imageupload2: FormGroup;
+  imageupload3: FormGroup;
+
+  tosendpath: any;
+
+  filePath1: any;
+  filePath2: any;
+  filePath3: any;
+
+  readyupload1 = false;
+  readyupload2 = false;
+  readyupload3 = false;
+
   educationsltList: string[] = [
     '10th',
     '12th',
@@ -87,6 +106,7 @@ export class UserProfileOneComponent implements OnInit {
   constructor(
     public userService: UserService,
     public adminService: AdminService,
+    private formBuilder: FormBuilder,
     private toastr: ToastrService,
     public routes: Router
   ) {}
@@ -104,6 +124,15 @@ export class UserProfileOneComponent implements OnInit {
     this.allcountrys();
     this.familyvalues();
     this.familystatus();
+    this.imageupload1 = this.formBuilder.group({
+      Photo1: '',
+    });
+    this.imageupload2 = this.formBuilder.group({
+      Photo2: '',
+    });
+    this.imageupload3 = this.formBuilder.group({
+      Photo3: '',
+    });
   }
 
   getmydetails() {
@@ -122,21 +151,113 @@ export class UserProfileOneComponent implements OnInit {
     );
   }
 
-  // imagePreview(e) {
-  //   const file = e.target.files[0];
-  //   console.log(file);
-  //   this.photo1form.get('Photo1').setValue(file);
-  //   const reader = new FileReader();
-  //   const k = reader.readAsDataURL(file);
-  //   console.log(k);
-  //   this.tosendpath = e.target.files.item(0);
-  //   console.log(this.tosendpath);
-  //   reader.onload = (_event) => {
-  //     this.filePath1 = reader.result;
-  //   };
-  // }
+  imagePreview1(e) {
+    const file = e.target.files[0];
+    console.log(file);
+    this.imageupload1.get('Photo1').setValue(file);
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.filePath1 = reader.result;
+    };
+    this.readyupload1 = true;
+  }
 
-  editPhoto() {}
+  imagePreview2(e) {
+    const file = e.target.files[0];
+    console.log(file);
+    this.imageupload2.get('Photo2').setValue(file);
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.filePath2 = reader.result;
+    };
+    this.readyupload2 = true;
+  }
+
+  imagePreview3(e) {
+    const file = e.target.files[0];
+    console.log(file);
+    this.imageupload3.get('Photo3').setValue(file);
+    const reader = new FileReader();
+    const k = reader.readAsDataURL(file);
+    this.tosendpath = e.target.files.item(0);
+    reader.onload = (_event) => {
+      this.filePath3 = reader.result;
+    };
+    this.readyupload3 = true;
+  }
+
+  uploadimage1() {
+    console.log('req to upload image');
+    console.log(this.imageupload1.value);
+    this.userService.upload(this.imageupload1.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Image Uploaded Successfully');
+        this.getmydetails();
+        this.readyupload1 = false;
+        this.imageupload1.reset();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  cancelupload1() {
+    this.imageupload1.reset();
+    this.filePath1 = '';
+    this.readyupload1 = false;
+  }
+
+  uploadimage2() {
+    console.log('req to upload image');
+    console.log(this.imageupload2.value);
+    this.userService.upload(this.imageupload2.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Image Uploaded Successfully');
+        this.getmydetails();
+        this.readyupload2 = false;
+        this.imageupload2.reset();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  cancelupload2() {
+    this.imageupload2.reset();
+    this.filePath2 = '';
+    this.readyupload2 = false;
+  }
+
+  uploadimage3() {
+    console.log('req to upload image');
+    console.log(this.imageupload3.value);
+    this.userService.upload(this.imageupload3.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Image Uploaded Successfully');
+        this.getmydetails();
+        this.readyupload3 = false;
+        this.imageupload3.reset();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  cancelupload3() {
+    this.imageupload3.reset();
+    this.filePath3 = '';
+    this.readyupload3 = false;
+  }
 
   //all drop downs
   getallprofilefor() {
@@ -247,6 +368,19 @@ export class UserProfileOneComponent implements OnInit {
     );
   }
 
+  getallcaste() {
+    console.log();
+    this.adminService.getallcaste().subscribe(
+      (response: any) => {
+        this.allcaste = response.data;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   allcountrys() {
     this.adminService.allcountry().subscribe(
       (response: any) => {
@@ -340,6 +474,7 @@ export class UserProfileOneComponent implements OnInit {
   }
 
   formone() {
+    this.getallcaste();
     console.log('button clicked');
     if (this.togglecheck == false) {
       this.togglecheck = true;

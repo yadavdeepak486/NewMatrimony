@@ -26,7 +26,7 @@
   <div *ngIf="addlogo" class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
-        <h3>Header Setting</h3>
+        <h3>Logo Setting</h3>
         <form [formGroup]="logoform" (ngSubmit)="submitForm()" class="bd-n" ngNativeValidate>
           <div class="row">
             <div class="form-group fg-w">
@@ -74,7 +74,67 @@
               </div>
             </div>
             <div class="form-group fg-w">
-              <button class="btn btn-primary ml-3 mt-2">Add Logo</button>
+              <button class="btn btn-primary ml-3 mt-2" type="submit">Add Logo</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="editlogo" class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <h3>Edit Logo</h3>
+        <form [formGroup]="editlogoform" (ngSubmit)="updatelogoForm()" class="bd-n" ngNativeValidate>
+          <div class="row">
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Website Title</label>
+              </div>
+              <div class="col-lg-8">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" formControlName="title" id="" placeholder="Malwa Matrimony"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Website keyname <span style="color: red;">*</span></label>
+              </div>
+              <div class="col-lg-8">
+                <select class="form-control" formControlName="website" disabled>
+                  <option value="One" selected>One</option>
+                  <option value="Two">Two</option>
+                  <option value="Three">Three</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-4">
+                <label>Header Logo</label>
+              </div>
+              <div class="col-lg-8 ">
+                <div class="input-group mb-3" style="
+                margin-top: 65px;
+            ">
+                  <div class="custom-file">
+                    <img class="to-send-images" [src]="filePath2 || getlogo|| deffilePath1" alt="image" />
+                    <label class="custom-file-upload" style="    margin-top: -50px;
+              z-index: 1002;
+              ">
+                      <input #photo1 type="file" accept="image/*" name="Photo1" (change)="imageeditPreview($event)"
+                        required />
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <button class="btn btn-primary ml-3 mt-2" type="submit">Update Logo</button>
+              <button class="btn btn-primary ml-3 mt-2" type="button" (click)="cancellogoform()">Cancel</button>
             </div>
           </div>
         </form>
@@ -91,7 +151,6 @@
           <table class="table">
             <thead>
               <tr>
-                <th>#</th>
                 <th>Logo</th>
                 <th>Website Title </th>
                 <th>Key</th>
@@ -99,9 +158,6 @@
             </thead>
             <tbody>
               <tr *ngFor="let logo of alllogo">
-                <td class="#">
-                  {{logo.sortorder}}
-                </td>
                 <td class="#">
                   <img style="width: 30px;" [src]="logo?.logo" alt="" srcset="">
                 </td>
