@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
@@ -9,6 +16,8 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./user-chat.component.scss'],
 })
 export class UserChatComponent implements OnInit {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+
   mydetail: any;
   otheruser: any;
   rooms: any;
@@ -24,7 +33,8 @@ export class UserChatComponent implements OnInit {
   constructor(
     public userService: UserService,
     public routes: Router,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -32,8 +42,22 @@ export class UserChatComponent implements OnInit {
     // this.id = this.route.snapshot.params['id'];
     // this.imageandname(this.id);
     this.mychatroom();
+    //this.scrollToBottom();
+
     //this.refreshchat();
   }
+
+  // ngAfterViewChecked() {
+  //   this.cdr.detectChanges();
+  //   this.scrollToBottom();
+  // }
+
+  // scrollToBottom(): void {
+  //   try {
+  //     this.myScrollContainer.nativeElement.scrollTop =
+  //       this.myScrollContainer.nativeElement.scrollHeight;
+  //   } catch (err) {}
+  // }
 
   getmydetails() {
     this.userService.getmyprofiledetail().subscribe(
@@ -79,7 +103,6 @@ export class UserChatComponent implements OnInit {
           console.log(tosetid);
           this.chatwith(tosetid, response.data[0]._id);
         }
-        //this.chatwith(tosetid, roomid)
       },
       (error) => {
         console.log(error);
@@ -92,7 +115,6 @@ export class UserChatComponent implements OnInit {
     this.chatingroom = roomid;
     console.log(this.chatingroom);
     this.imageandname(id);
-
     this.userService.chatsroom(this.chatingroom).subscribe(
       (response: any) => {
         console.log(response);
@@ -102,6 +124,17 @@ export class UserChatComponent implements OnInit {
         console.log(error);
       }
     );
+    setInterval(() => {
+      this.userService.chatsroom(this.chatingroom).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.chats = response.data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }, 3000);
   }
 
   refreshchat(chatroom) {

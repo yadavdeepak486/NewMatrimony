@@ -66,7 +66,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     this.getallcaste();
     this.allcountrys();
     // this.allstate();
-    this.allcity();
+    //this.allcity();
     this.getallstate();
     this.getallcity();
     this.getallheights();
@@ -552,10 +552,9 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        if(error.error.msg == "Already Exists"){
+        if (error.error.msg == 'Already Exists') {
           this.router.navigate(['user-dashboard/user-chat']);
         }
-
       }
     );
   }

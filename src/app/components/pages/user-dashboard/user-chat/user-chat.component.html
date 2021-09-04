@@ -36,6 +36,7 @@
 
                   <div class="user-name st-u-img">
                     <h6>{{room?.receiver?.firstName}} {{room?.receiver?.LastName}}</h6>
+                    <h6>{{room?.last_msg}}</h6>
                     <span class="d-block"></span>
                   </div>
                 </div>
@@ -51,6 +52,8 @@
 
                   <div *ngIf="mydetail._id == room.receiver._id" class="user-name">
                     <h6>{{room?.sender?.firstName}} {{room?.sender?.LastName}}</h6>
+                    <h6>{{room?.last_msg}}</h6>
+                    <!-- <h6 >{{room?.last_msg}}</h6> -->
                     <span class="d-block"></span>
                   </div>
                 </div>
@@ -94,7 +97,7 @@
                 </ul>
               </div>
             </div>
-
+            <!-- #scrollMe [scrollTop]="scrollMe.scrollHeight" -->
             <div class="chat-container" data-simplebar>
               <div *ngFor="let chat of chats" class="chat-content">
                 <div *ngIf="mydetail._id == chat.msg_sender._id" class="chat">
@@ -106,7 +109,7 @@
                   </div>
 
                   <div class="chat-body">
-                    <div class="chat-message dropdown ">
+                    <div class="chat-message dropdown">
                       <!-- <button class="dropdown-toggle btn-drp" type="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false"><i class='bx bx-dots-vertical-rounded'></i></button> -->
                       <p>{{chat.msg}} </p>

@@ -38,7 +38,7 @@
                             </ul> -->
             </li>
 
-            <li *ngIf="checkauth"  class="nav-item ">
+            <li *ngIf="checkauth" class="nav-item ">
               <a routerLink="/vertical-listings-left-sidebar" class="nav-link" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">Search</a>
 
@@ -73,7 +73,7 @@
                             </ul> -->
             </li>
 
-            <li *ngIf="checkauth"  class="nav-item">
+            <li *ngIf="checkauth" class="nav-item">
               <a routerLink="/premium-plan" class="nav-link" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">Upgrade Now</a>
               <!-- <ul class="dropdown-menu">
@@ -156,27 +156,27 @@
             </li>
 
             <li class="nav-item ">
-                <a routerLink="/demo" class="nav-link" routerLinkActive="active"
-                  [routerLinkActiveOptions]="{exact: true}">Success Story</a>
-              </li>
-  
-              <li class="nav-item">
-                <a routerLink="/about" class="nav-link" routerLinkActive="active"
-                  [routerLinkActiveOptions]="{exact: true}">About Us</a>
-               
-              </li>
-  
-              <li class="nav-item">
-                  <a routerLink="/contact" class="nav-link" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
-                 
-              </li>
+              <a routerLink="/demo" class="nav-link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Success Story</a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/about" class="nav-link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">About Us</a>
+
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/contact" class="nav-link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
+
+            </li>
           </ul>
 
-         <!-- without login  menu-->
-           
-            
-            <!-- close -->
+          <!-- without login  menu-->
+
+
+          <!-- close -->
 
           <div class="others-option d-flex align-items-center">
             <!-- <div class="option-item">
@@ -232,7 +232,7 @@
             </div> -->
             <!-- profile btn -->
             <div *ngIf="checkauth" class="option-item">
-              <img src="assets/img/user1.png" class="img-pro" />
+              <img [src]="mydetail?.Photo1 || userpath" class="img-pro" />
               <span>
                 <a class="default-btn bt-rm" (click)="logout()"><i class="flaticon-user" style="color: #1ee2e9;"></i>
                   Logout</a>
@@ -242,12 +242,12 @@
           </div>
         </div>
 
-         
+
       </nav>
     </div>
   </div>
 
-  
+
 
   <div class="others-option-for-responsive">
     <div class="container">
@@ -274,15 +274,15 @@
               <a class="default-btn" href="/"><i class="flaticon-user"></i> Register</a>
             </div>
 
-             <!-- profile btn -->
-             <div *ngIf="checkauth" class="option-item">
-                <img src="assets/img/user1.png" class="img-pro" />
-                <span>
-                  <a class="default-btn bt-rm" (click)="logout()"><i class="flaticon-user" style="color: #1ee2e9;"></i>
-                    Logout</a>
-                </span>
-              </div>
-              <!-- profile btn -->
+            <!-- profile btn -->
+            <div *ngIf="checkauth" class="option-item">
+              <img src="assets/img/user1.png" class="img-pro" />
+              <span>
+                <a class="default-btn bt-rm" (click)="logout()"><i class="flaticon-user" style="color: #1ee2e9;"></i>
+                  Logout</a>
+              </span>
+            </div>
+            <!-- profile btn -->
 
             <!-- <div class="option-item">
               <a routerLink="/dashboard-add-listings" class="default-btn"><i class="flaticon-more"></i>
