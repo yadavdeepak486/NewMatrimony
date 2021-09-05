@@ -144,8 +144,9 @@
                 <div class="col-md-6">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Min Height</mat-label>
-                    <mat-select formControlName="minheight">
-                      <mat-option *ngFor="let height of allheights" [value]="height.cmvalue">{{height.feetinchvalue}}
+                    <mat-select (ngModelChange)="slicingdata($event)" formControlName="minheight">
+                      <mat-option *ngFor="let height of allheights let i = index" [value]="height.cmvalue">
+                        {{height.feetinchvalue}}
                         Feet
                         {{height.cmvalue}} Cm</mat-option>
                     </mat-select>
@@ -155,7 +156,7 @@
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Max Height</mat-label>
                     <mat-select formControlName="maxheight">
-                      <mat-option *ngFor="let height of allheights" [value]="height.cmvalue">{{height.feetinchvalue}}
+                      <mat-option *ngFor="let height of minheights" [value]="height.cmvalue">{{height.feetinchvalue}}
                         Feet
                         {{height.cmvalue}} Cm</mat-option>
                     </mat-select>
@@ -181,152 +182,15 @@
                 </div>
               </div>
             </form>
-            <!-- <ul>
-                            <li><button type="button">$</button></li>
-                            <li><button type="button">$$</button></li>
-                            <li><button type="button">$$$</button></li>
-                            <li><button type="button">$$$$</button></li>
-                        </ul> -->
           </section>
 
-          <!-- <section class="widget widget_categories">
-                        <h3 class="widget-title">Categories</h3>
 
-                        <ul>
-                            <li>
-                                <input id="categories1" type="checkbox">
-                                <label for="categories1">Restaurant</label>
-                            </li>
-                            <li>
-                                <input id="categories2" type="checkbox">
-                                <label for="categories2">Hotel</label>
-                            </li>
-                            <li>
-                                <input id="categories3" type="checkbox">
-                                <label for="categories3">Beauty & Spa</label>
-                            </li>
-                            <li>
-                                <input id="categories4" type="checkbox">
-                                <label for="categories4">Fitness</label>
-                            </li>
-                            <li>
-                                <input id="categories5" type="checkbox">
-                                <label for="categories5">Shopping</label>
-                            </li>
-                            <li class="hide">
-                                <input id="categories6" type="checkbox">
-                                <label for="categories6">Hospital</label>
-                            </li>
-                            <li class="hide">
-                                <input id="categories7" type="checkbox">
-                                <label for="categories7">Events</label>
-                            </li>
-                            <li class="hide">
-                                <input id="categories8" type="checkbox">
-                                <label for="categories8">Clothing</label>
-                            </li>
-                            <li class="see-all-btn">
-                                <span>See All</span>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section class="widget widget_features">
-                        <h3 class="widget-title">Features</h3>
-
-                        <ul>
-                            <li>
-                                <input id="features1" type="checkbox">
-                                <label for="features1">Restaurant</label>
-                            </li>
-                            <li>
-                                <input id="features2" type="checkbox">
-                                <label for="features2">Hotel</label>
-                            </li>
-                            <li>
-                                <input id="features3" type="checkbox">
-                                <label for="features3">Beauty & Spa</label>
-                            </li>
-                            <li>
-                                <input id="features4" type="checkbox">
-                                <label for="features4">Fitness</label>
-                            </li>
-                            <li>
-                                <input id="features5" type="checkbox">
-                                <label for="features5">Shopping</label>
-                            </li>
-                            <li class="hide">
-                                <input id="features6" type="checkbox">
-                                <label for="features6">Hospital</label>
-                            </li>
-                            <li class="hide">
-                                <input id="features7" type="checkbox">
-                                <label for="features7">Events</label>
-                            </li>
-                            <li class="hide">
-                                <input id="features8" type="checkbox">
-                                <label for="features8">Clothing</label>
-                            </li>
-                            <li class="see-all-btn">
-                                <span>See All</span>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section class="widget widget_distance">
-                        <h3 class="widget-title">Distance</h3>
-
-                        <ul>
-                            <li>
-                                <input id="distance1" type="checkbox">
-                                <label for="distance1">Driving (5 mi.)</label>
-                            </li>
-                            <li>
-                                <input id="distance2" type="checkbox">
-                                <label for="distance2">Walking (1 mi.)</label>
-                            </li>
-                            <li>
-                                <input id="distance3" type="checkbox">
-                                <label for="distance3">Biking (2 mi.)</label>
-                            </li>
-                            <li>
-                                <input id="distance4" type="checkbox">
-                                <label for="distance4">Within 4 blocks</label>
-                            </li>
-                            <li>
-                                <input id="distance5" type="checkbox">
-                                <label for="distance5">Bicycle (6 mi.)</label>
-                            </li>
-                            <li class="hide">
-                                <input id="distance6" type="checkbox">
-                                <label for="distance6">Driving (10 mi.)</label>
-                            </li>
-                            <li class="hide">
-                                <input id="distance7" type="checkbox">
-                                <label for="distance7">Walking (11 mi.)</label>
-                            </li>
-                            <li class="see-all-btn">
-                                <span>See All</span>
-                            </li>
-                        </ul>
-                    </section> -->
         </aside>
       </div>
 
       <div class="col-lg-8 col-md-12">
         <div class="listings-grid-sorting row align-items-center">
-          <!-- <div class="col-lg-5 col-md-6 result-count">
-                        <p>We found <span class="count">9</span> listings available for you</p>
-                    </div> -->
 
-          <!-- <div class="col-lg-7 col-md-6 ordering">
-                        <div class="d-flex justify-content-end">
-                            <div class="select-box">
-                                <label>Sort By:</label>
-                                <ngx-select-dropdown (searchChange)="searchChange($event)" name="ordering-select" tabindex="0" [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options2"></ngx-select-dropdown>
-                            </div>
-                        </div>
-                    </div> -->
           <h3 class="widget-title">ALL MEMBERS({{users?.length}})</h3>
         </div>
 

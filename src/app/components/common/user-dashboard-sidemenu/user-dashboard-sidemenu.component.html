@@ -31,35 +31,35 @@
         <a routerLink="/user-dashboard/profile-list" class="nav-link">
           <span class="icon"><i class='bx bx-user'></i></span>
           <span class="menu-title">Who View My profile</span>
-          <span class="badge">{{whoview}}</span>
+          <span *ngIf="whoview !== 0" class="badge">{{whoview}}</span>
         </a>
       </li>
       <li class="nav-item" routerLinkActive="mm-active">
         <a routerLink="/user-dashboard/short-listed" class="nav-link">
           <span class="icon"><i class='bx bx-list-minus'></i></span>
           <span class="menu-title">Short Listed Profile</span>
-          <span class="badge">{{sortlist}}</span>
+          <span *ngIf="sortlist !== 0" class="badge">{{sortlist}}</span>
         </a>
       </li>
       <li class="nav-item" routerLinkActive="mm-active">
         <a routerLink="/user-dashboard/interest-recieved" class="nav-link">
           <span class="icon"><i class='bx bx-like'></i></span>
           <span class="menu-title">Interest Recieved</span>
-          <span class="badge">{{receivedinterest}}</span>
+          <span *ngIf="receivedinterest !== 0" class="badge">{{receivedinterest}}</span>
         </a>
       </li>
       <li class="nav-item" routerLinkActive="mm-active">
         <a routerLink="/user-dashboard/interest-sent" class="nav-link">
           <span class="icon"><i class='bx bx-send'></i></span>
           <span class="menu-title">Interest Sent by me</span>
-          <span class="badge">{{sendinterest}}</span>
+          <span *ngIf="sendinterest !== 0" class="badge">{{sendinterest}}</span>
         </a>
       </li>
       <li class="nav-item" routerLinkActive="mm-active">
         <a routerLink="/user-dashboard/photo-request" class="nav-link">
           <span class="icon"><i class='bx bx-send'></i></span>
           <span class="menu-title">Photo Request Sent</span>
-          <span class="badge">{{photoreqsent}}</span>
+          <span *ngIf="photoreqsent !== 0" class="badge">{{photoreqsent}}</span>
         </a>
       </li>
       <li class="nav-item" routerLinkActive="mm-active">
@@ -80,7 +80,7 @@
         <a routerLink="/user-dashboard/photo-recived" class="nav-link">
           <span class="icon"><i class='bx bx-user'></i></span>
           <span class="menu-title">Photo Request Recieved</span>
-          <span class="badge">{{photoreqrec}}</span>
+          <span *ngIf="photoreqrec !== 0" class="badge">{{photoreqrec}}</span>
         </a>
       </li>
       <li class="nav-item" routerLinkActive="mm-active">

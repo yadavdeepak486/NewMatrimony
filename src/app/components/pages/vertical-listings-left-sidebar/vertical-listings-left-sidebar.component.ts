@@ -22,6 +22,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   allcaste: any;
   allheights: any;
   alllanguage: any;
+  minheights: any
 
   filteruserform = new FormGroup({
     minage: new FormControl(''),
@@ -56,7 +57,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     public adminService: AdminService,
     private router: Router,
     public toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.resetOption = [this.options[0]];
@@ -469,6 +470,16 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  slicingdata(e) {
+    const idx = this.allheights.findIndex(val => val.cmvalue === e)
+    console.log(e)
+    console.log(idx)
+    this.minheights = this.allheights
+    this.minheights.splice(0, idx)
+    // const tempheights = this.allheights.splice(0, idx)
+    console.log(this.minheights)
   }
 
   getalllanguage() {
