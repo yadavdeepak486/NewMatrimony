@@ -9,17 +9,20 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./navbar-style-one.component.scss'],
 })
 export class NavbarStyleOneComponent implements OnInit {
- 
   checkauth = false;
   abcd = false;
   logo: any;
+
+  mydetail: any;
   stndpath = 'assets/img/logo.png';
+  userpath = 'assets/img/user1.png';
   filepath: any;
 
   constructor(public userService: UserService, public routes: Router) {}
 
   ngOnInit(): void {
     this.getlogo();
+    this.getmydetails();
     let auth = localStorage.getItem('auth-token');
     if (auth) {
       this.checkauth = true;
@@ -49,5 +52,15 @@ export class NavbarStyleOneComponent implements OnInit {
     this.routes.navigate(['/']);
   }
 
-  
+  getmydetails() {
+    this.userService.getmyprofiledetail().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.mydetail = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

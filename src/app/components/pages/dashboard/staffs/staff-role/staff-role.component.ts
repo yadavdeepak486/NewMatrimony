@@ -16,28 +16,28 @@ export class StaffRoleComponent implements OnInit {
   role = new FormGroup({
     sortorder: new FormControl(''),
     name: new FormControl(''),
-    edit_profileattribute: new FormControl(''),
-    edit_plans: new FormControl(''),
-    edit_userprofile: new FormControl(''),
-    edit_staff: new FormControl(''),
-    edit_happystory: new FormControl(''),
-    edit_otpsystem: new FormControl(''),
-    edit_websitesetup: new FormControl(''),
-    edit_othersetting: new FormControl(''),
+    edit_profileattribute: new FormControl(false),
+    edit_plans: new FormControl(false),
+    edit_userprofile: new FormControl(false),
+    edit_staff: new FormControl(false),
+    edit_happystory: new FormControl(false),
+    edit_otpsystem: new FormControl(false),
+    edit_websitesetup: new FormControl(false),
+    edit_othersetting: new FormControl(false),
   });
 
   editrole = new FormGroup({
     id: new FormControl(''),
     sortorder: new FormControl(''),
     name: new FormControl(''),
-    edit_profileattribute: new FormControl(''),
-    edit_plans: new FormControl(''),
-    edit_userprofile: new FormControl(''),
-    edit_staff: new FormControl(''),
-    edit_happystory: new FormControl(''),
-    edit_otpsystem: new FormControl(''),
-    edit_websitesetup: new FormControl(''),
-    edit_othersetting: new FormControl(''),
+    edit_profileattribute: new FormControl(false),
+    edit_plans: new FormControl(false),
+    edit_userprofile: new FormControl(false),
+    edit_staff: new FormControl(false),
+    edit_happystory: new FormControl(false),
+    edit_otpsystem: new FormControl(false),
+    edit_websitesetup: new FormControl(false),
+    edit_othersetting: new FormControl(false),
   });
   constructor(
     public adminService: AdminService,
@@ -58,6 +58,7 @@ export class StaffRoleComponent implements OnInit {
     this.adminService.getallrole().subscribe(
       (response: any) => {
         this.allrole = response.data;
+        console.log(response.data);
       },
       (error) => {
         console.log(error);
@@ -73,10 +74,35 @@ export class StaffRoleComponent implements OnInit {
         this.editmode = true;
         this.selectedrole = response.data;
         this.editrole.setValue({
-          sortorder: response.data.sortorder,
-          name: response.data.name,
-          id: response.data._id,
+          sortorder: response.data.sortorder ? response.data.sortorder : null,
+          name: response.data.name ? response.data.name : null,
+          id: response.data._id ? response.data._id : null,
+          edit_profileattribute: response.data.edit_profileattribute
+            ? response.data.edit_profileattribute
+            : false,
+          edit_plans: response.data.edit_plans
+            ? response.data.edit_plans
+            : false,
+          edit_userprofile: response.data.edit_userprofile
+            ? response.data.edit_userprofile
+            : false,
+          edit_staff: response.data.edit_staff
+            ? response.data.edit_staff
+            : false,
+          edit_happystory: response.data.edit_happystory
+            ? response.data.edit_happystory
+            : false,
+          edit_otpsystem: response.data.edit_otpsystem
+            ? response.data.edit_otpsystem
+            : false,
+          edit_websitesetup: response.data.edit_websitesetup
+            ? response.data.edit_websitesetup
+            : false,
+          edit_othersetting: response.data.edit_othersetting
+            ? response.data.edit_othersetting
+            : false,
         });
+        console.log(this.editrole.value);
       },
       (error) => {
         console.log(error);
@@ -136,6 +162,4 @@ export class StaffRoleComponent implements OnInit {
       }
     );
   }
-
- 
 }

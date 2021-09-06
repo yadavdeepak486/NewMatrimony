@@ -54,7 +54,7 @@
                           <h3>Basic Information</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="formone()"></i></a>
+                          <a href="javascript:void()"><i class="bx bx-edit" (click)="formone()"></i></a>
                         </div>
                         <!--  -->
                         <div *ngIf="togglecheck" class="info-text">
@@ -106,13 +106,12 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Time Of Birth:</td>
-                                <td class="wd1">{{mydetail?.TOB || "No Children"}}</td>
+                                <td class="wd1">{{mydetail?.TOB || "Not mentioned"}}</td>
                               </tr>
                             </tbody>
                           </table>
                         </div>
                         <!-- form -->
-                        <!--  -->
                         <div *ngIf="!togglecheck" class="info-text">
                           <div class="card card-body bd-none">
                             <form [formGroup]="editbasicinformation" (ngSubmit)="updatedata()" ngNativeValidate>
@@ -146,7 +145,7 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Date Of Birth</label>
-                                    <input type="date" class="form-control" placeholder="DOB" formControlName="DOB"
+                                    <input type="text" class="form-control" placeholder="DOB" formControlName="DOB"
                                       disabled>
                                     <small style="color: red;">This field can't be edited</small>
                                   </div>
@@ -220,7 +219,7 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Number of Children</label>
-                                    <input type="number" class="form-control" placeholder="1"
+                                    <input type="number" class="form-control" placeholder="No of Child"
                                       formControlName="NoOfChild" required>
                                   </div>
                                 </div>
@@ -228,7 +227,7 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Children Living With Status</label>
-                                    <input type="number" class="form-control" placeholder="1"
+                                    <input type="number" class="form-control" placeholder="Living no."
                                       formControlName="childrenlivingstatus" required>
                                   </div>
                                 </div>
@@ -259,7 +258,7 @@
                           <h3>Family Details</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="familydetail()"></i></a>
+                          <a><i class="bx bx-edit" (click)="familydetail()"></i></a>
                         </div>
                         <!-- *ngIf="togglecheckfamily" -->
                         <div *ngIf="togglecheckfamily" class="info-text">
@@ -291,27 +290,29 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">No. of Elder Brothers:</td>
-                                <td class="wd1">{{mydetail?.noofbrothers || "not mentioned"}}</td>
+                                <td class="wd1">
+                                  {{mydetail?.noofbrothers || "No Elder Brothers"}}</td>
+
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">No. of Younger Brothers:</td>
-                                <td class="wd1">{{mydetail?.noyubrothers || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.noyubrothers || "No Younger Brothers"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">No. of Elder Sisters:</td>
-                                <td class="wd1">{{mydetail?.noofsisters || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.noofsisters || "No Elder Sisters"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">No. of Younger Sisters:</td>
-                                <td class="wd1">{{mydetail?.noyusisters || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.noyusisters || "No Younger Sisters"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">No. of Married Brothers:</td>
-                                <td class="wd1">{{mydetail?.nbm || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.nbm || "No Married Brothers"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">No. of Married Sisters:</td>
-                                <td class="wd1">{{mydetail?.nsm || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.nsm || "No Married Sisters"}}</td>
                               </tr>
                             </tbody>
                           </table>
@@ -321,9 +322,9 @@
                           <form [formGroup]="editfamilydetailform" (ngSubmit)="updatefamily()" ngNativeValidate>
                             <div class="row">
                               <div class="col-md-6">
-                                <div class="form-group" formControlName="familytype" required>
+                                <div class="form-group">
                                   <label>Family Type</label>
-                                  <select class="form-control" formControlName="FamilyType">
+                                  <select class="form-control" formControlName="FamilyType" required>
                                     <option value="nuclear">Nuclear</option>
                                     <option value="joint">Joint</option>
                                     <option value="compound">Compound</option>
@@ -362,51 +363,53 @@
                                     formControlName="Mothersoccupation">
                                 </div>
                               </div>
-                              <!-- <div class="col-md-6">
+                              <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Family Origin</label>
                                   <input type="text" class="form-control" placeholder="Kanpur"
                                     formControlName="FamilyOrigin">
                                 </div>
-                              </div> -->
+                              </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No. of Elder Brothers</label>
-                                  <input type="number" class="form-control" placeholder="2"
+                                  <input type="number" class="form-control" value="0" placeholder="Elder Brother"
                                     formControlName="noofbrothers">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No. of Elder Sisters</label>
-                                  <input type="number" class="form-control" placeholder="2"
+                                  <input type="number" class="form-control" value="0" placeholder="Elder Sister"
                                     formControlName="noofsisters">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No.of Younger Brothers</label>
-                                  <input type="number" class="form-control" placeholder="2"
+                                  <input type="number" class="form-control" value="0" placeholder="Younger Brother"
                                     formControlName="noyubrothers">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No.of Younger Sisters</label>
-                                  <input type="number" class="form-control" placeholder="2"
+                                  <input type="number" class="form-control" value="0" placeholder="Younger Sister"
                                     formControlName="noyusisters">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No.of Married Brothers</label>
-                                  <input type="number" class="form-control" placeholder="2" formControlName="nbm">
+                                  <input type="number" class="form-control" value="0" placeholder="Married Brother"
+                                    formControlName="nbm">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>No.of Married Sisters</label>
-                                  <input type="number" class="form-control" placeholder="2" formControlName="nsm">
+                                  <input type="number" class="form-control" value="0" placeholder="Married Sister"
+                                    formControlName="nsm">
                                 </div>
                               </div>
                               <div class="col-md-6 d-flex">
@@ -426,7 +429,7 @@
                           <h3>Physical Status & Eating Habits</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="physicaldetail()"></i></a>
+                          <a><i class="bx bx-edit" (click)="physicaldetail()"></i></a>
                         </div>
                         <div *ngIf="togglecheckphysical" class="info-text">
                           <table class="tb-text">
@@ -457,30 +460,36 @@
                           </table>
                         </div>
                         <div *ngIf="!togglecheckphysical" class="info-text">
-                          <form>
+                          <form [formGroup]="editphysicaldetailsform" (ngSubmit)="updatephysicaldetails()">
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Height</label>
-                                  <input type="text" class="form-control" placeholder="" formControlName="height"
-                                    required>
+                                  <select class="form-control" formControlName="Height">
+                                    <option [value]="height._id" *ngFor="let height of allheights">
+                                      {{height?.feetinchvalue}} ({{height?.cmvalue}}Cms)</option>
+                                  </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Blood Group</label>
-                                  <select class="form-control" formControlName="bloodgroup" required>
-                                    <option>A+</option>
-                                    <option>A-</option>
-                                    <option>B+</option>
-                                    <option>O+</option>
+                                  <select class="form-control" formControlName="BloodGroup" required>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
                                   </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Body Type</label>
-                                  <input type="text" class="form-control" placeholder="" formControlName="bodytype"
+                                  <input type="text" class="form-control" placeholder="" formControlName="Bodytype"
                                     required>
                                 </div>
                               </div>
@@ -488,23 +497,25 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Smoke Habit</label>
-                                  <select class="form-control" formControlName="smokehabit" required>
-                                    <option>yes</option>
-                                    <option>no</option>
+                                  <select class="form-control" formControlName="Smoke" required>
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
                                   </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Special Case</label>
-                                  <input type="text" class="form-control" placeholder="" formControlName="specialcase"
+                                  <input type="text" class="form-control" placeholder="" formControlName="spe_cases"
                                     required>
                                 </div>
                               </div>
 
 
                               <div class="col-md-12">
-                                <button class="btn btn-primary btn-up">Update</button>
+                                <button class="btn btn-primary btn-up" type="submit">Update</button>
+                                <button class="btn btn-primary btn-up" type="button"
+                                  (click)="cancelphysicalform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -517,62 +528,82 @@
                           <h3>Contact Details</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="formtwo()"></i></a>
+                          <a><i class="bx bx-edit" (click)="formtwo()"></i></a>
                         </div>
                         <div *ngIf="togglechecktwo" class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
                                 <td class="wd1">Mobile No:</td>
-                                <td class="wd1">{{mydetail?.mobileno || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.Mobile || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Alternate Mobile No :</td>
-                                <td class="wd1">{{mydetail?.alternate || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.Phone || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Whatsapp No:</td>
-                                <td class="wd1">{{mydetail?.whatsapp || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.whatsapp_phone || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Email Address:</td>
-                                <td class="wd1">{{mydetail?.email || "No"}}</td>
+                                <td class="wd1">{{mydetail?.ConfirmEmail || "No"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Living Town:</td>
-                                <td class="wd1">{{mydetail?.livingtown || "not mentioned"}}</td>
+                                <td class="wd1">Home Town:</td>
+                                <td class="wd1">{{mydetail?.HomeTown || "not mentioned"}}</td>
                               </tr>
-                              <tr class="wd">
+                              <!-- <tr class="wd">
                                 <td class="wd1">Home/Native place:</td>
                                 <td class="wd1">{{mydetail?.nativeplace || "not mentioned"}}</td>
-                              </tr>
+                              </tr> -->
 
                             </tbody>
                           </table>
                         </div>
                         <div *ngIf="!togglechecktwo" class="info-text">
-                          <form>
+                          <form [formGroup]="editcontactform" (ngSubmit)="updatecontactdetails()">
                             <div class="row">
-                              <div class="col-md-12">
+                              <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Descriptions</label>
-                                  <textarea id="w3review" name="w3review" rows="5" cols="100">
-
-                                    </textarea>
+                                  <label>Mobile No.</label>
+                                  <input type="number" class="form-control" placeholder="Mobile"
+                                    formControlName="Mobile" required>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Gender</label>
-                                  <select class="form-control">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                  </select>
+                                  <label>Alternate Mobile No.</label>
+                                  <input type="number" class="form-control" placeholder="Alternate Mobile"
+                                    formControlName="Phone">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Whatsapp No.</label>
+                                  <input type="number" class="form-control" placeholder="Whatsapp Number"
+                                    formControlName="whatsapp_phone">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Email Address:</label>
+                                  <input type="email" class="form-control" placeholder="Email"
+                                    formControlName="ConfirmEmail" required>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Home Town:</label>
+                                  <input type="text" class="form-control" placeholder="HomeTown"
+                                    formControlName="HomeTown">
                                 </div>
                               </div>
 
                               <div class="col-md-12">
-                                <button class="btn btn-primary btn-up">Update</button>
+                                <button type="submit" class="btn btn-primary btn-up">Update</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelcontactform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -585,7 +616,7 @@
                           <h3>Education and Occupation</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="formoccupation()"></i></a>
+                          <a><i class="bx bx-edit" (click)="formoccupation()"></i></a>
                         </div>
                         <div *ngIf="togglecheckoccupation" class="info-text">
                           <table class="tb-text">
@@ -596,11 +627,7 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Education Details:</td>
-                                <td class="wd1">{{mydetail?.Education?.name}} </td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Employee In:</td>
-                                <td class="wd1">{{mydetail?.Employedin?.name || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.EducationDetails || "not mentioned"}} </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Occupation:</td>
@@ -608,9 +635,12 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Occupation Detail:</td>
-                                <td class="wd1">{{mydetail?.Occupation?.name || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.OccupationDetail || "not mentioned"}}</td>
                               </tr>
-
+                              <tr class="wd">
+                                <td class="wd1">Employee In:</td>
+                                <td class="wd1">{{mydetail?.Employedin?.name || "not mentioned"}}</td>
+                              </tr>
                               <tr class="wd">
                                 <td class="wd1">Annual Income:</td>
                                 <td class="wd1">{{mydetail?.Annualincome || "0"}}</td>
@@ -619,60 +649,60 @@
                           </table>
                         </div>
                         <div *ngIf="!togglecheckoccupation" class="info-text">
-                          <form>
+                          <form [formGroup]="eduoccueditform" (ngSubmit)="updateeduoccu()">
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Education</label>
-                                  <select class="form-control">
-                                    <option>High School</option>
-                                    <option>Higher secondery</option>
-                                    <option>Bachelor</option>
+                                  <select class="form-control" formControlName="Education">
+                                    <option [value]="education._id" *ngFor="let education of alleducation">
+                                      {{education?.name}}</option>
                                   </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Education Details</label>
-                                  <select class="form-control">
-                                    <option>lorem</option>
-                                    <option>lorem</option>
-                                  </select>
+                                  <input type="text" class="form-control" placeholder="Education Details"
+                                    formControlName="EducationDetails">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Occupation</label>
-                                  <input type="text" class="form-control" placeholder="Occupation">
+                                  <select class="form-control" formControlName="Occupation">
+                                    <option [value]="occupation._id" *ngFor="let occupation of alloccupation">
+                                      {{occupation?.name}}</option>
+                                  </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Occupation Detail</label>
-                                  <input type="date" class="form-control" placeholder="Occupation Detail">
+                                  <input type="text" class="form-control" placeholder="Occupation Details"
+                                    formControlName="OccupationDetail">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Employee In</label>
-                                  <select class="form-control">
-                                    <option>Gov.</option>
-                                    <option>Private</option>
-                                    <option>Not</option>
+                                  <select class="form-control" formControlName="Employedin">
+                                    <option [value]="employedin._id" *ngFor="let employedin of allemployedin">
+                                      {{employedin?.name}}</option>
                                   </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Annual Income</label>
-                                  <select name="" id="" class="form-control">
-                                    <option>1,00,000</option>
-                                    <option>2,00,000</option>
-                                  </select>
+                                  <input type="text" class="form-control" placeholder="Annual Income"
+                                    formControlName="Annualincome">
                                 </div>
                               </div>
                               <div class="col-md-6">
-                                <button class="btn btn-primary btn-up">Update</button>
+                                <button type="submit" class="btn btn-primary btn-up">Update</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="canceleduoccuform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -685,34 +715,25 @@
                           <h3>About</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="formtwo()"></i></a>
+                          <a><i class="bx bx-edit" (click)="formabout()"></i></a>
                         </div>
-                        <div *ngIf="togglechecktwo" class="info-text st-about">
+                        <div *ngIf="toggleabout" class="info-text st-about">
                           {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
                         </div>
-                        <div *ngIf="!togglechecktwo" class="info-text">
-                          <form>
+                        <div *ngIf="!toggleabout" class="info-text">
+                          <form [formGroup]="aboutform" (ngSubmit)="updateabout()">
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="form-group">
                                   <label>Descriptions</label>
-                                  <textarea id="w3review" name="w3review" rows="5" cols="100">
-
+                                  <textarea id="w3review" formControlName="Profile" name="w3review" rows="5" cols="100">
                                     </textarea>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Gender</label>
-                                  <select class="form-control">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                  </select>
-                                </div>
-                              </div>
-
                               <div class="col-md-12">
-                                <button class="btn btn-primary btn-up">Update</button>
+                                <button type="submit" class="btn btn-primary btn-up">Update</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelaboutform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -726,75 +747,65 @@
                           <h3>Assets & Properties</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="properties()"></i></a>
+                          <a><i class="bx bx-edit" (click)="properties()"></i></a>
                         </div>
                         <div *ngIf="togglecheckproperties" class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
                                 <td class="wd1">Own Aggriculture Land:</td>
-                                <td class="wd1">{{mydetail?.Own || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.own_agriland || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Own Commercial Land:</td>
-                                <td class="wd1">{{mydetail?.commercial|| "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.own_commland|| "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">House:</td>
-                                <td class="wd1">{{mydetail?.house || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.own_house || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Own Car:</td>
-                                <td class="wd1">{{mydetail?.Car || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.own_car || "not mentioned"}}</td>
                               </tr>
-                              <!-- <tr class="wd">
-                                <td class="wd1">Language:</td>
-                                <td class="wd1">{{mydetail?.Language?.name || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Star:</td>
-                                <td class="wd1">{{mydetail?.Star?.name || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Moonsign:</td>
-                                <td class="wd1">{{mydetail?.Moonsign?.name || "not mentioned"}}</td>
-                              </tr>
-                              <tr class="wd">
-                                <td class="wd1">Horoscope Match:</td>
-                                <td class="wd1">{{mydetail?.Horosmatch || "not mentioned"}}</td>
-                              </tr> -->
                             </tbody>
                           </table>
                         </div>
                         <div *ngIf="!togglecheckproperties" class="info-text">
-                          <form>
+                          <form [formGroup]="assetform" (ngSubmit)="updateasset()">
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Own Aggriculture Land</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <input type="text" class="form-control" placeholder="4 Acre"
+                                    formControlName="own_agriland">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Own Commercial Land</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <input type="text" class="form-control" placeholder="20X30 sqFt Plot"
+                                    formControlName="own_commland">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>House</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <input type="text" class="form-control" placeholder="4-Bhk House"
+                                    formControlName="own_house">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Own Car</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <input type="text" class="form-control" placeholder="Swift Desire"
+                                    formControlName="own_car">
                                 </div>
                               </div>
                               <div class="col-md-12">
-                                <button class="btn btn-primary btn-up">Submit</button>
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelassetform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -807,7 +818,7 @@
                           <h3>Horoscope details </h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="horoscope()"></i></a>
+                          <a><i class="bx bx-edit" (click)="horoscope()"></i></a>
                         </div>
                         <div *ngIf="togglecheckhoroscope" class="info-text">
                           <table class="tb-text">
@@ -818,15 +829,15 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Birth Time:</td>
-                                <td class="wd1">{{mydetail?.birthtime || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.TOB || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Birth place:</td>
-                                <td class="wd1">{{mydetail?.birthplace || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.POB || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Sun sign (shurya Rashi):</td>
-                                <td class="wd1">{{mydetail?.sun || "not mentioned"}}</td>
+                                <td class="wd1">Sun sign (Rashi):</td>
+                                <td class="wd1">{{mydetail?.Star?.name || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Moonsign:</td>
@@ -840,46 +851,61 @@
                           </table>
                         </div>
                         <div *ngIf=" !togglecheckhoroscope" class="info-text">
-                          <form>
+                          <form [formGroup]="horosform" (ngSubmit)="updatehoros()">
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Manglik</label>
-                                  <input type="text" class="form-control" placeholder=" ">
+                                  <select class="form-control" formControlName="Manglik">
+                                    <option value="not_manglik" selected>Not Manglik</option>
+                                    <option value="manglik">Manglik</option>
+                                    <option value="ardh_manglik">Ardh Manglik</option>
+                                  </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Birth Time</label>
-                                  <input type="time" class="form-control" placeholder="">
+                                  <input type="time" placeholder="Time of Birth" formControlName="TOB"
+                                    class="form-control">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Birth place</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <input type="text" placeholder="Hatod district Kanpur" formControlName="POB"
+                                    class="form-control">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Sun sign (shurya Rashi)</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <label>Star sign (Rashi)</label>
+                                  <select class="form-control" formControlName="Star">
+                                    <option [value]="starsign?._id" *ngFor="let starsign of allstarsign">
+                                      {{starsign?.name}}</option>
+                                  </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Moonsign</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <select class="form-control" formControlName="Moonsign">
+                                    <option [value]="moonstarsign?._id" *ngFor="let moonstarsign of allmoonstarsign">
+                                      {{moonstarsign?.name}}</option>
+                                  </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Horoscope Match</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <input type="text" class="form-control" placeholder="Capricorn"
+                                    formControlName="Horosmatch">
                                 </div>
                               </div>
                               <div class="col-md-12">
-                                <button class="btn btn-primary btn-up">Update</button>
+                                <button type="submit" class="btn btn-primary btn-up">Update</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelhoros()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -892,48 +918,29 @@
                           <h3>Hobbies and Details </h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void();"><i class="bx bx-edit" (click)="partnerexp()"></i></a>
+                          <a><i class="bx bx-edit" (click)="hobnother()"></i></a>
                         </div>
-                        <div *ngIf="togglecheckpartner" class="info-text">
+                        <div *ngIf="togglecheckhob" class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
                               <tr class="wd">
-                                <td class="wd1">Singing:</td>
-                                <td class="wd1">{{mydetail?.song || "not mentioned"}}</td>
+                                <td class="wd1">Hobbies:</td>
+                                <td class="wd1">{{mydetail?.Hobbies || "not mentioned"}}</td>
                               </tr>
-                              <!-- <tr class="wd">
-                                  <td class="wd1">Birth Time:</td>
-                                  <td class="wd1">{{mydetail?.birthtime || "not mentioned"}}</td>
-                                </tr>
-                                <tr class="wd">
-                                  <td class="wd1">Birth place:</td>
-                                  <td class="wd1">{{mydetail?.birthplace || "not mentioned"}}</td>
-                                </tr>
-                                <tr class="wd">
-                                  <td class="wd1">Sun sign (shurya Rashi):</td>
-                                  <td class="wd1">{{mydetail?.sun || "not mentioned"}}</td>
-                                </tr>
-                                <tr class="wd">
-                                  <td class="wd1">Moonsign:</td>
-                                  <td class="wd1">{{mydetail?.Moonsign?.name || "not mentioned"}}</td>
-                                </tr>
-                                <tr class="wd">
-                                  <td class="wd1">Horoscope Match:</td>
-                                  <td class="wd1">{{mydetail?.Horosmatch || "not mentioned"}}</td>
-                                </tr>  -->
                             </tbody>
                           </table>
                         </div>
-                        <div *ngIf="!togglecheckpartner" class="info-text">
-                          <form>
+                        <div *ngIf="!togglecheckhob" class="info-text">
+                          <form [formGroup]="hobbynotherform" (ngSubmit)="updatehobbynother()">
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Hobby1</label>
-                                  <input type="text" class="form-control" placeholder="">
+                                  <label>Hobby</label>
+                                  <input type="text" class="form-control" placeholder="Dancing,Singing"
+                                    formControlName="Hobbies">
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <!-- <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Hobby12</label>
                                   <input type="text" class="form-control" placeholder="">
@@ -950,9 +957,11 @@
                                   <label>Hobby4</label>
                                   <input type="text" class="form-control" placeholder="">
                                 </div>
-                              </div>
+                              </div> -->
                               <div class="col-md-12">
-                                <button class="btn btn-primary btn-up">Submit</button>
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (Click)="cancelhobotherform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -964,94 +973,252 @@
                         <div class="heading-title">
                           <h3>Desired Partner Details</h3>
                         </div>
-                        <div class="info-text">
-                          <form>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="partnerexp()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckpartner" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">PartnerExpectations:</td>
+                                <td class="wd1">{{mydetail?.PartnerExpectations || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Age Range:</td>
+                                <td class="wd1">{{mydetail?.PE_FromAge}}-{{mydetail?.PE_ToAge}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Height Range:</td>
+                                <td class="wd1">
+                                  {{mydetail?.PE_Height?.feetinchvalue}}-{{mydetail?.PE_Heightto?.feetinchvalue}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Children:</td>
+                                <td class="wd1">{{mydetail?.PE_HaveChildren || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Complexion:</td>
+                                <td class="wd1">{{mydetail?.PE_Complexion || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Mother Tongue:</td>
+                                <td class="wd1">{{mydetail?.PE_MotherTongue?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Religion:</td>
+                                <td class="wd1">
+                                  {{mydetail?.PE_Religion?.name || "No Elder Brothers"}}</td>
+
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_Caste:</td>
+                                <td class="wd1">{{mydetail?.PE_Caste?.name || "No Younger Brothers"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_Education:</td>
+                                <td class="wd1">{{mydetail?.PE_Education?.name || "No Elder Sisters"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_Countrylivingin:</td>
+                                <td class="wd1">{{mydetail?.PE_Countrylivingin?.name || "No Younger Sisters"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_Residentstatus:</td>
+                                <td class="wd1">{{mydetail?.PE_Residentstatus?.name || "No Married Brothers"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_occupation:</td>
+                                <td class="wd1">{{mydetail?.PE_occupation?.name || "No Married Sisters"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_manglik:</td>
+                                <td class="wd1">{{mydetail?.PE_manglik || "No Married Sisters"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_looking_for:</td>
+                                <td class="wd1">{{mydetail?.PE_looking_for?.name || "No Married Sisters"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckpartner" class="info-text">
+                          <form [formGroup]="partnerexpform" (ngSubmit)="updatepartnerexp()">
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <label>Age</label>
-                                  <input type="text" class="form-control" placeholder="Example 24 to 30 ">
+                                  <label>Partner Expectation</label>
+                                  <input type="text" class="form-control" placeholder="My partner should be Loyal..."
+                                    formControlName="PartnerExpectations">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Height</label>
-                                  <input type="text" class="form-control" placeholder="Example 5'4 to 5'8 ">
+                                  <label>Minimum Age</label>
+                                  <input type="number" class="form-control" placeholder="25"
+                                    formControlName="PE_FromAge">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Maximum Age</label>
+                                  <input type="number" class="form-control" placeholder="50" formControlName="PE_ToAge">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" style="width:100%">
+                                  <mat-label>Minimum Height</mat-label>
+                                  <mat-select formControlName="PE_Height">
+                                    <mat-option *ngFor="let height of allheights" [value]="height.cmvalue">
+                                      {{height.feetinchvalue}}
+                                      Feet
+                                      {{height.cmvalue}} Cm</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+
+
+
+
+                                <!-- <div class="form-group">
+                                  <label>Minimum Height</label>
+                                  <select class="form-control" formControlName="PE_Height">
+                                    <option [value]="height?._id" *ngFor="let height of allheights">
+                                      {{height?.feetinchvalue}} ({{height?.cmvalue}}Cms)</option>
+                                  </select>
+                                </div> -->
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" style="width:100%">
+                                  <mat-label>Maximum Height</mat-label>
+                                  <mat-select formControlName="PE_Heightto">
+                                    <mat-option *ngFor="let height of allheights" [value]="height.cmvalue">
+                                      {{height.feetinchvalue}}
+                                      Feet
+                                      {{height.cmvalue}} Cm</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                                <!-- <div class="form-group">
+                                  <label>Maximum Height</label>
+                                  <select class="form-control" formControlName="PE_Heightto">
+                                    <option [value]="height._id" *ngFor="let height of allheights">
+                                      {{height?.feetinchvalue}} ({{height?.cmvalue}}Cms)</option>
+                                  </select>
+                                </div> -->
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Should Have Children</label>
+                                  <select class="form-control" formControlName="PE_HaveChildren">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">no</option>
+                                    <option value="doesn't_matter">doesn't matter</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Complexion</label>
+                                  <select class="form-control" formControlName="PE_Complexion">
+                                    <option value="very_fair">Very Fair</option>
+                                    <option value="fair">Fair</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="olive">Olive</option>
+                                    <option value="brown">Brown</option>
+                                    <option value="dark">Dark</option>
+                                  </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field appearance="outline" class="slt" style="width:100%">
-                                  <mat-label>Education</mat-label>
-                                  <mat-select [formControl]="educationslt" multiple>
-                                    <mat-option *ngFor="let educationslt of educationsltList" [value]="educationslt">
-                                      {{educationslt}}</mat-option>
+                                  <mat-label>Mother Tongue</mat-label>
+                                  <mat-select formControlName="PE_MotherTongue" multiple>
+                                    <mat-option *ngFor="let language of alllanguage" [value]="language._id">
+                                      {{language?.name}}</mat-option>
                                   </mat-select>
                                 </mat-form-field>
-
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Home Town</label>
-                                  <input type="text" class="form-control" placeholder="Example : Sagar">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Living Town</label>
-                                  <input type="text" class="form-control" placeholder="Example : Indore">
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Occupation</label>
-                                  <input type="text" class="form-control" placeholder="Occupation">
-                                </div>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field appearance="outline" class="slt" style="width:100%">
                                   <mat-label>Religion</mat-label>
-                                  <mat-select [formControl]="religionslt" multiple>
-                                    <mat-option *ngFor="let religionslt of religionsltList" [value]="religionslt">
-                                      {{religionslt}}</mat-option>
+                                  <mat-select formControlName="PE_Religion" multiple>
+                                    <mat-option *ngFor="let religion of allreligion" [value]="religion._id">
+                                      {{religion?.name}}</mat-option>
                                   </mat-select>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field appearance="outline" class="slt" style="width:100%">
-                                  <mat-label>Cast</mat-label>
-                                  <mat-select [formControl]="castslt" multiple>
-                                    <mat-option *ngFor="let castslt of castsltList" [value]="castslt">{{castslt}}
+                                  <mat-label>Caste</mat-label>
+                                  <mat-select formControlName="PE_Caste" multiple>
+                                    <mat-option *ngFor="let caste of allcaste" [value]="caste._id">{{caste?.name}}
                                     </mat-option>
                                   </mat-select>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Manglik</label>
-                                  <input type="text" class="form-control" placeholder="Manglik">
-                                </div>
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Education</mat-label>
+                                  <mat-select formControlName="PE_Education" multiple>
+                                    <mat-option *ngFor="let education of alleducation" [value]="education._id">
+                                      {{education?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Living Country</mat-label>
+                                  <mat-select formControlName="PE_Countrylivingin" multiple>
+                                    <mat-option *ngFor="let country of allcountry" [value]="country._id">
+                                      {{country?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
                               </div>
                               <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Marital Status</label>
-                                  <select class="form-control">
-                                    <option>Yes</option>
-                                    <option>no</option>
-                                  </select>
-                                </div>
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Residential Country</mat-label>
+                                  <mat-select formControlName="PE_Residentstatus" multiple>
+                                    <mat-option *ngFor="let country of allcountry" [value]="country._id">
+                                      {{country?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
                               </div>
                               <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Annual Income</label>
-                                  <select class="form-control">
-                                    <option>1,20,000 to 2,50,000</option>
-                                    <option>3,20,000 to 4,50,000</option>
-                                  </select>
-                                </div>
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Occupation</mat-label>
+                                  <mat-select formControlName="PE_occupation" multiple>
+                                    <mat-option *ngFor="let occupation of alloccupation" [value]="occupation._id">
+                                      {{occupation?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Manglik Status</mat-label>
+                                  <mat-select formControlName="PE_manglik" multiple>
+                                    <mat-option value="not_manglik">
+                                      Not Manglik</mat-option>
+                                    <mat-option value="manglik">Manglik</mat-option>
+                                    <mat-option value="ardh_manglik">
+                                      Ardh Manglik</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Looking For</mat-label>
+                                  <mat-select formControlName="PE_looking_for" multiple>
+                                    <mat-option *ngFor="let maritalstatus of allmaritalstatus"
+                                      [value]="maritalstatus._id">
+                                      {{maritalstatus?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
                               </div>
 
                               <div class="col-md-12">
-                                <button class="btn btn-primary btn-up">Submit</button>
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up">Cancel</button>
                               </div>
                             </div>
                           </form>

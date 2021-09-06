@@ -279,4 +279,18 @@ export class UserService {
     });
   }
 
+  finduser(data) {
+    return this.http.post(`${this.backendurl}/user/finduser`, data);
+  }
+
+  resetpassword(data) {
+    return this.http.post(`${this.backendurl}/user/resetpassword`, data);
+  }
+
+  getmyip() {
+    // https://ipinfo.io/json
+    return this.http.get(
+      `https://api.ipfind.com/me?auth=b4de4aba-d000-46f8-9ba0-2196c9b25ba6`
+    );
+  }
 }

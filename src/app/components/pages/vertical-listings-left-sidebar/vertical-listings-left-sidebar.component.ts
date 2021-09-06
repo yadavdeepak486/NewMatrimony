@@ -22,6 +22,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   allcaste: any;
   allheights: any;
   alllanguage: any;
+  minheights: any
 
   filteruserform = new FormGroup({
     minage: new FormControl(''),
@@ -56,7 +57,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     public adminService: AdminService,
     private router: Router,
     public toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.resetOption = [this.options[0]];
@@ -66,7 +67,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     this.getallcaste();
     this.allcountrys();
     // this.allstate();
-    this.allcity();
+    //this.allcity();
     this.getallstate();
     this.getallcity();
     this.getallheights();
@@ -471,6 +472,16 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     );
   }
 
+  slicingdata(e) {
+    const idx = this.allheights.findIndex(val => val.cmvalue === e)
+    console.log(e)
+    console.log(idx)
+    this.minheights = this.allheights
+    this.minheights.splice(0, idx)
+    // const tempheights = this.allheights.splice(0, idx)
+    console.log(this.minheights)
+  }
+
   getalllanguage() {
     this.adminService.getalllanguage().subscribe(
       (response: any) => {
@@ -552,10 +563,9 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        if(error.error.msg == "Already Exists"){
+        if (error.error.msg == 'Already Exists') {
           this.router.navigate(['user-dashboard/user-chat']);
         }
-
       }
     );
   }

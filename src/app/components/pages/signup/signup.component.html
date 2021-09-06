@@ -183,10 +183,7 @@
                     <mat-form-field appearance="outline" class="mb-w">
                       <mat-label>Enter your password</mat-label>
                       <input matInput [type]="hide ? 'password' : 'text'" formControlName="ConfirmPassword" required>
-                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                      </button>
+                      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </mat-form-field>
                   </div>
                 </div>
@@ -214,18 +211,24 @@
                 {{mobilenumber}} </span></h4>
             <form [formGroup]="verifyotpform" (ngSubmit)="verifyotp()" ngNativeValidate>
               <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
-                <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded" type="text"
-                  id="input1" formControlName="input1" v-on:keyup="inputenter(1)" maxlength="1" required />
-                <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  v-on:keyup="inputenter(2)" type="text" id="input2" formControlName="input2" maxlength="1" required />
-                <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  v-on:keyup="inputenter(3)" type="text" id="input3" formControlName="input3" maxlength="1" required />
-                <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  v-on:keyup="inputenter(4)" type="text" id="input4" formControlName="input4" maxlength="1" required />
-                <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  v-on:keyup="inputenter(5)" type="text" id="input5" formControlName="input5" maxlength="1" required />
-                <input style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  v-on:keyup="inputenter(6)" type="text" id="input6" formControlName="input6" maxlength="1" required />
+                <input #digitone style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                  type="text" id="input1" formControlName="input1" (keyup)="onDigitInput($event)" maxlength="1"
+                  required />
+                <input #digittwo style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                  (keyup)="onDigitInput($event)" type="text" id="input2" formControlName="input2" maxlength="1"
+                  required />
+                <input #digitthree style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                  (keyup)="onDigitInput($event)" type="text" id="input3" formControlName="input3" maxlength="1"
+                  required />
+                <input #digitfour style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                  (keyup)="onDigitInput($event)" type="text" id="input4" formControlName="input4" maxlength="1"
+                  required />
+                <input #digitfive style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                  (keyup)="onDigitInput($event)" type="text" id="input5" formControlName="input5" maxlength="1"
+                  required />
+                <input #digitsix style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                  (keyup)="onDigitInput($event)" type="text" id="input6" formControlName="input6" maxlength="1"
+                  required />
               </div>
               <div class="btn-rv">
                 <button type="button" class="btn-ft-set" (click)="resendotp()">Resend OTP</button>
@@ -239,10 +242,11 @@
               <a href="javascript:void(0);" (click)="changenumber()">Change Mobile Number</a>
             </h3>
             <div *ngIf="!togglembcheck" class="add-number">
-              <form>
+              <form [formGroup]="changenumberform" (ngSubmit)="submitchangenumber()" ngNativeValidate>
                 <div class="form-group">
-                  <label>add new number</label>
-                  <input type="text" class="form-control" placeholder="add new Number">
+                  <label>Add New Number</label>
+                  <input type="number" class="form-control" placeholder="Add New Number" formControlName="Mobile"
+                    min="1000000000" max="9999999999">
                 </div>
                 <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Submit</a></span></button>
               </form>

@@ -54,7 +54,7 @@
                   {{staff?.role.name}}
                 </td>
                 <td class="option">
-                  <a class="st-i"><i class=' bx bx-pencil' (click)="editstaffchk()"></i> </a>
+                  <a class="st-i"><i class=' bx bx-pencil' (click)="editstaff(staff._id)"></i> </a>
                   <a class="st-i2"><i class=' bx bx-minus' (click)="deletestaff(staff._id)"></i></a>
                 </td>
               </tr>
@@ -63,16 +63,17 @@
           </table>
         </div>
       </div>
-    </div> 
+    </div>
 
     <!-- add staff -->
 
     <!-- close -->
     <!-- edit Staff -->
+    <div *ngIf="!toggleeditstaff" class="row">
       <div class="col-lg-8 offset-lg-2">
-        <div *ngIf ="!toggleeditstaff" class="card">
-          <h3>Edit Staff Information</h3>
-          <form  class="bd-n" >
+        <div class="card">
+          <h3>Edit Information</h3>
+          <form [formGroup]="editstaffform" (ngSubmit)="updatestaffForm()" class="bd-n" ngNativeValidate>
             <div class="row">
               <div class="form-group fg-w">
                 <div class="col-lg-4">
@@ -80,7 +81,8 @@
                 </div>
                 <div class="col-lg-8">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="First Name" formControlName="firstname" required>
+                    <input type="text" class="form-control" placeholder="First Name" formControlName="firstname"
+                      required>
                   </div>
                 </div>
               </div>
@@ -94,7 +96,7 @@
                   </div>
                 </div>
               </div>
-  
+
               <div class="form-group fg-w">
                 <div class="col-lg-4">
                   <label>Email <span style="color: red;">*</span>
@@ -102,17 +104,17 @@
                 </div>
                 <div class="col-lg-8">
                   <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email" formControlName="email" required>
+                    <input type="email" class="form-control" placeholder="Email" formControlName="Email" required>
                   </div>
                 </div>
               </div>
               <div class="form-group fg-w">
                 <div class="col-lg-4">
-                  <label>Phone <span style="color: red;">*</span></label>
+                  <label>Mobile <span style="color: red;">*</span></label>
                 </div>
                 <div class="col-lg-8">
                   <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Phone" formControlName="phone" required>
+                    <input type="number" class="form-control" placeholder="Mobile" formControlName="Mobile" required>
                   </div>
                 </div>
               </div>
@@ -138,14 +140,14 @@
                   </select>
                 </div>
               </div>
-              <div class="form-group fg-w">
+              <!-- <div class="form-group fg-w">
                 <div class="col-lg-4">
                   <label>Image <span style="color: red;">*</span></label>
                 </div>
                 <div class="col-lg-8">
                   <input type="file" class="form-control" placeholder="" formControlName="">
                 </div>
-              </div>
+              </div> -->
               <div class="form-group fg-w">
                 <button type="submit" class="btn btn-primary ml-3 mt-2">Update</button>
               </div>
@@ -153,8 +155,8 @@
           </form>
         </div>
       </div>
+    </div>
     <!-- close -->
-
   </div>
   <!-- End -->
 

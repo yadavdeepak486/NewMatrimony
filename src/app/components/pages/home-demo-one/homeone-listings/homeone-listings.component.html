@@ -13,11 +13,15 @@
             <div class="listings-image">
               <div class="listings-image-slides">
                 <owl-carousel-o [options]="customOptions2">
-                  <ng-template carouselSlide *ngFor="let Image of mainImg;">
+                  <ng-template carouselSlide><img [src]="Content.img1" alt=""></ng-template>
+                  <ng-template carouselSlide><img [src]="Content.img2" alt=""></ng-template>
+                  <ng-template carouselSlide><img [src]="Content.img3" alt=""></ng-template>
+
+                  <!-- <ng-template carouselSlide *ngFor="let Image of mainImg;">
                     <div class="single-image">
                       <img [src]="Image" alt="image">
                     </div>
-                  </ng-template>
+                  </ng-template> -->
                 </owl-carousel-o>
               </div>
               <!-- <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a>

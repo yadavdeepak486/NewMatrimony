@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 
@@ -9,7 +10,18 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class AllStaffComponent implements OnInit {
   allstaff: any;
-  toggleeditstaff: boolean=true;
+  allrole: any;
+  toggleeditstaff: boolean = true;
+
+  editstaffform = new FormGroup({
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
+    Email: new FormControl(''),
+    Mobile: new FormControl(''),
+    password: new FormControl(''),
+    role: new FormControl(''),
+  });
+
   constructor(
     public adminService: AdminService,
     private toastr: ToastrService
@@ -17,6 +29,7 @@ export class AllStaffComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallstaff();
+    this.getallrole();
   }
   breadcrumb = [
     {
@@ -55,12 +68,45 @@ export class AllStaffComponent implements OnInit {
     );
   }
 
-  editstaffchk() {
+  editstaff(id) {
     console.log('button clicked');
+    console.log(id);
     if (this.toggleeditstaff == false) {
       this.toggleeditstaff = true;
     } else {
       this.toggleeditstaff = false;
     }
+
+    this.adminService.getonestaff(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.editstaffform.setValue({
+          firstname: response.data.firstname ? response.data.firstname : null,
+          lastname: response.data.lastname ? response.data.lastname : null,
+          Email: response.data.Email ? response.data.Email : null,
+          Mobile: response.data.Mobile ? response.data.Mobile : null,
+          password: response.data.password ? response.data.password : null,
+          role: response.data.role._id ? response.data.role._id : null,
+        });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  updatestaffForm() {
+    console.log(this.editstaffform.value);
+  }
+
+  getallrole() {
+    this.adminService.getallrole().subscribe(
+      (response: any) => {
+        this.allrole = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

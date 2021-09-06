@@ -5,6 +5,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
+  FormArray,
 } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 import { ToastrService } from 'ngx-toastr';
@@ -21,13 +22,16 @@ export class UserProfileOneComponent implements OnInit {
   togglecheckoccupation: boolean = true;
   togglecheckreligous: boolean = true;
   togglecheckfamily: boolean = true;
+  toggleabout: boolean = true;
   togglecheckpartner: boolean = true;
   togglecheckphysical: boolean = true;
   togglecheckproperties: boolean = true;
   togglecheckhoroscope: boolean = true;
+  togglecheckhob: boolean = true;
   dumPhoto = 'assets/img/me.jpg';
   Photodummen = 'assets/img/me.jpg';
   Photodumwomen = 'assets/img/wo.jpg';
+
   //drop downs
   allprofilefor: any;
   allmaritalstatus: any;
@@ -45,6 +49,9 @@ export class UserProfileOneComponent implements OnInit {
   alllanguage: any;
   allfamilyvalues: any;
   allfamilystatus: any;
+  allstarsign: any;
+  allmoonstarsign: any;
+
   educationslt = new FormControl();
   imageupload1: FormGroup;
   imageupload2: FormGroup;
@@ -85,7 +92,7 @@ export class UserProfileOneComponent implements OnInit {
     MSubcaste: new FormControl(''),
     NoOfChild: new FormControl(''),
     childrenlivingstatus: new FormControl(''),
-    TOB: new FormControl(''),
+    TOB: new FormControl('')
   });
 
   editfamilydetailform = new FormGroup({
@@ -100,7 +107,77 @@ export class UserProfileOneComponent implements OnInit {
     noyubrothers: new FormControl(''),
     noyusisters: new FormControl(''),
     nbm: new FormControl(''),
-    nsm: new FormControl(''),
+    nsm: new FormControl('')
+  });
+
+
+  editphysicaldetailsform = new FormGroup({
+    Height: new FormControl(''),
+    BloodGroup: new FormControl(''),
+    Bodytype: new FormControl(''),
+    Smoke: new FormControl(''),
+    spe_cases: new FormControl(''),
+  });
+
+
+  editcontactform = new FormGroup({
+    Mobile: new FormControl(''),
+    Phone: new FormControl(''),
+    whatsapp_phone: new FormControl(''),
+    ConfirmEmail: new FormControl(''),
+    HomeTown: new FormControl(''),
+  });
+
+  eduoccueditform = new FormGroup({
+    Education: new FormControl(''),
+    EducationDetails: new FormControl(''),
+    Occupation: new FormControl(''),
+    OccupationDetail: new FormControl(''),
+    Employedin: new FormControl(''),
+    Annualincome: new FormControl(''),
+  });
+
+  aboutform = new FormGroup({
+    Profile: new FormControl(''),
+  });
+
+  assetform = new FormGroup({
+    own_agriland: new FormControl(''),
+    own_commland: new FormControl(''),
+    own_house: new FormControl(''),
+    own_car: new FormControl(''),
+  });
+
+  horosform = new FormGroup({
+    Manglik: new FormControl(''),
+    TOB: new FormControl(''),
+    POB: new FormControl(''),
+    Star: new FormControl(''),
+    Moonsign: new FormControl(''),
+    Horosmatch: new FormControl(''),
+  });
+
+  hobbynotherform = new FormGroup({
+    Hobbies: new FormControl(''),
+  });
+
+  partnerexpform = new FormGroup({
+    PartnerExpectations: new FormControl(''),
+    PE_FromAge: new FormControl(''),
+    PE_ToAge: new FormControl(''),
+    PE_Height: new FormControl(''),
+    PE_Heightto: new FormControl(''),
+    PE_HaveChildren: new FormControl(''),
+    PE_Complexion: new FormControl(''),
+    PE_MotherTongue: new FormControl(''),
+    PE_Religion: new FormControl(''),
+    PE_Caste: new FormControl(''),
+    PE_Education: new FormControl(''),
+    PE_Countrylivingin: new FormControl(''),
+    PE_Residentstatus: new FormControl(''),
+    PE_occupation: new FormControl(''),
+    PE_manglik: new FormControl(''),
+    PE_looking_for: new FormControl('')
   });
 
   constructor(
@@ -109,18 +186,15 @@ export class UserProfileOneComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     public routes: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getmydetails();
     this.getallprofilefor();
     this.getallreligion();
     this.getmaritalstatus();
-    this.getallheights();
-    this.alleducations();
     this.getalllanguage();
-    this.allemployedins();
-    this.alloccupations();
+    this.getallheights()
     this.allcountrys();
     this.familyvalues();
     this.familystatus();
@@ -259,7 +333,7 @@ export class UserProfileOneComponent implements OnInit {
     this.readyupload3 = false;
   }
 
-  //all drop downs
+  //drop downs
   getallprofilefor() {
     this.userService.getprofilefordd().subscribe(
       (response: any) => {
@@ -312,7 +386,7 @@ export class UserProfileOneComponent implements OnInit {
     this.adminService.getallheight().subscribe(
       (response: any) => {
         this.allheights = response.data;
-        // console.log(response);
+        console.log(response);
       },
       (error) => {
         console.log(error);
@@ -469,6 +543,31 @@ export class UserProfileOneComponent implements OnInit {
     );
   }
 
+  allstar() {
+    this.adminService.allstar().subscribe(
+      (response: any) => {
+        this.allstarsign = response.data;
+        //console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  allmoonstar() {
+    this.adminService.allmoonsign().subscribe(
+      (response: any) => {
+        this.allmoonstarsign = response.data;
+        //console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+
   cancelbasicform() {
     this.togglecheck = true;
   }
@@ -506,6 +605,7 @@ export class UserProfileOneComponent implements OnInit {
         TOB: this.mydetail.TOB ? this.mydetail.TOB : null,
       });
       console.log(this.editbasicinformation.value);
+      console.log(this.editbasicinformation.value.DOB);
     }
   }
 
@@ -534,6 +634,31 @@ export class UserProfileOneComponent implements OnInit {
     } else {
       this.togglechecktwo = false;
     }
+    if (this.mydetail !== undefined) {
+      this.editcontactform.setValue({
+        Mobile: this.mydetail.Mobile ? this.mydetail.Mobile : null,
+        Phone: this.mydetail.Phone ? this.mydetail.Phone : null,
+        whatsapp_phone: this.mydetail.whatsapp_phone ? this.mydetail.whatsapp_phone : null,
+        ConfirmEmail: this.mydetail.ConfirmEmail ? this.mydetail.ConfirmEmail : null,
+        HomeTown: this.mydetail.HomeTown ? this.mydetail.HomeTown : null,
+      });
+      console.log(this.editcontactform.value);
+    }
+  }
+
+  formabout() {
+    console.log('button clicked');
+    if (this.toggleabout == false) {
+      this.toggleabout = true;
+    } else {
+      this.toggleabout = false;
+    }
+    if (this.mydetail !== undefined) {
+      this.aboutform.setValue({
+        Profile: this.mydetail.Profile ? this.mydetail.Profile : null,
+      });
+      console.log(this.aboutform.value);
+    }
   }
 
   formoccupation() {
@@ -543,7 +668,17 @@ export class UserProfileOneComponent implements OnInit {
     } else {
       this.togglecheckoccupation = false;
     }
+    this.alleducations();
+    this.alloccupations();
+    this.allemployedins();
+    if (this.mydetail !== undefined) {
+      this.hobbynotherform.setValue({
+        Hobbies: this.mydetail.Hobbies ? this.mydetail.Hobbies : null,
+      });
+      console.log(this.hobbynotherform.value);
+    }
   }
+
   socioreligous() {
     console.log('button clicked');
     if (this.togglecheckreligous == false) {
@@ -563,26 +698,26 @@ export class UserProfileOneComponent implements OnInit {
     if (this.mydetail !== undefined) {
       this.editfamilydetailform.setValue({
         FamilyType: this.mydetail.FamilyType ? this.mydetail.FamilyType : null,
-        Familyvalues: this.mydetail.Familyvalues
-          ? this.mydetail.Familyvalues
+        Familyvalues: this.mydetail.Familyvalues._id
+          ? this.mydetail.Familyvalues._id
           : null,
-        FamilyStatus: this.mydetail.FamilyStatus
-          ? this.mydetail.FamilyStatus
+        FamilyStatus: this.mydetail.FamilyStatus._id
+          ? this.mydetail.FamilyStatus._id
           : null,
         Fathersoccupation: this.mydetail.Fathersoccupation
           ? this.mydetail.Fathersoccupation
           : null,
-        Mothersoccupation: this.mydetail.Mothersoccupation?._id
-          ? this.mydetail.Mothersoccupation?._id
+        Mothersoccupation: this.mydetail.Mothersoccupation
+          ? this.mydetail.Mothersoccupation
           : null,
-        FamilyOrigin: this.mydetail?.FamilyOrigin?._id
-          ? this.mydetail.FamilyOrigin?._id
+        FamilyOrigin: this.mydetail?.FamilyOrigin
+          ? this.mydetail.FamilyOrigin
           : null,
-        noofbrothers: this.mydetail?.noofbrothers?._id
-          ? this.mydetail.noofbrothers?._id
+        noofbrothers: this.mydetail?.noofbrothers
+          ? this.mydetail.noofbrothers
           : null,
-        noofsisters: this.mydetail.noofsisters?._id
-          ? this.mydetail.noofsisters?._id
+        noofsisters: this.mydetail.noofsisters
+          ? this.mydetail.noofsisters
           : null,
         noyubrothers: this.mydetail.noyubrothers
           ? this.mydetail.noyubrothers
@@ -599,6 +734,11 @@ export class UserProfileOneComponent implements OnInit {
 
   cancelfamilyform() {
     this.togglecheckfamily = true;
+  }
+
+  cancelphysicalform() {
+    this.togglecheckphysical = true;
+    this.editphysicaldetailsform.reset()
   }
 
   updatefamily() {
@@ -619,14 +759,170 @@ export class UserProfileOneComponent implements OnInit {
       );
   }
 
+
+  updatehobbynother() {
+    console.log(this.hobbynotherform.value);
+    this.userService
+      .addotheruserdetails(this.hobbynotherform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('Hobbies Updated Successfully');
+          this.togglecheckhob = true;
+          this.hobbynotherform.reset();
+          this.getmydetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+
+  updateabout() {
+    console.log(this.aboutform.value);
+    this.userService
+      .addotheruserdetails(this.aboutform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('About Updated Successfully');
+          this.toggleabout = true;
+          this.aboutform.reset();
+          this.getmydetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  updateeduoccu() {
+    console.log(this.eduoccueditform.value);
+    this.userService
+      .addotheruserdetails(this.eduoccueditform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('Education/Occupation Details Updated Successfully');
+          this.togglecheckoccupation = true;
+          this.eduoccueditform.reset();
+          this.getmydetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  updatecontactdetails() {
+    console.log(this.editcontactform.value);
+    this.userService
+      .addotheruserdetails(this.editcontactform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('Contact Details Updated Successfully');
+          this.togglechecktwo = true;
+          this.editcontactform.reset();
+          this.getmydetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  cancelcontactform() {
+    this.togglechecktwo = false
+    this.editcontactform.reset()
+  }
+
+  cancelaboutform() {
+    this.toggleabout = false
+    this.aboutform.reset()
+  }
+
+  cancelhobotherform() {
+    this.togglecheckhob = false
+    this.hobbynotherform.reset()
+  }
+
+
   partnerexp() {
     console.log('button clicked');
+    console.log(this.allheights)
+    this.getallcaste()
+    this.alleducations()
+    this.alloccupations()
     if (this.togglecheckpartner == false) {
       this.togglecheckpartner = true;
     } else {
       this.togglecheckpartner = false;
     }
+    if (this.mydetail !== undefined) {
+      this.partnerexpform.setValue({
+        PartnerExpectations: this.mydetail.PartnerExpectations ? this.mydetail.PartnerExpectations : null,
+        PE_FromAge: this.mydetail.PE_FromAge ? this.mydetail.PE_FromAge : null,
+        PE_ToAge: this.mydetail.PE_ToAge ? this.mydetail.PE_ToAge : null,
+        PE_Height: this.mydetail.PE_Height ? this.mydetail.PE_Height : null,
+        PE_Heightto: this.mydetail.PE_Heightto ? this.mydetail.PE_Heightto : null,
+        PE_Complexion: this.mydetail.PE_Complexion ? this.mydetail.PE_Complexion : null,
+        PE_HaveChildren: this.mydetail.PE_HaveChildren ? this.mydetail.PE_HaveChildren : null,
+        PE_MotherTongue: this.mydetail.PE_MotherTongue._id ? this.mydetail.PE_MotherTongue._id : null,
+        PE_Religion: this.mydetail.PE_Religion._id ? this.mydetail.PE_Religion._id : null,
+        PE_Caste: this.mydetail.PE_Caste._id ? this.mydetail.PE_Caste._id : null,
+        PE_Education: this.mydetail.PE_Education._id ? this.mydetail.PE_Education._id : null,
+        PE_Countrylivingin: this.mydetail.PE_Countrylivingin._id ? this.mydetail.PE_Countrylivingin._id : null,
+        PE_Residentstatus: this.mydetail.PE_Residentstatus._id ? this.mydetail.PE_Residentstatus._id : null,
+        PE_occupation: this.mydetail.PE_occupation._id ? this.mydetail.PE_occupation._id : null,
+        PE_manglik: this.mydetail.PE_manglik ? this.mydetail.PE_manglik : null,
+        PE_looking_for: this.mydetail.PE_looking_for._id ? this.mydetail.PE_looking_for._id : null
+      });
+      console.log(this.partnerexpform.value);
+    }
   }
+
+
+  updatepartnerexp() {
+    console.log(this.partnerexpform.value)
+    this.userService
+      .addotheruserdetails(this.partnerexpform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('Partner Preferrance Updated Successfully');
+          this.togglecheckpartner = true;
+          this.partnerexpform.reset();
+          this.getmydetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  hobnother() {
+    console.log('button clicked');
+    if (this.togglecheckhob == false) {
+      this.togglecheckhob = true;
+    } else {
+      this.togglecheckhob = false;
+    }
+    if (this.mydetail !== undefined) {
+      this.eduoccueditform.setValue({
+        Education: this.mydetail.Education._id ? this.mydetail.Education._id : null,
+        EducationDetails: this.mydetail.EducationDetails ? this.mydetail.EducationDetails : null,
+        Occupation: this.mydetail.Occupation._id ? this.mydetail.Occupation._id : null,
+        OccupationDetail: this.mydetail.OccupationDetail ? this.mydetail.OccupationDetail : null,
+        Employedin: this.mydetail.Employedin._id ? this.mydetail.Employedin._id : null,
+        Annualincome: this.mydetail.Annualincome ? this.mydetail.Annualincome : null,
+      });
+      console.log(this.eduoccueditform.value);
+    }
+
+  }
+
   physicaldetail() {
     console.log('button clicked');
     if (this.togglecheckphysical == false) {
@@ -634,7 +930,69 @@ export class UserProfileOneComponent implements OnInit {
     } else {
       this.togglecheckphysical = false;
     }
+    this.getallheights();
+    if (this.mydetail !== undefined) {
+      this.editphysicaldetailsform.setValue({
+        Height: this.mydetail.Height._id ? this.mydetail.Height._id : null,
+        BloodGroup: this.mydetail.BloodGroup
+          ? this.mydetail.BloodGroup
+          : null,
+        Bodytype: this.mydetail.Bodytype ? this.mydetail.Bodytype : null,
+        Smoke: this.mydetail.Smoke ? this.mydetail.Smoke : null,
+        spe_cases: this.mydetail.spe_cases ? this.mydetail.spe_cases : null,
+      });
+      console.log(this.editphysicaldetailsform.value);
+    }
+
   }
+
+
+  updatephysicaldetails() {
+    console.log(this.editphysicaldetailsform.value)
+    this.userService
+      .addotheruserdetails(this.editphysicaldetailsform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('Physical Details Updated Successfully');
+          this.togglecheckphysical = true;
+          this.editphysicaldetailsform.reset();
+          this.getmydetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  updateasset() {
+    console.log(this.assetform.value)
+    this.userService
+      .addotheruserdetails(this.assetform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('Assets Detail Updated Successfully');
+          this.togglecheckproperties = true;
+          this.assetform.reset();
+          this.getmydetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  cancelassetform() {
+    this.togglecheckproperties = true
+    this.assetform.reset()
+  }
+
+  canceleduoccuform() {
+    this.togglecheckoccupation = true
+    this.eduoccueditform.reset()
+  }
+
   properties() {
     console.log('button clicked');
     if (this.togglecheckproperties == false) {
@@ -642,13 +1000,63 @@ export class UserProfileOneComponent implements OnInit {
     } else {
       this.togglecheckproperties = false;
     }
+    if (this.mydetail !== undefined) {
+      this.assetform.setValue({
+        own_agriland: this.mydetail.own_agriland
+          ? this.mydetail.own_agriland
+          : null,
+        own_commland: this.mydetail.own_commland ? this.mydetail.own_commland : null,
+        own_house: this.mydetail.own_house ? this.mydetail.own_house : null,
+        own_car: this.mydetail.own_car ? this.mydetail.own_car : null,
+      });
+      console.log(this.assetform.value);
+    }
   }
+
   horoscope() {
     console.log('button clicked');
+    this.allstar()
+    this.allmoonstar()
     if (this.togglecheckhoroscope == false) {
       this.togglecheckhoroscope = true;
     } else {
       this.togglecheckhoroscope = false;
     }
+    if (this.mydetail !== undefined) {
+      this.horosform.setValue({
+        Manglik: this.mydetail.Manglik
+          ? this.mydetail.Manglik
+          : null,
+        TOB: this.mydetail.TOB ? this.mydetail.TOB : null,
+        POB: this.mydetail.POB ? this.mydetail.POB : null,
+        Star: this.mydetail.Star._id ? this.mydetail.Star._id : null,
+        Moonsign: this.mydetail.Moonsign._id ? this.mydetail.Moonsign._id : null,
+        Horosmatch: this.mydetail.Horosmatch ? this.mydetail.Horosmatch : null,
+      });
+      console.log(this.horosform.value);
+    }
+  }
+
+  updatehoros() {
+    console.log(this.horosform.value)
+    this.userService
+      .addotheruserdetails(this.horosform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('Horoscope Updated Successfully');
+          this.togglecheckhoroscope = true;
+          this.horosform.reset();
+          this.getmydetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  cancelhoros() {
+    this.togglecheckhoroscope = true
+    this.horosform.reset()
   }
 }

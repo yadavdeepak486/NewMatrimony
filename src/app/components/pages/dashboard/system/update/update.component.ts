@@ -73,8 +73,8 @@ export class UpdateComponent implements OnInit {
   }
 
   cancellogoform() {
-    this.editlogoform.reset();
-    this.editlogo = false;
+    this.logoform.reset();
+    this.addlogo = false;
   }
 
   getonelogo(id) {
@@ -162,6 +162,7 @@ export class UpdateComponent implements OnInit {
       .editlogo(this.editlogoform.value.id, this.editlogoform.value)
       .subscribe(
         (response: any) => {
+          console.log(response);
           this.getalllogos();
           this.toastr.success('Logo updated succesfully');
           this.editlogoform.reset();
