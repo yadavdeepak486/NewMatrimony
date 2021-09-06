@@ -1,5 +1,40 @@
 @import "../user-dashboard.component.scss";
 
+// dropdown css 
+span.st-drop.dropdown{
+    float: right;
+    margin-right: -98px;
+    margin-top: 3px;
+}
+.dropdown-toggle::after{
+  display: none;
+}
+i.bx.bx-dots-vertical.dropdown-toggle.st-dot{
+  font-size: 20px;
+}
+ul.dropdown-menu.st-drp-left {
+  left: -150px !important;
+  padding: 10px;
+}
+a.st-acc {
+  background: #137350;
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 100px;
+  font-size: 14px;
+}
+a.st-rec {
+  background: #f00;
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 100px;
+  font-size: 14px;
+}
+li.st-drli {
+  margin-bottom: 12px;
+}
+// close
+
 // new css
 .dt ul {
   padding: 0px;
@@ -1027,6 +1062,17 @@ section.widget.widget_filters.rs-pd {
       font-size: 18px;
     }
   }
+
+  // new css
+  span.st-drop.dropdown {
+    float: right;
+    margin-right: -80px;
+    margin-top: 2px;
+   }
+   ul.dropdown-menu.st-drp-left{
+    left: -30px !important;
+    padding: 10px;
+   }
 }
 /* Min width 576px to Max width 767px */
 @media only screen and (min-width: 576px) and (max-width: 767px) {

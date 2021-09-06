@@ -9,6 +9,8 @@ import { UserService } from 'src/app/user.service';
 })
 export class BlockedProfileComponent implements OnInit {
   users: any;
+ 
+  
   constructor(public userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
@@ -296,5 +298,7 @@ export class BlockedProfileComponent implements OnInit {
   userDetails(id: number) {
     this.router.navigate(['profile-detail', id]);
   }
+
+ 
 }
 

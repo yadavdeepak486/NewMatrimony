@@ -1,4 +1,13 @@
 @import "../../dashboard.component.scss";
+
+.note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    overflow: auto;
+    word-wrap: break-word;
+}
+
 // slide-btn
 
 .switch {
@@ -159,7 +168,7 @@ a:hover {
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
     background: #fff;
-    padding: 17px 49px;
+    padding: 12px 15px;
     color: #fff;
     background-color: #00d4d4;
     -webkit-border-radius: 4px 0px 0px 4px;

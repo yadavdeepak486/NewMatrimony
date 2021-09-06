@@ -296,4 +296,6 @@ export class ShortListedComponent implements OnInit {
   userDetails(id: number) {
     this.router.navigate(['profile-detail', id]);
   }
+
+ 
 }

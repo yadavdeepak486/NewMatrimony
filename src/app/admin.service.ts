@@ -383,6 +383,7 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/deleterole/${id}`);
   }
 
+
   //staff
   getallstaff() {
     return this.http.get(`${this.backendurl}/admin/allstaff`);

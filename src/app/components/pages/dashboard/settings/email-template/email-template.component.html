@@ -43,10 +43,10 @@
                                       <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -54,19 +54,22 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                    <!-- <h4>Account Opening Template</h4> -->
+                                                    <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                      (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)" data-placeholder="text here ...">
+                                                    </quill-editor>
                                                  </div>
                                                </div>
                                            
@@ -81,10 +84,10 @@
                                     <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -92,19 +95,21 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                  <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                    (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                                                  </quill-editor>
                                                  </div>
                                                </div>
                                            
@@ -119,10 +124,10 @@
                                     <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -130,19 +135,21 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                    <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                    (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                                                  </quill-editor>
                                                  </div>
                                                </div>
                                            
@@ -157,10 +164,10 @@
                                     <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -168,19 +175,21 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                  <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                    (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                                                  </quill-editor>
                                                  </div>
                                                </div>
                                            
@@ -195,10 +204,10 @@
                                     <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -206,19 +215,21 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                 <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                    (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                                                  </quill-editor>
                                                  </div>
                                                </div>
                                            
@@ -233,10 +244,10 @@
                                     <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -244,19 +255,21 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                  <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                    (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                                                  </quill-editor>
                                                  </div>
                                                </div>
                                            
@@ -271,10 +284,10 @@
                                     <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -282,19 +295,21 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                  <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                    (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                                                  </quill-editor>
                                                  </div>
                                                </div>
                                            
@@ -309,10 +324,10 @@
                                     <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -320,19 +335,21 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                  <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                    (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                                                  </quill-editor>
                                                  </div>
                                                </div>
                                            
@@ -347,10 +364,10 @@
                                     <form class="bd-n">
                                         <div class="row">
                                                 <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Activatio</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                     <label class="switch">
                                                         <input type="checkbox">
                                                         <span class="slider round"></span>
@@ -358,19 +375,21 @@
                                                 </div>
                                                 </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Subject</label>
                                                 </div>
-                                                <div class="col-lg-8">
+                                                <div class="col-lg-9">
                                                   <input type="text" class="form-control" placeholder="Account Opening">
                                                  </div>
                                                </div>
                                                <div class="form-group fg-w">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-3">
                                                     <label>Email Body</label>
                                                 </div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="form-control" placeholder="Email Body editor">
+                                                <div class="col-lg-9">
+                                                  <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                                    (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                                                  </quill-editor>
                                                  </div>
                                                </div>
                                            
