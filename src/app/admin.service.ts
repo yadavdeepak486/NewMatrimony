@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
+  
+  
   backendurl = 'https://demo.rishtaguru.com/api';
   backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
@@ -497,5 +499,22 @@ export class AdminService {
 
   stafflogin(data) {
     return this.http.post(`${this.backendurl}/admin/login`, data);
+  }
+
+  // add pagesform
+  addpageform(data) {
+    return this.http.post(`${this.backendurl}/admin/addwebpage`,data);
+  }
+
+  getallpages(){
+    return this.http.get(`${this.backendurl}/admin/allwebpage`);
+  }
+
+  getonepage(id){
+    return this.http.get(`${this.backendurl}/admin/viewonewebpage/${id}`);
+  }
+
+  deleteonepage(id){
+    return this.http.get(`${this.backendurl}/admin/deletewebpage/${id}`);
   }
 }

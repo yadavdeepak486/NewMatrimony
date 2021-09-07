@@ -17,4 +17,6 @@ export class AddNewPageComponent implements OnInit {
         subTitle: 'Website Setup'
     }
 ]
+
+
 }
