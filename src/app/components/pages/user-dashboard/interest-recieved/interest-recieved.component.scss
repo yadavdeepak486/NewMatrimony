@@ -1,15 +1,15 @@
 @import "../user-dashboard.component.scss";
 
-// dropdown css 
-span.st-drop.dropdown{
-    float: right;
-    margin-right: -98px;
-    margin-top: 3px;
+// dropdown css
+span.st-drop.dropdown {
+  float: right;
+  margin-right: -98px;
+  margin-top: 3px;
 }
-.dropdown-toggle::after{
+.dropdown-toggle::after {
   display: none;
 }
-i.bx.bx-dots-vertical.dropdown-toggle.st-dot{
+i.bx.bx-dots-vertical.dropdown-toggle.st-dot {
   font-size: 20px;
 }
 ul.dropdown-menu.st-drp-left {
@@ -1075,11 +1075,11 @@ section.widget.widget_filters.rs-pd {
     float: right;
     margin-right: -80px;
     margin-top: 2px;
-   }
-   ul.dropdown-menu.st-drp-left{
+  }
+  ul.dropdown-menu.st-drp-left {
     left: -30px !important;
     padding: 10px;
-   }
+  }
 }
 /* Min width 576px to Max width 767px */
 @media only screen and (min-width: 576px) and (max-width: 767px) {

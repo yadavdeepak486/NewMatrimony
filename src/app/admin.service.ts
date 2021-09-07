@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
-  
-  
   backendurl = 'https://demo.rishtaguru.com/api';
   backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
@@ -16,6 +14,10 @@ export class AdminService {
   //gets users
   getalluser() {
     return this.http.get(`${this.backendurl}/user/allusers`);
+  }
+
+  getalluserforadmin() {
+    return this.http.get(`${this.backendurl}/user/allusersforadmin`);
   }
 
   getfreeusers() {
@@ -385,7 +387,6 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/deleterole/${id}`);
   }
 
-
   //staff
   getallstaff() {
     return this.http.get(`${this.backendurl}/admin/allstaff`);
@@ -501,20 +502,36 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/login`, data);
   }
 
-  // add pagesform
-  addpageform(data) {
-    return this.http.post(`${this.backendurl}/admin/addwebpage`,data);
+  edituserprofile(id, data) {
+    return this.http.post(`${this.backendurl}/admin/usersetting/${id}`, data);
   }
 
-  getallpages(){
+  upload(id, data) {
+    const formData: FormData = new FormData();
+
+    formData.append('Photo1', data.Photo1);
+    formData.append('Photo2', data.Photo2);
+    formData.append('Photo3', data.Photo3);
+
+    return this.http.post(
+      `${this.backendurl}/user/uploaduserimage/${id}`,
+      formData
+    );
+  }
+  // add pagesform
+  addpageform(data) {
+    return this.http.post(`${this.backendurl}/admin/addwebpage`, data);
+  }
+
+  getallpages() {
     return this.http.get(`${this.backendurl}/admin/allwebpage`);
   }
 
-  getonepage(id){
+  getonepage(id) {
     return this.http.get(`${this.backendurl}/admin/viewonewebpage/${id}`);
   }
 
-  deleteonepage(id){
+  deleteonepage(id) {
     return this.http.get(`${this.backendurl}/admin/deletewebpage/${id}`);
   }
 }

@@ -1,0 +1,1294 @@
+<section>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12">
+        <div class="row">
+          <form class="col-lg-4 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1()">
+            <div>
+              <img [src]="filePath1 || mydetail?.Photo1 || dumPhoto" />
+              <div *ngIf="!readyupload1" class="file a-btn">
+                Select profile Photo 1
+                <input type="file" (change)="imagePreview1($event)" name="file" class="input-one" />
+              </div>
+              <button *ngIf="readyupload1" class="btn btn-success mt-2" type="submit">Upload</button>
+              <button *ngIf="readyupload1" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
+                (click)="cancelupload1()">Cancel</button>
+              <p class="bt-tetx">( Front facing photo with clear face is recomended, Size 400X400)</p>
+            </div>
+          </form>
+          <form class="col-lg-4 text-center" [formGroup]="imageupload2" (ngSubmit)="uploadimage2()">
+            <div>
+              <img [src]="filePath2 || mydetail?.Photo2 || dumPhoto" />
+              <div *ngIf="!readyupload2" class="file a-btn">
+                Upload profile Photo 2
+                <input (change)="imagePreview2($event)" type="file" name="file" class="input-one" />
+              </div>
+              <button *ngIf="readyupload2" class="btn btn-success mt-2" type="submit">Upload</button>
+              <button *ngIf="readyupload2" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
+                (click)="cancelupload2()">Cancel</button>
+              <p class="bt-tetx">( Full photograph from front recomended, Size 400X400)</p>
+            </div>
+          </form>
+          <form class="col-lg-4 text-center" [formGroup]="imageupload3" (ngSubmit)="uploadimage3()">
+            <div>
+              <img [src]="filePath3 || mydetail?.Photo3 || dumPhoto" />
+              <div *ngIf="!readyupload3" class="file a-btn">
+                Upload profile Photo 3
+                <input (change)="imagePreview3($event)" type="file" name="file" class="input-one" />
+              </div>
+              <button *ngIf="readyupload3" class="btn btn-success mt-2" type="submit">Upload</button>
+              <button *ngIf="readyupload3" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
+                (click)="cancelupload3()">Cancel</button>
+              <p class="bt-tetx">( Full lenth photograph recomended, Size 400X400 )</p>
+            </div>
+          </form>
+          <div class="col-lg-12">
+            <div class="col-lg-12">
+              <div class="profile-content">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12">
+                    <div class="my-profile-box">
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Basic Information</h3>
+                        </div>
+                        <div class="edit">
+                          <a href="javascript:void()"><i class="bx bx-edit" (click)="formone()"></i></a>
+                        </div>
+                        <!--  -->
+                        <div *ngIf="togglecheck" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Name:</td>
+                                <td class="wd1">{{mydetail?.Name}} {{mydetail?.firstName}} {{mydetail?.LastName}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Gender:</td>
+                                <td class="wd1">{{mydetail?.Gender || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Date of Birth:</td>
+                                <td class="wd1">{{mydetail?.DOB || "not mentioned"}} ({{mydetail?.Age + " yrs"}})</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Marital Status:</td>
+                                <td class="wd1">{{mydetail?.Maritalstatus?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Mother Tounge:</td>
+                                <td class="wd1">{{mydetail?.Language?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Religion:</td>
+                                <td class="wd1">{{mydetail?.Religion?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Caste</td>
+                                <td class="wd1">{{mydetail?.Caste?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Subcaste(Paternal)</td>
+                                <td class="wd1">{{mydetail?.PSubcaste || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Subcaste(Maternal)</td>
+                                <td class="wd1">{{mydetail?.MSubcaste || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Children (If Any):</td>
+                                <td class="wd1">{{mydetail?.NoOfChild || "No Children"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Children Status:</td>
+                                <td class="wd1">{{mydetail?.childrenlivingstatus || "No Children"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Time Of Birth:</td>
+                                <td class="wd1">{{mydetail?.TOB || "Not mentioned"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!-- form -->
+                        <div *ngIf="!togglecheck" class="info-text">
+                          <div class="card card-body bd-none">
+                            <form [formGroup]="editbasicinformation" (ngSubmit)="updatedata()" ngNativeValidate>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name"
+                                      formControlName="firstName" required>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name"
+                                      formControlName="LastName" required>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control" placeholder="Name" formControlName="Gender" disabled>
+                                      <option>Male</option>
+                                      <option>Female</option>
+                                    </select>
+                                    <small style="color: red;">This field can't be edited</small>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Date Of Birth</label>
+                                    <input type="text" class="form-control" placeholder="DOB" formControlName="DOB"
+                                      disabled>
+                                    <small style="color: red;">This field can't be edited</small>
+                                  </div>
+                                </div>
+                                <!-- <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Place of Birth</label>
+                                    <input type="text" class="form-control" placeholder="Place Of Birth"
+                                      formControlName="placeofbirth" required>
+                                  </div>
+                                </div> -->
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Marital Status</label>
+                                    <select class="form-control" formControlName="Maritalstatus">
+                                      <option [value]="maritalstatus._id"
+                                        *ngFor="let maritalstatus of allmaritalstatus">
+                                        {{maritalstatus?.name}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Mother Tongue</label>
+                                    <select class="form-control" formControlName="Language">
+                                      <option [value]="language._id" *ngFor="let language of alllanguage">
+                                        {{language?.name}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label class="lb-ser">Religion <span style="color: red;">*</span></label>
+                                    <select #selectedreligion (ngModelChange)="castofrelgion($event)"
+                                      class="form-control" formControlName="Religion">
+                                      <option [value]="religion._id" *ngFor="let religion of allreligion">
+                                        {{religion?.name}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Caste</label>
+                                    <select class="form-control" formControlName="Caste">
+                                      <option [value]="caste._id" *ngFor="let caste of allcaste">
+                                        {{caste?.name}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Subcaste (Paternal)</label>
+                                    <input type="text" class="form-control" placeholder="subcaste"
+                                      formControlName="PSubcaste" required>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Subcaste (Maternal)</label>
+                                    <input type="text" class="form-control" placeholder="subcaste"
+                                      formControlName="MSubcaste" required>
+                                  </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Number of Children</label>
+                                    <input type="number" class="form-control" placeholder="No of Child"
+                                      formControlName="NoOfChild" required>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Children Living With Status</label>
+                                    <input type="number" class="form-control" placeholder="Living no."
+                                      formControlName="childrenlivingstatus" required>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Time of Birth</label>
+                                    <input type="time" class="form-control" placeholder="Time Of Birth"
+                                      formControlName="TOB" required>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                  <button type="submit" style="margin-right: 10px;"
+                                    class="btn btn-primary btn-up">Update</button>
+                                  <button type="button" (click)="cancelbasicform()"
+                                    class="btn btn-primary btn-up">Cancel</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <!-- close -->
+                      </div>
+
+                      <!-- family detail -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Family Details</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="familydetail()"></i></a>
+                        </div>
+                        <!-- *ngIf="togglecheckfamily" -->
+                        <div *ngIf="togglecheckfamily" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Family Type:</td>
+                                <td class="wd1">{{mydetail?.FamilyType || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Family Values:</td>
+                                <td class="wd1">{{mydetail?.Familyvalues?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Family Status:</td>
+                                <td class="wd1">{{mydetail?.FamilyStatus?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Father Occupation:</td>
+                                <td class="wd1">{{mydetail?.Fathersoccupation || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Mother Occupation:</td>
+                                <td class="wd1">{{mydetail?.Mothersoccupation || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Family Origin:</td>
+                                <td class="wd1">{{mydetail?.FamilyOrigin || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Elder Brothers:</td>
+                                <td class="wd1">
+                                  {{mydetail?.noofbrothers || "No Elder Brothers"}}</td>
+
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Younger Brothers:</td>
+                                <td class="wd1">{{mydetail?.noyubrothers || "No Younger Brothers"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Elder Sisters:</td>
+                                <td class="wd1">{{mydetail?.noofsisters || "No Elder Sisters"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Younger Sisters:</td>
+                                <td class="wd1">{{mydetail?.noyusisters || "No Younger Sisters"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Married Brothers:</td>
+                                <td class="wd1">{{mydetail?.nbm || "No Married Brothers"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">No. of Married Sisters:</td>
+                                <td class="wd1">{{mydetail?.nsm || "No Married Sisters"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!-- *ngIf="!togglecheckfamily"  -->
+                        <div *ngIf="!togglecheckfamily" class="info-text">
+                          <form [formGroup]="editfamilydetailform" (ngSubmit)="updatefamily()" ngNativeValidate>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Type</label>
+                                  <select class="form-control" formControlName="FamilyType" required>
+                                    <option value="nuclear">Nuclear</option>
+                                    <option value="joint">Joint</option>
+                                    <option value="compound">Compound</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Values</label>
+                                  <select class="form-control" formControlName="Familyvalues">
+                                    <option [value]="familyvalue._id" *ngFor="let familyvalue of allfamilyvalues">
+                                      {{familyvalue?.name}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Status</label>
+                                  <select class="form-control" formControlName="FamilyStatus">
+                                    <option [value]="familystatus._id" *ngFor="let familystatus of allfamilystatus">
+                                      {{familystatus?.name}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Father Occupation</label>
+                                  <input type="text" class="form-control" placeholder="Teacher"
+                                    formControlName="Fathersoccupation">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Mother Occupation</label>
+                                  <input type="text" class="form-control" placeholder="Doctor"
+                                    formControlName="Mothersoccupation">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Family Origin</label>
+                                  <input type="text" class="form-control" placeholder="Kanpur"
+                                    formControlName="FamilyOrigin">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No. of Elder Brothers</label>
+                                  <input type="number" class="form-control" value="0" placeholder="Elder Brother"
+                                    formControlName="noofbrothers">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No. of Elder Sisters</label>
+                                  <input type="number" class="form-control" value="0" placeholder="Elder Sister"
+                                    formControlName="noofsisters">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No.of Younger Brothers</label>
+                                  <input type="number" class="form-control" value="0" placeholder="Younger Brother"
+                                    formControlName="noyubrothers">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No.of Younger Sisters</label>
+                                  <input type="number" class="form-control" value="0" placeholder="Younger Sister"
+                                    formControlName="noyusisters">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No.of Married Brothers</label>
+                                  <input type="number" class="form-control" value="0" placeholder="Married Brother"
+                                    formControlName="nbm">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>No.of Married Sisters</label>
+                                  <input type="number" class="form-control" value="0" placeholder="Married Sister"
+                                    formControlName="nsm">
+                                </div>
+                              </div>
+                              <div class="col-md-6 d-flex">
+                                <button type="submit" style="margin-right: 10px;"
+                                  class="btn btn-primary btn-up">Update</button>
+                                <button type="button" (click)="cancelfamilyform()"
+                                  class="btn btn-primary btn-up">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <!-- Physical Status and Lifestyle -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Physical Status & Eating Habits</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="physicaldetail()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckphysical" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Height:</td>
+                                <td class="wd1">{{mydetail?.Height?.feetinchvalue}},
+                                  ( {{mydetail?.Height?.cmvalue+"Cms"}} )</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Blood Group:</td>
+                                <td class="wd1">{{mydetail?.BloodGroup || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Body Type:</td>
+                                <td class="wd1">{{mydetail?.Bodytype || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Smoke Habit:</td>
+                                <td class="wd1">{{mydetail?.Smoke || "No"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Special Case:</td>
+                                <td class="wd1">{{mydetail?.spe_cases || "not mentioned"}}</td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckphysical" class="info-text">
+                          <form [formGroup]="editphysicaldetailsform" (ngSubmit)="updatephysicaldetails()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Height</label>
+                                  <select class="form-control" formControlName="Height">
+                                    <option [value]="height._id" *ngFor="let height of allheights">
+                                      {{height?.feetinchvalue}} ({{height?.cmvalue}}Cms)</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Blood Group</label>
+                                  <select class="form-control" formControlName="BloodGroup" required>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Body Type</label>
+                                  <input type="text" class="form-control" placeholder="" formControlName="Bodytype"
+                                    required>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Smoke Habit</label>
+                                  <select class="form-control" formControlName="Smoke" required>
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Special Case</label>
+                                  <input type="text" class="form-control" placeholder="" formControlName="spe_cases"
+                                    required>
+                                </div>
+                              </div>
+
+
+                              <div class="col-md-12">
+                                <button class="btn btn-primary btn-up" type="submit">Update</button>
+                                <button class="btn btn-primary btn-up" type="button"
+                                  (click)="cancelphysicalform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <!-- discription -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Contact Details</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="formtwo()"></i></a>
+                        </div>
+                        <div *ngIf="togglechecktwo" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Mobile No:</td>
+                                <td class="wd1">{{mydetail?.Mobile || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Alternate Mobile No :</td>
+                                <td class="wd1">{{mydetail?.Phone || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Whatsapp No:</td>
+                                <td class="wd1">{{mydetail?.whatsapp_phone || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Email Address:</td>
+                                <td class="wd1">{{mydetail?.ConfirmEmail || "No"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Home Town:</td>
+                                <td class="wd1">{{mydetail?.HomeTown || "not mentioned"}}</td>
+                              </tr>
+                              <!-- <tr class="wd">
+                                <td class="wd1">Home/Native place:</td>
+                                <td class="wd1">{{mydetail?.nativeplace || "not mentioned"}}</td>
+                              </tr> -->
+
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglechecktwo" class="info-text">
+                          <form [formGroup]="editcontactform" (ngSubmit)="updatecontactdetails()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Mobile No.</label>
+                                  <input type="number" class="form-control" placeholder="Mobile"
+                                    formControlName="Mobile" required>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Alternate Mobile No.</label>
+                                  <input type="number" class="form-control" placeholder="Alternate Mobile"
+                                    formControlName="Phone">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Whatsapp No.</label>
+                                  <input type="number" class="form-control" placeholder="Whatsapp Number"
+                                    formControlName="whatsapp_phone">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Email Address:</label>
+                                  <input type="email" class="form-control" placeholder="Email"
+                                    formControlName="ConfirmEmail" required>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Home Town:</label>
+                                  <input type="text" class="form-control" placeholder="HomeTown"
+                                    formControlName="HomeTown">
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Update</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelcontactform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <!-- education -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Education and Occupation</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="formoccupation()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckoccupation" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Heighest Education:</td>
+                                <td class="wd1">{{mydetail?.Education?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Education Details:</td>
+                                <td class="wd1">{{mydetail?.EducationDetails || "not mentioned"}} </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Occupation:</td>
+                                <td class="wd1">{{mydetail?.Occupation?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Occupation Detail:</td>
+                                <td class="wd1">{{mydetail?.OccupationDetail || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Employee In:</td>
+                                <td class="wd1">{{mydetail?.Employedin?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Annual Income:</td>
+                                <td class="wd1">{{mydetail?.Annualincome || "0"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckoccupation" class="info-text">
+                          <form [formGroup]="eduoccueditform" (ngSubmit)="updateeduoccu()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Education</label>
+                                  <select class="form-control" formControlName="Education">
+                                    <option [value]="education._id" *ngFor="let education of alleducation">
+                                      {{education?.name}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Education Details</label>
+                                  <input type="text" class="form-control" placeholder="Education Details"
+                                    formControlName="EducationDetails">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Occupation</label>
+                                  <select class="form-control" formControlName="Occupation">
+                                    <option [value]="occupation._id" *ngFor="let occupation of alloccupation">
+                                      {{occupation?.name}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Occupation Detail</label>
+                                  <input type="text" class="form-control" placeholder="Occupation Details"
+                                    formControlName="OccupationDetail">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Employee In</label>
+                                  <select class="form-control" formControlName="Employedin">
+                                    <option [value]="employedin._id" *ngFor="let employedin of allemployedin">
+                                      {{employedin?.name}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Annual Income</label>
+                                  <input type="text" class="form-control" placeholder="Annual Income"
+                                    formControlName="Annualincome">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary btn-up">Update</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="canceleduoccuform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <!-- discription -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>About</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="formabout()"></i></a>
+                        </div>
+                        <div *ngIf="toggleabout" class="info-text st-about">
+                          {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
+                        </div>
+                        <div *ngIf="!toggleabout" class="info-text">
+                          <form [formGroup]="aboutform" (ngSubmit)="updateabout()">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label>Descriptions</label>
+                                  <textarea id="w3review" formControlName="Profile" name="w3review" rows="5" cols="100">
+                                    </textarea>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Update</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelaboutform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- discription -->
+
+                      <!-- socio religion background -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Assets & Properties</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="properties()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckproperties" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Own Aggriculture Land:</td>
+                                <td class="wd1">{{mydetail?.own_agriland || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Own Commercial Land:</td>
+                                <td class="wd1">{{mydetail?.own_commland|| "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">House:</td>
+                                <td class="wd1">{{mydetail?.own_house || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Own Car:</td>
+                                <td class="wd1">{{mydetail?.own_car || "not mentioned"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckproperties" class="info-text">
+                          <form [formGroup]="assetform" (ngSubmit)="updateasset()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Own Aggriculture Land</label>
+                                  <input type="text" class="form-control" placeholder="4 Acre"
+                                    formControlName="own_agriland">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Own Commercial Land</label>
+                                  <input type="text" class="form-control" placeholder="20X30 sqFt Plot"
+                                    formControlName="own_commland">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>House</label>
+                                  <input type="text" class="form-control" placeholder="4-Bhk House"
+                                    formControlName="own_house">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Own Car</label>
+                                  <input type="text" class="form-control" placeholder="Swift Desire"
+                                    formControlName="own_car">
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelassetform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <!-- heroscope detail -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Horoscope details </h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="horoscope()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckhoroscope" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Manglik:</td>
+                                <td class="wd1">{{mydetail?.Manglik || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Birth Time:</td>
+                                <td class="wd1">{{mydetail?.TOB || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Birth place:</td>
+                                <td class="wd1">{{mydetail?.POB || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Sun sign (Rashi):</td>
+                                <td class="wd1">{{mydetail?.Star?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Moonsign:</td>
+                                <td class="wd1">{{mydetail?.Moonsign?.name || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Horoscope Match:</td>
+                                <td class="wd1">{{mydetail?.Horosmatch || "not mentioned"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf=" !togglecheckhoroscope" class="info-text">
+                          <form [formGroup]="horosform" (ngSubmit)="updatehoros()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Manglik</label>
+                                  <select class="form-control" formControlName="Manglik">
+                                    <option value="not_manglik" selected>Not Manglik</option>
+                                    <option value="manglik">Manglik</option>
+                                    <option value="ardh_manglik">Ardh Manglik</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Birth Time</label>
+                                  <input type="time" placeholder="Time of Birth" formControlName="TOB"
+                                    class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Birth place</label>
+                                  <input type="text" placeholder="Hatod district Kanpur" formControlName="POB"
+                                    class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Star sign (Rashi)</label>
+                                  <select class="form-control" formControlName="Star">
+                                    <option [value]="starsign?._id" *ngFor="let starsign of allstarsign">
+                                      {{starsign?.name}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Moonsign</label>
+                                  <select class="form-control" formControlName="Moonsign">
+                                    <option [value]="moonstarsign?._id" *ngFor="let moonstarsign of allmoonstarsign">
+                                      {{moonstarsign?.name}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Horoscope Match</label>
+                                  <input type="text" class="form-control" placeholder="Capricorn"
+                                    formControlName="Horosmatch">
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Update</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelhoros()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <!-- heroscope detail -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Hobbies and Details </h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="hobnother()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckhob" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Hobbies:</td>
+                                <td class="wd1">{{mydetail?.Hobbies || "not mentioned"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckhob" class="info-text">
+                          <form [formGroup]="hobbynotherform" (ngSubmit)="updatehobbynother()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Hobby</label>
+                                  <input type="text" class="form-control" placeholder="Dancing,Singing"
+                                    formControlName="Hobbies">
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (Click)="cancelhobotherform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <!-- Partner Expectation -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Desired Partner Details</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="partnerexp()"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckpartner" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">PartnerExpectations:</td>
+                                <td class="wd1">{{mydetail?.PartnerExpectations || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Age Range:</td>
+                                <td class="wd1">{{mydetail?.PE_FromAge}}-{{mydetail?.PE_ToAge}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Height Range:</td>
+                                <td class="wd1">
+                                  {{mydetail?.PE_Height?.feetinchvalue}}-{{mydetail?.PE_Heightto?.feetinchvalue}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Children:</td>
+                                <td class="wd1">{{mydetail?.PE_HaveChildren || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Complexion:</td>
+                                <td class="wd1">{{mydetail?.PE_Complexion || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Mother Tongue:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let language of mydetail?.PE_MotherTongue">
+                                    {{language.name}},</h6>]
+                                </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Religion:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let religion of mydetail?.PE_Religion">
+                                    {{religion.name}},</h6>]
+                                </td>
+
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_Caste:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  caste of mydetail?.PE_Caste">
+                                    {{caste.name}},</h6>]
+                                </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_Education:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  education of mydetail?.PE_Education">
+                                    {{education.name}},</h6>]
+                                </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_Countrylivingin:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  country of mydetail?.PE_Countrylivingin">
+                                    {{country.name}},</h6>]
+                                </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_Residentstatus:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  country of mydetail?.PE_Residentstatus">
+                                    {{country.name}},</h6>]
+                                </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_occupation:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  occupation of mydetail?.PE_occupation">
+                                    {{occupation.name}},</h6>]
+                                </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_manglik:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  manglik of mydetail?.PE_manglik">
+                                    {{manglik}},</h6>]
+                                </td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">PE_looking_for:</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  profile of mydetail?.PE_looking_for">
+                                    {{profile.name}},</h6>]
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckpartner" class="info-text">
+                          <form [formGroup]="partnerexpform" (ngSubmit)="updatepartnerexp()">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label>Partner Expectation</label>
+                                  <input type="text" class="form-control" placeholder="My partner should be Loyal..."
+                                    formControlName="PartnerExpectations">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Minimum Age</label>
+                                  <input type="number" class="form-control" placeholder="25"
+                                    formControlName="PE_FromAge">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Maximum Age</label>
+                                  <input type="number" class="form-control" placeholder="50" formControlName="PE_ToAge">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" style="width:100%">
+                                  <mat-label>Minimum Height</mat-label>
+                                  <mat-select formControlName="PE_Height">
+                                    <mat-option *ngFor="let height of allheights" [value]="height._id">
+                                      {{height.feetinchvalue}}
+                                      Feet
+                                      {{height.cmvalue}} Cm</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" style="width:100%">
+                                  <mat-label>Maximum Height</mat-label>
+                                  <mat-select formControlName="PE_Heightto">
+                                    <mat-option *ngFor="let height of allheights" [value]="height._id">
+                                      {{height.feetinchvalue}}
+                                      Feet
+                                      {{height.cmvalue}} Cm</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Should Have Children</label>
+                                  <select class="form-control" formControlName="PE_HaveChildren">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">no</option>
+                                    <option value="doesn't_matter">doesn't matter</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Complexion</label>
+                                  <select class="form-control" formControlName="PE_Complexion">
+                                    <option value="Very Fair">Very Fair</option>
+                                    <option value="Fair">Fair</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Olive">Olive</option>
+                                    <option value="Brown">Brown</option>
+                                    <option value="Dark">Dark</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Mother Tongue</mat-label>
+                                  <mat-select formControlName="PE_MotherTongue" multiple>
+                                    <mat-option *ngFor="let language of alllanguage" [value]="language._id">
+                                      {{language?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Religion</mat-label>
+                                  <mat-select formControlName="PE_Religion" multiple>
+                                    <mat-option *ngFor="let religion of allreligion" [value]="religion._id">
+                                      {{religion?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Caste</mat-label>
+                                  <mat-select formControlName="PE_Caste" multiple>
+                                    <mat-option *ngFor="let caste of allcaste" [value]="caste._id">{{caste?.name}}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Education</mat-label>
+                                  <mat-select formControlName="PE_Education" multiple>
+                                    <mat-option *ngFor="let education of alleducation" [value]="education._id">
+                                      {{education?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Living Country</mat-label>
+                                  <mat-select formControlName="PE_Countrylivingin" multiple>
+                                    <mat-option *ngFor="let country of allcountry" [value]="country._id">
+                                      {{country?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Residential Country</mat-label>
+                                  <mat-select formControlName="PE_Residentstatus" multiple>
+                                    <mat-option *ngFor="let country of allcountry" [value]="country._id">
+                                      {{country?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Occupation</mat-label>
+                                  <mat-select formControlName="PE_occupation" multiple>
+                                    <mat-option *ngFor="let occupation of alloccupation" [value]="occupation._id">
+                                      {{occupation?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Manglik Status</mat-label>
+                                  <mat-select formControlName="PE_manglik" multiple>
+                                    <mat-option value="not_manglik">
+                                      Not Manglik</mat-option>
+                                    <mat-option value="manglik">Manglik</mat-option>
+                                    <mat-option value="ardh_manglik">
+                                      Ardh Manglik</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="slt" style="width:100%">
+                                  <mat-label>Looking For</mat-label>
+                                  <mat-select formControlName="PE_looking_for" multiple>
+                                    <mat-option *ngFor="let maritalstatus of allmaritalstatus"
+                                      [value]="maritalstatus._id">
+                                      {{maritalstatus?.name}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+
+                      </div>
+
+
+                      <!-- heroscope detail -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Assign to</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit"></i></a>
+                        </div>
+                        <div class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Assigned To:</td>
+                                <td class="wd1">{{mydetail?.Assign?.firstname || "not mentioned"}}
+                                  {{mydetail?.Assign?.lastname}} | {{mydetail?.Assign?.Mobile}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Account Manager:</td>
+                                <td class="wd1">{{mydetail?.account_manager?.firstname || "not mentioned"}}
+                                  {{mydetail?.account_manager?.lastname}} | {{mydetail?.account_manager?.Mobile}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="info-text">
+                          <form [formGroup]="assignaccount" (ngSubmit)="updateassignaccount()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" style="width:100%">
+                                  <mat-label>Assign To:</mat-label>
+                                  <mat-select formControlName="Assign">
+                                    <mat-option *ngFor="let staff of allstaff" [value]="staff._id">
+                                      {{staff?.firstname}} {{staff?.Mobile}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+
+                              <div class="col-md-6">
+                                <mat-form-field appearance="outline" style="width:100%">
+                                  <mat-label>Account Manager:</mat-label>
+                                  <mat-select formControlName="account_manager">
+                                    <mat-option *ngFor="let staff of allstaff" [value]="staff._id">
+                                      {{staff?.firstname}} {{staff?.Mobile}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (Click)="cancelhobotherform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

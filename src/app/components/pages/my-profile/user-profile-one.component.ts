@@ -92,7 +92,7 @@ export class UserProfileOneComponent implements OnInit {
     MSubcaste: new FormControl(''),
     NoOfChild: new FormControl(''),
     childrenlivingstatus: new FormControl(''),
-    TOB: new FormControl('')
+    TOB: new FormControl(''),
   });
 
   editfamilydetailform = new FormGroup({
@@ -107,9 +107,8 @@ export class UserProfileOneComponent implements OnInit {
     noyubrothers: new FormControl(''),
     noyusisters: new FormControl(''),
     nbm: new FormControl(''),
-    nsm: new FormControl('')
+    nsm: new FormControl(''),
   });
-
 
   editphysicaldetailsform = new FormGroup({
     Height: new FormControl(''),
@@ -118,7 +117,6 @@ export class UserProfileOneComponent implements OnInit {
     Smoke: new FormControl(''),
     spe_cases: new FormControl(''),
   });
-
 
   editcontactform = new FormGroup({
     Mobile: new FormControl(''),
@@ -177,7 +175,7 @@ export class UserProfileOneComponent implements OnInit {
     PE_Residentstatus: new FormControl(''),
     PE_occupation: new FormControl(''),
     PE_manglik: new FormControl(''),
-    PE_looking_for: new FormControl('')
+    PE_looking_for: new FormControl(''),
   });
 
   constructor(
@@ -186,7 +184,7 @@ export class UserProfileOneComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     public routes: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getmydetails();
@@ -194,7 +192,7 @@ export class UserProfileOneComponent implements OnInit {
     this.getallreligion();
     this.getmaritalstatus();
     this.getalllanguage();
-    this.getallheights()
+    this.getallheights();
     this.allcountrys();
     this.familyvalues();
     this.familystatus();
@@ -567,7 +565,6 @@ export class UserProfileOneComponent implements OnInit {
     );
   }
 
-
   cancelbasicform() {
     this.togglecheck = true;
   }
@@ -638,8 +635,12 @@ export class UserProfileOneComponent implements OnInit {
       this.editcontactform.setValue({
         Mobile: this.mydetail.Mobile ? this.mydetail.Mobile : null,
         Phone: this.mydetail.Phone ? this.mydetail.Phone : null,
-        whatsapp_phone: this.mydetail.whatsapp_phone ? this.mydetail.whatsapp_phone : null,
-        ConfirmEmail: this.mydetail.ConfirmEmail ? this.mydetail.ConfirmEmail : null,
+        whatsapp_phone: this.mydetail.whatsapp_phone
+          ? this.mydetail.whatsapp_phone
+          : null,
+        ConfirmEmail: this.mydetail.ConfirmEmail
+          ? this.mydetail.ConfirmEmail
+          : null,
         HomeTown: this.mydetail.HomeTown ? this.mydetail.HomeTown : null,
       });
       console.log(this.editcontactform.value);
@@ -738,7 +739,7 @@ export class UserProfileOneComponent implements OnInit {
 
   cancelphysicalform() {
     this.togglecheckphysical = true;
-    this.editphysicaldetailsform.reset()
+    this.editphysicaldetailsform.reset();
   }
 
   updatefamily() {
@@ -759,102 +760,93 @@ export class UserProfileOneComponent implements OnInit {
       );
   }
 
-
   updatehobbynother() {
     console.log(this.hobbynotherform.value);
-    this.userService
-      .addotheruserdetails(this.hobbynotherform.value)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-          this.toastr.success('Hobbies Updated Successfully');
-          this.togglecheckhob = true;
-          this.hobbynotherform.reset();
-          this.getmydetails();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    this.userService.addotheruserdetails(this.hobbynotherform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Hobbies Updated Successfully');
+        this.togglecheckhob = true;
+        this.hobbynotherform.reset();
+        this.getmydetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-
 
   updateabout() {
     console.log(this.aboutform.value);
-    this.userService
-      .addotheruserdetails(this.aboutform.value)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-          this.toastr.success('About Updated Successfully');
-          this.toggleabout = true;
-          this.aboutform.reset();
-          this.getmydetails();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    this.userService.addotheruserdetails(this.aboutform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('About Updated Successfully');
+        this.toggleabout = true;
+        this.aboutform.reset();
+        this.getmydetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   updateeduoccu() {
     console.log(this.eduoccueditform.value);
-    this.userService
-      .addotheruserdetails(this.eduoccueditform.value)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-          this.toastr.success('Education/Occupation Details Updated Successfully');
-          this.togglecheckoccupation = true;
-          this.eduoccueditform.reset();
-          this.getmydetails();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    this.userService.addotheruserdetails(this.eduoccueditform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success(
+          'Education/Occupation Details Updated Successfully'
+        );
+        this.togglecheckoccupation = true;
+        this.eduoccueditform.reset();
+        this.getmydetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   updatecontactdetails() {
     console.log(this.editcontactform.value);
-    this.userService
-      .addotheruserdetails(this.editcontactform.value)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-          this.toastr.success('Contact Details Updated Successfully');
-          this.togglechecktwo = true;
-          this.editcontactform.reset();
-          this.getmydetails();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    this.userService.addotheruserdetails(this.editcontactform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Contact Details Updated Successfully');
+        this.togglechecktwo = true;
+        this.editcontactform.reset();
+        this.getmydetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   cancelcontactform() {
-    this.togglechecktwo = false
-    this.editcontactform.reset()
+    this.togglechecktwo = false;
+    this.editcontactform.reset();
   }
 
   cancelaboutform() {
-    this.toggleabout = false
-    this.aboutform.reset()
+    this.toggleabout = false;
+    this.aboutform.reset();
   }
 
   cancelhobotherform() {
-    this.togglecheckhob = false
-    this.hobbynotherform.reset()
+    this.togglecheckhob = false;
+    this.hobbynotherform.reset();
   }
-
 
   partnerexp() {
     console.log('button clicked');
-    console.log(this.allheights)
-    this.getallcaste()
-    this.alleducations()
-    this.alloccupations()
+    console.log(this.allheights);
+    this.getallcaste();
+    this.alleducations();
+    this.alloccupations();
     if (this.togglecheckpartner == false) {
       this.togglecheckpartner = true;
     } else {
@@ -862,44 +854,65 @@ export class UserProfileOneComponent implements OnInit {
     }
     if (this.mydetail !== undefined) {
       this.partnerexpform.setValue({
-        PartnerExpectations: this.mydetail.PartnerExpectations ? this.mydetail.PartnerExpectations : null,
+        PartnerExpectations: this.mydetail.PartnerExpectations
+          ? this.mydetail.PartnerExpectations
+          : null,
         PE_FromAge: this.mydetail.PE_FromAge ? this.mydetail.PE_FromAge : null,
         PE_ToAge: this.mydetail.PE_ToAge ? this.mydetail.PE_ToAge : null,
         PE_Height: this.mydetail.PE_Height ? this.mydetail.PE_Height : null,
-        PE_Heightto: this.mydetail.PE_Heightto ? this.mydetail.PE_Heightto : null,
-        PE_Complexion: this.mydetail.PE_Complexion ? this.mydetail.PE_Complexion : null,
-        PE_HaveChildren: this.mydetail.PE_HaveChildren ? this.mydetail.PE_HaveChildren : null,
-        PE_MotherTongue: this.mydetail.PE_MotherTongue._id ? this.mydetail.PE_MotherTongue._id : null,
-        PE_Religion: this.mydetail.PE_Religion._id ? this.mydetail.PE_Religion._id : null,
-        PE_Caste: this.mydetail.PE_Caste._id ? this.mydetail.PE_Caste._id : null,
-        PE_Education: this.mydetail.PE_Education._id ? this.mydetail.PE_Education._id : null,
-        PE_Countrylivingin: this.mydetail.PE_Countrylivingin._id ? this.mydetail.PE_Countrylivingin._id : null,
-        PE_Residentstatus: this.mydetail.PE_Residentstatus._id ? this.mydetail.PE_Residentstatus._id : null,
-        PE_occupation: this.mydetail.PE_occupation._id ? this.mydetail.PE_occupation._id : null,
+        PE_Heightto: this.mydetail.PE_Heightto
+          ? this.mydetail.PE_Heightto
+          : null,
+        PE_Complexion: this.mydetail.PE_Complexion
+          ? this.mydetail.PE_Complexion
+          : null,
+        PE_HaveChildren: this.mydetail.PE_HaveChildren
+          ? this.mydetail.PE_HaveChildren
+          : null,
+        PE_MotherTongue: this.mydetail.PE_MotherTongue._id
+          ? this.mydetail.PE_MotherTongue._id
+          : null,
+        PE_Religion: this.mydetail.PE_Religion._id
+          ? this.mydetail.PE_Religion._id
+          : null,
+        PE_Caste: this.mydetail.PE_Caste._id
+          ? this.mydetail.PE_Caste._id
+          : null,
+        PE_Education: this.mydetail.PE_Education._id
+          ? this.mydetail.PE_Education._id
+          : null,
+        PE_Countrylivingin: this.mydetail.PE_Countrylivingin._id
+          ? this.mydetail.PE_Countrylivingin._id
+          : null,
+        PE_Residentstatus: this.mydetail.PE_Residentstatus._id
+          ? this.mydetail.PE_Residentstatus._id
+          : null,
+        PE_occupation: this.mydetail.PE_occupation._id
+          ? this.mydetail.PE_occupation._id
+          : null,
         PE_manglik: this.mydetail.PE_manglik ? this.mydetail.PE_manglik : null,
-        PE_looking_for: this.mydetail.PE_looking_for._id ? this.mydetail.PE_looking_for._id : null
+        PE_looking_for: this.mydetail.PE_looking_for._id
+          ? this.mydetail.PE_looking_for._id
+          : null,
       });
       console.log(this.partnerexpform.value);
     }
   }
 
-
   updatepartnerexp() {
-    console.log(this.partnerexpform.value)
-    this.userService
-      .addotheruserdetails(this.partnerexpform.value)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-          this.toastr.success('Partner Preferrance Updated Successfully');
-          this.togglecheckpartner = true;
-          this.partnerexpform.reset();
-          this.getmydetails();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    console.log(this.partnerexpform.value);
+    this.userService.addotheruserdetails(this.partnerexpform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Partner Preferrance Updated Successfully');
+        this.togglecheckpartner = true;
+        this.partnerexpform.reset();
+        this.getmydetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   hobnother() {
@@ -911,16 +924,27 @@ export class UserProfileOneComponent implements OnInit {
     }
     if (this.mydetail !== undefined) {
       this.eduoccueditform.setValue({
-        Education: this.mydetail.Education._id ? this.mydetail.Education._id : null,
-        EducationDetails: this.mydetail.EducationDetails ? this.mydetail.EducationDetails : null,
-        Occupation: this.mydetail.Occupation._id ? this.mydetail.Occupation._id : null,
-        OccupationDetail: this.mydetail.OccupationDetail ? this.mydetail.OccupationDetail : null,
-        Employedin: this.mydetail.Employedin._id ? this.mydetail.Employedin._id : null,
-        Annualincome: this.mydetail.Annualincome ? this.mydetail.Annualincome : null,
+        Education: this.mydetail.Education._id
+          ? this.mydetail.Education._id
+          : null,
+        EducationDetails: this.mydetail.EducationDetails
+          ? this.mydetail.EducationDetails
+          : null,
+        Occupation: this.mydetail.Occupation._id
+          ? this.mydetail.Occupation._id
+          : null,
+        OccupationDetail: this.mydetail.OccupationDetail
+          ? this.mydetail.OccupationDetail
+          : null,
+        Employedin: this.mydetail.Employedin._id
+          ? this.mydetail.Employedin._id
+          : null,
+        Annualincome: this.mydetail.Annualincome
+          ? this.mydetail.Annualincome
+          : null,
       });
       console.log(this.eduoccueditform.value);
     }
-
   }
 
   physicaldetail() {
@@ -934,21 +958,17 @@ export class UserProfileOneComponent implements OnInit {
     if (this.mydetail !== undefined) {
       this.editphysicaldetailsform.setValue({
         Height: this.mydetail.Height._id ? this.mydetail.Height._id : null,
-        BloodGroup: this.mydetail.BloodGroup
-          ? this.mydetail.BloodGroup
-          : null,
+        BloodGroup: this.mydetail.BloodGroup ? this.mydetail.BloodGroup : null,
         Bodytype: this.mydetail.Bodytype ? this.mydetail.Bodytype : null,
         Smoke: this.mydetail.Smoke ? this.mydetail.Smoke : null,
         spe_cases: this.mydetail.spe_cases ? this.mydetail.spe_cases : null,
       });
       console.log(this.editphysicaldetailsform.value);
     }
-
   }
 
-
   updatephysicaldetails() {
-    console.log(this.editphysicaldetailsform.value)
+    console.log(this.editphysicaldetailsform.value);
     this.userService
       .addotheruserdetails(this.editphysicaldetailsform.value)
       .subscribe(
@@ -966,31 +986,29 @@ export class UserProfileOneComponent implements OnInit {
   }
 
   updateasset() {
-    console.log(this.assetform.value)
-    this.userService
-      .addotheruserdetails(this.assetform.value)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-          this.toastr.success('Assets Detail Updated Successfully');
-          this.togglecheckproperties = true;
-          this.assetform.reset();
-          this.getmydetails();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    console.log(this.assetform.value);
+    this.userService.addotheruserdetails(this.assetform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Assets Detail Updated Successfully');
+        this.togglecheckproperties = true;
+        this.assetform.reset();
+        this.getmydetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   cancelassetform() {
-    this.togglecheckproperties = true
-    this.assetform.reset()
+    this.togglecheckproperties = true;
+    this.assetform.reset();
   }
 
   canceleduoccuform() {
-    this.togglecheckoccupation = true
-    this.eduoccueditform.reset()
+    this.togglecheckoccupation = true;
+    this.eduoccueditform.reset();
   }
 
   properties() {
@@ -1005,7 +1023,9 @@ export class UserProfileOneComponent implements OnInit {
         own_agriland: this.mydetail.own_agriland
           ? this.mydetail.own_agriland
           : null,
-        own_commland: this.mydetail.own_commland ? this.mydetail.own_commland : null,
+        own_commland: this.mydetail.own_commland
+          ? this.mydetail.own_commland
+          : null,
         own_house: this.mydetail.own_house ? this.mydetail.own_house : null,
         own_car: this.mydetail.own_car ? this.mydetail.own_car : null,
       });
@@ -1015,8 +1035,8 @@ export class UserProfileOneComponent implements OnInit {
 
   horoscope() {
     console.log('button clicked');
-    this.allstar()
-    this.allmoonstar()
+    this.allstar();
+    this.allmoonstar();
     if (this.togglecheckhoroscope == false) {
       this.togglecheckhoroscope = true;
     } else {
@@ -1024,13 +1044,13 @@ export class UserProfileOneComponent implements OnInit {
     }
     if (this.mydetail !== undefined) {
       this.horosform.setValue({
-        Manglik: this.mydetail.Manglik
-          ? this.mydetail.Manglik
-          : null,
+        Manglik: this.mydetail.Manglik ? this.mydetail.Manglik : null,
         TOB: this.mydetail.TOB ? this.mydetail.TOB : null,
         POB: this.mydetail.POB ? this.mydetail.POB : null,
         Star: this.mydetail.Star._id ? this.mydetail.Star._id : null,
-        Moonsign: this.mydetail.Moonsign._id ? this.mydetail.Moonsign._id : null,
+        Moonsign: this.mydetail.Moonsign._id
+          ? this.mydetail.Moonsign._id
+          : null,
         Horosmatch: this.mydetail.Horosmatch ? this.mydetail.Horosmatch : null,
       });
       console.log(this.horosform.value);
@@ -1038,25 +1058,23 @@ export class UserProfileOneComponent implements OnInit {
   }
 
   updatehoros() {
-    console.log(this.horosform.value)
-    this.userService
-      .addotheruserdetails(this.horosform.value)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-          this.toastr.success('Horoscope Updated Successfully');
-          this.togglecheckhoroscope = true;
-          this.horosform.reset();
-          this.getmydetails();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    console.log(this.horosform.value);
+    this.userService.addotheruserdetails(this.horosform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Horoscope Updated Successfully');
+        this.togglecheckhoroscope = true;
+        this.horosform.reset();
+        this.getmydetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   cancelhoros() {
-    this.togglecheckhoroscope = true
-    this.horosform.reset()
+    this.togglecheckhoroscope = true;
+    this.horosform.reset();
   }
 }

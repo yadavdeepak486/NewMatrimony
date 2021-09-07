@@ -33,7 +33,12 @@
                           <i class="bx bx-dots-vertical dropdown-toggle st-dot" data-toggle="dropdown"></i>
                           <ul class="dropdown-menu st-drp-left">
                             <!-- <li class="st-drli"><a href="#" class="st-acc">Accept</a></li> -->
+<<<<<<< HEAD
                             <li class="st-drli"><a href="#" class="st-rec"><i class="bx bx-trash"></i>  Removed</a></li>
+=======
+                            <li class="st-drli" style="cursor: pointer;"><a class="st-rec"
+                                (click)="removeshortlist(Content?._id)">Remove <i class='bx bx-trash'></i></a></li>
+>>>>>>> 9c6c398ae723dd3a51670d089eabe02fcba425e8
                           </ul>
                         </span>
 
@@ -59,16 +64,16 @@
                               <p class="i_t">Profile</p>
                             </a>
                           </li>
-                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i class=" flaticon-heart"
-                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">Cancel</p>
-                          </a>
+                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i
+                                class=" flaticon-heart" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Cancel</p>
+                            </a>
                           </li>
-                          <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i class=" flaticon-heart"
-                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">Cancel</p>
-                          </a>
-                          </li>
+                          <!-- <li><a routerLink="/profile-detail/{{Content?.displayed_user_id?._id}}"><i
+                                class=" flaticon-heart" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Cancel</p>
+                            </a>
+                          </li> -->
                           <li><a routerLink="/user-dashboard/user-chat"><i class=" bx bx-chat"
                                 style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                               <p class="i_t">Chat</p>

@@ -48,6 +48,7 @@
                 <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
                   (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
                 </quill-editor>
+                {{data}}
                 <div class="ql-container ql-snow" style="border-width: 0;">
                   <div class="ql-editor" [innerHTML]="data">
                   </div>
@@ -56,21 +57,21 @@
               </div>
               <div class="tab-pane fade" id="profile-vertical" role="tabpanel" aria-labelledby="profile-vertical-tab">
                 <h4>Account Opening Template</h4>
-                <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                <quill-editor [styles]="{height: '200px'}" (onFocus)="focus($event)"
                   (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
                 </quill-editor>
 
               </div>
               <div class="tab-pane fade" id="contact-vertical" role="tabpanel" aria-labelledby="contact-vertical-tab">
                 <h4>Account Approval</h4>
-                <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                <quill-editor [styles]="{height: '200px'}" (onFocus)="focus($event)"
                   (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
                 </quill-editor>
 
               </div>
               <div class="tab-pane fade" id="vertical-four" role="tabpanel" aria-labelledby="four-vertical-tab">
                 <h4>Manual Payment Approval</h4>
-                <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                <quill-editor [styles]="{height: '200px'}" (onFocus)="focus($event)"
                   (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
                 </quill-editor>
 

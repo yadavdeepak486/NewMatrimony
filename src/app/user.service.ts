@@ -1,13 +1,5 @@
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpEvent,
-  HttpRequest,
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -33,7 +25,13 @@ export class UserService {
   }
 
   getallprofiles() {
-    return this.http.get(`${this.backendurl}/user/allusers`);
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/allusers`, {
+      headers: header,
+    });
   }
 
   viewoneprofile(id) {
@@ -44,6 +42,10 @@ export class UserService {
     return this.http.get(`${this.backendurl}/user/userdetails/${id}`, {
       headers: header,
     });
+  }
+
+  viewprofileadmin(id) {
+    return this.http.get(`${this.backendurl}/user/otheruserdetails/${id}`);
   }
 
   //user signup
@@ -292,5 +294,16 @@ export class UserService {
     return this.http.get(
       `https://api.ipfind.com/me?auth=b4de4aba-d000-46f8-9ba0-2196c9b25ba6`
     );
+  }
+
+  //delete short list
+  removeshortlist(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/deleteshortlist/${id}`, {
+      headers: header,
+    });
   }
 }

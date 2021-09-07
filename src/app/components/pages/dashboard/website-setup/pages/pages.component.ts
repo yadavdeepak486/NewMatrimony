@@ -4,47 +4,48 @@ import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.scss']
+  styleUrls: ['./pages.component.scss'],
 })
 export class PagesComponent implements OnInit {
   toggleaddpage: boolean = true;
-  toggleeditpage: boolean = true;//toggleaddpage
+  toggleeditpage: boolean = true; //toggleaddpage
   editpageaddform: any;
   content: any = '';
   data: any;
   blured = false;
   focused = false;
 
-
-  allpages: any
+  allpages: any;
   pageform = new FormGroup({
     path: new FormControl(''),
     pagetitle: new FormControl(''),
     html: new FormControl(''),
-  })
+  });
 
   editpageform = new FormGroup({
     path: new FormControl(''),
     pagetitle: new FormControl(''),
     html: new FormControl(''),
-  })
+  });
   formBuilder: any;
 
-  constructor(public adminService: AdminService, public toastr: ToastrService) { }
+  constructor(
+    public adminService: AdminService,
+    public toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    this.getallpages()
+    this.getallpages();
   }
   breadcrumb = [
     {
       title: 'All Pages',
-      subTitle: 'Dashboard'
-    }
-  ]
+      subTitle: 'Dashboard',
+    },
+  ];
   created(event) {
     // tslint:disable-next-line:no-console
     console.log('editor-created', event);
@@ -79,8 +80,7 @@ export class PagesComponent implements OnInit {
     console.log('button clicked');
     if (this.toggleaddpage == false) {
       this.toggleaddpage = true;
-    }
-    else {
+    } else {
       this.toggleaddpage = false;
     }
   }
@@ -90,8 +90,7 @@ export class PagesComponent implements OnInit {
     console.log(id);
     if (this.toggleeditpage == false) {
       this.toggleeditpage = true;
-    }
-    else {
+    } else {
       this.toggleeditpage = false;
     }
     this.adminService.getonepage(id).subscribe(
@@ -108,7 +107,6 @@ export class PagesComponent implements OnInit {
         console.log(error);
       }
     );
-
   }
 
   submitForm() {
@@ -116,10 +114,10 @@ export class PagesComponent implements OnInit {
     this.adminService.addpageform(this.pageform.value).subscribe(
       (response: any) => {
         console.log(response);
-        this.toastr.success("Page added successfully");
+        this.toastr.success('Page added successfully');
         this.pageform.reset();
-        this.toggleaddpage = true
-        this.getallpages()
+        this.toggleaddpage = true;
+        this.getallpages();
       },
       (error) => {
         console.log(error);
@@ -129,21 +127,20 @@ export class PagesComponent implements OnInit {
   }
 
   canceladdpageform() {
-    this.toggleaddpage = true
-    this.pageform.reset()
+    this.toggleaddpage = true;
+    this.pageform.reset();
   }
 
   canceleditpageform() {
-    this.toggleeditpage = true
-    this.pageform.reset()
+    this.toggleeditpage = true;
+    this.pageform.reset();
   }
-
 
   getallpages() {
     this.adminService.getallpages().subscribe(
       (response: any) => {
         console.log(response);
-        this.allpages = response.data
+        this.allpages = response.data;
       },
       (error) => {
         console.log(error);
@@ -180,7 +177,7 @@ export class PagesComponent implements OnInit {
   // }
 
   deletepage(id) {
-    console.log(id)
+    console.log(id);
     this.adminService.deleteonepage(id).subscribe(
       (response: any) => {
         console.log(response);

@@ -42,6 +42,7 @@ export class AllStaffComponent implements OnInit {
     this.adminService.getallstaff().subscribe(
       (response: any) => {
         this.allstaff = response.data;
+        console.log(response);
       },
       (error) => {
         console.log(error);
