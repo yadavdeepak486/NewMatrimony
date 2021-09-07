@@ -24,10 +24,10 @@
                 <form class="bd-n">
                     <div class="row">
                         <div class="form-group fg-w">
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <label>Twilio Sid</label>
                             </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-9">
                                 <mat-form-field appearance="fill" class="slt">
                                     <mat-label>Toppings</mat-label>
                                     <mat-select [formControl]="toppings" multiple>
@@ -37,13 +37,13 @@
                             </div>
                         </div>
                         <div class="form-group fg-w">
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <label>SMS content</label>
                             </div>
-                            <div class="col-lg-8">
-                                <textarea id="w3review" name="w3review" rows="5" cols="90" placeholder="Text.." width="100%">
-
-                                </textarea>
+                            <div class="col-lg-9">
+                                <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)">
+                              </quill-editor>
                             </div>
                         </div>
 

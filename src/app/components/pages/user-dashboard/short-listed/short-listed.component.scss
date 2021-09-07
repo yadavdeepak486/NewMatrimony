@@ -14,24 +14,29 @@ font-size: 20px;
 }
 ul.dropdown-menu.st-drp-left {
 left: -150px !important;
-padding: 10px;
+padding: 0px;
+box-shadow: 0 8px 10px 0 rgb(183 192 206 / 50%);
 }
+
 a.st-acc {
-background: #137350;
-color: #fff;
+// background: #137350;
+color: #000000;
 padding: 7px 14px;
 border-radius: 100px;
 font-size: 14px;
 }
 a.st-rec {
-background: #f00;
-color: #fff;
-padding: 7px 14px;
-border-radius: 100px;
+color: #000000;
+padding:0px;
 font-size: 14px;
 }
 li.st-drli {
-margin-bottom: 12px;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+}
+li.st-drli:hover {
+  background: #cccccc70;
+  
 }
 // close
 
