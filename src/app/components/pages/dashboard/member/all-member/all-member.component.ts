@@ -8,17 +8,32 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class AllMemberComponent implements OnInit {
   alluser: any;
-  plans:any;
-  allmaritalstatus:any;
-  allcity:any;
-  allreligion:any;
-  allcaste:any;
-  alleducation:any;
-  allemployedin:any;
+  plans: any;
+  allmaritalstatus: any;
+  allcity: any;
+  allreligion: any;
+  allcaste: any;
+  alleducation: any;
+  allemployedin: any;
   genderList: string[] = ['Male', 'Female'];
-  minageList: string[] = ['18 years', '19  years','20 years','21 years','22 years','23 years', '24 years', '25 years'];
-  maxageList: string[] = ['26 years', '27  years','28 years','29 years','30 years'];
-  manglikList: string[] = ['Not Manglik', 'Manglik','Ardh Manglik'];
+  minageList: string[] = [
+    '18 years',
+    '19  years',
+    '20 years',
+    '21 years',
+    '22 years',
+    '23 years',
+    '24 years',
+    '25 years',
+  ];
+  maxageList: string[] = [
+    '26 years',
+    '27  years',
+    '28 years',
+    '29 years',
+    '30 years',
+  ];
+  manglikList: string[] = ['Not Manglik', 'Manglik', 'Ardh Manglik'];
 
   constructor(public adminServie: AdminService) {}
 
@@ -32,7 +47,6 @@ export class AllMemberComponent implements OnInit {
     this.getalleducation();
     this.getallemployedin();
     this.allplans();
-  
   }
 
   pageTitleContent = [
@@ -177,7 +191,7 @@ export class AllMemberComponent implements OnInit {
   ];
 
   getallusers() {
-    this.adminServie.getalluser().subscribe(
+    this.adminServie.getalluserforadmin().subscribe(
       (response: any) => {
         console.log(response);
         this.alluser = response.data;

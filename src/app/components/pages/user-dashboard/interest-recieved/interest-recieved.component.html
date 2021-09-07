@@ -8,7 +8,7 @@
   <!-- Start -->
   <div class="row">
     <!-- Start Listings Area -->
-    <section  class="listings-area  st-section">
+    <section class="listings-area  st-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12 ">
@@ -31,13 +31,15 @@
                           {{Content?.acceptance_status? "Accepted": "Pending"}} </span>
                         <span *ngIf="Content?.acceptance_status == false" class="status status-close">
                           {{Content?.acceptance_status? "Accepted": "Pending"}} </span>
-                          <span class="st-drop dropdown">
-                              <i class="bx bx-dots-vertical dropdown-toggle st-dot" data-toggle="dropdown"></i>
-                              <ul class="dropdown-menu st-drp-left">
-                                <li class="st-drli"><a href="#" class="st-acc">Accept</a></li>
-                                <li class="st-drli"><a href="#" class="st-rec">Reject</a></li>
-                              </ul>
-                          </span>
+                        <span class="st-drop dropdown">
+                          <i class="bx bx-dots-vertical dropdown-toggle st-dot" data-toggle="dropdown"></i>
+                          <ul class="dropdown-menu st-drp-left">
+                            <li class="st-drli" style="cursor: pointer;"><a class="st-acc"
+                                (click)="accept(Content?._id)">Accept <i class='bx bx-plus-circle'></i></a></li>
+                            <li class="st-drli" style="cursor: pointer;"><a class="st-rec"
+                                (click)="reject(Content?._id)">Reject <i class='bx bx-trash'></i></a></li>
+                          </ul>
+                        </span>
 
                         <h3 class="mid">ID: <span
                             class="mds">{{Content?.logged_user_id?.Prefix}}{{Content?.logged_user_id?.MatriID}}</span>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 import { UserService } from 'src/app/user.service';
+import { Country } from '@angular-material-extensions/select-country';
 
 @Component({
   selector: 'app-signup',
@@ -94,6 +95,10 @@ export class SignupComponent implements OnInit {
     );
   }
 
+  onCountrySelected(country: Country) {
+    console.log(country);
+  }
+
   submitandmovetootp() {
     console.log(this.signupuser.value);
     const DOBcal = `${this.signupuser.value.yyyy}-${this.signupuser.value.mm}-${this.signupuser.value.dd}`;
@@ -121,7 +126,7 @@ export class SignupComponent implements OnInit {
     this.userService.getallflags().subscribe(
       (response: any) => {
         this.allcountry = response.data;
-        //console.log(response);
+        console.log(response);
       },
       (error) => {
         console.log(error);

@@ -16,6 +16,10 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/user/allusers`);
   }
 
+  getalluserforadmin() {
+    return this.http.get(`${this.backendurl}/user/allusersforadmin`);
+  }
+
   getfreeusers() {
     return this.http.get(`${this.backendurl}/user/type/FM`);
   }
@@ -383,7 +387,6 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/deleterole/${id}`);
   }
 
-
   //staff
   getallstaff() {
     return this.http.get(`${this.backendurl}/admin/allstaff`);
@@ -497,5 +500,26 @@ export class AdminService {
 
   stafflogin(data) {
     return this.http.post(`${this.backendurl}/admin/login`, data);
+  }
+
+  addwebpage(data) {
+    return this.http.post(`${this.backendurl}/admin/addwebpage`, data);
+  }
+
+  edituserprofile(id, data) {
+    return this.http.post(`${this.backendurl}/admin/usersetting/${id}`, data);
+  }
+
+  upload(id, data) {
+    const formData: FormData = new FormData();
+
+    formData.append('Photo1', data.Photo1);
+    formData.append('Photo2', data.Photo2);
+    formData.append('Photo3', data.Photo3);
+
+    return this.http.post(
+      `${this.backendurl}/user/uploaduserimage/${id}`,
+      formData
+    );
   }
 }

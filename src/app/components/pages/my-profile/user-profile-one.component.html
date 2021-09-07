@@ -990,7 +990,7 @@
                               <tr class="wd">
                                 <td class="wd1">Height Range:</td>
                                 <td class="wd1">
-                                  {{mydetail?.PE_Height?.feetinchvalue}}-{{mydetail?.PE_Heightto?.feetinchvalue}}</td>
+                                  {{mydetail?.PE_Height.feetinchvalue}}-{{mydetail?.PE_Heightto.feetinchvalue}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Children:</td>
@@ -1002,41 +1002,74 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Mother Tongue:</td>
-                                <td class="wd1">{{mydetail?.PE_MotherTongue?.name || "not mentioned"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let language of mydetail?.PE_MotherTongue">
+                                    {{language.name}},</h6>]
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Religion:</td>
-                                <td class="wd1">
-                                  {{mydetail?.PE_Religion?.name || "No Elder Brothers"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let religion of mydetail?.PE_Religion">
+                                    {{religion.name}},</h6>]
+                                </td>
 
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">PE_Caste:</td>
-                                <td class="wd1">{{mydetail?.PE_Caste?.name || "No Younger Brothers"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  caste of mydetail?.PE_Caste">
+                                    {{caste.name}},</h6>]
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">PE_Education:</td>
-                                <td class="wd1">{{mydetail?.PE_Education?.name || "No Elder Sisters"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  education of mydetail?.PE_Education">
+                                    {{education.name}},</h6>]
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">PE_Countrylivingin:</td>
-                                <td class="wd1">{{mydetail?.PE_Countrylivingin?.name || "No Younger Sisters"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  country of mydetail?.PE_Countrylivingin">
+                                    {{country.name}},</h6>]
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">PE_Residentstatus:</td>
-                                <td class="wd1">{{mydetail?.PE_Residentstatus?.name || "No Married Brothers"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  country of mydetail?.PE_Residentstatus">
+                                    {{country.name}},</h6>]
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">PE_occupation:</td>
-                                <td class="wd1">{{mydetail?.PE_occupation?.name || "No Married Sisters"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  occupation of mydetail?.PE_occupation">
+                                    {{occupation.name}},</h6>]
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">PE_manglik:</td>
-                                <td class="wd1">{{mydetail?.PE_manglik || "No Married Sisters"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  manglik of mydetail?.PE_manglik">
+                                    {{manglik}},</h6>]
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">PE_looking_for:</td>
-                                <td class="wd1">{{mydetail?.PE_looking_for?.name || "No Married Sisters"}}</td>
+                                <td class="wd1">[
+                                  <h6 style="display: inline;" *ngFor="let
+                                  profile of mydetail?.PE_looking_for">
+                                    {{profile.name}},</h6>]
+                                </td>
                               </tr>
                             </tbody>
                           </table>
@@ -1068,41 +1101,23 @@
                                 <mat-form-field appearance="outline" style="width:100%">
                                   <mat-label>Minimum Height</mat-label>
                                   <mat-select formControlName="PE_Height">
-                                    <mat-option *ngFor="let height of allheights" [value]="height.cmvalue">
+                                    <mat-option *ngFor="let height of allheights" [value]="height._id">
                                       {{height.feetinchvalue}}
                                       Feet
                                       {{height.cmvalue}} Cm</mat-option>
                                   </mat-select>
                                 </mat-form-field>
-
-
-
-
-                                <!-- <div class="form-group">
-                                  <label>Minimum Height</label>
-                                  <select class="form-control" formControlName="PE_Height">
-                                    <option [value]="height?._id" *ngFor="let height of allheights">
-                                      {{height?.feetinchvalue}} ({{height?.cmvalue}}Cms)</option>
-                                  </select>
-                                </div> -->
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field appearance="outline" style="width:100%">
                                   <mat-label>Maximum Height</mat-label>
                                   <mat-select formControlName="PE_Heightto">
-                                    <mat-option *ngFor="let height of allheights" [value]="height.cmvalue">
+                                    <mat-option *ngFor="let height of allheights" [value]="height._id">
                                       {{height.feetinchvalue}}
                                       Feet
                                       {{height.cmvalue}} Cm</mat-option>
                                   </mat-select>
                                 </mat-form-field>
-                                <!-- <div class="form-group">
-                                  <label>Maximum Height</label>
-                                  <select class="form-control" formControlName="PE_Heightto">
-                                    <option [value]="height._id" *ngFor="let height of allheights">
-                                      {{height?.feetinchvalue}} ({{height?.cmvalue}}Cms)</option>
-                                  </select>
-                                </div> -->
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -1118,12 +1133,12 @@
                                 <div class="form-group">
                                   <label>Complexion</label>
                                   <select class="form-control" formControlName="PE_Complexion">
-                                    <option value="very_fair">Very Fair</option>
-                                    <option value="fair">Fair</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="olive">Olive</option>
-                                    <option value="brown">Brown</option>
-                                    <option value="dark">Dark</option>
+                                    <option value="Very Fair">Very Fair</option>
+                                    <option value="Fair">Fair</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Olive">Olive</option>
+                                    <option value="Brown">Brown</option>
+                                    <option value="Dark">Dark</option>
                                   </select>
                                 </div>
                               </div>

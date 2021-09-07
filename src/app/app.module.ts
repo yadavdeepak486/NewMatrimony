@@ -176,6 +176,7 @@ import { AddCommentComponent } from './components/pages/dashboard/followup/add-c
 import { ViewCommentComponent } from './components/pages/dashboard/followup/view-comment/view-comment.component';
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
 import { TermsandconditionComponent } from './components/pages/termsandcondition/termsandcondition.component';
+import { OtherProfileComponent } from './components/pages/other-profile/other-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -335,6 +336,7 @@ import { TermsandconditionComponent } from './components/pages/termsandcondition
     ViewCommentComponent,
     PrivacyPolicyComponent,
     TermsandconditionComponent,
+    OtherProfileComponent,
   ],
   imports: [
     BrowserModule,

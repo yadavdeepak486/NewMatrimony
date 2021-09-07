@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -9,7 +10,11 @@ import { UserService } from 'src/app/user.service';
 })
 export class ShortListedComponent implements OnInit {
   users: any;
-  constructor(public userService: UserService, private router: Router) {}
+  constructor(
+    public userService: UserService,
+    private router: Router,
+    public toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.resetOption = [this.options[0]];
@@ -297,5 +302,17 @@ export class ShortListedComponent implements OnInit {
     this.router.navigate(['profile-detail', id]);
   }
 
- 
+  removeshortlist(id) {
+    console.log(id);
+    this.userService.removeshortlist(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.info('Removed from shortlist');
+        this.getallUsers();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
