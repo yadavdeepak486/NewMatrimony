@@ -1,5 +1,19 @@
 @import "../../dashboard.component.scss";
 
+// editor css 
+td.url.st-fixed {
+    width: 200px !important;
+    overflow: hidden !important;
+}
+td.url.st-fixed p{
+    width: 200px !important;
+    overflow: hidden !important;
+}
+td.url.st-fixed h1,h2,h3,h4,h5.h6{
+    width: 200px !important;
+    overflow: hidden !important;
+}
+// close
 .form-group.fg-w {
     width: 100%;
     display: flex;
@@ -51,7 +65,7 @@ table {
 
     thead {
         th {
-            white-space: nowrap;
+            // white-space: nowrap;
             vertical-align: middle;
             color: var(--blackColor);
             padding: 11px 25px 10px;
@@ -68,7 +82,7 @@ table {
     }
     tbody {
         td {
-            white-space: nowrap;
+            // white-space: nowrap;
             vertical-align: middle;
             padding: 10px 20px;
             border: {

@@ -21,41 +21,33 @@
     <div class="row">
             <div *ngIf="toggleaddpage" class="col-lg-12">
                 <div  *ngIf="toggleeditpage" class="card">
-                    <h3 >All Pages</h3>
+                    <h3 >All Pagesabcsd</h3>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>Name	</th>
                                     <th>URL</th>
-                                    <th>Options</th>
+                                    <th>Html</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr >
+                                <tr *ngFor ="let page of allpages">
                                     <td class="name">
-                                       Home
+                                       {{page.pagetitle}}
                                     </td>
                                     <td class="url">
-                                        fgggfggfggfgfgfggfgfg
+                                      {{page.path}}
+                                    </td>
+                                    <td class="url st-fixed">
+                                      {{page.html}}
                                     </td>
                                     <td class="Options">
-                                        <a  class="st-i" ><i class=' bx bx-edit' (click)="editpage()"></i> </a>
-                                        <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
+                                      <a class="st-i"><i class=' bx bx-pencil' (click)="editpage(page._id)"></i> </a>
+                                      <a class="st-i2"><i class=' bx bx-minus' (click)="deletepage(page._id)"></i></a>
                                     </td>
                                 </tr>
-                                <tr >
-                                  <td class="name">
-                                     About
-                                  </td>
-                                  <td class="url">
-                                      fgggfggfggfgfgfggfgfg
-                                  </td>
-                                  <td class="Options">
-                                      <a  class="st-i"><i class=' bx bx-edit' (click)="editpage()"></i> </a>
-                                      <a href="#" class="st-i2"><i class=' bx bx-window-close'></i> </a>
-                                  </td>
-                              </tr>
                             </tbody>
                         </table>
                     </div>
@@ -63,99 +55,49 @@
             </div>
 
               <!-- edit -->
-              <div class="col-lg-8 offset-lg-2">
+              <div class="col-lg-12">
               <div *ngIf="!toggleeditpage" class="card">
-                <h3>Page Content</h3>
-                <form class="bd-n">
+                <h3>Page Content Edit</h3>
+                <form   [formGroup]="editpageform" (ngSubmit)="updatepageForm()" class="bd-n">
                     <div class="row">
                         <div class="form-group fg-w">
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <label>Title</label>
                             </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-9">
                               <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="" placeholder="Title" >
+                                <input type="text" class="form-control" id="" formControlName="pagetitle" placeholder="Title"  >
                               </div>
                             </div>
                         </div>
                         <div class="form-group fg-w">
-                          <div class="col-lg-4">
-                              <label>Link </label>
+                          <div class="col-lg-3">
+                            <label>Pages keyname <span style="color: red;">*</span></label>
                           </div>
-                          <div class="col-lg-8">
+                          <div class="col-lg-9">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="" placeholder="https://demo.activeitzone.com/matrimonial/" >
-                                <small class="sm-text">Use character, number, hypen only</small>
-                            </div>
+                                  <select class="form-control"  formControlName="path">
+                                    <option value="about-us" selected>/about-us</option>
+                                    <option value="contact-us">/contact-us</option>
+                                    <option value="Three">Three</option>
+                                  </select>
+                             </div>
                           </div>
                         </div>
                         <div class="form-group fg-w">
-                          <div class="col-lg-4">
+                          <div class="col-lg-3">
                               <label>Add Content</label>
                           </div>
-                          <div class="col-lg-8">
-                            <div class="input-group mb-3">
-                              <div class="input-group mb-3">
-                                <textarea id="w3review" name="w3review" rows="4" cols="60">
-
-                                  </textarea>
-                              </div>
-                            </div>
-
+                          <div class="col-lg-9">
+                            <quill-editor [(ngModel)]="content2" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                            (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"   formControlName="html">
+                          </quill-editor>  
                           </div>
                         </div>
 
                         <div class="form-group fg-w">
-                          <div class="col-lg-12">
-                            <h3>Seo Fields</h3>
-                          </div>
-                        </div>
-
-                        <div class="form-group fg-w">
-                          <div class="col-lg-4">
-                              <label>Meta Title</label>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="input-group mb-3">
-                              <input type="text" class="form-control" id="" placeholder="Title" >
-                          </div>
-                          </div>
-                        </div>
-                        <div class="form-group fg-w">
-                          <div class="col-lg-4">
-                              <label>Meta Description</label>
-                          </div>
-                          <div class="col-lg-8">
-                            <textarea id="w3review" name="w3review" rows="4" cols="50">
-
-                            </textarea>
-                          </div>
-                        </div>
-
-                        <div class="form-group fg-w">
-                          <div class="col-lg-4">
-                              <label>Keywords</label>
-                          </div>
-                          <div class="col-lg-8">
-                            <input type="text" class="form-control" id="" placeholder="Keywords,Keywords" >
-                            <small class="sm-text">Separate with coma</small>
-                          </div>
-                        </div>
-
-                        <div class="form-group fg-w">
-                          <div class="col-lg-4">
-                              <label>Meta Image</label>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="inputGroupFile01">
-                              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="form-group fg-w">
-                            <button class="btn btn-primary ml-3 mt-2">Update</button>
+                            <button class="btn btn-primary ml-3 mt-2" type="submit">Update</button>
+                            <button class="btn btn-primary ml-3 mt-2" type="button" (click)="canceleditpageform()">Cancel</button>
                         </div>
                     </div>
                 </form>
@@ -163,99 +105,53 @@
             </div>
                 <!-- close -->
 
-            <div class="col-lg-8 offset-lg-2">
+            <div class="col-lg-12">
                 <div *ngIf=" !toggleaddpage" class="card">
-                    <h3>Page Content</h3>
-                    <form class="bd-n">
+                    <h3>Page Content </h3>
+                    <form [formGroup]="pageform" (ngSubmit)="submitForm()"class="bd-n">
                         <div class="row">
                             <div class="form-group fg-w">
-                                <div class="col-lg-4">
-                                    <label>Title</label>
+                                <div class="col-lg-3">
+                                    <label>Title </label>
                                 </div>
-                                <div class="col-lg-8">
+                                <div class="col-lg-9">
                                   <div class="input-group mb-3">
-                                    <input type="text" class="form-control" id="" placeholder="Title" >
+                                    <input type="text" class="form-control" formControlName="pagetitle" id="" placeholder="Title" >
                                   </div>
                                 </div>
                             </div>
                             <div class="form-group fg-w">
-                              <div class="col-lg-4">
-                                  <label>Link </label>
+                              <div class="col-lg-3">
+                                <label>Pages keyname <span style="color: red;">*</span></label>
                               </div>
-                              <div class="col-lg-8">
+                              <div class="col-lg-9">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" id="" placeholder="https://demo.activeitzone.com/matrimonial/" >
-                                    <small class="sm-text">Use character, number, hypen only</small>
-                                </div>
+                                      <select class="form-control" formControlName="path" >
+                                        <option value="about-us" selected>/about-us</option>
+                                        <option value="contact-us">/contact-us</option>
+                                        <option value="Three">Three</option>
+                                      </select>
+                                 </div>
                               </div>
                             </div>
                             <div class="form-group fg-w">
-                              <div class="col-lg-4">
+                              <div class="col-lg-3">
                                   <label>Add Content</label>
                               </div>
-                              <div class="col-lg-8">
+                              <div class="col-lg-9">
                                 <div class="input-group mb-3">
                                   <div class="input-group mb-3">
-                                    <textarea id="w3review" name="w3review" rows="4" cols="60">
-    
-                                      </textarea>
+                                    <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                                      (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"   formControlName="html">
+                                    </quill-editor>
                                   </div>
                                 </div>
-    
                               </div>
                             </div>
-    
+                         
                             <div class="form-group fg-w">
-                              <div class="col-lg-12">
-                                <h3>Seo Fields</h3>
-                              </div>
-                            </div>
-    
-                            <div class="form-group fg-w">
-                              <div class="col-lg-4">
-                                  <label>Meta Title</label>
-                              </div>
-                              <div class="col-lg-8">
-                                <div class="input-group mb-3">
-                                  <input type="text" class="form-control" id="" placeholder="Title" >
-                              </div>
-                              </div>
-                            </div>
-                            <div class="form-group fg-w">
-                              <div class="col-lg-4">
-                                  <label>Meta Description</label>
-                              </div>
-                              <div class="col-lg-8">
-                                <textarea id="w3review" name="w3review" rows="4" cols="50">
-    
-                                </textarea>
-                              </div>
-                            </div>
-    
-                            <div class="form-group fg-w">
-                              <div class="col-lg-4">
-                                  <label>Keywords</label>
-                              </div>
-                              <div class="col-lg-8">
-                                <input type="text" class="form-control" id="" placeholder="Keywords,Keywords" >
-                                <small class="sm-text">Separate with coma</small>
-                              </div>
-                            </div>
-    
-                            <div class="form-group fg-w">
-                              <div class="col-lg-4">
-                                  <label>Meta Image</label>
-                              </div>
-                              <div class="col-lg-8">
-                                <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="form-group fg-w">
-                                <button class="btn btn-primary ml-3 mt-2">Update</button>
+                              <button class="btn btn-primary ml-3 mt-2" type="submit"> Save</button>
+                              <button class="btn btn-primary ml-3 mt-2" type="button" (click)="canceladdpageform()">Cancel</button>
                             </div>
                         </div>
                     </form>

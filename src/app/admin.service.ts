@@ -502,10 +502,6 @@ export class AdminService {
     return this.http.post(`${this.backendurl}/admin/login`, data);
   }
 
-  addwebpage(data) {
-    return this.http.post(`${this.backendurl}/admin/addwebpage`, data);
-  }
-
   edituserprofile(id, data) {
     return this.http.post(`${this.backendurl}/admin/usersetting/${id}`, data);
   }
@@ -521,5 +517,21 @@ export class AdminService {
       `${this.backendurl}/user/uploaduserimage/${id}`,
       formData
     );
+  }
+  // add pagesform
+  addpageform(data) {
+    return this.http.post(`${this.backendurl}/admin/addwebpage`, data);
+  }
+
+  getallpages() {
+    return this.http.get(`${this.backendurl}/admin/allwebpage`);
+  }
+
+  getonepage(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonewebpage/${id}`);
+  }
+
+  deleteonepage(id) {
+    return this.http.get(`${this.backendurl}/admin/deletewebpage/${id}`);
   }
 }
