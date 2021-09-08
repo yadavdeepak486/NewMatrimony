@@ -3,168 +3,170 @@
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
 
-    <app-dashboard-navbar></app-dashboard-navbar>
+  <app-dashboard-navbar></app-dashboard-navbar>
 
-    <!-- Breadcrumb Area -->
-     <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-        <h1>{{Content.title}}</h1>
-        <ol class="breadcrumb">
-            <li class="item"><a routerLink="/">Home</a></li>
-            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-            <li class="item">{{Content.title}}</li>
-        </ol>
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/">Home</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}}</li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
+
+  <!-- Start -->
+  <div _ngcontent-rqo-c140="" class="bx-right"><a _ngcontent-rqo-c140="" (click)="addpage()"
+      class="btn btn-success rs-btn">Add New Pages</a></div>
+  <div class="row">
+    <div *ngIf="toggleaddpage" class="col-lg-12">
+      <div *ngIf="toggleeditpage" class="card">
+        <h3>All Pagesabcsd</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name </th>
+                <th>URL</th>
+                <th>Html</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let page of allpages">
+                <td class="name">
+                  {{page.pagetitle}}
+                </td>
+                <td class="url">
+                  {{page.path}}
+                </td>
+                <td class="url st-fixed">
+                  {{page.html}}
+                </td>
+                <td class="Options">
+                  <a class="st-i"><i class=' bx bx-pencil' (click)="editpage(page._id)"></i> </a>
+                  <a class="st-i2"><i class=' bx bx-minus' (click)="deletepage(page._id)"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <!-- End Breadcrumb Area -->
 
-    <!-- Start -->
-    <div _ngcontent-rqo-c140="" class="bx-right"><a _ngcontent-rqo-c140="" (click)="addpage()" class="btn btn-success rs-btn">Add New Pages</a></div>
-    <div class="row">
-            <div *ngIf="toggleaddpage" class="col-lg-12">
-                <div  *ngIf="toggleeditpage" class="card">
-                    <h3 >All Pagesabcsd</h3>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Name	</th>
-                                    <th>URL</th>
-                                    <th>Html</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor ="let page of allpages">
-                                    <td class="name">
-                                       {{page.pagetitle}}
-                                    </td>
-                                    <td class="url">
-                                      {{page.path}}
-                                    </td>
-                                    <td class="url st-fixed">
-                                      {{page.html}}
-                                    </td>
-                                    <td class="Options">
-                                      <a class="st-i"><i class=' bx bx-pencil' (click)="editpage(page._id)"></i> </a>
-                                      <a class="st-i2"><i class=' bx bx-minus' (click)="deletepage(page._id)"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+    <!-- edit -->
+    <div class="col-lg-12">
+      <div *ngIf="!toggleeditpage" class="card">
+        <h3>Page Content Edit</h3>
+        <form [formGroup]="editpageform" (ngSubmit)="updatepageForm()" class="bd-n">
+          <div class="row">
+            <div class="form-group fg-w">
+              <div class="col-lg-3">
+                <label>Title</label>
+              </div>
+              <div class="col-lg-9">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="" formControlName="pagetitle" placeholder="Title">
                 </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-3">
+                <label>Pages keyname <span style="color: red;">*</span></label>
+              </div>
+              <div class="col-lg-9">
+                <div class="input-group mb-3">
+                  <select class="form-control" formControlName="path">
+                    <option value="about-us" selected>/about-us</option>
+                    <option value="contact-us">/contact-us</option>
+                    <option value="Three">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-3">
+                <label>Add Content</label>
+              </div>
+              <div class="col-lg-9">
+                <quill-editor [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                  (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"
+                  formControlName="html">
+                </quill-editor>
+              </div>
             </div>
 
-              <!-- edit -->
-              <div class="col-lg-12">
-              <div *ngIf="!toggleeditpage" class="card">
-                <h3>Page Content Edit</h3>
-                <form   [formGroup]="editpageform" (ngSubmit)="updatepageForm()" class="bd-n">
-                    <div class="row">
-                        <div class="form-group fg-w">
-                            <div class="col-lg-3">
-                                <label>Title</label>
-                            </div>
-                            <div class="col-lg-9">
-                              <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="" formControlName="pagetitle" placeholder="Title"  >
-                              </div>
-                            </div>
-                        </div>
-                        <div class="form-group fg-w">
-                          <div class="col-lg-3">
-                            <label>Pages keyname <span style="color: red;">*</span></label>
-                          </div>
-                          <div class="col-lg-9">
-                            <div class="input-group mb-3">
-                                  <select class="form-control"  formControlName="path">
-                                    <option value="about-us" selected>/about-us</option>
-                                    <option value="contact-us">/contact-us</option>
-                                    <option value="Three">Three</option>
-                                  </select>
-                             </div>
-                          </div>
-                        </div>
-                        <div class="form-group fg-w">
-                          <div class="col-lg-3">
-                              <label>Add Content</label>
-                          </div>
-                          <div class="col-lg-9">
-                            <quill-editor [(ngModel)]="content2" [styles]="{height: '200px'}" (onFocus)="focus($event)"
-                            (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"   formControlName="html">
-                          </quill-editor>  
-                          </div>
-                        </div>
-
-                        <div class="form-group fg-w">
-                            <button class="btn btn-primary ml-3 mt-2" type="submit">Update</button>
-                            <button class="btn btn-primary ml-3 mt-2" type="button" (click)="canceleditpageform()">Cancel</button>
-                        </div>
-                    </div>
-                </form>
-                </div>
+            <div class="form-group fg-w">
+              <button class="btn btn-primary ml-3 mt-2" type="submit">Update</button>
+              <button class="btn btn-primary ml-3 mt-2" type="button" (click)="canceleditpageform()">Cancel</button>
             </div>
-                <!-- close -->
-
-            <div class="col-lg-12">
-                <div *ngIf=" !toggleaddpage" class="card">
-                    <h3>Page Content </h3>
-                    <form [formGroup]="pageform" (ngSubmit)="submitForm()"class="bd-n">
-                        <div class="row">
-                            <div class="form-group fg-w">
-                                <div class="col-lg-3">
-                                    <label>Title </label>
-                                </div>
-                                <div class="col-lg-9">
-                                  <div class="input-group mb-3">
-                                    <input type="text" class="form-control" formControlName="pagetitle" id="" placeholder="Title" >
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="form-group fg-w">
-                              <div class="col-lg-3">
-                                <label>Pages keyname <span style="color: red;">*</span></label>
-                              </div>
-                              <div class="col-lg-9">
-                                <div class="input-group mb-3">
-                                      <select class="form-control" formControlName="path" >
-                                        <option value="about-us" selected>/about-us</option>
-                                        <option value="contact-us">/contact-us</option>
-                                        <option value="Three">Three</option>
-                                      </select>
-                                 </div>
-                              </div>
-                            </div>
-                            <div class="form-group fg-w">
-                              <div class="col-lg-3">
-                                  <label>Add Content</label>
-                              </div>
-                              <div class="col-lg-9">
-                                <div class="input-group mb-3">
-                                  <div class="input-group mb-3">
-                                    <quill-editor [(ngModel)]="content" [styles]="{height: '200px'}" (onFocus)="focus($event)"
-                                      (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"   formControlName="html">
-                                    </quill-editor>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                         
-                            <div class="form-group fg-w">
-                              <button class="btn btn-primary ml-3 mt-2" type="submit"> Save</button>
-                              <button class="btn btn-primary ml-3 mt-2" type="button" (click)="canceladdpageform()">Cancel</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-    
-            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <!-- End -->
+    <!-- close -->
 
-    <div class="flex-grow-1"></div>
+    <div class="col-lg-12">
+      <div *ngIf=" !toggleaddpage" class="card">
+        <h3>Page Content </h3>
+        <form [formGroup]="pageform" (ngSubmit)="submitForm()" class="bd-n">
+          <div class="row">
+            <div class="form-group fg-w">
+              <div class="col-lg-3">
+                <label>Title </label>
+              </div>
+              <div class="col-lg-9">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" formControlName="pagetitle" id="" placeholder="Title">
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-3">
+                <label>Pages keyname <span style="color: red;">*</span></label>
+              </div>
+              <div class="col-lg-9">
+                <div class="input-group mb-3">
+                  <select class="form-control" formControlName="path">
+                    <option value="about-us" selected>/about-us</option>
+                    <option value="contact-us">/contact-us</option>
+                    <option value="Three">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <div class="col-lg-3">
+                <label>Add Content</label>
+              </div>
+              <div class="col-lg-9">
+                <div class="input-group mb-3">
+                  <div class="input-group mb-3">
+                    <quill-editor [styles]="{height: '200px'}" (onFocus)="focus($event)"
+                      (onEditorChanged)="changedEditor($event)" (onBlur)="blur($event)"
+                      (onEditorCreated)="created($event)" formControlName="html">
+                    </quill-editor>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <app-copyrights></app-copyrights>
+            <div class="form-group fg-w">
+              <button class="btn btn-primary ml-3 mt-2" type="submit"> Save</button>
+              <button class="btn btn-primary ml-3 mt-2" type="button" (click)="canceladdpageform()">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <!-- End -->
+
+  <div class="flex-grow-1"></div>
+
+  <app-copyrights></app-copyrights>
 
 </div>
 <!-- End Main Content Wrapper Area -->
-

@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
 
   constructor(public http: HttpClient) {}
@@ -492,6 +492,14 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/allplan`);
   }
 
+  getoneplan(id) {
+    return this.http.get(`${this.backendurl}/admin/getoneplan/${id}`);
+  }
+
+  editplan(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editplan/${id}`, data);
+  }
+
   otpbal() {
     return this.http.get(
       `http://2factor.in/API/V1/8a6e826a-b96c-11e7-94da-0200cd936042/BAL/SMS`
@@ -531,7 +539,40 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/viewonewebpage/${id}`);
   }
 
+  onepage(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonewebpage/${id}`);
+  }
+
   deleteonepage(id) {
     return this.http.get(`${this.backendurl}/admin/deletewebpage/${id}`);
+  }
+
+  //template
+  addsmstemplateform(data) {
+    return this.http.post(`${this.backendurl}/admin/addsmstemplate`, data);
+  }
+
+  viewsmstemplate(id) {
+    return this.http.get(`${this.backendurl}/admin/viewkeysmstemplate/${id}`);
+  }
+
+  addotpcredential(data) {
+    return this.http.post(`${this.backendurl}/admin/addotpapi`, data);
+  }
+
+  allotpcredential() {
+    return this.http.get(`${this.backendurl}/admin/allotpapi`);
+  }
+
+  viewoneotpcred(id) {
+    return this.http.get(`${this.backendurl}/admin/viewoneotpapi/${id}`);
+  }
+
+  editoneotpcred(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editotpapi/${id}`, data);
+  }
+
+  deleteoneotpcred(id) {
+    return this.http.get(`${this.backendurl}/admin/deleteotpapi/${id}`);
   }
 }

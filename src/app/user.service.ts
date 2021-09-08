@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -290,7 +290,6 @@ export class UserService {
   }
 
   getmyip() {
-    // https://ipinfo.io/json
     return this.http.get(
       `https://api.ipfind.com/me?auth=b4de4aba-d000-46f8-9ba0-2196c9b25ba6`
     );
@@ -305,5 +304,15 @@ export class UserService {
     return this.http.get(`${this.backendurl}/user/deleteshortlist/${id}`, {
       headers: header,
     });
+  }
+
+  getallpaymentlinks() {
+    return this.http.get(`${this.backendurl}/admin/alllinks`);
+  }
+
+  makepaymentrequest(planId, userId) {
+    return this.http.get(
+      `${this.backendurl}/admin/makepayment/${planId}/${userId}`
+    );
   }
 }

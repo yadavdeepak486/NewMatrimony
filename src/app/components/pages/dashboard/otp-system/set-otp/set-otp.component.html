@@ -27,20 +27,24 @@
               <tr>
                 <th>Provider Name</th>
                 <th>API Key</th>
+                <th>Template Name</th>
                 <th>Options</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let cred of allcreds;">
                 <td class="#">
-                  Deepak
+                  {{cred.provider}}
                 </td>
                 <td class="key">
-                  123456
+                  {{cred.apikey}}
+                </td>
+                <td class="key">
+                  {{cred.templatename}}
                 </td>
                 <td class="option">
-                  <a class="st-i"><i class=' bx bx-pencil' (click)="editotpchk()"></i> </a>
-                  <a class="st-i2"><i class=' bx bx-minus'></i></a>
+                  <a class="st-i"><i class=' bx bx-pencil' (click)="editotpchk(cred._id)"></i> </a>
+                  <a class="st-i2"><i class=' bx bx-minus' (click)="deleteotpchk(cred._id)"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -48,28 +52,29 @@
         </div>
       </div>
     </div>
+
     <div class="col-lg-6">
       <div *ngIf="toggleeditotp" class="card">
-        <h3>OTP Credential</h3>
-        <form class="bd-n">
+        <h3>Add OTP Credential</h3>
+        <form [formGroup]="otpcredform" (ngSubmit)="submitotpcredform()" class="bd-n">
           <div class="row">
-            <div class="form-group fg-w">
+            <!-- <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Activate</label>
               </div>
               <div class="col-lg-8">
                 <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" formControlName="status">
                   <span class="slider round"></span>
                 </label>
               </div>
-            </div>
+            </div> -->
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Provider Name</label>
               </div>
               <div class="col-lg-8">
-                <input type="text" class="form-control" placeholder="Text..">
+                <input type="text" class="form-control" placeholder="Text.." formControlName="provider">
               </div>
             </div>
             <div class="form-group fg-w">
@@ -77,35 +82,37 @@
                 <label>API Key</label>
               </div>
               <div class="col-lg-8">
-                <input type="text" class="form-control" placeholder="Text..">
+                <input type="text" class="form-control" placeholder="Text.." formControlName="apikey">
               </div>
             </div>
 
             <div class="form-group fg-w">
               <div class="col-lg-4">
-                <label>Template</label>
+                <label>Template Name</label>
               </div>
               <div class="col-lg-8">
-                <input type="text" class="form-control" placeholder="Text..">
+                <input type="text" class="form-control" placeholder="Text.." formControlName="templatename">
               </div>
             </div>
             <div class="form-group fg-w">
-              <button class="btn btn-primary ml-3 mt-2">Save</button>
+              <button type="submit" class="btn btn-primary ml-3 mt-2">Save</button>
             </div>
           </div>
         </form>
       </div>
+
+
       <!-- add -->
       <div *ngIf="!toggleeditotp" class="card">
         <h3>Edit Provider</h3>
-        <form class="bd-n">
+        <form [formGroup]="editotpcredform" (ngSubmit)="updateotpcredform()" class="bd-n">
           <div class="row">
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Provider Name</label>
               </div>
               <div class="col-lg-8">
-                <input type="text" class="form-control" placeholder="Text..">
+                <input type="text" class="form-control" placeholder="Text.." formControlName="provider">
               </div>
             </div>
             <div class="form-group fg-w">
@@ -113,11 +120,20 @@
                 <label>API Key</label>
               </div>
               <div class="col-lg-8">
-                <input type="text" class="form-control" placeholder="Text..">
+                <input type="text" class="form-control" placeholder="Text.." formControlName="apikey">
               </div>
             </div>
             <div class="form-group fg-w">
-              <button class="btn btn-primary ml-3 mt-2">Save</button>
+              <div class="col-lg-4">
+                <label>Template Name</label>
+              </div>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" placeholder="Text.." formControlName="templatename">
+              </div>
+            </div>
+            <div class="form-group fg-w">
+              <button type="submit" class="btn btn-primary ml-3 mt-2">Update</button>
+              <button type="button" class="btn btn-primary ml-3 mt-2" (click)="cancelform()">Cancel</button>
             </div>
           </div>
         </form>
@@ -130,6 +146,7 @@
         <h4 style="text-align: center;">{{balance}}</h4>
       </div>
     </div>
+
   </div>
   <!-- End -->
 

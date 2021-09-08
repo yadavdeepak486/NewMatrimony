@@ -23,7 +23,7 @@
 
   <div *ngIf="addplantab" class="row">
     <div class="col-lg-8 offset-lg-2">
-      <div  class="card">
+      <div class="card">
         <h3>Add New Package</h3>
         <form [formGroup]="addplan" (ngSubmit)="submitplan()" class="bd-n">
           <div class="row">
@@ -37,8 +37,6 @@
                 </div>
               </div>
             </div>
-
-
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Plan Key</label>
@@ -50,7 +48,6 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Profile Visible</label>
@@ -61,14 +58,13 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Profile Updation </label>
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control int-chk"  formControlName="profile_updation">
+                  <input type="checkbox" class="form-control int-chk" formControlName="profile_updation">
                 </div>
               </div>
             </div>
@@ -113,7 +109,6 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Praposal Shortlist</label>
@@ -124,7 +119,6 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Boost Profile</label>
@@ -135,7 +129,6 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Compensate Married/Switched Off Numbers</label>
@@ -146,8 +139,6 @@
                 </div>
               </div>
             </div>
-
-
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Relationship Manager</label>
@@ -158,7 +149,6 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group fg-w">
               <div class="col-lg-4">
                 <label>Talk on Behalf</label>
@@ -235,7 +225,7 @@
 
 
   <div *ngIf="!addplantab" class="row">
-    <div  *ngIf="toggleeditplan" class="col-lg-12">
+    <div *ngIf="toggleeditplan" class="col-lg-12">
       <div class="card">
         <h3>All Packages</h3>
         <div class="table-responsive">
@@ -312,7 +302,7 @@
                   {{plan?.ios_rate}}
                 </td>
                 <td class="option">
-                  <a class="st-i"><i class=' bx bx-pencil'  (click)="editplanchk()"></i> </a>
+                  <a class="st-i"><i class=' bx bx-pencil' (click)="editplanchk(plan._id)"></i> </a>
                   <a class="st-i2"><i class=' bx bx-minus' (click)="deleteplan(plan._id)"></i></a>
                 </td>
               </tr>
@@ -326,7 +316,7 @@
     <div class="col-lg-8 offset-lg-2">
       <div *ngIf=" !toggleeditplan" class="card">
         <h3>Edit Package</h3>
-        <form [formGroup]="addplan" (ngSubmit)="submitplan()" class="bd-n">
+        <form [formGroup]="editplan" (ngSubmit)="updateplan()" class="bd-n">
           <div class="row">
             <div class="form-group fg-w">
               <div class="col-lg-4">
@@ -369,7 +359,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="input-group mb-3">
-                  <input type="checkbox" class="form-control int-chk"  formControlName="profile_updation">
+                  <input type="checkbox" class="form-control int-chk" formControlName="profile_updation">
                 </div>
               </div>
             </div>
