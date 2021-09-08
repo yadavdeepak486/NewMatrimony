@@ -177,6 +177,7 @@ import { ViewCommentComponent } from './components/pages/dashboard/followup/view
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
 import { TermsandconditionComponent } from './components/pages/termsandcondition/termsandcondition.component';
 import { OtherProfileComponent } from './components/pages/other-profile/other-profile.component';
+import { MembershipDetailComponent } from './components/pages/user-dashboard/membership-detail/membership-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -337,6 +338,7 @@ import { OtherProfileComponent } from './components/pages/other-profile/other-pr
     PrivacyPolicyComponent,
     TermsandconditionComponent,
     OtherProfileComponent,
+    MembershipDetailComponent,
   ],
   imports: [
     BrowserModule,

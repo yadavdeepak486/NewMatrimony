@@ -1,4 +1,4 @@
-<section>
+<section class="ptb-50">
   <div class="container">
     <div class="row">
 
@@ -6,7 +6,7 @@
         <div class="row">
           <form class="col-lg-4 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1()">
             <div>
-              <img [src]="filePath1 || mydetail?.Photo1 || dumPhoto" />
+              <img [src]="filePath1 || mydetail?.Photo1 || dumPhoto"  class="img-fixed"/>
               <div *ngIf="!readyupload1" class="file a-btn">
                 Select profile Photo 1
                 <input type="file" (change)="imagePreview1($event)" name="file" class="input-one" />
@@ -19,7 +19,7 @@
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload2" (ngSubmit)="uploadimage2()">
             <div>
-              <img [src]="filePath2 || mydetail?.Photo2 || dumPhoto" />
+              <img [src]="filePath2 || mydetail?.Photo2 || dumPhoto" class="img-fixed"/>
               <div *ngIf="!readyupload2" class="file a-btn">
                 Upload profile Photo 2
                 <input (change)="imagePreview2($event)" type="file" name="file" class="input-one" />
@@ -27,12 +27,12 @@
               <button *ngIf="readyupload2" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload2" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload2()">Cancel</button>
-              <p class="bt-tetx">( Full photograph from front recomended, Size 400X400)</p>
+              <p class="bt-tetx">( Full photograph from front recomended, Size 400X400 )</p>
             </div>
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload3" (ngSubmit)="uploadimage3()">
             <div>
-              <img [src]="filePath3 || mydetail?.Photo3 || dumPhoto" />
+              <img [src]="filePath3 || mydetail?.Photo3 || dumPhoto"  class="img-fixed"/>
               <div *ngIf="!readyupload3" class="file a-btn">
                 Upload profile Photo 3
                 <input (change)="imagePreview3($event)" type="file" name="file" class="input-one" />

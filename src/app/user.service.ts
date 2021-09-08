@@ -328,4 +328,25 @@ export class UserService {
       headers: header,
     });
   }
+
+  // delete photorequest
+  rejectphotoreq(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/rejectphotoreq/${id}`, {
+      headers: header,
+    });
+  }
+
+  unblockprofile(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/unblockprofile/${id}`, {
+      headers: header,
+    });
+  }
 }

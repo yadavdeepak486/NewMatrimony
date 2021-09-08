@@ -33,8 +33,8 @@
                         <span class="st-drop dropdown">
                             <i class="bx bx-dots-vertical dropdown-toggle st-dot" data-toggle="dropdown"></i>
                             <ul class="dropdown-menu st-drp-left">
-                              <li class="st-drli"><a href="#" class="st-acc"><i class="bx bx-user-plus"></i> Accept</a></li>
-                              <li class="st-drli"><a href="#" class="st-rec"><i class="bx bx-trash"></i> Reject</a></li>
+                              <!-- <li class="st-drli"><a href="#" class="st-acc"><i class="bx bx-user-plus"></i> Accept</a></li> -->
+                              <li class="st-drli"><a (click)="rejectphotoreq(Content.displayed_user_id._id)" class="st-rec"><i class="bx bx-trash"></i> Remove</a></li>
                             </ul>
                         </span>
                         <h3 class="mid">ID: <span

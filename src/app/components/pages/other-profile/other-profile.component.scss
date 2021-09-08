@@ -1,3 +1,13 @@
+// img size 9/8/21
+img.img-fixed {
+  width: 100%;
+  height: 400px;
+}
+section.ptb-50 {
+  padding: 35px 0px;
+}
+// close
+
 .info-text.st-about.ng-star-inserted {
   padding: 20px;
   font-size: 16px;
@@ -362,6 +372,8 @@ button.btn.btn-primary.btn-up {
   width: 120px !important;
   background: #007bff !important;
   padding: 9px 12px !important;
+  float: left;
+  margin-right: 15px;
 }
 
 /* Max width 767px */
