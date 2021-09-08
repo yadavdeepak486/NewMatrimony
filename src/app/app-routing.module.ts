@@ -133,6 +133,7 @@ import { ViewCommentComponent } from './components/pages/dashboard/followup/view
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
 import { TermsandconditionComponent } from './components/pages/termsandcondition/termsandcondition.component';
 import { OtherProfileComponent } from './components/pages/other-profile/other-profile.component';
+import { MembershipDetailComponent } from './components/pages/user-dashboard/membership-detail/membership-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -323,6 +324,7 @@ const routes: Routes = [
   // user-dashboard
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'user-dashboard/user-chat', component: UserChatComponent },
+  { path: 'membership-detail', component: MembershipDetailComponent },
   {
     path: 'user-dashboard/blocked-profile',
     component: BlockedProfileComponent,

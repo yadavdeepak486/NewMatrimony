@@ -159,6 +159,26 @@ export class UserService {
     });
   }
 
+  acceptinterest(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/acceptInterest/${id}`, {
+      headers: header,
+    });
+  }
+
+  rejectinterest(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/rejectInterest/${id}`, {
+      headers: header,
+    });
+  }
+
   addtoshortlist(id) {
     let header = new HttpHeaders().set(
       'auth-token',
@@ -314,5 +334,25 @@ export class UserService {
     return this.http.get(
       `${this.backendurl}/admin/makepayment/${planId}/${userId}`
     );
+  }
+  // delete photorequest
+  rejectphotoreq(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/rejectphotoreq/${id}`, {
+      headers: header,
+    });
+  }
+
+  unblockprofile(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/unblockprofile/${id}`, {
+      headers: header,
+    });
   }
 }
