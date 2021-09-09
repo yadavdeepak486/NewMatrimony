@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
@@ -15,13 +16,16 @@ export class PremuimPlanComponent implements OnInit {
   spplan: any;
   gplan: any;
   gpplan: any;
+  userId: any;
   constructor(
     private adminService: AdminService,
     public userService: UserService,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
+    this.getmyuserid();
     this.getPlans();
     this.getBPlan();
     this.getSPlan();
@@ -29,232 +33,6 @@ export class PremuimPlanComponent implements OnInit {
     this.getGPlan();
     this.getGPPlan();
   }
-  //   monthlyPricing = [
-  //     {
-  //         singlePricingBox: [
-  //             {
-  //                 title: 'Gold ',
-  //                 features: [
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '5 Listing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Non-Featured'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '90 Days Availability'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'One Time Fee'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Multi Team Tasking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Registration & Ticketing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Features'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-x action-close',
-  //                         text: 'Online Booking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-x action-close',
-  //                         text: 'Limited Support'
-  //                     }
-  //                 ],
-  //                 price: '$9.99',
-  //                 buttonText: 'Select Plan',
-  //                 buttonLink: '#'
-  //             },
-  //             {
-  //                 title: 'SILVER Memberships Plan',
-  //                 features: [
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '5 Listing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Non-Featured'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '90 Days Availability'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'One Time Fee'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Multi Team Tasking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Registration & Ticketing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Features'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Online Booking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-x action-close',
-  //                         text: 'Limited Support'
-  //                     }
-  //                 ],
-  //                 price: '$19.99',
-  //                 buttonText: 'Select Plan',
-  //                 buttonLink: '#'
-  //             },
-  //             {
-  //                 title: 'GOLDEN Membership Plan',
-  //                 features: [
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '5 Listing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Non-Featured'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '90 Days Availability'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'One Time Fee'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Multi Team Tasking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Registration & Ticketing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Features'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Online Booking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Limited Support'
-  //                     }
-  //                 ],
-  //                 price: '$29.99',
-  //                 buttonText: 'Select Plan',
-  //                 buttonLink: '#'
-  //             },
-  //             {
-  //                 title: 'GOLDEN Membership Plan',
-  //                 features: [
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '5 Listing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Non-Featured'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '90 Days Availability'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'One Time Fee'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Multi Team Tasking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Registration & Ticketing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Features'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Online Booking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Limited Support'
-  //                     }
-  //                 ],
-  //                 price: '$29.99',
-  //                 buttonText: 'Select Plan',
-  //                 buttonLink: '#'
-  //             },
-  //             {
-  //                 title: 'GOLDEN Membership Plan',
-  //                 features: [
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '5 Listing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Non-Featured'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: '90 Days Availability'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'One Time Fee'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Multi Team Tasking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Registration & Ticketing'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Basic Features'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Online Booking'
-  //                     },
-  //                     {
-  //                         icon: 'bx bx-check',
-  //                         text: 'Limited Support'
-  //                     }
-  //                 ],
-  //                 price: '$29.99',
-  //                 buttonText: 'Select Plan',
-  //                 buttonLink: '#'
-  //             }
-  //         ]
-  //     }
-  // ]
 
   getPlans() {
     this.adminService.allplans().subscribe(
@@ -329,6 +107,43 @@ export class PremuimPlanComponent implements OnInit {
       },
       (error) => {
         this.toastr.error('Network Error');
+      }
+    );
+  }
+
+  allavaillinks() {
+    this.userService.getallpaymentlinks().subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getmyuserid() {
+    this.userService.getmyprofiledetail().subscribe(
+      (response: any) => {
+        console.log(response);
+        console.log(response.data._id);
+        this.userId = response.data._id;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  makepaymentreq(planId) {
+    this.userService.makepaymentrequest(planId, this.userId).subscribe(
+      (response: any) => {
+        console.log(response);
+        console.log(response.response.payment_request.longurl);
+        location.href = response.payment_request.longurl;
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }

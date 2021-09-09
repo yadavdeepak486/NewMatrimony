@@ -10,7 +10,7 @@
           </p>
           <h2>₹ {{bplan?.website_rate}}</h2>
           <p>₹ {{bplan?.website_rate}} Per Month</p>
-          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <a style="cursor: pointer;" (click)="makepaymentreq(bplan._id)" class="btn-con">Continue</a>
           <div class="pricing-features">
             <ul class="text-left">
               <li class="st-black"> Send {{bplan?.num_chat_init}} Messages</li>
@@ -27,7 +27,7 @@
           <p class="st-green">75% Off <del class="st-del">₹ {{splan?.website_rate*100/75 | number : '1.0-0'}}</del></p>
           <h2>₹ {{splan?.website_rate}}</h2>
           <p>₹ {{splan?.website_rate}} Per Month</p>
-          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <a style="cursor: pointer;" (click)="makepaymentreq(splan._id)" class="btn-con">Continue</a>
           <div class="pricing-features">
             <ul class="text-left">
               <li class="st-black"> Send {{splan?.num_chat_init}} Messages</li>
@@ -44,7 +44,7 @@
           <p class="st-green">75% Off <del class="st-del">₹ {{spplan?.website_rate*100/75 | number : '1.0-0'}}</del></p>
           <h2>₹ {{spplan?.website_rate}}</h2>
           <p>₹ {{spplan?.website_rate}} Per Month</p>
-          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <a style="cursor: pointer;" (click)="makepaymentreq(spplan._id)" class="btn-con">Continue</a>
           <div class="pricing-features">
             <ul class="text-left">
               <li class="st-black"> Send {{spplan?.num_chat_init}} Messages</li>
@@ -61,7 +61,7 @@
           <p class="st-green">75% Off <del class="st-del">₹ {{gplan?.website_rate*100/75 | number : '1.0-0'}}</del></p>
           <h2>₹ {{gplan?.website_rate}}</h2>
           <p>₹ {{gplan?.website_rate}} Per Month</p>
-          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <a style="cursor: pointer;" (click)="makepaymentreq(gplan._id)" class="btn-con">Continue</a>
           <div class="pricing-features">
             <ul class="text-left">
               <li class="st-black"> Send {{gplan?.num_chat_init}} Messages</li>
@@ -78,7 +78,7 @@
           <p class="st-green">75% Off <del class="st-del">₹ {{gpplan?.website_rate*100/75 | number : '1.0-0'}}</del></p>
           <h2>₹ {{gpplan?.website_rate}}</h2>
           <p>₹ {{gpplan?.website_rate}} Per Month</p>
-          <a href="javascript:void(0);" class="btn-con">Continue</a>
+          <a style="cursor: pointer;" (click)="makepaymentreq(gpplan._id)" class="btn-con">Continue</a>
           <div class="pricing-features">
             <ul class="text-left">
               <li class="st-black"> Send {{gpplan?.num_chat_init}} Messages</li>
@@ -91,7 +91,16 @@
       </div>
     </div>
   </div>
-
 </section>
+<!-- <section class="pt-70 pb-50 bg-plan">
+  <div class="container">
+    <div class="row">
+      <iframe id="iframe_id" src="https://www.instamojo.com/@ayushya" allowtrancparency="yes" frameborder="o"></iframe>
+    </div>
+  </div>
+</section> -->
+
+
+
 
 <app-footer-style-two></app-footer-style-two>

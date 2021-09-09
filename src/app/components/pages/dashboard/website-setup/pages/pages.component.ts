@@ -99,7 +99,7 @@ export class PagesComponent implements OnInit {
         this.editpageform.setValue({
           pagetitle: response.data?.pagetitle ? response.data?.pagetitle : null,
           path: response.data?.path ? response.data?.path : null,
-          html: [response.data?.html ? response.data?.html : true],
+          html: response.data?.html ? response.data?.html : null,
         });
         console.log(this.editpageform.value);
       },
@@ -191,16 +191,16 @@ export class PagesComponent implements OnInit {
   }
 
   updatepageForm() {
-    console.log(this.editpageaddform.value.id);
-    console.log(this.editpageaddform.value);
+    console.log(this.editpageform.value.id);
+    console.log(this.editpageform.value);
     this.adminService
-      .editlogo(this.editpageaddform.value.id, this.editpageaddform.value)
+      .editlogo(this.editpageform.value.id, this.editpageform.value)
       .subscribe(
         (response: any) => {
           console.log(response);
           this.getallpages();
           this.toastr.success('Logo updated succesfully');
-          this.editpageaddform.reset();
+          this.editpageform.reset();
           this.editpageaddform = false;
         },
         (error) => {
