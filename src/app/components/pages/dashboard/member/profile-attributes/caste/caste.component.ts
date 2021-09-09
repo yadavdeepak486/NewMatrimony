@@ -13,7 +13,7 @@ export class CasteComponent implements OnInit {
   togglecheck: boolean = true;
   allcaste: any;
   allreligion: any;
-  allreligionbasedcaste:any;
+  allreligionbasedcaste: any;
   selectedcaste: any;
   caste = new FormGroup({
     sortorder: new FormControl(''),
@@ -59,7 +59,7 @@ export class CasteComponent implements OnInit {
   getallcaste() {
     this.adminService.getallcaste().subscribe(
       (response: any) => {
-        //console.log(response)
+        console.log(response);
         this.allcaste = response.data;
       },
       (error) => {
@@ -146,13 +146,12 @@ export class CasteComponent implements OnInit {
     );
   }
 
-  castebasedonreg(){
-    console.log("button clicked")
-    if(this.togglecheck == false){
-      this.togglecheck = true
-    }
-    else {
-    this.togglecheck = false
+  castebasedonreg() {
+    console.log('button clicked');
+    if (this.togglecheck == false) {
+      this.togglecheck = true;
+    } else {
+      this.togglecheck = false;
     }
   }
 
@@ -169,5 +168,4 @@ export class CasteComponent implements OnInit {
     //   }
     // );
   }
-
 }

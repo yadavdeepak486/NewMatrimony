@@ -274,6 +274,22 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/deleteeducation/${id}`);
   }
 
+  allhometown() {
+    return this.http.get(`${this.backendurl}/admin/allhometown`);
+  }
+  addhometown(data) {
+    return this.http.post(`${this.backendurl}/admin/addhometown`, data);
+  }
+  getonehometown(id) {
+    return this.http.get(`${this.backendurl}/admin/viewonehometown/${id}`);
+  }
+  edithometown(id, data) {
+    return this.http.post(`${this.backendurl}/admin/edithometown/${id}`, data);
+  }
+  deletehometown(id) {
+    return this.http.get(`${this.backendurl}/admin/deletehometown/${id}`);
+  }
+
   //get all occupation
   alloccupation() {
     return this.http.get(`${this.backendurl}/admin/alloccupation`);
@@ -539,8 +555,8 @@ export class AdminService {
     return this.http.get(`${this.backendurl}/admin/viewonewebpage/${id}`);
   }
 
-  onepage(id) {
-    return this.http.get(`${this.backendurl}/admin/viewonewebpage/${id}`);
+  editonepage(id, data) {
+    return this.http.post(`${this.backendurl}/admin/editwebpage/${id}`, data);
   }
 
   deleteonepage(id) {

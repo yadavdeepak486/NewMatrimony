@@ -26,6 +26,7 @@ export class PagesComponent implements OnInit {
   });
 
   editpageform = new FormGroup({
+    id: new FormControl(''),
     path: new FormControl(''),
     pagetitle: new FormControl(''),
     html: new FormControl(''),
@@ -97,6 +98,7 @@ export class PagesComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.editpageform.setValue({
+          id: response.data?._id ? response.data?._id : null,
           pagetitle: response.data?.pagetitle ? response.data?.pagetitle : null,
           path: response.data?.path ? response.data?.path : null,
           html: response.data?.html ? response.data?.html : null,
@@ -194,14 +196,14 @@ export class PagesComponent implements OnInit {
     console.log(this.editpageform.value.id);
     console.log(this.editpageform.value);
     this.adminService
-      .editlogo(this.editpageform.value.id, this.editpageform.value)
+      .editonepage(this.editpageform.value.id, this.editpageform.value)
       .subscribe(
         (response: any) => {
           console.log(response);
           this.getallpages();
-          this.toastr.success('Logo updated succesfully');
+          this.toastr.success('Page updated succesfully');
           this.editpageform.reset();
-          this.editpageaddform = false;
+          this.toggleeditpage = true;
         },
         (error) => {
           this.toastr.error('Error Occured');
