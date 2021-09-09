@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 })
 export class UserProfileOneComponent implements OnInit {
   mydetail: any;
+  toggleeverifyprofile: boolean= true;
   togglecheck: boolean = true;
   togglechecktwo: boolean = true;
   togglecheckoccupation: boolean = true;
@@ -1077,4 +1078,14 @@ export class UserProfileOneComponent implements OnInit {
     this.togglecheckhoroscope = true;
     this.horosform.reset();
   }
+
+  editverifyprofile() {
+    console.log('button clicked');
+    if (this.toggleeverifyprofile == false) {
+      this.toggleeverifyprofile = true;
+    } else {
+      this.toggleeverifyprofile = false;
+    }
+  }
+
 }
