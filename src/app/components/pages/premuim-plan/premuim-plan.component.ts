@@ -140,7 +140,7 @@ export class PremuimPlanComponent implements OnInit {
       (response: any) => {
         console.log(response);
         console.log(response.response.payment_request.longurl);
-        location.href = response.payment_request.longurl;
+        location.href = response.response.payment_request.longurl;
       },
       (error) => {
         console.log(error);

@@ -720,36 +720,38 @@ export class OtherProfileComponent implements OnInit {
     }
     if (this.mydetail !== undefined) {
       this.editfamilydetailform.setValue({
-        FamilyType: this.mydetail.FamilyType ? this.mydetail.FamilyType : null,
-        Familyvalues: this.mydetail.Familyvalues._id
-          ? this.mydetail.Familyvalues._id
+        FamilyType: this.mydetail?.FamilyType
+          ? this.mydetail?.FamilyType
           : null,
-        FamilyStatus: this.mydetail.FamilyStatus._id
-          ? this.mydetail.FamilyStatus._id
+        Familyvalues: this.mydetail?.Familyvalues?._id
+          ? this.mydetail?.Familyvalues?._id
           : null,
-        Fathersoccupation: this.mydetail.Fathersoccupation
-          ? this.mydetail.Fathersoccupation
+        FamilyStatus: this.mydetail?.FamilyStatus?._id
+          ? this.mydetail?.FamilyStatus?._id
           : null,
-        Mothersoccupation: this.mydetail.Mothersoccupation
-          ? this.mydetail.Mothersoccupation
+        Fathersoccupation: this.mydetail?.Fathersoccupation
+          ? this.mydetail?.Fathersoccupation
+          : null,
+        Mothersoccupation: this.mydetail?.Mothersoccupation
+          ? this.mydetail?.Mothersoccupation
           : null,
         FamilyOrigin: this.mydetail?.FamilyOrigin
-          ? this.mydetail.FamilyOrigin
+          ? this.mydetail?.FamilyOrigin
           : null,
         noofbrothers: this.mydetail?.noofbrothers
-          ? this.mydetail.noofbrothers
+          ? this.mydetail?.noofbrothers
           : null,
-        noofsisters: this.mydetail.noofsisters
-          ? this.mydetail.noofsisters
+        noofsisters: this.mydetail?.noofsisters
+          ? this.mydetail?.noofsisters
           : null,
-        noyubrothers: this.mydetail.noyubrothers
-          ? this.mydetail.noyubrothers
+        noyubrothers: this.mydetail?.noyubrothers
+          ? this.mydetail?.noyubrothers
           : null,
-        noyusisters: this.mydetail.noyusisters
-          ? this.mydetail.noyusisters
+        noyusisters: this.mydetail?.noyusisters
+          ? this.mydetail?.noyusisters
           : null,
-        nbm: this.mydetail.nbm ? this.mydetail.nbm : null,
-        nsm: this.mydetail.nsm ? this.mydetail.nsm : null,
+        nbm: this.mydetail?.nbm ? this.mydetail?.nbm : null,
+        nsm: this.mydetail?.nsm ? this.mydetail?.nsm : null,
       });
       console.log(this.editfamilydetailform.value);
     }
@@ -774,6 +776,7 @@ export class OtherProfileComponent implements OnInit {
           this.toastr.success('Family Details Updated Successfully');
           this.togglecheckfamily = true;
           this.editfamilydetailform.reset();
+          this.gethisdetails();
           this.gethisdetails();
         },
         (error) => {

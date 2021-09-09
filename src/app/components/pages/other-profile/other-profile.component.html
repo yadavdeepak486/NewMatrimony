@@ -6,7 +6,7 @@
         <div class="row">
           <form class="col-lg-4 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1()">
             <div>
-              <img [src]="filePath1 || mydetail?.Photo1 || dumPhoto"  class="img-fixed"/>
+              <img [src]="filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload1" class="file a-btn">
                 Select profile Photo 1
                 <input type="file" (change)="imagePreview1($event)" name="file" class="input-one" />
@@ -19,7 +19,7 @@
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload2" (ngSubmit)="uploadimage2()">
             <div>
-              <img [src]="filePath2 || mydetail?.Photo2 || dumPhoto" class="img-fixed"/>
+              <img [src]="filePath2 || mydetail?.Photo2 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload2" class="file a-btn">
                 Upload profile Photo 2
                 <input (change)="imagePreview2($event)" type="file" name="file" class="input-one" />
@@ -32,7 +32,7 @@
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload3" (ngSubmit)="uploadimage3()">
             <div>
-              <img [src]="filePath3 || mydetail?.Photo3 || dumPhoto"  class="img-fixed"/>
+              <img [src]="filePath3 || mydetail?.Photo3 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload3" class="file a-btn">
                 Upload profile Photo 3
                 <input (change)="imagePreview3($event)" type="file" name="file" class="input-one" />
@@ -134,20 +134,17 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Gender</label>
-                                    <select class="form-control" placeholder="Name" formControlName="Gender" disabled>
+                                    <select class="form-control" placeholder="Name" formControlName="Gender">
                                       <option>Male</option>
                                       <option>Female</option>
                                     </select>
-                                    <small style="color: red;">This field can't be edited</small>
                                   </div>
                                 </div>
 
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Date Of Birth</label>
-                                    <input type="text" class="form-control" placeholder="DOB" formControlName="DOB"
-                                      disabled>
-                                    <small style="color: red;">This field can't be edited</small>
+                                    <input type="text" class="form-control" placeholder="DOB" formControlName="DOB">
                                   </div>
                                 </div>
                                 <!-- <div class="col-md-6">
