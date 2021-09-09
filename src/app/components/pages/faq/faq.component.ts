@@ -12,12 +12,12 @@ export class FaqComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    pageTitleContent = [
-        {
-            title: 'Frequently Asked Questions',
-            backgroundImage: 'assets/img/page-title/page-title4.jpg'
-        }
-    ]
+    // pageTitleContent = [
+    //     {
+    //         title: 'Frequently Asked Questions',
+    //         backgroundImage: 'assets/img/page-title/page-title4.jpg'
+    //     }
+    // ]
 
     faqItem = [
         {

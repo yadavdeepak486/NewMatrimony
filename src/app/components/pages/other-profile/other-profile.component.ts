@@ -18,6 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class OtherProfileComponent implements OnInit {
   id: any;
+  toggleeverifyprofile:boolean= true;
   mydetail: any;
   togglecheck: boolean = true;
   togglechecktwo: boolean = true;
@@ -1127,5 +1128,14 @@ export class OtherProfileComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  editverifyprofile() {
+    console.log('button clicked');
+    if (this.toggleeverifyprofile == false) {
+      this.toggleeverifyprofile = true;
+    } else {
+      this.toggleeverifyprofile = false;
+    }
   }
 }

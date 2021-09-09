@@ -213,19 +213,51 @@
                                 </div>
 
 
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Number of Children</label>
                                     <input type="number" class="form-control" placeholder="No of Child"
                                       formControlName="NoOfChild" required>
                                   </div>
-                                </div>
+                                </div> -->
 
                                 <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Number of Children</label>
+                                    <select class="form-control" formControlName="NoOfChild">
+                                      <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
+                                        {{caste?.name}}</option> -->
+                                        <option>Not Applicable</option>
+                                        <option>Never Married</option>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <!-- <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Children Living With Status</label>
                                     <input type="number" class="form-control" placeholder="Living no."
                                       formControlName="childrenlivingstatus" required>
+                                  </div>
+                                </div> -->
+
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Children Living  Status</label>
+                                    <!-- <input type="number" class="form-control" placeholder="Living no."
+                                      formControlName="childrenlivingstatus" required> -->
+                                      <select class="form-control" formControlName="NoOfChild">
+                                        <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
+                                          {{caste?.name}}</option> -->
+                                          <option>Not Applicable</option>
+                                          <option>Yes, living with me</option>
+                                          <option>Not, living with me</option>
+                                          <option>Partially</option>
+                                      </select>
                                   </div>
                                 </div>
 
@@ -543,6 +575,10 @@
                                 <td class="wd1">{{mydetail?.whatsapp_phone || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
+                                <td class="wd1">Photo Privacy:</td>
+                                <td class="wd1">{{mydetail?.photoprivacy || "not mentioned"}}</td>
+                              </tr>
+                              <tr class="wd">
                                 <td class="wd1">Email Address:</td>
                                 <td class="wd1">{{mydetail?.ConfirmEmail || "No"}}</td>
                               </tr>
@@ -580,6 +616,15 @@
                                   <label>Whatsapp No.</label>
                                   <input type="number" class="form-control" placeholder="Whatsapp Number"
                                     formControlName="whatsapp_phone">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Photo Privacy</label>
+                                  <select class="form-control">
+                                      <option>Public</option>
+                                      <option>Private</option>
+                                  </select>
                                 </div>
                               </div>
                               <div class="col-md-6">
@@ -937,6 +982,74 @@
                                     formControlName="Hobbies">
                                 </div>
                               </div>
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (Click)="cancelhobotherform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                        <!-- verify profile -->
+
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Verify Profile </h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit" (click)="editverifyprofile()"></i></a>
+                        </div>
+                        <div *ngIf="toggleeverifyprofile" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Upload id:</td>
+                                <td class="wd1"><img src="assets/img/dummy-img.jpg" alt="image" class="img-upload"/></td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Email:</td>
+                                <td class="wd1">{{mydetail?.email || "not mentioned"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!toggleeverifyprofile" class="info-text">
+                          <form [formGroup]="hobbynotherform" (ngSubmit)="updatehobbynother()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Upload Id</label>
+                                  <input type="file" class="form-control" placeholder=""
+                                    formControlName="uploadid">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Email Id</label>
+                                  <input type="email" class="form-control" placeholder="Example@gmail.com"
+                                    formControlName="email">
+                                </div>
+                              </div>
+                              
+                              <!-- <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Hobby12</label>
+                                  <input type="text" class="form-control" placeholder="">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Hobby3</label>
+                                  <input type="text" class="form-control" placeholder="">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Hobby4</label>
+                                  <input type="text" class="form-control" placeholder="">
+                                </div>
+                              </div> -->
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
                                 <button type="button" class="btn btn-primary btn-up"

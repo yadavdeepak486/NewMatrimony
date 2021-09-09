@@ -135,6 +135,9 @@ import { TermsandconditionComponent } from './components/pages/termsandcondition
 import { OtherProfileComponent } from './components/pages/other-profile/other-profile.component';
 import { MembershipDetailComponent } from './components/pages/user-dashboard/membership-detail/membership-detail.component';
 import { HometownComponent } from './components/pages/dashboard/member/profile-attributes/hometown/hometown.component';
+import { PrivacyPolicyTwoComponent } from './components/pages/privacy-policy-two/privacy-policy-two.component';
+import { TermsandconditionTwoComponent } from './components/pages/termsandcondition-two/termsandcondition-two.component';
+import { DeliveryPolicyComponent } from './components/pages/delivery-policy/delivery-policy.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -268,7 +271,10 @@ const routes: Routes = [
   { path: 'website-setup/pages/add-new-page', component: AddNewPageComponent },
 
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'privacy-policy-two', component: PrivacyPolicyTwoComponent },
   { path: 'termsandcondition', component: TermsandconditionComponent },
+  { path: 'termsandcondition-two', component: TermsandconditionTwoComponent },
+  { path: 'delivery-policy', component: DeliveryPolicyComponent },
 
   // setting
   { path: 'settings/currency', component: CurrencyComponent },

@@ -179,6 +179,9 @@ import { TermsandconditionComponent } from './components/pages/termsandcondition
 import { OtherProfileComponent } from './components/pages/other-profile/other-profile.component';
 import { MembershipDetailComponent } from './components/pages/user-dashboard/membership-detail/membership-detail.component';
 import { HometownComponent } from './components/pages/dashboard/member/profile-attributes/hometown/hometown.component';
+import { PrivacyPolicyTwoComponent } from './components/pages/privacy-policy-two/privacy-policy-two.component';
+import { TermsandconditionTwoComponent } from './components/pages/termsandcondition-two/termsandcondition-two.component';
+import { DeliveryPolicyComponent } from './components/pages/delivery-policy/delivery-policy.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -341,6 +344,9 @@ import { HometownComponent } from './components/pages/dashboard/member/profile-a
     OtherProfileComponent,
     MembershipDetailComponent,
     HometownComponent,
+    PrivacyPolicyTwoComponent,
+    TermsandconditionTwoComponent,
+    DeliveryPolicyComponent,
   ],
   imports: [
     BrowserModule,
