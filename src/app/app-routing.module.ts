@@ -134,6 +134,7 @@ import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privac
 import { TermsandconditionComponent } from './components/pages/termsandcondition/termsandcondition.component';
 import { OtherProfileComponent } from './components/pages/other-profile/other-profile.component';
 import { MembershipDetailComponent } from './components/pages/user-dashboard/membership-detail/membership-detail.component';
+import { HometownComponent } from './components/pages/dashboard/member/profile-attributes/hometown/hometown.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -235,6 +236,7 @@ const routes: Routes = [
     component: MaritalStatusesComponent,
   },
   { path: 'profile-attributes/education', component: EducationComponent },
+  { path: 'profile-attributes/hometown', component: HometownComponent },
   { path: 'profile-attributes/occupation', component: OccupationComponent },
   { path: 'profile-attributes/star', component: StarComponent },
   { path: 'profile-attributes/moonsign', component: MoonsignComponent },
