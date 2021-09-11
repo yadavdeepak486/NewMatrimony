@@ -3,6 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 import { UserService } from 'src/app/user.service';
+import {
+  getSupportedInputTypes,
+  Platform,
+  supportsPassiveEventListeners,
+  supportsScrollBehavior,
+} from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-premuim-plan',
@@ -10,6 +16,10 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./premuim-plan.component.scss'],
 })
 export class PremuimPlanComponent implements OnInit {
+  supportedInputTypes = Array.from(getSupportedInputTypes()).join(', ');
+  supportsPassiveEventListeners = supportsPassiveEventListeners();
+  supportsScrollBehavior = supportsScrollBehavior();
+
   plans: any;
   bplan: any;
   splan: any;
@@ -21,7 +31,8 @@ export class PremuimPlanComponent implements OnInit {
     private adminService: AdminService,
     public userService: UserService,
     public toastr: ToastrService,
-    private location: Location
+    private location: Location,
+    public platform: Platform
   ) {}
 
   ngOnInit(): void {

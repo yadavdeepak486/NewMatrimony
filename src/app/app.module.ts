@@ -182,6 +182,7 @@ import { HometownComponent } from './components/pages/dashboard/member/profile-a
 import { PrivacyPolicyTwoComponent } from './components/pages/privacy-policy-two/privacy-policy-two.component';
 import { TermsandconditionTwoComponent } from './components/pages/termsandcondition-two/termsandcondition-two.component';
 import { DeliveryPolicyComponent } from './components/pages/delivery-policy/delivery-policy.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -362,6 +363,7 @@ import { DeliveryPolicyComponent } from './components/pages/delivery-policy/deli
     Ng2SmartTableModule,
     MatModule,
     HttpClientModule,
+    ImageCropperModule,
     ToastrModule.forRoot(),
     QuillModule.forRoot(),
   ],

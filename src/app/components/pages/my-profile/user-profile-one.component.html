@@ -4,12 +4,13 @@
 
       <div class="col-lg-12">
         <div class="row">
-          <form class="col-lg-4 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1()">
+          <form class="col-lg-4 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1();">
             <div>
-              <img [src]="filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
+              <img [src]="croppedImage || filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload1" class="file a-btn">
                 Select profile Photo 1
-                <input type="file" (change)="imagePreview1($event)" name="file" class="input-one" />
+                <input type="file" (change)="imagePreview1($event); fileChangeEvent($event);" name="file"
+                  class="input-one" />
               </div>
               <button *ngIf="readyupload1" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload1" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
@@ -22,7 +23,8 @@
               <img [src]="filePath2 || mydetail?.Photo2 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload2" class="file a-btn">
                 Upload profile Photo 2
-                <input (change)="imagePreview2($event)" type="file" name="file" class="input-one" />
+                <input (change)="imagePreview2($event); fileChangeEvent($event);" type="file" name="file"
+                  class="input-one" />
               </div>
               <button *ngIf="readyupload2" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload2" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
@@ -35,7 +37,8 @@
               <img [src]="filePath3 || mydetail?.Photo3 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload3" class="file a-btn">
                 Upload profile Photo 3
-                <input (change)="imagePreview3($event)" type="file" name="file" class="input-one" />
+                <input (change)="imagePreview3($event); fileChangeEvent($event);" type="file" name="file"
+                  class="input-one" />
               </div>
               <button *ngIf="readyupload3" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload3" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
@@ -43,6 +46,15 @@
               <p class="bt-tetx">( Full lenth photograph recomended, Size 400X400 )</p>
             </div>
           </form>
+          <div>
+            <!-- <input type="file" (change)="fileChangeEvent($event)" /> -->
+
+            <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+              [aspectRatio]="1/1" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+            <!-- <img style="width: 500px;" [src]="croppedImage" /> -->
+          </div>
           <div class="col-lg-12">
             <div class="col-lg-12">
               <div class="profile-content">
@@ -230,29 +242,29 @@
                                     <select class="form-control" formControlName="NoOfChild">
                                       <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
                                         {{caste?.name}}</option> -->
-                                        <option>Not Applicable</option>
-                                        <option>Never Married</option>
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
+                                      <option>Not Applicable</option>
+                                      <option>Never Married</option>
+                                      <option>0</option>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
                                     </select>
                                   </div>
                                 </div>
 
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <label>Children Living  Status</label>
+                                    <label>Children Living Status</label>
                                     <!-- <input type="number" class="form-control" placeholder="Living no."
                                       formControlName="childrenlivingstatus" required> -->
-                                      <select class="form-control" formControlName="NoOfChild">
-                                        <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
+                                    <select class="form-control" formControlName="NoOfChild">
+                                      <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
                                           {{caste?.name}}</option> -->
-                                          <option>Not Applicable</option>
-                                          <option>Yes, living with me</option>
-                                          <option>Not, living with me</option>
-                                          <option>Partially</option>
-                                      </select>
+                                      <option>Not Applicable</option>
+                                      <option>Yes, living with me</option>
+                                      <option>Not, living with me</option>
+                                      <option>Partially</option>
+                                    </select>
                                   </div>
                                 </div>
 
@@ -617,8 +629,8 @@
                                 <div class="form-group">
                                   <label>Photo Privacy</label>
                                   <select>
-                                      <option>Public</option>
-                                      <option>Private</option>
+                                    <option>Public</option>
+                                    <option>Private</option>
                                   </select>
                                 </div>
                               </div>
@@ -1004,8 +1016,8 @@
                           </form>
                         </div>
                       </div>
-                     
-                       <!-- verify profile -->
+
+                      <!-- verify profile -->
 
                       <div class="content-box">
                         <div class="heading-title">
@@ -1019,7 +1031,8 @@
                             <tbody class="tb-text">
                               <tr class="wd">
                                 <td class="wd1">Upload id:</td>
-                                <td class="wd1"><img src="assets/img/dummy-img.jpg" alt="image" class="img-upload"/></td>
+                                <td class="wd1"><img src="assets/img/dummy-img.jpg" alt="image" class="img-upload" />
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Email:</td>
@@ -1034,8 +1047,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Upload Id</label>
-                                  <input type="file" class="form-control" placeholder=""
-                                    formControlName="uploadid">
+                                  <input type="file" class="form-control" placeholder="" formControlName="uploadid">
                                 </div>
                               </div>
                               <div class="col-md-6">
@@ -1045,7 +1057,7 @@
                                     formControlName="email">
                                 </div>
                               </div>
-                              
+
                               <!-- <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Hobby12</label>
