@@ -6,7 +6,7 @@
         <div class="row">
           <form class="col-lg-4 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1();">
             <div>
-              <img [src]="croppedImage || filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
+              <img [src]="filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload1" class="file a-btn">
                 Select profile Photo 1
                 <input type="file" (change)="imagePreview1($event); fileChangeEvent($event);" name="file"
@@ -1108,7 +1108,7 @@
                               <tr class="wd">
                                 <td class="wd1">Height Range:</td>
                                 <td class="wd1">
-                                  {{mydetail?.PE_Height.feetinchvalue}}-{{mydetail?.PE_Heightto.feetinchvalue}}</td>
+                                  {{mydetail?.PE_Height?.feetinchvalue}}-{{mydetail?.PE_Heightto?.feetinchvalue}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Children:</td>

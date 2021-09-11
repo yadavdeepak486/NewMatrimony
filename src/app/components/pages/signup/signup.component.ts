@@ -116,8 +116,13 @@ export class SignupComponent implements OnInit {
         this.sendotp();
       },
       (error) => {
-        this.toastr.error(error.error.msg + ' Please Login');
-        this.routes.navigate(['/login']);
+        if (error.error.msg === 'User Already Exists') {
+          this.toastr.error(error.error.msg + ' Please Login');
+          this.routes.navigate(['/login']);
+        } else {
+          this.toastr.error(error.error.msg);
+          console.log(error);
+        }
       }
     );
   }

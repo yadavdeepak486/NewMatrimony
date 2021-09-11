@@ -31,6 +31,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   filteruserform = new FormGroup({
     minage: new FormControl(''),
     maxage: new FormControl(''),
+    MatriID: new FormControl(''),
     Maritalstatus: new FormControl(''),
     Religion: new FormControl(''),
     Caste: new FormControl(''),
@@ -40,6 +41,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     City: new FormControl(''),
     minheight: new FormControl(''),
     maxheight: new FormControl(''),
+    memtype: new FormControl(''),
   });
 
   reliform = new FormGroup({
@@ -53,8 +55,6 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   stateform = new FormGroup({
     state: new FormControl(''),
   });
-
-  //maritalstatus = new FormControl();
 
   constructor(
     public userService: UserService,
@@ -97,6 +97,10 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   }
   reset() {
     this.resetOption = [];
+  }
+
+  resetsearch() {
+    this.filteruserform.reset();
   }
 
   getmaritalstatus() {

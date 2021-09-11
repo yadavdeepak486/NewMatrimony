@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Member ID</mat-label>
-                    <input matInput placeholder="MatriID">
+                    <input matInput placeholder="MatriID" formControlName="MatriID">
 
                   </mat-form-field>
                 </div>
@@ -142,7 +142,7 @@
                       (change)="checkboxChange($event.source, $event.checked)">All Member
                     </mat-checkbox> -->
 
-                    <mat-radio-group aria-label="Select an option" style="    display: flex;
+                    <mat-radio-group aria-label="Select an option" formControlName="memtype" style="    display: flex;
                     flex-direction: column;">
                       <mat-radio-button value="FM">Free Member</mat-radio-button>
                       <mat-radio-button value="PM">Premium Member</mat-radio-button>
@@ -164,7 +164,7 @@
 
                 <div _ngcontent-xdt-c89="">
                   <button class="sre-btn" type="submit">Search</button>
-                  <button class="sre-cnl-btn" style="margin-left: 10px;" (click)="filteruserform.reset()">Reset</button>
+                  <button class="sre-cnl-btn" style="margin-left: 10px;" (click)="resetsearch()">Reset</button>
                 </div>
               </div>
             </form>
@@ -203,7 +203,7 @@
                   <div class="listings-content">
                     <span class="status ">
                       Online Now</span>
-                    <h3 class="mid">ID: <span class="mds">{{Content.Prefix}}{{Content.MatriID}}</span></h3>
+                    <h3 class="mid">ID: <span class="mds">{{Content.MatriID}}</span></h3>
 
                     <div class="d-flex align-items-center justify-content-between">
                     </div>
