@@ -3,7 +3,12 @@
 .progress {
     height: 8px
 }
-
+.p-3 {
+    box-shadow: 2px 4px 14px rgb(0 0 0 / 28%);
+    padding: 48px 30px !important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 .progress-info {
     font-size: 11px
 }
