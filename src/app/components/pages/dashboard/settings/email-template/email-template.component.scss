@@ -1,6 +1,16 @@
 @import "../../dashboard.component.scss";
 
-.note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
+.btn-at {
+    width: 100%;
+    display: inline-block;
+    text-align: right;
+}
+h3.rt-heading {
+    padding: 0px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+ .note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
     background-color: #fff;
     color: #000;
     padding: 10px;
@@ -194,7 +204,7 @@ a:hover {
     -moz-border-radius: 0px 4px 4px 4px;
     border-radius: 0px 4px 4px 4px;
     background: #fff;
-    padding: 30px
+    padding: 0px 30px;
 }
 .btn-ps {
     width: 100%;

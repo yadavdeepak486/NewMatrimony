@@ -8,11 +8,12 @@ import { UserService } from 'src/app/user.service';
 })
 export class UserProfileTwoComponent implements OnInit {
   mydetail: any;
-  
+  users: any;
   constructor(public userService: UserService) {}
 
   ngOnInit(): void {
     this.getmydetails();
+    this.getallUsers();
   }
 
   // All Listings
@@ -42,6 +43,16 @@ export class UserProfileTwoComponent implements OnInit {
     );
   }
 
- 
+  getallUsers() {
+    this.userService.getallprofiles().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.users = response.data.splice(0,2);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
 }
