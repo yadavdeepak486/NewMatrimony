@@ -10,6 +10,10 @@ import {
 import { AdminService } from 'src/app/admin.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
+
+import { base64StringToBlob } from 'blob-util';
+
 @Component({
   selector: 'app-user-profile-one',
   templateUrl: './user-profile-one.component.html',
@@ -17,7 +21,7 @@ import { Router } from '@angular/router';
 })
 export class UserProfileOneComponent implements OnInit {
   mydetail: any;
-  toggleeverifyprofile: boolean= true;
+  toggleeverifyprofile: boolean = true;
   togglecheck: boolean = true;
   togglechecktwo: boolean = true;
   togglecheckoccupation: boolean = true;
@@ -53,12 +57,15 @@ export class UserProfileOneComponent implements OnInit {
   allstarsign: any;
   allmoonstarsign: any;
 
+  contenttype: any;
+
   educationslt = new FormControl();
   imageupload1: FormGroup;
   imageupload2: FormGroup;
   imageupload3: FormGroup;
 
   tosendpath: any;
+  tosendblob: any;
 
   filePath1: any;
   filePath2: any;
@@ -208,6 +215,28 @@ export class UserProfileOneComponent implements OnInit {
     });
   }
 
+  //========================================================
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+    console.log(event);
+    //this.contenttype = file.type;
+    const blob = base64StringToBlob(
+      this.croppedImage.replace(/^[^,]+,/, ''),
+      this.contenttype
+    );
+    this.imageupload1.get('Photo1').setValue(blob);
+  }
+  imageLoaded() {}
+  cropperReady() {}
+  loadImageFailed() {}
+  //=======================================================
+
   getmydetails() {
     this.userService.getmyprofiledetail()?.subscribe(
       (response: any) => {
@@ -227,7 +256,12 @@ export class UserProfileOneComponent implements OnInit {
   imagePreview1(e) {
     const file = e.target.files[0];
     console.log(file);
-    this.imageupload1.get('Photo1').setValue(file);
+    // this.contenttype = file.type;
+    // const blob = base64StringToBlob(
+    //   this.croppedImage.replace(/^[^,]+,/, ''),
+    //   this.contenttype
+    // );
+    // this.imageupload1.get('Photo1').setValue(blob);
     const reader = new FileReader();
     const k = reader.readAsDataURL(file);
     this.tosendpath = e.target.files.item(0);
@@ -1087,5 +1121,4 @@ export class UserProfileOneComponent implements OnInit {
       this.toggleeverifyprofile = false;
     }
   }
-
 }

@@ -7,6 +7,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
+import { PlatformModule } from '@angular/cdk/platform';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -44,8 +45,6 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 
 @NgModule({
   exports: [
@@ -95,6 +94,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ScrollingModule,
     FormsModule,
     ReactiveFormsModule,
+    PlatformModule,
   ],
   declarations: [],
   imports: [
@@ -143,9 +143,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PortalModule,
     ScrollingModule,
     CommonModule,
-    FormsModule, ReactiveFormsModule,
-    
-
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+    PlatformModule,
+  ],
 })
-export class MatModule { }
+export class MatModule {}
