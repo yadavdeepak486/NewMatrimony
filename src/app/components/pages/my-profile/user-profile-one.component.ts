@@ -225,12 +225,8 @@ export class UserProfileOneComponent implements OnInit {
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
     console.log(event);
-    //this.contenttype = file.type;
-    const blob = base64StringToBlob(
-      this.croppedImage.replace(/^[^,]+,/, ''),
-      this.contenttype
-    );
-    this.imageupload1.get('Photo1').setValue(blob);
+    const blob = base64StringToBlob(this.croppedImage.replace(/^[^,]+,/, ''));
+    return blob;
   }
   imageLoaded() {}
   cropperReady() {}
@@ -261,7 +257,15 @@ export class UserProfileOneComponent implements OnInit {
     //   this.croppedImage.replace(/^[^,]+,/, ''),
     //   this.contenttype
     // );
+    console.log(this.imageCropped(e));
+
+    //this.imageupload1.get('Photo1').setValue();
+    // const blob = base64StringToBlob(
+    //   this.croppedImage.replace(/^[^,]+,/, ''),
+    //   this.contenttype
+    // );
     // this.imageupload1.get('Photo1').setValue(blob);
+
     const reader = new FileReader();
     const k = reader.readAsDataURL(file);
     this.tosendpath = e.target.files.item(0);
