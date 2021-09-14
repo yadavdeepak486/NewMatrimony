@@ -1,8 +1,8 @@
 // new css
-.col-lg-2 {
-    flex: 0 0 16.6666666667%;
-    max-width: 20.6666666667%;
-}
+// .col-lg-2 {
+//     flex: 0 0 16.6666666667%;
+//     max-width: 20.6666666667%;
+// }
 section.pt-70.pb-50.bg-plan{
     background: {
         image: url(../../../../assets/img/bg-plan.jpg);
@@ -10,6 +10,19 @@ section.pt-70.pb-50.bg-plan{
         size: cover;
         repeat: no-repeat;
     };
+}
+h3.plan-st-1.st-free {
+    background: 
+			conic-gradient(
+				  #47f025, #76d364, #30e710, #40f31c, 
+				  #53ee34, #26c207, #4fe930, #5ce242, 
+				  #39f010, #12f01d, #0dbe42, #43c943, 
+                  #a0f05e, #2feb28, #04f518, #04f74d, 
+				  #81e411, #5bdb7b, #2ed318, #38e646, 
+				  #01bb11, #16bd56, #2ee25b, #09f544, 
+				  #0edd4c, #19e434, #20f50d, #0ff034, 
+				  #83ec79);
+    color: #fff;
 }
 h3.plan-st-1.st-bronze {
     background: 
@@ -92,7 +105,7 @@ li.st-black {
     border-radius: 10px;
     background-color: var(--whiteColor);
     padding: 40px 10px;
-    width: 215px;
+    width: 100%;
     box-shadow: 0px 9px 20px 0px rgb(22 26 57 / 36%);
 
     h3 {
