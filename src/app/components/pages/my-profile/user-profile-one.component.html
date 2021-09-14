@@ -6,7 +6,7 @@
         <div class="row">
           <form class="col-lg-4 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1();">
             <div>
-              <img [src]="filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
+              <img [src]="croppedImage || filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload1" class="file a-btn">
                 Select profile Photo 1
                 <input type="file" (change)="imagePreview1($event); fileChangeEvent($event);" name="file"
@@ -50,7 +50,7 @@
             <!-- <input type="file" (change)="fileChangeEvent($event)" /> -->
 
             <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
-              [aspectRatio]="1/1" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+              [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped($event)"
               (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
 
             <!-- <img style="width: 500px;" [src]="croppedImage" /> -->
@@ -906,9 +906,9 @@
                                 <div class="form-group">
                                   <label>Manglik</label>
                                   <select class="form-control" formControlName="Manglik">
-                                    <option value="not_manglik" selected>Not Manglik</option>
-                                    <option value="manglik">Manglik</option>
-                                    <option value="ardh_manglik">Ardh Manglik</option>
+                                    <option value="Not Manglik" selected>Not Manglik</option>
+                                    <option value="Manglik">Manglik</option>
+                                    <option value="Ardh Manglik">Ardh Manglik</option>
                                   </select>
                                 </div>
                               </div>
@@ -1329,10 +1329,10 @@
                                 <mat-form-field appearance="outline" class="slt" style="width:100%">
                                   <mat-label>Manglik Status</mat-label>
                                   <mat-select formControlName="PE_manglik" multiple>
-                                    <mat-option value="not_manglik">
+                                    <mat-option value="Not Manglik">
                                       Not Manglik</mat-option>
-                                    <mat-option value="manglik">Manglik</mat-option>
-                                    <mat-option value="ardh_manglik">
+                                    <mat-option value="Manglik">Manglik</mat-option>
+                                    <mat-option value="Ardh Manglik">
                                       Ardh Manglik</mat-option>
                                   </mat-select>
                                 </mat-form-field>

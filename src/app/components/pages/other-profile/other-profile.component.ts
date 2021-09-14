@@ -18,7 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class OtherProfileComponent implements OnInit {
   id: any;
-  toggleeverifyprofile:boolean= true;
+  toggleeverifyprofile: boolean = true;
   mydetail: any;
   togglecheck: boolean = true;
   togglechecktwo: boolean = true;
@@ -631,8 +631,8 @@ export class OtherProfileComponent implements OnInit {
 
   updatedata() {
     console.log(this.editbasicinformation.value);
-    this.userService
-      .addotheruserdetails(this.editbasicinformation.value)
+    this.adminService
+      .edituserprofile(this.id, this.editbasicinformation.value)
       .subscribe(
         (response: any) => {
           console.log(response);
@@ -769,8 +769,8 @@ export class OtherProfileComponent implements OnInit {
 
   updatefamily() {
     console.log(this.editfamilydetailform.value);
-    this.userService
-      .addotheruserdetails(this.editfamilydetailform.value)
+    this.adminService
+      .edituserprofile(this.id, this.editfamilydetailform.value)
       .subscribe(
         (response: any) => {
           console.log(response);
@@ -1003,8 +1003,8 @@ export class OtherProfileComponent implements OnInit {
 
   updatephysicaldetails() {
     console.log(this.editphysicaldetailsform.value);
-    this.userService
-      .addotheruserdetails(this.editphysicaldetailsform.value)
+    this.adminService
+      .edituserprofile(this.id, this.editphysicaldetailsform.value)
       .subscribe(
         (response: any) => {
           console.log(response);
