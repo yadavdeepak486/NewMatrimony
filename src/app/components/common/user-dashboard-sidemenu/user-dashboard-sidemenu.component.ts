@@ -16,6 +16,7 @@ export class UserDashboardSidemenuComponent implements OnInit {
   whoview: any;
   photoreqsent: any;
   photoreqrec: any;
+  blockeduser: any;
   stndpath = 'assets/img/logo.png';
   filepath: any;
   constructor(public userService: UserService, public routes: Router) {
@@ -31,6 +32,7 @@ export class UserDashboardSidemenuComponent implements OnInit {
     this.whoviewedmyprofile();
     this.mysentphotoreq();
     this.myrecphotoreq();
+    this.myblockedusers();
   }
 
   getlogo() {
@@ -117,6 +119,19 @@ export class UserDashboardSidemenuComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.photoreqrec = response.data.length;
+        //console.log(this.users[0].Age);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  myblockedusers() {
+    this.userService.allblockedusersbyme().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.blockeduser = response.data.length;
         //console.log(this.users[0].Age);
       },
       (error) => {

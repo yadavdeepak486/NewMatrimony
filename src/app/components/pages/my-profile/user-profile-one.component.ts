@@ -57,8 +57,6 @@ export class UserProfileOneComponent implements OnInit {
   allstarsign: any;
   allmoonstarsign: any;
 
-  contenttype: any;
-
   educationslt = new FormControl();
   imageupload1: FormGroup;
   imageupload2: FormGroup;
@@ -74,6 +72,8 @@ export class UserProfileOneComponent implements OnInit {
   readyupload1 = false;
   readyupload2 = false;
   readyupload3 = false;
+
+  tempblob: any;
 
   educationsltList: string[] = [
     '10th',
@@ -223,11 +223,25 @@ export class UserProfileOneComponent implements OnInit {
     this.imageChangedEvent = event;
   }
   imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;
+    this.croppedImage = event.base64; //(imageCropped)="imageCropped($event)"
     console.log(event);
-    const blob = base64StringToBlob(this.croppedImage.replace(/^[^,]+,/, ''));
-    return blob;
+    // if (
+    //   this.croppedImage !== null &&
+    //   this.croppedImage !== undefined &&
+    //   this.croppedImage !== ''
+    // ) {
+    //   const blob = base64StringToBlob(this.croppedImage.replace(/^[^,]+,/, ''));
+    //   console.log(blob);
+    //   return blob;
+    // }
+    if (this.croppedImage) {
+      this.tempblob = base64StringToBlob(
+        this.croppedImage.replace(/^[^,]+,/, '')
+      );
+      this.imageupload1.get('Photo1').setValue(this.tempblob);
+    }
   }
+
   imageLoaded() {}
   cropperReady() {}
   loadImageFailed() {}
@@ -257,17 +271,13 @@ export class UserProfileOneComponent implements OnInit {
     //   this.croppedImage.replace(/^[^,]+,/, ''),
     //   this.contenttype
     // );
-    console.log(this.imageCropped(e));
-
-    //this.imageupload1.get('Photo1').setValue();
-    // const blob = base64StringToBlob(
-    //   this.croppedImage.replace(/^[^,]+,/, ''),
-    //   this.contenttype
-    // );
-    // this.imageupload1.get('Photo1').setValue(blob);
+    this.imageCropped(e);
+    console.log();
 
     const reader = new FileReader();
-    const k = reader.readAsDataURL(file);
+
+    const k = reader.readAsDataURL(this.tempblob);
+
     this.tosendpath = e.target.files.item(0);
     reader.onload = (_event) => {
       this.filePath1 = reader.result;

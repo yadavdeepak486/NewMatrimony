@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
 
   constructor(public http: HttpClient) {}
@@ -553,6 +553,9 @@ export class AdminService {
 
   getonepage(id) {
     return this.http.get(`${this.backendurl}/admin/viewonewebpage/${id}`);
+  }
+  getonepagebypath(id) {
+    return this.http.get(`${this.backendurl}/admin/viewpagebypath/${id}`);
   }
 
   editonepage(id, data) {

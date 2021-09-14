@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
-  backendurl = 'https://demo.rishtaguru.com/api';
-  backendurltest = 'http://localhost:4555/api';
+  backendurltest = 'https://demo.rishtaguru.com/api';
+  backendurl = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -352,6 +352,46 @@ export class UserService {
       localStorage.getItem('auth-token')
     );
     return this.http.get(`${this.backendurl}/user/unblockprofile/${id}`, {
+      headers: header,
+    });
+  }
+
+  blockuser(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/blockuser/${id}`, {
+      headers: header,
+    });
+  }
+
+  unblockuser(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/unblockuser/${id}`, {
+      headers: header,
+    });
+  }
+
+  allblockedusersbyme() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/allblockedusersbyme`, {
+      headers: header,
+    });
+  }
+
+  reportuser(id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/reportuser/${id}`, {
       headers: header,
     });
   }

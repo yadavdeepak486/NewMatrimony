@@ -248,10 +248,12 @@
                         <p class="i_t">View Profile</p>
                       </li>
 
-                      <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                      <li><i (click)="blockauser(Content._id)" class=" bx bx-block"
+                          style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">Block</p>
                       </li>
-                      <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                      <li><i (click)="reportauser(Content._id)" class=" bx bx-error-circle"
+                          style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">Report</p>
                       </li>
                     </ul>

@@ -64,7 +64,8 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getallUsers();
+    //this.getallUsers();
+    this.filter();
     this.getmaritalstatus();
     this.getallreligion();
     this.getallcaste();
@@ -233,10 +234,13 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
 
   slicingdata(e) {
     const idx = this.allheights.findIndex((val) => val.cmvalue === e);
+    console.log(this.allheights);
     console.log(e);
     console.log(idx);
     this.minheights = this.allheights;
+    console.log(this.allheights);
     this.minheights.splice(0, idx);
+    console.log(this.allheights);
     console.log(this.minheights);
   }
 
@@ -336,5 +340,33 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
 
   checkboxChange(checkbox: MatCheckbox, checked: boolean) {
     checkbox.value = checked ? this.trueValue : this.falseValue;
+  }
+
+  blockauser(id) {
+    console.log(id);
+    this.userService.blockuser(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.filter();
+        this.toastr.success('User blocked');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  reportauser(id) {
+    console.log(id);
+    this.userService.reportuser(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.filter();
+        this.toastr.success('User Reported');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

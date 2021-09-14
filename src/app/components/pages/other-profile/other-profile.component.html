@@ -227,12 +227,12 @@
                                     <select class="form-control" formControlName="NoOfChild">
                                       <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
                                         {{caste?.name}}</option> -->
-                                        <option>Not Applicable</option>
-                                        <option>Never Married</option>
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
+                                      <option>Not Applicable</option>
+                                      <option>Never Married</option>
+                                      <option>0</option>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
                                     </select>
                                   </div>
                                 </div>
@@ -247,17 +247,17 @@
 
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <label>Children Living  Status</label>
+                                    <label>Children Living Status</label>
                                     <!-- <input type="number" class="form-control" placeholder="Living no."
                                       formControlName="childrenlivingstatus" required> -->
-                                      <select class="form-control" formControlName="NoOfChild">
-                                        <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
+                                    <select class="form-control" formControlName="NoOfChild">
+                                      <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
                                           {{caste?.name}}</option> -->
-                                          <option>Not Applicable</option>
-                                          <option>Yes, living with me</option>
-                                          <option>Not, living with me</option>
-                                          <option>Partially</option>
-                                      </select>
+                                      <option>Not Applicable</option>
+                                      <option>Yes, living with me</option>
+                                      <option>Not, living with me</option>
+                                      <option>Partially</option>
+                                    </select>
                                   </div>
                                 </div>
 
@@ -622,8 +622,8 @@
                                 <div class="form-group">
                                   <label>Photo Privacy</label>
                                   <select class="form-control">
-                                      <option>Public</option>
-                                      <option>Private</option>
+                                    <option>Public</option>
+                                    <option>Private</option>
                                   </select>
                                 </div>
                               </div>
@@ -899,9 +899,9 @@
                                 <div class="form-group">
                                   <label>Manglik</label>
                                   <select class="form-control" formControlName="Manglik">
-                                    <option value="not_manglik" selected>Not Manglik</option>
-                                    <option value="manglik">Manglik</option>
-                                    <option value="ardh_manglik">Ardh Manglik</option>
+                                    <option value="Not Manglik" selected>Not Manglik</option>
+                                    <option value="Manglik">Manglik</option>
+                                    <option value="Ardh Manglik">Ardh Manglik</option>
                                   </select>
                                 </div>
                               </div>
@@ -991,7 +991,7 @@
                           </form>
                         </div>
                       </div>
-                        <!-- verify profile -->
+                      <!-- verify profile -->
 
                       <div class="content-box">
                         <div class="heading-title">
@@ -1005,7 +1005,8 @@
                             <tbody class="tb-text">
                               <tr class="wd">
                                 <td class="wd1">Upload id:</td>
-                                <td class="wd1"><img src="assets/img/dummy-img.jpg" alt="image" class="img-upload"/></td>
+                                <td class="wd1"><img src="assets/img/dummy-img.jpg" alt="image" class="img-upload" />
+                                </td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Email:</td>
@@ -1020,8 +1021,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Upload Id</label>
-                                  <input type="file" class="form-control" placeholder=""
-                                    formControlName="uploadid">
+                                  <input type="file" class="form-control" placeholder="" formControlName="uploadid">
                                 </div>
                               </div>
                               <div class="col-md-6">
@@ -1031,7 +1031,7 @@
                                     formControlName="email">
                                 </div>
                               </div>
-                              
+
                               <!-- <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Hobby12</label>
@@ -1303,10 +1303,10 @@
                                 <mat-form-field appearance="outline" class="slt" style="width:100%">
                                   <mat-label>Manglik Status</mat-label>
                                   <mat-select formControlName="PE_manglik" multiple>
-                                    <mat-option value="not_manglik">
+                                    <mat-option value="Not Manglik">
                                       Not Manglik</mat-option>
-                                    <mat-option value="manglik">Manglik</mat-option>
-                                    <mat-option value="ardh_manglik">
+                                    <mat-option value="Manglik">Manglik</mat-option>
+                                    <mat-option value="Ardh Manglik">
                                       Ardh Manglik</mat-option>
                                   </mat-select>
                                 </mat-form-field>
