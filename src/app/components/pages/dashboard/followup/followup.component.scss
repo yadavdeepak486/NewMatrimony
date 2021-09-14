@@ -1,6 +1,12 @@
 @import "../dashboard.component.scss";
 @import "../stats/stats.component.scss";
 
+
+input.form-control.stt-dat{
+    height: 56px;
+    margin-top: 4px;
+    background: #fafafa;
+}
 // followup-table
 .followuptable{
     width: 100%;
