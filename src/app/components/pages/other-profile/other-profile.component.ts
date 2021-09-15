@@ -71,6 +71,8 @@ export class OtherProfileComponent implements OnInit {
   readyupload2 = false;
   readyupload3 = false;
 
+  userfollowup: any;
+
   educationsltList: string[] = [
     '10th',
     '12th',
@@ -168,6 +170,13 @@ export class OtherProfileComponent implements OnInit {
     account_manager: new FormControl(''),
   });
 
+  followupform = new FormGroup({
+    staff: new FormControl('612cd3e9c8778a0b74cbeb55'),
+    remark: new FormControl(''),
+    nextfollowupdatedate: new FormControl(''),
+    calllinestatus: new FormControl(''),
+  });
+
   partnerexpform = new FormGroup({
     PartnerExpectations: new FormControl(''),
     PE_FromAge: new FormControl(''),
@@ -208,6 +217,7 @@ export class OtherProfileComponent implements OnInit {
     this.familyvalues();
     this.familystatus();
     this.getallstaff();
+    this.getallfollowup();
     this.imageupload1 = this.formBuilder.group({
       Photo1: '',
     });
@@ -1137,5 +1147,31 @@ export class OtherProfileComponent implements OnInit {
     } else {
       this.toggleeverifyprofile = false;
     }
+  }
+
+  addfollowup() {
+    console.log(this.followupform.value);
+    this.adminService.addfollowup(this.id, this.followupform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getallfollowup();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getallfollowup() {
+    console.log(this.id);
+    this.adminService.allfollowupofuser(this.id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.userfollowup = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

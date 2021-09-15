@@ -25,12 +25,13 @@
           <div class="listings-grid-sorting row align-items-center">
 
             <div class="col-lg-12 col-md-12 ">
-              <form class="st-form">
+              <form [formGroup]="searchinput" (ngSubmit)="regsearch()" class="st-form">
                 <div class="row m-0 align-items-center">
                   <div class="col-lg-7 col-md-12 p-0">
                     <div class="form-group">
                       <label><i class="flaticon-search"></i></label>
-                      <input type="text" class="form-control stint" placeholder="Search ID/Name/Mobile/Email">
+                      <input type="text" class="form-control stint" placeholder="Search ID/Name/Mobile/Email"
+                        formControlName="oneinput">
                     </div>
                   </div>
 
@@ -182,7 +183,7 @@
 
           <div class="row">
             <div class="col-lg-12 col-md-12"
-              *ngFor="let Content of alluser | paginate: { itemsPerPage: 8, currentPage: verticalListings }">
+              *ngFor="let Content of alluser | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
               <div class="single-listings-item">
                 <div class="row m-0">
                   <div class="col-lg-4 col-md-4 p-0">
@@ -194,8 +195,10 @@
                     <div class="listings-content">
                       <span class="status {{Content?.extraClass}}">
                         Online</span>
-                      <h3><a routerLink="/{{Content?.detailsLink}}">{{Content?.title}}</a>
-                        <span class="sp-1">{{Content?.Prefix}}{{Content?.MatriID}}</span>
+                      <h3><a routerLink="/{{Content?.detailsLink}}">{{Content?.Name}} {{Content?.firstName}}
+                          {{Content?.LastName}}</a>
+                        <span class="sp-1">{{Content?.MatriID}} |</span>
+                        <span class="sp-1"></span>
                         <span class="sp-2">| {{Content?.Maritalstatus?.name}} |</span>
                         <span class="sp-3">Status : {{Content?.Status}}</span>
                       </h3>
@@ -213,7 +216,7 @@
                             <tr>
                               <td>{{Content?.Education?.name}}, {{Content?.Education?.shortname}}
                                 {{Content?.Education?.place}}</td>
-                              <td>Assigned To:<span class="tb-s">Diksha Verma</span></td>
+                              <td>Assigned To:<span class="tb-s">{{Content?.Assign?.lastname}}</span></td>
                             </tr>
                             <tr>
                               <td>{{Content?.Employedin?.name}} Employee, {{Content?.Occupation?.name}}</td>
