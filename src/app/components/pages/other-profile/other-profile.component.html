@@ -54,7 +54,7 @@
                           <h3>Basic Information</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void()"><i class="bx bx-edit" (click)="formone()"></i></a>
+                          <a href="javascript:void()" class="st-edit" (click)="formone()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <!--  -->
                         <div *ngIf="togglecheck" class="info-text">
@@ -287,7 +287,7 @@
                           <h3>Family Details</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="familydetail()"></i></a>
+                          <a class="st-edit" (click)="familydetail()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <!-- *ngIf="togglecheckfamily" -->
                         <div *ngIf="togglecheckfamily" class="info-text">
@@ -458,7 +458,7 @@
                           <h3>Physical Status & Eating Habits</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="physicaldetail()"></i></a>
+                          <a class="st-edit"  (click)="physicaldetail()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckphysical" class="info-text">
                           <table class="tb-text">
@@ -557,7 +557,7 @@
                           <h3>Contact Details</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="formtwo()"></i></a>
+                          <a class="st-edit" (click)="formtwo()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglechecktwo" class="info-text">
                           <table class="tb-text">
@@ -658,7 +658,7 @@
                           <h3>Education and Occupation</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="formoccupation()"></i></a>
+                          <a class="st-edit" (click)="formoccupation()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckoccupation" class="info-text">
                           <table class="tb-text">
@@ -757,7 +757,7 @@
                           <h3>About</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="formabout()"></i></a>
+                          <a class="st-edit" (click)="formabout()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="toggleabout" class="info-text st-about">
                           {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
@@ -789,7 +789,7 @@
                           <h3>Assets & Properties</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="properties()"></i></a>
+                          <a class="st-edit" (click)="properties()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckproperties" class="info-text">
                           <table class="tb-text">
@@ -860,7 +860,7 @@
                           <h3>Horoscope details </h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="horoscope()"></i></a>
+                          <a class="st-edit"  (click)="horoscope()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckhoroscope" class="info-text">
                           <table class="tb-text">
@@ -960,7 +960,7 @@
                           <h3>Hobbies and Details </h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="hobnother()"></i></a>
+                          <a class="st-edit" (click)="hobnother()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckhob" class="info-text">
                           <table class="tb-text">
@@ -998,7 +998,7 @@
                           <h3>Verify Profile </h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="editverifyprofile()"></i></a>
+                          <a class="st-edit" (click)="editverifyprofile()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="toggleeverifyprofile" class="info-text">
                           <table class="tb-text">
@@ -1066,7 +1066,7 @@
                           <h3>Desired Partner Details</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="partnerexp()"></i></a>
+                          <a class="st-edit" (click)="partnerexp()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckpartner" class="info-text">
                           <table class="tb-text">
@@ -1340,7 +1340,7 @@
                           <h3>Assign to</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit"></i></a>
+                          <a class="st-edit"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div class="info-text">
                           <table class="tb-text">
