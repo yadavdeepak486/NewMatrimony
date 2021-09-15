@@ -21,7 +21,7 @@ export class TermsandconditionComponent implements OnInit {
   }
 
   gettermsandconditions() {
-    const id = 'privacy-policy';
+    const id = 'terms&condition';
     console.log(id);
     this.adminService.getonepagebypath(id).subscribe(
       (response: any) => {

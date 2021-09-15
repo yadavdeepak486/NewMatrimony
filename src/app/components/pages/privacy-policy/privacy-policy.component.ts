@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -6,19 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./privacy-policy.component.scss']
 })
 export class PrivacyPolicyComponent implements OnInit {
-
-  constructor() { }
+data:any;
+  constructor(
+    public userService: UserService,
+    public adminService: AdminService,
+    public toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
+    this.getprivacypolicy();
   }
 
-//   pageTitleContent = [
-//     {
-//         title: 'Frequently Asked Questions',
-//         backgroundImage: 'assets/img/page-title/page-title4.jpg'
-//     }
-// ]
-
-
-
+  getprivacypolicy() {
+    const id = 'privacy-policy';
+    console.log(id);
+    this.adminService.getonepagebypath(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.data = response.data.html;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
+
+
