@@ -25,7 +25,7 @@
           <div class="listings-grid-sorting row align-items-center">
 
             <div class="col-lg-12 col-md-12 ">
-              <form [formGroup]="searchinput" (ngSubmit)="regsearch()" class="st-form">
+              <form [formGroup]="searchinput" (ngSubmit)="regsearch()" class="st-form ng-untouched ng-pristine ng-valid">
                 <div class="row m-0 align-items-center">
                   <div class="col-lg-7 col-md-12 p-0">
                     <div class="form-group">
@@ -233,10 +233,14 @@
                             <tr>
                               <td>{{Content?.Education?.name}}, {{Content?.Education?.shortname}}
                                 {{Content?.Education?.place}}</td>
-                              <td>Assigned To:<span class="tb-s">{{Content?.Assign?.lastname}}</span></td>
+                              <td>Email:<span class="tb-s">{{Content?.Email}}</span></td>
                             </tr>
                             <tr>
                               <td>{{Content?.Employedin?.name}} Employee, {{Content?.Occupation?.name}}</td>
+                              <td>Assigned To:<span class="tb-s">{{Content?.Assign?.lastname}}</span></td>
+                            </tr>
+                            <tr>
+                              <td></td>
                               <td>RM:<span class="tb-s">Diksha Verma</span></td>
                             </tr>
                           </tbody>
