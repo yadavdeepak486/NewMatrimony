@@ -594,4 +594,16 @@ export class AdminService {
   deleteoneotpcred(id) {
     return this.http.get(`${this.backendurl}/admin/deleteotpapi/${id}`);
   }
+
+  regsearch(data) {
+    return this.http.post(`${this.backendurl}/user/regidname`, data);
+  }
+
+  addfollowup(id, data) {
+    return this.http.post(`${this.backendurl}/admin/addfollowup/${id}`, data);
+  }
+
+  allfollowupofuser(id) {
+    return this.http.get(`${this.backendurl}/admin/viewoneuserfollowup/${id}`);
+  }
 }

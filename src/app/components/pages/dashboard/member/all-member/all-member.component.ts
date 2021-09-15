@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
@@ -34,6 +35,9 @@ export class AllMemberComponent implements OnInit {
     '30 years',
   ];
   manglikList: string[] = ['Not Manglik', 'Manglik', 'Ardh Manglik'];
+  searchinput = new FormGroup({
+    oneinput: new FormControl(''),
+  });
 
   constructor(public adminServie: AdminService) {}
 
@@ -283,5 +287,17 @@ export class AllMemberComponent implements OnInit {
     );
   }
 
+  regsearch() {
+    console.log(this.searchinput.value);
+    this.adminServie.regsearch(this.searchinput.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.alluser = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
   // close
 }

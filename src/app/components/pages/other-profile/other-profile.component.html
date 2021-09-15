@@ -1405,6 +1405,87 @@
                           </form>
                         </div>
                       </div>
+
+
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Follow Up</h3>
+                        </div>
+                        <div class="edit">
+                          <a><i class="bx bx-edit"></i></a>
+                        </div>
+                        <div class="info-text">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>Tag</th>
+                                <th>Remark</th>
+                                <th>Next Follow up</th>
+                                <th>Staff</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let followup of userfollowup">
+                                <td class="phone">
+                                  {{followup?.calllinestatus}}
+                                </td>
+                                <td class="name">
+                                  {{followup?.remark}}
+                                </td>
+                                <td class="name">
+                                  {{followup?.nextfollowupdatedate}}
+                                </td>
+
+                                <td class="email">
+                                  {{followup?.staff?.firstname}} {{followup?.staff?.Mobile}}
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="info-text">
+                          <form [formGroup]="followupform" (ngSubmit)="addfollowup()">
+                            <div class="row">
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Tag</label>
+                                  <select class="form-control" placeholder="Name" formControlName="calllinestatus">
+                                    <option value="Attend">Attend</option>
+                                    <option value="Not Attend">Not Attend</option>
+                                    <option value="Busy">Busy</option>
+                                    <option value="Forwarded">Forwarded</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label>Next Followup Date</label>
+                                  <input type="date" class="form-control" formControlName="nextfollowupdatedate">
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label>Remark</label>
+                                  <textarea type="text" class="form-control" placeholder="This and that..."
+                                    formControlName="remark"></textarea>
+                                </div>
+                              </div>
+
+
+
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <!-- <button type="button" class="btn btn-primary btn-up"
+                                  (Click)="cancelhobotherform()">Cancel</button> -->
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

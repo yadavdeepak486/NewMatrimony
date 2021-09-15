@@ -50,6 +50,7 @@ export class BlockedProfileComponent implements OnInit {
         console.log(response);
         this.toastr.info('Unblock');
         this.getallUsers();
+        this.getallUsers();
       },
       (error) => {
         console.log(error);
