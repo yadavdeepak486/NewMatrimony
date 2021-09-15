@@ -14,6 +14,7 @@ export class AllStaffComponent implements OnInit {
   toggleeditstaff: boolean = true;
 
   editstaffform = new FormGroup({
+    id: new FormControl(''),
     firstname: new FormControl(''),
     lastname: new FormControl(''),
     Email: new FormControl(''),
@@ -82,6 +83,7 @@ export class AllStaffComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.editstaffform.setValue({
+          id: response.data._id ? response.data._id : null,
           firstname: response.data.firstname ? response.data.firstname : null,
           lastname: response.data.lastname ? response.data.lastname : null,
           Email: response.data.Email ? response.data.Email : null,
@@ -98,6 +100,19 @@ export class AllStaffComponent implements OnInit {
 
   updatestaffForm() {
     console.log(this.editstaffform.value);
+    this.adminService
+      .editstaff(this.editstaffform.value.id, this.editstaffform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toggleeditstaff = true;
+          this.editstaffform.reset();
+          this.getallstaff();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
   getallrole() {
@@ -109,5 +124,10 @@ export class AllStaffComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  cancelstaffedit() {
+    this.toggleeditstaff = true;
+    this.editstaffform.reset();
   }
 }

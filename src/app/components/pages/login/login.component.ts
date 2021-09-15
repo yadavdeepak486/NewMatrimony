@@ -105,8 +105,10 @@ export class LoginComponent implements OnInit {
     console.log(data);
     this.adminService.stafflogin(data).subscribe(
       (response: any) => {
-        this.toastr.success(`Welcome ${response?.user?.role?.name}`);
         console.log(response);
+        this.toastr.success(`Welcome ${response?.user?.role?.name}`);
+        localStorage.setItem('auth-adtoken', response.token);
+        localStorage.setItem('role', response?.user?.role?.name);
         console.log(response.user_type);
         this.routes.navigate(['/dashboard']);
       },
@@ -241,7 +243,7 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.toastr.success('Password Reset Successfull');
-        localStorage.setItem('cookie', '');
+        localStorage.removeItem('cookie');
         this.changepasswordform.reset();
         this.changepass = false;
       },
