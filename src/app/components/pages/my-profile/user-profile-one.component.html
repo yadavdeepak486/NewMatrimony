@@ -66,7 +66,7 @@
                           <h3>Basic Information</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void()"><i class="bx bx-edit" (click)="formone()"></i></a>
+                          <a href="javascript:void()" class="st-edit" (click)="formone()">Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <!--  -->
                         <div *ngIf="togglecheck" class="info-text">
@@ -294,7 +294,7 @@
                           <h3>Family Details</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="familydetail()"></i></a>
+                          <a class="st-edit"  (click)="familydetail()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <!-- *ngIf="togglecheckfamily" -->
                         <div *ngIf="togglecheckfamily" class="info-text">
@@ -465,7 +465,7 @@
                           <h3>Physical Status & Eating Habits</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="physicaldetail()"></i></a>
+                          <a class="st-edit" (click)="physicaldetail()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckphysical" class="info-text">
                           <table class="tb-text">
@@ -541,12 +541,26 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Special Case</label>
-                                  <input type="text" class="form-control" placeholder="" formControlName="spe_cases"
-                                    required>
+                                   <label>Special Case</label>
+                                   <select class="form-control" formControlName="spe_cases">
+                                    <option value="any">Any</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="physically-challenged-right-arm">Physically Challenged-Right Arm</option>
+                                    <option value="physically-challenged-left-arm">Physically Challenged-Left Arm</option>
+                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm</option>
+                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm</option>
+                                    <option value="physically-challenged-right-leg">Physically Challenged-Right Leg</option>
+                                    <option value="physically-challenged-left-leg">Physically Challenged-Left Leg</option>
+                                    <option value="physically-challenged-both-leg">Physically Challenged-Both Leg</option>
+                                    <option value="physically-challenged-deaf">Physically Challenged Deaf</option>
+                                    <option value="physically-challenged-dumb">Physically Challenged Dumb</option>
+                                    <option value="physically-challenged-deaf-and-dumb">Physically Challenged Deaf and Dumb</option>
+                                    <option value="physically-challenged-mentaly-challenged">Physically Challenged Mentaly Challenged</option>
+                                    <option value="physically-challenged-other">Physically Challenged Other</option>
+                                    <option value="hiv-positive">HIV Positive</option>
+                                  </select>
                                 </div>
                               </div>
-
 
                               <div class="col-md-12">
                                 <button class="btn btn-primary btn-up" type="submit">Update</button>
@@ -564,7 +578,7 @@
                           <h3>Contact Details</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="formtwo()"></i></a>
+                          <a class="st-edit" (click)="formtwo()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglechecktwo" class="info-text">
                           <table class="tb-text">
@@ -665,7 +679,7 @@
                           <h3>Education and Occupation</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="formoccupation()"></i></a>
+                          <a class="st-edit" (click)="formoccupation()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckoccupation" class="info-text">
                           <table class="tb-text">
@@ -764,7 +778,7 @@
                           <h3>About</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="formabout()"></i></a>
+                          <a class="st-edit" (click)="formabout()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="toggleabout" class="info-text st-about">
                           {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
@@ -796,7 +810,7 @@
                           <h3>Assets & Properties</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="properties()"></i></a>
+                          <a class="st-edit" (click)="properties()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckproperties" class="info-text">
                           <table class="tb-text">
@@ -867,7 +881,7 @@
                           <h3>Horoscope details </h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="horoscope()"></i></a>
+                          <a class="st-edit" (click)="horoscope()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckhoroscope" class="info-text">
                           <table class="tb-text">
@@ -967,7 +981,7 @@
                           <h3>Hobbies and Details </h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="hobnother()"></i></a>
+                          <a class="st-edit" (click)="hobnother()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckhob" class="info-text">
                           <table class="tb-text">
@@ -1024,7 +1038,7 @@
                           <h3>Verify Profile </h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="editverifyprofile()"></i></a>
+                          <a class="st-edit"  (click)="editverifyprofile()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="toggleeverifyprofile" class="info-text">
                           <table class="tb-text">
@@ -1092,7 +1106,7 @@
                           <h3>Desired Partner Details</h3>
                         </div>
                         <div class="edit">
-                          <a><i class="bx bx-edit" (click)="partnerexp()"></i></a>
+                          <a class="st-edit" (click)="partnerexp()"> Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckpartner" class="info-text">
                           <table class="tb-text">
