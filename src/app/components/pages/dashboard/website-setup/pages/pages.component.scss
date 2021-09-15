@@ -60,12 +60,16 @@ h3 {
 .card {
     border: none;
 }
+
+.table-responsive.st-tscroll {
+    height: 350px;
+}
 table {
     margin-bottom: 0;
 
     thead {
         th {
-            // white-space: nowrap;
+            white-space: nowrap;
             vertical-align: middle;
             color: var(--blackColor);
             padding: 11px 25px 10px;

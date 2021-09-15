@@ -1,3 +1,7 @@
+a.st-edit {
+  font-size: 18px;
+  margin-right: 2px;
+}
 // upload id image
 .img-upload {
   width: 150px;
@@ -63,8 +67,9 @@ span.sptxt {
   margin-right: 15px;
 }
 .edit a i {
-  font-size: 25px;
-  color: #fff;
+  font-size: 18px;
+  color:#007bff;
+  margin-left: 3px;
 }
 .card.card-body.bd-none {
   border: none;
@@ -116,7 +121,7 @@ p.bt-tetx {
 .my-profile-box {
   margin-bottom: 30px;
   margin-top: 35px;
-  background-color: var(--whiteColor);
+  // background-color: var(--whiteColor);
   box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.05);
   border-radius: 5px;
 
@@ -331,19 +336,30 @@ h3.pf-n {
 }
 
 // ss 7-29-21
+// .heading-title {
+//   width: 100%;
+//   display: inline-block;
+//   color: #fff;
+//   background: linear-gradient(225deg, #5f24ca 0%, #221638 100%);
+//   border-radius: 6px;
+// }
 .heading-title {
   width: 100%;
   display: inline-block;
-  color: #fff;
-  background: linear-gradient(225deg, #5f24ca 0%, #221638 100%);
+  color:#12202f;
   border-radius: 6px;
+  background: #d6d1d138;
+
 }
 
 .content-box {
   width: 100%;
   display: inline-block;
   margin-bottom: 20px;
-  border: 1px solid #cccccc70;
+  border: 1px solid #fff;
+  background-color: #fff;
+  box-shadow: 2px 4px 14px rgb(0 0 0 / 20%);
+  border-radius: 5px;
 }
 button.btn.btn-primary.btn-right {
   float: right;

@@ -534,13 +534,27 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Special Case</label>
-                                  <input type="text" class="form-control" placeholder="" formControlName="spe_cases"
-                                    required>
+                                   <label>Special Case</label>
+                                   <select class="form-control" formControlName="spe_cases">
+                                    <option value="any">Any</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="physically-challenged-right-arm">Physically Challenged-Right Arm</option>
+                                    <option value="physically-challenged-left-arm">Physically Challenged-Left Arm</option>
+                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm</option>
+                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm</option>
+                                    <option value="physically-challenged-right-leg">Physically Challenged-Right Leg</option>
+                                    <option value="physically-challenged-left-leg">Physically Challenged-Left Leg</option>
+                                    <option value="physically-challenged-both-leg">Physically Challenged-Both Leg</option>
+                                    <option value="physically-challenged-deaf">Physically Challenged Deaf</option>
+                                    <option value="physically-challenged-dumb">Physically Challenged Dumb</option>
+                                    <option value="physically-challenged-deaf-and-dumb">Physically Challenged Deaf and Dumb</option>
+                                    <option value="physically-challenged-mentaly-challenged">Physically Challenged Mentaly Challenged</option>
+                                    <option value="physically-challenged-other">Physically Challenged Other</option>
+                                    <option value="hiv-positive">HIV Positive</option>
+                                  </select>
                                 </div>
                               </div>
-
-
+                             
                               <div class="col-md-12">
                                 <button class="btn btn-primary btn-up" type="submit">Update</button>
                                 <button class="btn btn-primary btn-up" type="button"
