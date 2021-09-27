@@ -145,6 +145,11 @@ export class OtherProfileComponent implements OnInit {
     Profile: new FormControl(''),
   });
 
+  verifyform = new FormGroup({
+    uploadid: new FormControl(''),
+    email: new FormControl(''),
+  });
+
   assetform = new FormGroup({
     own_agriland: new FormControl(''),
     own_commland: new FormControl(''),
@@ -869,18 +874,23 @@ export class OtherProfileComponent implements OnInit {
   }
 
   cancelcontactform() {
-    this.togglechecktwo = false;
+    this.togglechecktwo = true;
     this.editcontactform.reset();
   }
 
   cancelaboutform() {
-    this.toggleabout = false;
+    this.toggleabout = true;
     this.aboutform.reset();
   }
 
   cancelhobotherform() {
-    this.togglecheckhob = false;
+    this.togglecheckhob = true;
     this.hobbynotherform.reset();
+  }
+
+  cancelverifyform() {
+    this.toggleeverifyprofile = true;
+    this.verifyform.reset();
   }
 
   partnerexp() {
@@ -1053,6 +1063,11 @@ export class OtherProfileComponent implements OnInit {
   canceleduoccuform() {
     this.togglecheckoccupation = true;
     this.eduoccueditform.reset();
+  }
+
+  canceledpartnerdetailform() {
+    this.togglecheckpartner = true;
+    this.partnerexpform.reset();
   }
 
   properties() {

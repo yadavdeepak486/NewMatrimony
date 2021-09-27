@@ -7,8 +7,9 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./featured-member.component.scss']
 })
 export class FeaturedMemberComponent implements OnInit {
-
+  ngStyle: boolean = false;
   allfeaturesusers: any;
+  loader: boolean= true;
   plans:any;
   allmaritalstatus:any;
   allcity:any;
@@ -186,6 +187,7 @@ export class FeaturedMemberComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.allfeaturesusers = response.data;
+        this.loader=false;
       },
       (error) => {
         console.log(error);

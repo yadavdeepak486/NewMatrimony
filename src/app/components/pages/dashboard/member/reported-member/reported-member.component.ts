@@ -8,8 +8,10 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./reported-member.component.scss']
 })
 export class ReportedMemberComponent implements OnInit {
-
+  
+  ngStyle: boolean = false;
   allreportedusers: any;
+  loader: boolean= true;
   plans:any;
   allmaritalstatus:any;
   allcity:any;
@@ -186,6 +188,7 @@ export class ReportedMemberComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.allreportedusers = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);

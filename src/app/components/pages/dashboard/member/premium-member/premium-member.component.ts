@@ -8,7 +8,10 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./premium-member.component.scss']
 })
 export class PremiumMemberComponent implements OnInit {
+  
+  ngStyle: boolean = false;
   allpremuimusers: any;
+  loader: boolean= true;
   plans:any;
   allmaritalstatus:any;
   allcity:any;
@@ -186,6 +189,7 @@ export class PremiumMemberComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.allpremuimusers = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);

@@ -7,8 +7,10 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./blocked-member.component.scss']
 })
 export class BlockedMemberComponent implements OnInit {
-
+  
+  ngStyle: boolean = false;
   allblockedusers: any;
+  loader: boolean= true;
   plans:any;
   allmaritalstatus:any;
   allcity:any;
@@ -186,6 +188,7 @@ export class BlockedMemberComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.allblockedusers = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);

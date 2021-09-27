@@ -9,6 +9,8 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./profile-detail.component.scss'],
 })
 export class ProfileDetailComponent implements OnInit,OnDestroy {
+  
+  ngStyle: boolean = false;
   userdetails: any;
   id: any;
 

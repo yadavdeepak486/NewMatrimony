@@ -8,8 +8,10 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./deleted-member.component.scss']
 })
 export class DeletedMemberComponent implements OnInit {
-
+  
+  ngStyle: boolean = false;
   alldeletedusers: any;
+  loader: boolean= true;
   plans:any;
   allmaritalstatus:any;
   allcity:any;
@@ -187,6 +189,7 @@ export class DeletedMemberComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.alldeletedusers = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);

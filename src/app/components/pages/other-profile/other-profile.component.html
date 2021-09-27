@@ -974,7 +974,7 @@
                           <h3>Hobbies and Details </h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="hobnother()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="hobnother()" > Edit<i class="bx bx-edit" ></i></a>
                         </div>
                         <div *ngIf="togglecheckhob" class="info-text">
                           <table class="tb-text">
@@ -999,7 +999,7 @@
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
                                 <button type="button" class="btn btn-primary btn-up"
-                                  (Click)="cancelhobotherform()">Cancel</button>
+                                  (click)="cancelhobotherform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -1030,7 +1030,7 @@
                           </table>
                         </div>
                         <div *ngIf="!toggleeverifyprofile" class="info-text">
-                          <form [formGroup]="hobbynotherform" (ngSubmit)="updatehobbynother()">
+                          <form [formGroup]="verifyform" >
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -1067,7 +1067,7 @@
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
                                 <button type="button" class="btn btn-primary btn-up"
-                                  (Click)="cancelhobotherform()">Cancel</button>
+                                  (click)="cancelverifyform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -1339,7 +1339,7 @@
 
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
-                                <button type="button" class="btn btn-primary btn-up">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-up" (click)="canceledpartnerdetailform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -1353,9 +1353,9 @@
                         <div class="heading-title">
                           <h3>Assign to</h3>
                         </div>
-                        <div class="edit">
+                        <!-- <div class="edit">
                           <a class="st-edit"> Edit<i class="bx bx-edit"></i></a>
-                        </div>
+                        </div> -->
                         <div class="info-text">
                           <table class="tb-text">
                             <tbody class="tb-text">
@@ -1411,9 +1411,9 @@
                         <div class="heading-title">
                           <h3>Follow Up</h3>
                         </div>
-                        <div class="edit">
+                        <!-- <div class="edit">
                           <a><i class="bx bx-edit"></i></a>
-                        </div>
+                        </div> -->
                         <div class="info-text">
                           <table class="table">
                             <thead>
@@ -1448,7 +1448,7 @@
                           <form [formGroup]="followupform" (ngSubmit)="addfollowup()">
                             <div class="row">
 
-                              <div class="col-md-2">
+                              <div class="col-md-4">
                                 <div class="form-group">
                                   <label>Tag</label>
                                   <select class="form-control" placeholder="Name" formControlName="calllinestatus">
@@ -1479,8 +1479,7 @@
 
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
-                                <!-- <button type="button" class="btn btn-primary btn-up"
-                                  (Click)="cancelhobotherform()">Cancel</button> -->
+                                 <button type="button" class="btn btn-primary btn-up">Cancel</button> 
                               </div>
                             </div>
                           </form>

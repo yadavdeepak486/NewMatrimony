@@ -46,12 +46,11 @@
           <form>
             <div class="row">
               <div class="col-lg-12 col-md-12">
-                <div class="form-group profile-box">
+                <div   *ngIf="!userdetails.photo_privacy" class="form-group profile-box">
                   <img src="{{userdetails?.Photo1}}" alt="image">
-                  <!-- <div class="file-upload">
-                    <input type="file" name="file" id="file" class="inputfile" />
-                    <label for="file"><i class='bx bx-upload'></i> Upload Photo</label>
-                  </div> -->
+                </div>
+                <div   *ngIf="userdetails.photo_privacy" class="form-group profile-box" style="filter: blur(15px);">
+                  <img src="{{userdetails?.Photo1}}" alt="image">
                 </div>
                 <p class="mid">Member ID: <span class="mds">{{userdetails?.Prefix}}{{userdetails?.MatriID}}</span></p>
                 <h3 class="pf-n">{{userdetails?.Name}}</h3>

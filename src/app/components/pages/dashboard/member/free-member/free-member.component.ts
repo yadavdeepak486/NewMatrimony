@@ -9,7 +9,10 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./free-member.component.scss'],
 })
 export class FreeMemberComponent implements OnInit {
+  
+  ngStyle: boolean = false;
   allfreeuser: any;
+  loader:boolean= true;
   plans:any;
   allmaritalstatus:any;
   allcity:any;
@@ -185,6 +188,7 @@ export class FreeMemberComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.allfreeuser = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);

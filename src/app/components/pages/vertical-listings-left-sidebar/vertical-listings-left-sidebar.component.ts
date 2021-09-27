@@ -13,6 +13,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 })
 export class VerticalListingsLeftSidebarComponent implements OnInit {
   users: any;
+  loader: boolean= true;
   ngStyle: boolean = false;
 
   falseValue = 'false';
@@ -55,6 +56,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   stateform = new FormGroup({
     state: new FormControl(''),
   });
+  
 
   constructor(
     public userService: UserService,
@@ -331,6 +333,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.users = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);
@@ -369,4 +372,6 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
       }
     );
   }
+
+
 }

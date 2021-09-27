@@ -7,7 +7,10 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./inactive-member.component.scss']
 })
 export class InactiveMemberComponent implements OnInit {
+  
+  ngStyle: boolean = false;
   allinactiveuser: any;
+  loader: boolean= true;
   plans:any;
   allmaritalstatus:any;
   allcity:any;
@@ -186,6 +189,7 @@ export class InactiveMemberComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.allinactiveuser = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);

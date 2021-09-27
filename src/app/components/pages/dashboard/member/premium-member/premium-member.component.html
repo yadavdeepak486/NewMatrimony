@@ -176,12 +176,22 @@
               </div>
     
               <div class="row">
+                <div class="spinner-box" *ngIf="loader">
+                  <div class="pulse-container">  
+                     <div class="pulse-bubble pulse-bubble-1"></div>
+                     <div class="pulse-bubble pulse-bubble-2"></div>
+                     <div class="pulse-bubble pulse-bubble-3"></div>
+                  </div>
+               </div>
                 <div class="col-lg-12 col-md-12"
                   *ngFor="let Content of allpremuimusers | paginate: { itemsPerPage: 8, currentPage: verticalListings }">
                   <div class="single-listings-item">
                     <div class="row m-0">
                       <div class="col-lg-4 col-md-4 p-0">
-                        <div class="listings-image" style="background-image: url({{Content?.Photo1}});">
+                        <div  *ngIf="!Content.photo_privacy" class="listings-image" style="background-image: url({{Content?.Photo1}});">
+                          <img [src]="Content.mainImg" alt="image">
+                        </div>
+                        <div  *ngIf="Content.photo_privacy" class="listings-image" style="background-image: url({{Content?.Photo1}}); filter: blur(15px);">
                           <img [src]="Content.mainImg" alt="image">
                         </div>
                       </div>

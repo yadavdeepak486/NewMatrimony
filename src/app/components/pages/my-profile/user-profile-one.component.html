@@ -571,14 +571,35 @@
                           </form>
                         </div>
                       </div>
-
-                      <!-- discription -->
-                      <div class="content-box">
+                      <!-- this contact detail request -->
+                      <div *ngIf="togglecontactdetail" class="content-box">
                         <div class="heading-title">
                           <h3>Contact Details</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="formtwo()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="openDialog()" >View<i class="bx bx-show" ></i></a>
+                          <!-- <button mat-button (click)="openDialog()">View</button> -->
+
+                        </div>
+                        <div  class="info-text">
+                           <div class="bx" style="padding: 20px;">
+                              <h2 style="color: #0c7ef9;font-size: 40px;font-weight: 700;">Notice !</h2>
+                              <p style="font-size: 18px; color: #b00; font-weight: 600;">If view the Contact Detail, We deducted 5 points to, in your current plan. </p>
+                              <button (click)="contactdetailview()" class="btn btn-primary ">View Contact Detail</button> 
+                            </div>
+                        </div>
+                      
+                      </div>
+
+                       <!-- this contact detail request close -->
+
+                      <!-- contact detail -->
+                      <div *ngIf="!togglecontactdetail" class="content-box">
+                        <div class="heading-title">
+                          <h3>Contact Details</h3>
+                        </div>
+                        <div class="edit">
+                          <a class="st-edit" (click)="formtwo()"> Edit<i class="bx bx-edit" ></i></a> 
                         </div>
                         <div *ngIf="togglechecktwo" class="info-text">
                           <table class="tb-text">
@@ -642,7 +663,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Photo Privacy</label>
-                                  <select>
+                                  <select class="form-control">
                                     <option>Public</option>
                                     <option>Private</option>
                                   </select>
@@ -1024,7 +1045,7 @@
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
                                 <button type="button" class="btn btn-primary btn-up"
-                                  (Click)="cancelhobotherform()">Cancel</button>
+                                  (click)="cancelhobotherform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -1056,7 +1077,7 @@
                           </table>
                         </div>
                         <div *ngIf="!toggleeverifyprofile" class="info-text">
-                          <form [formGroup]="hobbynotherform" (ngSubmit)="updatehobbynother()">
+                          <form [formGroup]="verifyform">
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -1093,7 +1114,7 @@
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
                                 <button type="button" class="btn btn-primary btn-up"
-                                  (Click)="cancelhobotherform()">Cancel</button>
+                                (click)="cancelverifyform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -1365,7 +1386,7 @@
 
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
-                                <button type="button" class="btn btn-primary btn-up">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-up" (click)="canceledpartnerdetailform()">Cancel</button>
                               </div>
                             </div>
                           </form>

@@ -9,6 +9,8 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class AllMemberComponent implements OnInit {
   alluser: any;
+  ngStyle: boolean = false;
+  loader:boolean= true;
   plans: any;
   allmaritalstatus: any;
   allcity: any;
@@ -199,6 +201,7 @@ export class AllMemberComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.alluser = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);
