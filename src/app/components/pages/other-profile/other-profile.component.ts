@@ -176,7 +176,7 @@ export class OtherProfileComponent implements OnInit {
   });
 
   followupform = new FormGroup({
-    staff: new FormControl('612cd3e9c8778a0b74cbeb55'),
+    staff: new FormControl('61418880b9a7730ad89a426f'),
     remark: new FormControl(''),
     nextfollowupdatedate: new FormControl(''),
     calllinestatus: new FormControl(''),
