@@ -24,17 +24,17 @@
           <div class="single-events-box" *ngFor="let Content of similarprofiles  | slice:0:3;">
             <div class="row m-0">
               <div class="col-lg-4 col-md-4 p-0">
-                <div class="image" style="background-image: url({{Content?.Photo1}});" class="img-simlar"> 
+                <div class="image" style="background-image: url({{Content?.Photo1}});" class="img-simlar">
                   <!-- <img [src]="Content?.img" alt="image"> -->
                   <a routerLink="/profile-detail/{{Content?._id}}" class="link-btn"></a>
                 </div>
               </div>
 
               <div class="col-lg-8 col-md-8 p-0">
-                <div class="content" >
+                <div class="content">
                   <span class="meta"><i class="flaticon-heart"></i>
                     {{Content?.Maritalstatus?.name}},{{Content?.Age}}</span>
-                  <h3><a routerLink="/profile-detail/{{Content._id}}">{{Content?.Prefix}}{{Content?.MatriID}}</a></h3>
+                  <h3><a routerLink="/profile-detail/{{Content._id}}">{{Content?.MatriID}}</a></h3>
                 </div>
               </div>
             </div>

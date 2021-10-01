@@ -7,7 +7,7 @@ button.btn.btn-primary.st-searchbtn {
   border: none !important;
   padding: 10px 20px;
   border-radius: 100px;
-  
+
 }
 form.ad-srch.ng-untouched.ng-pristine.ng-valid {
   margin-top: 20px;
@@ -192,7 +192,7 @@ form.st-form.ng-untouched.ng-pristine.ng-valid {
     transform: rotate3d(.5,.5,.5, 360deg);
   }
   to{
-    transform: rotate3d(0deg);
+    transform: rotate3d(0,0,0,0deg);
   }
 }
 

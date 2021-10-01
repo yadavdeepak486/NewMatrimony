@@ -367,7 +367,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ToastrModule.forRoot(),
     QuillModule.forRoot(),
   ],
-  providers: [UserService, AdminService],
+  providers: [UserService, AdminService, HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

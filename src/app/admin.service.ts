@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
 
   constructor(public http: HttpClient) {}
@@ -17,7 +17,7 @@ export class AdminService {
   }
 
   getalluserforadmin() {
-    return this.http.get(`${this.backendurl}/user/allusersforadmin`);
+    return this.http.get(`${this.backendurl}/user/allusersforadmin/0`);
   }
 
   getfreeusers() {
@@ -605,5 +605,22 @@ export class AdminService {
 
   allfollowupofuser(id) {
     return this.http.get(`${this.backendurl}/admin/viewoneuserfollowup/${id}`);
+  }
+
+  //get counts
+  allmemcount() {
+    return this.http.get(`${this.backendurl}/user/totalmem`);
+  }
+
+  premiummemcount() {
+    return this.http.get(`${this.backendurl}/user/premiummem`);
+  }
+
+  freememcount() {
+    return this.http.get(`${this.backendurl}/user/freemem`);
+  }
+
+  blockcount() {
+    return this.http.get(`${this.backendurl}/user/blockmem`);
   }
 }

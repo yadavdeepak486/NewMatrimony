@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -16,14 +16,6 @@ export class UserService {
       this.loginedinuserid = getid;
     }
   }
-
-  getTransferIp() {
-    let header = new HttpHeaders().set(
-      'auth-token',
-      localStorage.getItem('auth-token')
-    );
-  }
-
   getallprofiles() {
     let header = new HttpHeaders().set(
       'auth-token',
@@ -335,6 +327,31 @@ export class UserService {
       `${this.backendurl}/admin/makepayment/${planId}/${userId}`
     );
   }
+
+  rapayorder(planId) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/admin/rapay/${planId}`, {
+      headers: header,
+    });
+  }
+
+  rapaysuccesscheck(data, id) {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.post(
+      `${this.backendurl}/admin/rapaysuccesscheck/${id}`,
+      data,
+      {
+        headers: header,
+      }
+    );
+  }
+
   // delete photorequest
   rejectphotoreq(id) {
     let header = new HttpHeaders().set(

@@ -22,10 +22,10 @@ export class StatsComponent implements OnInit {
   }
 
   getallusers() {
-    this.adminService.getalluserforadmin().subscribe(
+    this.adminService.allmemcount().subscribe(
       (response: any) => {
         console.log(response);
-        this.allusers = response.data.length;
+        this.allusers = response.data;
       },
       (error) => {
         console.log(error);
@@ -34,10 +34,10 @@ export class StatsComponent implements OnInit {
   }
 
   getfreeusers() {
-    this.adminService.getfreeusers().subscribe(
+    this.adminService.freememcount().subscribe(
       (response: any) => {
         console.log(response);
-        this.freeusers = response.data.length;
+        this.freeusers = response.data;
       },
       (error) => {
         console.log(error);
@@ -46,10 +46,10 @@ export class StatsComponent implements OnInit {
   }
 
   getpremiumusers() {
-    this.adminService.getpremiumusers().subscribe(
+    this.adminService.premiummemcount().subscribe(
       (response: any) => {
         console.log(response);
-        this.premiumusers = response.data.length;
+        this.premiumusers = response.data;
       },
       (error) => {
         console.log(error);
@@ -58,10 +58,10 @@ export class StatsComponent implements OnInit {
   }
 
   getblockedusers() {
-    this.adminService.getblockedusers().subscribe(
+    this.adminService.blockcount().subscribe(
       (response: any) => {
         console.log(response);
-        this.blockedusers = response.data.length;
+        this.blockedusers = response.data;
       },
       (error) => {
         console.log(error);

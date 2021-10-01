@@ -163,9 +163,6 @@
                       <span class="custom-dropdown">
                         <select class="form-control" style="display: block;">
                           <option [value]="country._id" *ngFor="let country of allcountry">
-                            <svg>
-                              <use [xlink:href]="country.flag" />
-                            </svg>
                             +{{country?.callingCodes}}
                           </option>
                           <option value="610bb1c7b9e2fb19cc060ccc" selected>+91</option>

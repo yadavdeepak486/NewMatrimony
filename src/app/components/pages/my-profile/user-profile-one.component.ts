@@ -1,8 +1,8 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
-import {MatDialog} from '@angular/material/dialog';
-import {MatDialogActions} from '@angular/material/dialog';
-import {MatDialogContent} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogActions } from '@angular/material/dialog';
+import { MatDialogContent } from '@angular/material/dialog';
 
 import {
   FormControl,
@@ -25,7 +25,7 @@ import { base64StringToBlob } from 'blob-util';
 })
 export class UserProfileOneComponent implements OnInit {
   mydetail: any;
-  togglecontactdetail:boolean= true;
+  togglecontactdetail: boolean = true;
   toggleeverifyprofile: boolean = true;
   togglecheck: boolean = true;
   togglechecktwo: boolean = true;
@@ -157,7 +157,6 @@ export class UserProfileOneComponent implements OnInit {
     email: new FormControl(''),
   });
 
-  
   assetform = new FormGroup({
     own_agriland: new FormControl(''),
     own_commland: new FormControl(''),
@@ -204,18 +203,15 @@ export class UserProfileOneComponent implements OnInit {
     private toastr: ToastrService,
     public routes: Router,
     public dialog: MatDialog
-    
   ) {}
 
-  
-   openDialog() {
-   const dialogRef = this.dialog.open(ContactDetailDialog);
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(ContactDetailDialog);
 
-    dialogRef.afterClosed().subscribe(result => {
-    console.log(`Dialog result: ${result}`);
-    });
-   }
-
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
   ngOnInit(): void {
     this.getmydetails();
@@ -265,8 +261,6 @@ export class UserProfileOneComponent implements OnInit {
     }
   }
 
-
-  
   imageLoaded() {}
   cropperReady() {}
   loadImageFailed() {}
@@ -915,8 +909,6 @@ export class UserProfileOneComponent implements OnInit {
     this.hobbynotherform.reset();
   }
 
-  
-
   cancelverifyform() {
     this.toggleeverifyprofile = true;
     this.verifyform.reset();
@@ -1181,13 +1173,10 @@ export class UserProfileOneComponent implements OnInit {
       this.togglecontactdetail = false;
     }
   }
-  
 }
 
-
- @Component({
-  selector: 'contact-detail-dialog',
-   templateUrl: './contact-detail-dialog.html',
-   template
-}) 
-export class ContactDetailDialog {}
+// @Component({
+//   selector: 'contact-detail-dialog',
+//   templateUrl: './contact-detail-dialog.html',
+// })
+// export class ContactDetailDialog {}

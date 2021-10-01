@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-add-comment',
@@ -7,14 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCommentComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
   breadcrumb = [
     {
-        title: 'Add Comment',
-        subTitle: 'Follwed Up'
+      title: 'Add Comment',
+      subTitle: 'Follwed Up'
     }
-]
+  ];
+
+  ngOnInit(): void {
+  }
 }

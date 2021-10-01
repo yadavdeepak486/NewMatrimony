@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-add-member',
@@ -7,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddMemberComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
+
+
+  breadcrumb = [
+    {
+      title: 'Add New Member',
+      subTitle: 'Free Member'
+    }
+  ];
 
   ngOnInit(): void {
   }
-  breadcrumb = [
-    {
-        title: 'Add New Member',
-        subTitle: 'Free Member'
-    }
-]
 }
