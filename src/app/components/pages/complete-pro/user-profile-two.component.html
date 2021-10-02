@@ -16,7 +16,7 @@
                     <div class="col-lg-7 col-md-8 p-0">
                       <div class="listings-content">
                         <div class="pf- box">
-                          <p class="txt-user">Matri ID: {{mydetail?.Prefix}}{{mydetail?.MatriID}}<span></span></p>
+                          <p class="txt-user">Matri ID: {{mydetail?.MatriID}}<span></span></p>
                           <p class="txt-user">Name: {{mydetail?.Name}}{{mydetail?.firstName}}
                             {{mydetail?.LastName}}<span></span></p>
                           <p class="txt-user">MB NO: {{mydetail?.Mobile}}<span></span></p>
@@ -40,10 +40,17 @@
           </div>
           <div class="col-lg-6 rt-1">
             <div class="dpgrade">
-              <p>You are currently a free Member<br>
-                Upgrade your membership to premium membership
-                and get in touch with call/chat with others member directly.
+              <p>You are currently a <strong style="background-color: #bb0000;
+                border-radius: 24px;
+                padding: 7px;
+                color: white;
+                margin: 2px;">{{mydetail?.membership_plan_title || "Free"}}</strong>Plan Member<br></p>
+              <p *ngIf="!mydetail?.membership_plan_title">Upgrade your membership to premium membership
+                and get in touch with call/chat with others member directly.</p>
+              <p *ngIf="mydetail?.membership_plan_title">Welcome to Matrimony Family
+                <a class="updt" routerLink="/membership-detail">Memberships Detail</a>
               </p>
+
             </div>
           </div>
         </div>
@@ -105,10 +112,9 @@
           <section class="just-joined">
             <div class="row">
               <div class="col-lg-12">
-                <h3 class="tl-1">Featured Profile</h3>
+                <h3 class="tl-1">You may like</h3>
               </div>
-              <div class="col-lg-12 col-md-12"
-                *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+              <div class="col-lg-12 col-md-12" *ngFor="let jususer of users ">
                 <div class="single-listings-item">
                   <div class="row m-0">
                     <div class="col-lg-4 col-md-4 p-0 img-blur">
@@ -129,7 +135,7 @@
                       <div class="listings-content">
                         <span class="status ">
                           Online Now</span>
-                        <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
+                        <h3 class="mid">ID: <span class="mds">{{jususer.MatriID}}</span></h3>
 
                         <div class="d-flex align-items-center justify-content-between">
                         </div>
@@ -202,8 +208,7 @@
               <div class="col-lg-12">
                 <h3 class="tl-1">Featured Profile</h3>
               </div>
-              <div class="col-lg-12 col-md-12"
-                *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+              <div class="col-lg-12 col-md-12" *ngFor="let jususer of users ">
                 <div class="single-listings-item">
                   <div class="row m-0">
                     <div class="col-lg-4 col-md-4 p-0 img-blur">
@@ -224,7 +229,7 @@
                       <div class="listings-content">
                         <span class="status ">
                           Online Now</span>
-                        <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
+                        <h3 class="mid">ID: <span class="mds">{{jususer.MatriID}}</span></h3>
 
                         <div class="d-flex align-items-center justify-content-between">
                         </div>
@@ -295,10 +300,9 @@
           <section class="just-joined">
             <div class="row">
               <div class="col-lg-12">
-                <h3 class="tl-1">Featured Profile</h3>
+                <h3 class="tl-1">Similar Profile</h3>
               </div>
-              <div class="col-lg-12 col-md-12"
-                *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+              <div class="col-lg-12 col-md-12" *ngFor="let jususer of users ">
                 <div class="single-listings-item">
                   <div class="row m-0">
                     <div class="col-lg-4 col-md-4 p-0 img-blur">
@@ -319,7 +323,7 @@
                       <div class="listings-content">
                         <span class="status ">
                           Online Now</span>
-                        <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
+                        <h3 class="mid">ID: <span class="mds">{{jususer.MatriID}}</span></h3>
 
                         <div class="d-flex align-items-center justify-content-between">
                         </div>

@@ -205,14 +205,6 @@ export class UserProfileOneComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(ContactDetailDialog);
-
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-
   ngOnInit(): void {
     this.getmydetails();
     this.getallprofilefor();
@@ -236,28 +228,49 @@ export class UserProfileOneComponent implements OnInit {
 
   //========================================================
   imageChangedEvent: any = '';
-  croppedImage: any = '';
+  imageChangedEvent1: any = '';
+  imageChangedEvent2: any = '';
+  imageChangedEvent3: any = '';
+  croppedImage1: any = '';
+  croppedImage2: any = '';
+  croppedImage3: any = '';
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
   }
-  imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64; //(imageCropped)="imageCropped($event)"
+  imageCropped1(event: ImageCroppedEvent) {
+    this.croppedImage1 = event.base64;
     console.log(event);
-    // if (
-    //   this.croppedImage !== null &&
-    //   this.croppedImage !== undefined &&
-    //   this.croppedImage !== ''
-    // ) {
-    //   const blob = base64StringToBlob(this.croppedImage.replace(/^[^,]+,/, ''));
-    //   console.log(blob);
-    //   return blob;
-    // }
-    if (this.croppedImage) {
+
+    if (this.croppedImage1) {
       this.tempblob = base64StringToBlob(
-        this.croppedImage.replace(/^[^,]+,/, '')
+        this.croppedImage1.replace(/^[^,]+,/, '')
       );
       this.imageupload1.get('Photo1').setValue(this.tempblob);
+    }
+  }
+
+  imageCropped2(event: ImageCroppedEvent) {
+    this.croppedImage2 = event.base64;
+    console.log(event);
+
+    if (this.croppedImage2) {
+      this.tempblob = base64StringToBlob(
+        this.croppedImage2.replace(/^[^,]+,/, '')
+      );
+      this.imageupload2.get('Photo2').setValue(this.tempblob);
+    }
+  }
+
+  imageCropped3(event: ImageCroppedEvent) {
+    this.croppedImage3 = event.base64;
+    console.log(event);
+
+    if (this.croppedImage3) {
+      this.tempblob = base64StringToBlob(
+        this.croppedImage3.replace(/^[^,]+,/, '')
+      );
+      this.imageupload3.get('Photo3').setValue(this.tempblob);
     }
   }
 
@@ -283,20 +296,12 @@ export class UserProfileOneComponent implements OnInit {
   }
 
   imagePreview1(e) {
+    this.imageChangedEvent1 = e;
     const file = e.target.files[0];
     console.log(file);
-    // this.contenttype = file.type;
-    // const blob = base64StringToBlob(
-    //   this.croppedImage.replace(/^[^,]+,/, ''),
-    //   this.contenttype
-    // );
-    this.imageCropped(e);
-    console.log();
-
+    // this.imageupload1.get('Photo1').setValue(file);
     const reader = new FileReader();
-
-    const k = reader.readAsDataURL(this.tempblob);
-
+    const k = reader.readAsDataURL(file);
     this.tosendpath = e.target.files.item(0);
     reader.onload = (_event) => {
       this.filePath1 = reader.result;
@@ -305,9 +310,11 @@ export class UserProfileOneComponent implements OnInit {
   }
 
   imagePreview2(e) {
+    this.imageChangedEvent2 = e;
+
     const file = e.target.files[0];
     console.log(file);
-    this.imageupload2.get('Photo2').setValue(file);
+    // this.imageupload2.get('Photo2').setValue(file);
     const reader = new FileReader();
     const k = reader.readAsDataURL(file);
     this.tosendpath = e.target.files.item(0);
@@ -318,9 +325,11 @@ export class UserProfileOneComponent implements OnInit {
   }
 
   imagePreview3(e) {
+    this.imageChangedEvent3 = e;
+
     const file = e.target.files[0];
     console.log(file);
-    this.imageupload3.get('Photo3').setValue(file);
+    // this.imageupload3.get('Photo3').setValue(file);
     const reader = new FileReader();
     const k = reader.readAsDataURL(file);
     this.tosendpath = e.target.files.item(0);

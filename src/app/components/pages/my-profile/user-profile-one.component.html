@@ -6,11 +6,10 @@
         <div class="row">
           <form class="col-lg-4 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1();">
             <div>
-              <img [src]="croppedImage || filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
+              <img [src]="croppedImage1 || filePath1 || mydetail?.Photo1 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload1" class="file a-btn">
-                Select profile Photo 1
-                <input type="file" (change)="imagePreview1($event); fileChangeEvent($event);" name="file"
-                  class="input-one" />
+                Upload profile Photo 1
+                <input type="file" (change)="imagePreview1($event);" name="file" class="input-one" />
               </div>
               <button *ngIf="readyupload1" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload1" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
@@ -20,11 +19,10 @@
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload2" (ngSubmit)="uploadimage2()">
             <div>
-              <img [src]="filePath2 || mydetail?.Photo2 || dumPhoto" class="img-fixed" />
+              <img [src]="croppedImage2 || filePath2 || mydetail?.Photo2 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload2" class="file a-btn">
                 Upload profile Photo 2
-                <input (change)="imagePreview2($event); fileChangeEvent($event);" type="file" name="file"
-                  class="input-one" />
+                <input (change)="imagePreview2($event);" type="file" name="file" class="input-one" />
               </div>
               <button *ngIf="readyupload2" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload2" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
@@ -34,11 +32,10 @@
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload3" (ngSubmit)="uploadimage3()">
             <div>
-              <img [src]="filePath3 || mydetail?.Photo3 || dumPhoto" class="img-fixed" />
+              <img [src]="croppedImage3 || filePath3 || mydetail?.Photo3 || dumPhoto" class="img-fixed" />
               <div *ngIf="!readyupload3" class="file a-btn">
                 Upload profile Photo 3
-                <input (change)="imagePreview3($event); fileChangeEvent($event);" type="file" name="file"
-                  class="input-one" />
+                <input (change)="imagePreview3($event);" type="file" name="file" class="input-one" />
               </div>
               <button *ngIf="readyupload3" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload3" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
@@ -47,13 +44,18 @@
             </div>
           </form>
           <div>
-            <!-- <input type="file" (change)="fileChangeEvent($event)" /> -->
 
-            <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
-              [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped($event)"
+            <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent1" [maintainAspectRatio]="true"
+              [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped1($event)"
               (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
 
-            <!-- <img style="width: 500px;" [src]="croppedImage" /> -->
+            <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent2" [maintainAspectRatio]="true"
+              [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped2($event)"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+            <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent3" [maintainAspectRatio]="true"
+              [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped3($event)"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
           </div>
           <div class="col-lg-12">
             <div class="col-lg-12">
@@ -66,7 +68,8 @@
                           <h3>Basic Information</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void()" class="st-edit" (click)="formone()">Edit<i class="bx bx-edit" ></i></a>
+                          <a href="javascript:void()" class="st-edit" (click)="formone()">Edit<i
+                              class="bx bx-edit"></i></a>
                         </div>
                         <!--  -->
                         <div *ngIf="togglecheck" class="info-text">
@@ -294,7 +297,7 @@
                           <h3>Family Details</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit"  (click)="familydetail()"> Edit<i class="bx bx-edit"></i></a>
+                          <a class="st-edit" (click)="familydetail()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <!-- *ngIf="togglecheckfamily" -->
                         <div *ngIf="togglecheckfamily" class="info-text">
@@ -465,7 +468,7 @@
                           <h3>Physical Status & Eating Habits</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="physicaldetail()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="physicaldetail()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckphysical" class="info-text">
                           <table class="tb-text">
@@ -541,21 +544,30 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                   <label>Special Case</label>
-                                   <select class="form-control" formControlName="spe_cases">
+                                  <label>Special Case</label>
+                                  <select class="form-control" formControlName="spe_cases">
                                     <option value="any">Any</option>
                                     <option value="normal">Normal</option>
-                                    <option value="physically-challenged-right-arm">Physically Challenged-Right Arm</option>
-                                    <option value="physically-challenged-left-arm">Physically Challenged-Left Arm</option>
-                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm</option>
-                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm</option>
-                                    <option value="physically-challenged-right-leg">Physically Challenged-Right Leg</option>
-                                    <option value="physically-challenged-left-leg">Physically Challenged-Left Leg</option>
-                                    <option value="physically-challenged-both-leg">Physically Challenged-Both Leg</option>
+                                    <option value="physically-challenged-right-arm">Physically Challenged-Right Arm
+                                    </option>
+                                    <option value="physically-challenged-left-arm">Physically Challenged-Left Arm
+                                    </option>
+                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm
+                                    </option>
+                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm
+                                    </option>
+                                    <option value="physically-challenged-right-leg">Physically Challenged-Right Leg
+                                    </option>
+                                    <option value="physically-challenged-left-leg">Physically Challenged-Left Leg
+                                    </option>
+                                    <option value="physically-challenged-both-leg">Physically Challenged-Both Leg
+                                    </option>
                                     <option value="physically-challenged-deaf">Physically Challenged Deaf</option>
                                     <option value="physically-challenged-dumb">Physically Challenged Dumb</option>
-                                    <option value="physically-challenged-deaf-and-dumb">Physically Challenged Deaf and Dumb</option>
-                                    <option value="physically-challenged-mentaly-challenged">Physically Challenged Mentaly Challenged</option>
+                                    <option value="physically-challenged-deaf-and-dumb">Physically Challenged Deaf and
+                                      Dumb</option>
+                                    <option value="physically-challenged-mentaly-challenged">Physically Challenged
+                                      Mentaly Challenged</option>
                                     <option value="physically-challenged-other">Physically Challenged Other</option>
                                     <option value="hiv-positive">HIV Positive</option>
                                   </select>
@@ -577,21 +589,22 @@
                           <h3>Contact Details</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="openDialog()" >View<i class="bx bx-show" ></i></a>
+                          <a class="st-edit" (click)="openDialog()">View<i class="bx bx-show"></i></a>
                           <!-- <button mat-button (click)="openDialog()">View</button> -->
 
                         </div>
-                        <div  class="info-text">
-                           <div class="bx" style="padding: 20px;">
-                              <h2 style="color: #0c7ef9;font-size: 40px;font-weight: 700;">Notice !</h2>
-                              <p style="font-size: 18px; color: #b00; font-weight: 600;">If view the Contact Detail, We deducted 5 points to, in your current plan. </p>
-                              <button (click)="contactdetailview()" class="btn btn-primary ">View Contact Detail</button> 
-                            </div>
+                        <div class="info-text">
+                          <div class="bx" style="padding: 20px;">
+                            <h2 style="color: #0c7ef9;font-size: 40px;font-weight: 700;">Notice !</h2>
+                            <p style="font-size: 18px; color: #b00; font-weight: 600;">If view the Contact Detail, We
+                              deducted 5 points to, in your current plan. </p>
+                            <button (click)="contactdetailview()" class="btn btn-primary ">View Contact Detail</button>
+                          </div>
                         </div>
-                      
+
                       </div>
 
-                       <!-- this contact detail request close -->
+                      <!-- this contact detail request close -->
 
                       <!-- contact detail -->
                       <div *ngIf="!togglecontactdetail" class="content-box">
@@ -599,7 +612,7 @@
                           <h3>Contact Details</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="formtwo()"> Edit<i class="bx bx-edit" ></i></a> 
+                          <a class="st-edit" (click)="formtwo()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglechecktwo" class="info-text">
                           <table class="tb-text">
@@ -700,7 +713,7 @@
                           <h3>Education and Occupation</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="formoccupation()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="formoccupation()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckoccupation" class="info-text">
                           <table class="tb-text">
@@ -831,7 +844,7 @@
                           <h3>Assets & Properties</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="properties()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="properties()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckproperties" class="info-text">
                           <table class="tb-text">
@@ -902,7 +915,7 @@
                           <h3>Horoscope details </h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="horoscope()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="horoscope()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckhoroscope" class="info-text">
                           <table class="tb-text">
@@ -1002,7 +1015,7 @@
                           <h3>Hobbies and Details </h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="hobnother()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="hobnother()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckhob" class="info-text">
                           <table class="tb-text">
@@ -1059,7 +1072,7 @@
                           <h3>Verify Profile </h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit"  (click)="editverifyprofile()"> Edit<i class="bx bx-edit"></i></a>
+                          <a class="st-edit" (click)="editverifyprofile()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="toggleeverifyprofile" class="info-text">
                           <table class="tb-text">
@@ -1114,7 +1127,7 @@
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
                                 <button type="button" class="btn btn-primary btn-up"
-                                (click)="cancelverifyform()">Cancel</button>
+                                  (click)="cancelverifyform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -1127,7 +1140,7 @@
                           <h3>Desired Partner Details</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="partnerexp()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="partnerexp()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckpartner" class="info-text">
                           <table class="tb-text">
@@ -1386,7 +1399,8 @@
 
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
-                                <button type="button" class="btn btn-primary btn-up" (click)="canceledpartnerdetailform()">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="canceledpartnerdetailform()">Cancel</button>
                               </div>
                             </div>
                           </form>
