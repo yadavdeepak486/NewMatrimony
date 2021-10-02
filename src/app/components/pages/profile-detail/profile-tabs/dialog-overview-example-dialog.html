@@ -1,7 +1,9 @@
-<h3 mat-dialog-title>Warning:</h3>
-<h5> Contact details viewing is a part of premium package </h5>
+
+<div style="padding: 20px; border: 1px solid#ccc;" >
+<h3 mat-dialog-title style="font-size: 20px; margin-bottom: 15px; color: #f00;">Warning:</h3>
+<h5 style="font-size:16px; margin-bottom: 15px;"> Contact details viewing is a part of premium package </h5>
 <div mat-dialog-content>
-  <p>Your Profile Viewing Balance will be deducted</p>
+  <p style="font-size: 14px; margin-bottom:20px;">Your Profile Viewing Balance will be deducted</p>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()" class="btn btn-danger">Cancel</button>
@@ -9,4 +11,5 @@
   <button mat-button cdkFocusInitial (click)="opennewDialog()" class="btn btn-primary"
     style="margin-left: 5px;">Proceed</button>
 
+</div>
 </div>
