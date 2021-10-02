@@ -85,6 +85,57 @@
                 </div>
               </div>
             </div>
+
+            <div class="card ctd-mt">
+              <div class="card-header hd ctd-bx" id="headingfour">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                    aria-controls="collapseThree">
+                    <i class=" bx bx-user i-circle"></i>
+                    <span class="mb-0" (click)="openDialog()">Contact Details</span>
+                    <span class="lockbx"><i class=" bx bxs-lock" style="font-size: 37px;
+                      color: black;
+                      display: inline-flex;" (click)="openDialog()"></i></span>
+                  </button>
+                </h5>
+              </div>
+
+              <!-- <div id="collapsefour" class="collapse st-block" aria-labelledby="headingfour" data-parent="#accordion">
+                <div class="card-body bd-n">
+                  <div class="tab-bx1">
+                    <table class="tb-text">
+                      <tbody class="tb-text">
+                        <tr class="wd">
+                          <td class="wd1">Mobile No:</td>
+                          <td class="wd1">{{userdetails?.mobileno || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Alternate Mobile No :</td>
+                          <td class="wd1">{{userdetails?.alternate || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Whatsapp No:</td>
+                          <td class="wd1">{{userdetails?.whatsapp || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Email Address:</td>
+                          <td class="wd1">{{userdetails?.email || "No"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Living Town:</td>
+                          <td class="wd1">{{userdetails?.livingtown || "not mentioned"}}</td>
+                        </tr>
+                        <tr class="wd">
+                          <td class="wd1">Home/Native place:</td>
+                          <td class="wd1">{{userdetails?.nativeplace || "not mentioned"}}</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div> -->
+            </div>
             <div class="card">
               <div class="card-header hd" id="headingOne">
                 <h5 class="mb-0">
@@ -275,56 +326,7 @@
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header hd" id="headingfour">
-                <h5 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
-                    aria-controls="collapseThree">
-                    <i class=" bx bx-user i-circle"></i>
-                    <span class="mb-0" (click)="openDialog()">Contact Details</span>
-                    <span><i class=" bx bxs-lock" style="font-size: 37px;
-                      color: black;
-                      display: inline-flex;" (click)="openDialog()"></i></span>
-                  </button>
-                </h5>
-              </div>
-
-              <!-- <div id="collapsefour" class="collapse st-block" aria-labelledby="headingfour" data-parent="#accordion">
-                <div class="card-body bd-n">
-                  <div class="tab-bx1">
-                    <table class="tb-text">
-                      <tbody class="tb-text">
-                        <tr class="wd">
-                          <td class="wd1">Mobile No:</td>
-                          <td class="wd1">{{userdetails?.mobileno || "not mentioned"}}</td>
-                        </tr>
-                        <tr class="wd">
-                          <td class="wd1">Alternate Mobile No :</td>
-                          <td class="wd1">{{userdetails?.alternate || "not mentioned"}}</td>
-                        </tr>
-                        <tr class="wd">
-                          <td class="wd1">Whatsapp No:</td>
-                          <td class="wd1">{{userdetails?.whatsapp || "not mentioned"}}</td>
-                        </tr>
-                        <tr class="wd">
-                          <td class="wd1">Email Address:</td>
-                          <td class="wd1">{{userdetails?.email || "No"}}</td>
-                        </tr>
-                        <tr class="wd">
-                          <td class="wd1">Living Town:</td>
-                          <td class="wd1">{{userdetails?.livingtown || "not mentioned"}}</td>
-                        </tr>
-                        <tr class="wd">
-                          <td class="wd1">Home/Native place:</td>
-                          <td class="wd1">{{userdetails?.nativeplace || "not mentioned"}}</td>
-                        </tr>
-
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> -->
-            </div>
+          
 
             <div class="card">
               <div class="card-header hd" id="headingfive">
