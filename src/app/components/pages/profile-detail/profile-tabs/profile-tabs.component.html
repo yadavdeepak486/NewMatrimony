@@ -281,11 +281,15 @@
                   <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
                     aria-controls="collapseThree">
                     <i class=" bx bx-user i-circle"></i>
-                    <span class="mb-0">Contact Details</span>
+                    <span class="mb-0" (click)="openDialog()">Contact Details</span>
+                    <span><i class=" bx bxs-lock" style="font-size: 37px;
+                      color: black;
+                      display: inline-flex;" (click)="openDialog()"></i></span>
                   </button>
                 </h5>
               </div>
-              <div id="collapsefour" class="collapse st-block" aria-labelledby="headingfour" data-parent="#accordion">
+
+              <!-- <div id="collapsefour" class="collapse st-block" aria-labelledby="headingfour" data-parent="#accordion">
                 <div class="card-body bd-n">
                   <div class="tab-bx1">
                     <table class="tb-text">
@@ -319,7 +323,7 @@
                     </table>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <div class="card">

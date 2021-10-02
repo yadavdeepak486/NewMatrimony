@@ -17,18 +17,18 @@ export class UserProfileTwoComponent implements OnInit {
   }
 
   // All Listings
-  singleListingsItem = [
-    {
-      mainImg: 'assets/img/user1.png',
+  // singleListingsItem = [
+  //   {
+  //     mainImg: 'assets/img/user1.png',
 
-      category: 'Restaurant',
-      location: 'New York, USA',
-      title: 'Himanshi Sharma',
-      online: 'Online',
-      detailsLink: '',
-      extraClass: 'status-open',
-    },
-  ];
+  //     category: 'Restaurant',
+  //     location: 'New York, USA',
+  //     title: 'Himanshi Sharma',
+  //     online: 'Online',
+  //     detailsLink: '',
+  //     extraClass: 'status-open',
+  //   },
+  // ];
 
   verticalListings: number = 1;
   getmydetails() {
@@ -47,12 +47,11 @@ export class UserProfileTwoComponent implements OnInit {
     this.userService.getallprofiles().subscribe(
       (response: any) => {
         console.log(response);
-        this.users = response.data.splice(0,2);
+        this.users = response.data.splice(0, 2);
       },
       (error) => {
         console.log(error);
       }
     );
   }
-
 }

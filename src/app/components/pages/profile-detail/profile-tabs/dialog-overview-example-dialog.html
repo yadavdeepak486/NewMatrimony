@@ -1,0 +1,12 @@
+<h3 mat-dialog-title>Warning:</h3>
+<h5> Contact details viewing is a part of premium package </h5>
+<div mat-dialog-content>
+  <p>Your Profile Viewing Balance will be deducted</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" class="btn btn-danger">Cancel</button>
+  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Proceed</button> -->
+  <button mat-button cdkFocusInitial (click)="opennewDialog()" class="btn btn-primary"
+    style="margin-left: 5px;">Proceed</button>
+
+</div>

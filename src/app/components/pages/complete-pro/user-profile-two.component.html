@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="row">
-              <div class="col-lg-12 col-md-12" *ngFor="let Content of singleListingsItem">
+              <div class="col-lg-12 col-md-12">
                 <div class="single-listings-item">
                   <div class="row m-0">
                     <div class="col-lg-5 col-md-4 p-0">
@@ -54,22 +54,36 @@
                 to complete profile 100%.</h3>
               <p>Click below details with * mark to increase %age of your profile:</p>
               <ul class="xt">
-                <li><span style="color: red;">*</span>Basic Information  <span class="rt-5">(5%) <i class="bx bx-check rt-4"></i></span></li>
-                <li><span style="color: red;">*</span>Family Details <span class="rt-5">(10%) <i class="bx bx-x rt-6"></i></span></li>
-                <li><span style="color: red;">*</span>Partner Details  <span class="rt-5">(10%) <i class="bx bx-x rt-6"></i></span></li>
-                <li><span style="color: red;">*</span>Education & Occupation  <span class="rt-5">(10%) <i class="bx bx-check rt-4"></i></span> </li>
-                <li><span style="color: red;">*</span>Profile Description  <span class="rt-5">(5%) <i class="bx bx-check rt-4"></i></span></li>
-                <li><span style="color: red;">*</span>Contact Details  <span class="rt-5">(5%) <i class="bx bx-x rt-6"></i></span></li>
-                <li><span style="color: red;">*</span>assets & properties  <span class="rt-5">(5%) <i class="bx bx-check rt-4"></i></span></li>
+                <li><span style="color: red;">*</span>Basic Information <span class="rt-5">(5%) <i
+                      class="bx bx-check rt-4"></i></span></li>
+                <li><span style="color: red;">*</span>Family Details <span class="rt-5">(10%) <i
+                      class="bx bx-x rt-6"></i></span></li>
+                <li><span style="color: red;">*</span>Partner Details <span class="rt-5">(10%) <i
+                      class="bx bx-x rt-6"></i></span></li>
+                <li><span style="color: red;">*</span>Education & Occupation <span class="rt-5">(10%) <i
+                      class="bx bx-check rt-4"></i></span> </li>
+                <li><span style="color: red;">*</span>Profile Description <span class="rt-5">(5%) <i
+                      class="bx bx-check rt-4"></i></span></li>
+                <li><span style="color: red;">*</span>Contact Details <span class="rt-5">(5%) <i
+                      class="bx bx-x rt-6"></i></span></li>
+                <li><span style="color: red;">*</span>assets & properties <span class="rt-5">(5%) <i
+                      class="bx bx-check rt-4"></i></span></li>
               </ul>
               <ul class="xt">
-                <li><span style="color: red;">*</span>Verify Profile  <span class="rt-5">(10%) <i class="bx bx-check rt-4"></i></span> </li>
-                <li><span style="color: red;">*</span>Profile Photo  <span class="rt-5">(5%) <i class="bx bx-check rt-4"></i></span> </li>
-                <li><span style="color: red;">*</span>Profile Photo2 <span class="rt-5">(5%) <i class="bx bx-check rt-4"></i></span> </li>
-                <li><span style="color: red;">*</span>Profile Photo3 <span class="rt-5">(5%) <i class="bx bx-x rt-6"></i></span></li>
-                <li><span style="color: red;">*</span>Physical Attribute and Eating Habits <span class="rt-5">(10%) <i class="bx bx-x rt-6"></i></span></li>
-                <li><span style="color: red;">*</span>Horoscope Deatils <span class="rt-5">(10%) <i class="bx bx-check rt-4"></i></span></li>
-                <li><span style="color: red;">*</span>Premium Memberships <span class="rt-5">(5%) <i class="bx bx-x rt-6"></i></span></li>
+                <li><span style="color: red;">*</span>Verify Profile <span class="rt-5">(10%) <i
+                      class="bx bx-check rt-4"></i></span> </li>
+                <li><span style="color: red;">*</span>Profile Photo <span class="rt-5">(5%) <i
+                      class="bx bx-check rt-4"></i></span> </li>
+                <li><span style="color: red;">*</span>Profile Photo2 <span class="rt-5">(5%) <i
+                      class="bx bx-check rt-4"></i></span> </li>
+                <li><span style="color: red;">*</span>Profile Photo3 <span class="rt-5">(5%) <i
+                      class="bx bx-x rt-6"></i></span></li>
+                <li><span style="color: red;">*</span>Physical Attribute and Eating Habits <span class="rt-5">(10%) <i
+                      class="bx bx-x rt-6"></i></span></li>
+                <li><span style="color: red;">*</span>Horoscope Deatils <span class="rt-5">(10%) <i
+                      class="bx bx-check rt-4"></i></span></li>
+                <li><span style="color: red;">*</span>Premium Memberships <span class="rt-5">(5%) <i
+                      class="bx bx-x rt-6"></i></span></li>
               </ul>
             </div>
           </div>
@@ -86,291 +100,291 @@
           </div>
         </div>
         <div class="row">
-         
-              <!-- Featured profile -->
-                <section class="just-joined">
-              <div class="row">
+
+          <!-- Featured profile -->
+          <section class="just-joined">
+            <div class="row">
               <div class="col-lg-12">
                 <h3 class="tl-1">Featured Profile</h3>
               </div>
               <div class="col-lg-12 col-md-12"
-              *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
-              <div class="single-listings-item">
-                <div class="row m-0">
-                  <div class="col-lg-4 col-md-4 p-0 img-blur">
-                    <div *ngIf="!jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
+                *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+                <div class="single-listings-item">
+                  <div class="row m-0">
+                    <div class="col-lg-4 col-md-4 p-0 img-blur">
+                      <div *ngIf="!jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
                     );">
-                      <img [src]="jususer.Photo1" alt="image">
-                      <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
-                      <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
-                    </div>
-                    <div *ngIf="jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
-                    ); filter: blur(15px);">
-                      <img [src]="jususer.Photo1" alt="image">
-                      <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
-                      <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
-                    </div>
-                  </div>
-                  <div class="col-lg-8 col-md-8 p-0">
-                    <div class="listings-content">
-                      <span class="status ">
-                        Online Now</span>
-                      <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
-    
-                      <div class="d-flex align-items-center justify-content-between">
+                        <img [src]="jususer.Photo1" alt="image">
+                        <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
+                        <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
                       </div>
-                      <div class="dt">
-                        <ul>
-                          <li><span> {{jususer?.Maritalstatus?.name}}</span></li>
-                          <li>{{jususer?.Age}} Yrs,
-                            {{jususer?.Height?.feetinchvalue}}
-                            ({{jususer?.Height?.cmvalue}} cm) <span></span></li>
-                          <li>{{jususer?.Religion?.name || "Religion N/A"}},
-                            <span>{{jususer?.Caste?.name || "Caste N/A"}}</span>
+                      <div *ngIf="jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
+                    ); filter: blur(15px);">
+                        <img [src]="jususer.Photo1" alt="image">
+                        <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
+                        <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 p-0">
+                      <div class="listings-content">
+                        <span class="status ">
+                          Online Now</span>
+                        <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                        </div>
+                        <div class="dt">
+                          <ul>
+                            <li><span> {{jususer?.Maritalstatus?.name}}</span></li>
+                            <li>{{jususer?.Age}} Yrs,
+                              {{jususer?.Height?.feetinchvalue}}
+                              ({{jususer?.Height?.cmvalue}} cm) <span></span></li>
+                            <li>{{jususer?.Religion?.name || "Religion N/A"}},
+                              <span>{{jususer?.Caste?.name || "Caste N/A"}}</span>
+                            </li>
+                            <li><b> From: </b><span> {{jususer?.City?.name}},
+                                {{jususer?.State?.name}},
+                                {{jususer?.Country?.name}}</span></li>
+                            <li><b>Living in:</b> <span>{{jususer?.LCity?.name}},
+                                {{jususer?.LState?.name}},
+                                {{jususer?.LCountry?.name}}</span> </li>
+                          </ul>
+                        </div>
+                        <ul class="listings-meta">
+                          <li><a routerLink="/profile-detail/{{jususer._id}}"><i class=" bx bx-user"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Profile</p>
+                            </a></li>
+                          <li><i (click)="sendinterest(jususer._id)" class="flaticon-heart"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Send Interest</p>
                           </li>
-                          <li><b> From: </b><span> {{jususer?.City?.name}},
-                              {{jususer?.State?.name}},
-                              {{jususer?.Country?.name}}</span></li>
-                          <li><b>Living in:</b> <span>{{jususer?.LCity?.name}},
-                              {{jususer?.LState?.name}},
-                              {{jususer?.LCountry?.name}}</span> </li>
+                          <li><i (click)="startchat(jususer._id)" class="bx bx-chat"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Chat</p>
+                          </li>
+                          <li><i (click)="addtoshortlist(jususer._id)" class="bx bx-list-plus"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Shortlist</p>
+                          </li>
+
+
+                          <li><i (click)="sendphotoreq(jususer._id)" class="bx bx-lock-open-alt"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">View Profile</p>
+                          </li>
+
+                          <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Block</p>
+                          </li>
+                          <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Report</p>
+                          </li>
                         </ul>
                       </div>
-                      <ul class="listings-meta">
-                        <li><a routerLink="/profile-detail/{{jususer._id}}"><i class=" bx bx-user"
-                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                            <p class="i_t">Profile</p>
-                          </a></li>
-                        <li><i (click)="sendinterest(jususer._id)" class="flaticon-heart"
-                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">Send Interest</p>
-                        </li>
-                        <li><i (click)="startchat(jususer._id)" class="bx bx-chat"
-                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">Chat</p>
-                        </li>
-                        <li><i (click)="addtoshortlist(jususer._id)" class="bx bx-list-plus"
-                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">Shortlist</p>
-                        </li>
-    
-    
-                        <li><i (click)="sendphotoreq(jususer._id)" class="bx bx-lock-open-alt"
-                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">View Profile</p>
-                        </li>
-    
-                        <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">Block</p>
-                        </li>
-                        <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">Report</p>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-    
-            <!-- <div class="col-lg-12 col-md-12">
+
+              <!-- <div class="col-lg-12 col-md-12">
               <div class="pagination-area text-center">
                 <pagination-controls (pageChange)="verticalListings = $event"></pagination-controls>
               </div>
             </div> -->
-           </div>
-              </section>
-              <!-- close -->
+            </div>
+          </section>
+          <!-- close -->
 
           <!-- Just Joined -->
-            <section class="just-joined">
+          <section class="just-joined">
             <div class="row">
-            <div class="col-lg-12">
-              <h3 class="tl-1">Featured Profile</h3>
-            </div>
-            <div class="col-lg-12 col-md-12"
-            *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
-            <div class="single-listings-item">
-              <div class="row m-0">
-                <div class="col-lg-4 col-md-4 p-0 img-blur">
-                  <div *ngIf="!jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
+              <div class="col-lg-12">
+                <h3 class="tl-1">Featured Profile</h3>
+              </div>
+              <div class="col-lg-12 col-md-12"
+                *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+                <div class="single-listings-item">
+                  <div class="row m-0">
+                    <div class="col-lg-4 col-md-4 p-0 img-blur">
+                      <div *ngIf="!jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
                   );">
-                    <img [src]="jususer.Photo1" alt="image">
-                    <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
-                    <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
-                  </div>
-                  <div *ngIf="jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
+                        <img [src]="jususer.Photo1" alt="image">
+                        <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
+                        <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
+                      </div>
+                      <div *ngIf="jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
                   ); filter: blur(15px);">
-                    <img [src]="jususer.Photo1" alt="image">
-                    <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
-                    <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
-                  </div>
-                </div>
-                <div class="col-lg-8 col-md-8 p-0">
-                  <div class="listings-content">
-                    <span class="status ">
-                      Online Now</span>
-                    <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
-  
-                    <div class="d-flex align-items-center justify-content-between">
+                        <img [src]="jususer.Photo1" alt="image">
+                        <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
+                        <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
+                      </div>
                     </div>
-                    <div class="dt">
-                      <ul>
-                        <li><span> {{jususer?.Maritalstatus?.name}}</span></li>
-                        <li>{{jususer?.Age}} Yrs,
-                          {{jususer?.Height?.feetinchvalue}}
-                          ({{jususer?.Height?.cmvalue}} cm) <span></span></li>
-                        <li>{{jususer?.Religion?.name || "Religion N/A"}},
-                          <span>{{jususer?.Caste?.name || "Caste N/A"}}</span>
-                        </li>
-                        <li><b> From: </b><span> {{jususer?.City?.name}},
-                            {{jususer?.State?.name}},
-                            {{jususer?.Country?.name}}</span></li>
-                        <li><b>Living in:</b> <span>{{jususer?.LCity?.name}},
-                            {{jususer?.LState?.name}},
-                            {{jususer?.LCountry?.name}}</span> </li>
-                      </ul>
+                    <div class="col-lg-8 col-md-8 p-0">
+                      <div class="listings-content">
+                        <span class="status ">
+                          Online Now</span>
+                        <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                        </div>
+                        <div class="dt">
+                          <ul>
+                            <li><span> {{jususer?.Maritalstatus?.name}}</span></li>
+                            <li>{{jususer?.Age}} Yrs,
+                              {{jususer?.Height?.feetinchvalue}}
+                              ({{jususer?.Height?.cmvalue}} cm) <span></span></li>
+                            <li>{{jususer?.Religion?.name || "Religion N/A"}},
+                              <span>{{jususer?.Caste?.name || "Caste N/A"}}</span>
+                            </li>
+                            <li><b> From: </b><span> {{jususer?.City?.name}},
+                                {{jususer?.State?.name}},
+                                {{jususer?.Country?.name}}</span></li>
+                            <li><b>Living in:</b> <span>{{jususer?.LCity?.name}},
+                                {{jususer?.LState?.name}},
+                                {{jususer?.LCountry?.name}}</span> </li>
+                          </ul>
+                        </div>
+                        <ul class="listings-meta">
+                          <li><a routerLink="/profile-detail/{{jususer._id}}"><i class=" bx bx-user"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Profile</p>
+                            </a></li>
+                          <li><i (click)="sendinterest(jususer._id)" class="flaticon-heart"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Send Interest</p>
+                          </li>
+                          <li><i (click)="startchat(jususer._id)" class="bx bx-chat"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Chat</p>
+                          </li>
+                          <li><i (click)="addtoshortlist(jususer._id)" class="bx bx-list-plus"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Shortlist</p>
+                          </li>
+
+
+                          <li><i (click)="sendphotoreq(jususer._id)" class="bx bx-lock-open-alt"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">View Profile</p>
+                          </li>
+
+                          <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Block</p>
+                          </li>
+                          <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Report</p>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                    <ul class="listings-meta">
-                      <li><a routerLink="/profile-detail/{{jususer._id}}"><i class=" bx bx-user"
-                            style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                          <p class="i_t">Profile</p>
-                        </a></li>
-                      <li><i (click)="sendinterest(jususer._id)" class="flaticon-heart"
-                          style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                        <p class="i_t">Send Interest</p>
-                      </li>
-                      <li><i (click)="startchat(jususer._id)" class="bx bx-chat"
-                          style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                        <p class="i_t">Chat</p>
-                      </li>
-                      <li><i (click)="addtoshortlist(jususer._id)" class="bx bx-list-plus"
-                          style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                        <p class="i_t">Shortlist</p>
-                      </li>
-  
-  
-                      <li><i (click)="sendphotoreq(jususer._id)" class="bx bx-lock-open-alt"
-                          style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                        <p class="i_t">View Profile</p>
-                      </li>
-  
-                      <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                        <p class="i_t">Block</p>
-                      </li>
-                      <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                        <p class="i_t">Report</p>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-  
-          <!-- <div class="col-lg-12 col-md-12">
+
+              <!-- <div class="col-lg-12 col-md-12">
             <div class="pagination-area text-center">
               <pagination-controls (pageChange)="verticalListings = $event"></pagination-controls>
             </div>
           </div> -->
-         </div>
-            </section>
+            </div>
+          </section>
           <!-- close -->
 
-                 <!-- Your Matches -->
-                  <section class="just-joined">
-                  <div class="row">
-                  <div class="col-lg-12">
-                    <h3 class="tl-1">Featured Profile</h3>
-                  </div>
-                  <div class="col-lg-12 col-md-12"
-                  *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
-                  <div class="single-listings-item">
-                    <div class="row m-0">
-                      <div class="col-lg-4 col-md-4 p-0 img-blur">
-                        <div *ngIf="!jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
+          <!-- Your Matches -->
+          <section class="just-joined">
+            <div class="row">
+              <div class="col-lg-12">
+                <h3 class="tl-1">Featured Profile</h3>
+              </div>
+              <div class="col-lg-12 col-md-12"
+                *ngFor="let jususer of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+                <div class="single-listings-item">
+                  <div class="row m-0">
+                    <div class="col-lg-4 col-md-4 p-0 img-blur">
+                      <div *ngIf="!jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
                         );">
-                          <img [src]="jususer.Photo1" alt="image">
-                          <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
-                          <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
-                        </div>
-                        <div *ngIf="jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
-                        ); filter: blur(15px);">
-                          <img [src]="jususer.Photo1" alt="image">
-                          <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
-                          <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
-                        </div>
+                        <img [src]="jususer.Photo1" alt="image">
+                        <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
+                        <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
                       </div>
-                      <div class="col-lg-8 col-md-8 p-0">
-                        <div class="listings-content">
-                          <span class="status ">
-                            Online Now</span>
-                          <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
-        
-                          <div class="d-flex align-items-center justify-content-between">
-                          </div>
-                          <div class="dt">
-                            <ul>
-                              <li><span> {{jususer?.Maritalstatus?.name}}</span></li>
-                              <li>{{jususer?.Age}} Yrs,
-                                {{jususer?.Height?.feetinchvalue}}
-                                ({{jususer?.Height?.cmvalue}} cm) <span></span></li>
-                              <li>{{jususer?.Religion?.name || "Religion N/A"}},
-                                <span>{{jususer?.Caste?.name || "Caste N/A"}}</span>
-                              </li>
-                              <li><b> From: </b><span> {{jususer?.City?.name}},
-                                  {{jususer?.State?.name}},
-                                  {{jususer?.Country?.name}}</span></li>
-                              <li><b>Living in:</b> <span>{{jususer?.LCity?.name}},
-                                  {{jususer?.LState?.name}},
-                                  {{jususer?.LCountry?.name}}</span> </li>
-                            </ul>
-                          </div>
-                          <ul class="listings-meta">
-                            <li><a routerLink="/profile-detail/{{jususer._id}}"><i class=" bx bx-user"
-                                  style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                                <p class="i_t">Profile</p>
-                              </a></li>
-                            <li><i (click)="sendinterest(jususer._id)" class="flaticon-heart"
-                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                              <p class="i_t">Send Interest</p>
+                      <div *ngIf="jususer.photo_privacy" class="listings-image" style="background-image: url({{jususer.Photo1}}
+                        ); filter: blur(15px);">
+                        <img [src]="jususer.Photo1" alt="image">
+                        <!-- <a routerLink="/{{jususer.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
+                        <a routerLink="/profile-detail/{{jususer._id}}" class="link-btn"></a>
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 p-0">
+                      <div class="listings-content">
+                        <span class="status ">
+                          Online Now</span>
+                        <h3 class="mid">ID: <span class="mds">{{jususer.Prefix}}{{jususer.MatriID}}</span></h3>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                        </div>
+                        <div class="dt">
+                          <ul>
+                            <li><span> {{jususer?.Maritalstatus?.name}}</span></li>
+                            <li>{{jususer?.Age}} Yrs,
+                              {{jususer?.Height?.feetinchvalue}}
+                              ({{jususer?.Height?.cmvalue}} cm) <span></span></li>
+                            <li>{{jususer?.Religion?.name || "Religion N/A"}},
+                              <span>{{jususer?.Caste?.name || "Caste N/A"}}</span>
                             </li>
-                            <li><i (click)="startchat(jususer._id)" class="bx bx-chat"
-                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                              <p class="i_t">Chat</p>
-                            </li>
-                            <li><i (click)="addtoshortlist(jususer._id)" class="bx bx-list-plus"
-                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                              <p class="i_t">Shortlist</p>
-                            </li>
-        
-        
-                            <li><i (click)="sendphotoreq(jususer._id)" class="bx bx-lock-open-alt"
-                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                              <p class="i_t">View Profile</p>
-                            </li>
-        
-                            <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                              <p class="i_t">Block</p>
-                            </li>
-                            <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
-                              <p class="i_t">Report</p>
-                            </li>
+                            <li><b> From: </b><span> {{jususer?.City?.name}},
+                                {{jususer?.State?.name}},
+                                {{jususer?.Country?.name}}</span></li>
+                            <li><b>Living in:</b> <span>{{jususer?.LCity?.name}},
+                                {{jususer?.LState?.name}},
+                                {{jususer?.LCountry?.name}}</span> </li>
                           </ul>
                         </div>
+                        <ul class="listings-meta">
+                          <li><a routerLink="/profile-detail/{{jususer._id}}"><i class=" bx bx-user"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Profile</p>
+                            </a></li>
+                          <li><i (click)="sendinterest(jususer._id)" class="flaticon-heart"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Send Interest</p>
+                          </li>
+                          <li><i (click)="startchat(jususer._id)" class="bx bx-chat"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Chat</p>
+                          </li>
+                          <li><i (click)="addtoshortlist(jususer._id)" class="bx bx-list-plus"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Shortlist</p>
+                          </li>
+
+
+                          <li><i (click)="sendphotoreq(jususer._id)" class="bx bx-lock-open-alt"
+                              style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">View Profile</p>
+                          </li>
+
+                          <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Block</p>
+                          </li>
+                          <li><i class=" bx bx-error-circle" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Report</p>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
-        
-                <!-- <div class="col-lg-12 col-md-12">
+              </div>
+
+              <!-- <div class="col-lg-12 col-md-12">
                   <div class="pagination-area text-center">
                     <pagination-controls (pageChange)="verticalListings = $event"></pagination-controls>
                   </div>
                 </div> -->
-               </div>
-                  </section>
-                  <!-- close -->
+            </div>
+          </section>
+          <!-- close -->
 
         </div>
       </div>

@@ -1,316 +1,120 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
-    selector: 'app-profile-tabs',
-    templateUrl: './profile-tabs.component.html',
-    styleUrls: ['./profile-tabs.component.scss']
+  selector: 'app-profile-tabs',
+  templateUrl: './profile-tabs.component.html',
+  styleUrls: ['./profile-tabs.component.scss'],
 })
 export class ProfileTabsComponent implements OnInit {
-    userdetails: any
-    id: any
+  userdetails: any;
+  id: any;
 
-    constructor(public userService: UserService, public route: ActivatedRoute) { }
+  animal: string;
+  name: string;
 
-    ngOnInit(): void {
-        this.id = this.route.snapshot.params['id'];
-        this.viewDetailedProfile(this.id)
-    }
+  constructor(
+    public userService: UserService,
+    public route: ActivatedRoute,
+    public dialog: MatDialog
+  ) {}
 
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.viewDetailedProfile(this.id);
+  }
 
-    //   pageTitleContent = [
-    //     {
-    //         title: 'Pricing',
-    //         backgroundImage: 'assets/img/page-title/page-title1.jpg'
-    //     }
-    // ]
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '500px',
+      data: { name: this.name, animal: this.animal },
+    });
 
-    monthlyPricing = [
-        {
-            singlePricingBox: [
-                {
-                    title: 'Starter Plan',
-                    features: [
-                        {
-                            icon: 'bx bx-check',
-                            text: '5 Listing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Non-Featured'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: '90 Days Availability'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'One Time Fee'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Multi Team Tasking'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Registration & Ticketing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Features'
-                        },
-                        {
-                            icon: 'bx bx-x action-close',
-                            text: 'Online Booking'
-                        },
-                        {
-                            icon: 'bx bx-x action-close',
-                            text: 'Limited Support'
-                        }
-                    ],
-                    price: '$9.99',
-                    buttonText: 'Select Plan',
-                    buttonLink: '#'
-                },
-                {
-                    title: 'Advance Plan',
-                    features: [
-                        {
-                            icon: 'bx bx-check',
-                            text: '5 Listing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Non-Featured'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: '90 Days Availability'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'One Time Fee'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Multi Team Tasking'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Registration & Ticketing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Features'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Online Booking'
-                        },
-                        {
-                            icon: 'bx bx-x action-close',
-                            text: 'Limited Support'
-                        }
-                    ],
-                    price: '$19.99',
-                    buttonText: 'Select Plan',
-                    buttonLink: '#'
-                },
-                {
-                    title: 'Premium Plan',
-                    features: [
-                        {
-                            icon: 'bx bx-check',
-                            text: '5 Listing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Non-Featured'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: '90 Days Availability'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'One Time Fee'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Multi Team Tasking'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Registration & Ticketing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Features'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Online Booking'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Limited Support'
-                        }
-                    ],
-                    price: '$29.99',
-                    buttonText: 'Select Plan',
-                    buttonLink: '#'
-                }
-            ]
-        }
-    ]
-    yearlyPricing = [
-        {
-            singlePricingBox: [
-                {
-                    title: 'Starter Plan',
-                    features: [
-                        {
-                            icon: 'bx bx-check',
-                            text: '5 Listing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Non-Featured'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: '90 Days Availability'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'One Time Fee'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Multi Team Tasking'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Registration & Ticketing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Features'
-                        },
-                        {
-                            icon: 'bx bx-x action-close',
-                            text: 'Online Booking'
-                        },
-                        {
-                            icon: 'bx bx-x action-close',
-                            text: 'Limited Support'
-                        }
-                    ],
-                    price: '$119.99',
-                    buttonText: 'Select Plan',
-                    buttonLink: '#'
-                },
-                {
-                    title: 'Advance Plan',
-                    features: [
-                        {
-                            icon: 'bx bx-check',
-                            text: '5 Listing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Non-Featured'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: '90 Days Availability'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'One Time Fee'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Multi Team Tasking'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Registration & Ticketing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Features'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Online Booking'
-                        },
-                        {
-                            icon: 'bx bx-x action-close',
-                            text: 'Limited Support'
-                        }
-                    ],
-                    price: '$129.99',
-                    buttonText: 'Select Plan',
-                    buttonLink: '#'
-                },
-                {
-                    title: 'Premium Plan',
-                    features: [
-                        {
-                            icon: 'bx bx-check',
-                            text: '5 Listing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Non-Featured'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: '90 Days Availability'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'One Time Fee'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Multi Team Tasking'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Registration & Ticketing'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Basic Features'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Online Booking'
-                        },
-                        {
-                            icon: 'bx bx-check',
-                            text: 'Limited Support'
-                        }
-                    ],
-                    price: '$139.99',
-                    buttonText: 'Select Plan',
-                    buttonLink: '#'
-                }
-            ]
-        }
-    ]
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 
-    viewDetailedProfile(id) {
-        this.userService.viewoneprofile(id).subscribe((response: any) => {
-            console.log(response)
-            this.userdetails = response.data
-        }, (error) => {
-            console.log(error)
-        })
-    }
+  viewDetailedProfile(id) {
+    this.userService.viewoneprofile(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.userdetails = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+}
 
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: './dialog-overview-example-dialog.html',
+  styleUrls: ['./profile-tabs.component.scss'],
+})
+export class DialogOverviewExampleDialog {
+  constructor(
+    public newdialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public newdialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
+
+  onNoClick(): void {
+    this.newdialogRef.close();
+  }
+
+  opennewDialog(): void {
+    const newdialogRef = this.newdialog.open(DialogViewContactDetails, {
+      width: '500px',
+    });
+
+    newdialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
+  }
+}
+
+@Component({
+  selector: 'dialog-view-contact-details',
+  templateUrl: './dialog-view-contact-details.html',
+  styleUrls: ['./profile-tabs.component.scss'],
+})
+export class DialogViewContactDetails {
+  userdetails: any;
+  constructor(
+    public newdialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public userService: UserService,
+    public route: ActivatedRoute,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
+
+  viewDetailedProfile(id) {
+    this.userService.viewoneprofile(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.userdetails = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  onNoClick(): void {
+    this.newdialogRef.close();
+  }
 }
