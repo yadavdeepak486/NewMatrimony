@@ -94,7 +94,7 @@
                     <i class=" bx bx-user i-circle"></i>
                     <span class="mb-0" (click)="openDialog()">Contact Details</span>
                     <span class="lockbx"><i class=" bx bxs-lock" style="font-size: 37px;
-                      color: black;
+                      color: #0197d1;
                       display: inline-flex;" (click)="openDialog()"></i></span>
                   </button>
                 </h5>
@@ -462,87 +462,99 @@
         </div>
 
         <div class="tab-pane fade" id="partner" role="tabpanel">
-          <table class="pt-table table table-responsive">
-            <tbody style="width: 100%;">
-              <tr class="pt-tr">
-                <th>General </th>
-                <td> </td>
+          <table class="tb-text">
+            <tbody class="tb-text">
+              <tr class="wd">
+                <td class="wd1">PartnerExpectations:</td>
+                <td class="wd1">{{userdetails?.PartnerExpectations || "not mentioned"}}</td>
               </tr>
-              <tr class="pt-tr">
-                <th>Residence Country</th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">Age Range:</td>
+                <td class="wd1">{{userdetails?.PE_FromAge}}-{{userdetails?.PE_ToAge}}</td>
               </tr>
-              <tr class="pt-tr">
-                <th>Height</th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">Height Range:</td>
+                <td class="wd1">
+                  {{userdetails?.PE_Height?.feetinchvalue}}-{{userdetails?.PE_Heightto?.feetinchvalue}}</td>
               </tr>
-              <tr class="pt-tr">
-                <th>Children Acceptable </th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">Children:</td>
+                <td class="wd1">{{userdetails?.PE_HaveChildren || "not mentioned"}}</td>
               </tr>
-              <tr class="pt-tr">
-                <th>Religion</th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">Complexion:</td>
+                <td class="wd1">{{userdetails?.PE_Complexion || "not mentioned"}}</td>
               </tr>
-              <tr class="pt-tr">
-                <th>Caste</th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">Mother Tongue:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let language of userdetails?.PE_MotherTongue">
+                    {{language.name}},</h6>]
+                </td>
               </tr>
-              <tr class="pt-tr">
-                <th>Sub Caste </th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">Religion:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let religion of userdetails?.PE_Religion">
+                    {{religion.name}},</h6>]
+                </td>
+
               </tr>
-              <tr class="pt-tr">
-                <th>Language </th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">PE_Caste:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let
+                  caste of userdetails?.PE_Caste">
+                    {{caste.name}},</h6>]
+                </td>
               </tr>
-              <tr class="pt-tr">
-                <th>Education </th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">PE_Education:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let
+                  education of userdetails?.PE_Education">
+                    {{education.name}},</h6>]
+                </td>
               </tr>
-              <tr class="pt-tr">
-                <th>Profession </th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">PE_Countrylivingin:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let
+                  country of userdetails?.PE_Countrylivingin">
+                    {{country.name}},</h6>]
+                </td>
               </tr>
-              <tr class="pt-tr">
-                <th>Smoking Acceptable </th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">PE_Residentstatus:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let
+                  country of userdetails?.PE_Residentstatus">
+                    {{country.name}},</h6>]
+                </td>
               </tr>
-              <tr class="pt-tr">
-                <th>Drinking Acceptable </th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">PE_occupation:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let
+                  occupation of userdetails?.PE_occupation">
+                    {{occupation.name}},</h6>]
+                </td>
               </tr>
-              <tr class="pt-tr">
-                <th>Diet </th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">PE_manglik:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let
+                  manglik of userdetails?.PE_manglik">
+                    {{manglik}},</h6>]
+                </td>
               </tr>
-              <tr class="pt-tr">
-                <th>Body Type </th>
-                <td> </td>
-              </tr>
-              <tr class="pt-tr">
-                <th>Personal Value</th>
-                <td> </td>
-              </tr>
-              <tr class="pt-tr">
-                <th>Manglik </th>
-                <td> </td>
-              </tr>
-              <tr class="pt-tr">
-                <th>Preferred Country</th>
-                <td> </td>
-              </tr>
-              <tr class="pt-tr">
-                <th>preferred_state_id</th>
-                <td> </td>
-              </tr>
-              <tr class="pt-tr">
-                <th>Family Value </th>
-                <td> </td>
-              </tr>
-              <tr class="pt-tr">
-                <th>Complexion</th>
-                <td> </td>
+              <tr class="wd">
+                <td class="wd1">PE_looking_for:</td>
+                <td class="wd1">[
+                  <h6 style="display: inline;" *ngFor="let
+                  profile of userdetails?.PE_looking_for">
+                    {{profile.name}},</h6>]
+                </td>
               </tr>
             </tbody>
           </table>

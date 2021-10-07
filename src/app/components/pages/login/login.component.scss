@@ -437,11 +437,14 @@ span.dont-account.ft-text {
 }
 button.btn-ft-get {
   background: #f00;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin: 0px 10px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0px 10px;
+    width: 250px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 600;
 }
 button.btn-ft-set {
   background: #218838;
@@ -1803,6 +1806,8 @@ div#verifymobile {
 .inputs input {
   width: 40px;
   height: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  margin: 10px 20px !important;
 }
 .inputs2 input {
   height: 40px;

@@ -209,35 +209,37 @@
                 {{mobilenumber}} </span></h4>
             <form [formGroup]="verifyotpform" (ngSubmit)="verifyotp()" ngNativeValidate>
               <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
-                <input #digitone style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                <input #digitone style="border: 1px solid#d2d1d3f0;" class="m-2 text-center form-control rounded"
                   type="text" id="input1" formControlName="input1" (keyup)="onDigitInput($event)" maxlength="1"
                   required />
-                <input #digittwo style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                <input #digittwo style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
                   (keyup)="onDigitInput($event)" type="text" id="input2" formControlName="input2" maxlength="1"
                   required />
-                <input #digitthree style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                <input #digitthree style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
                   (keyup)="onDigitInput($event)" type="text" id="input3" formControlName="input3" maxlength="1"
                   required />
-                <input #digitfour style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                <input #digitfour style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
                   (keyup)="onDigitInput($event)" type="text" id="input4" formControlName="input4" maxlength="1"
                   required />
-                <input #digitfive style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  (keyup)="onDigitInput($event)" type="text" id="input5" formControlName="input5" maxlength="1"
-                  required />
-                <input #digitsix style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  (keyup)="onDigitInput($event)" type="text" id="input6" formControlName="input6" maxlength="1"
-                  required />
+              
+               
+              </div>
+              <div class="text-center mt-4 mb-4">
+                <button type="submit" class="btn-vtn"><span><a class="anchorlink">Verify</a></span></button>
               </div>
               <div class="btn-rv">
-                <button type="button" class="btn-ft-set" (click)="resendotp()">Resend OTP</button>
-                <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Verify</a></span></button>
+                 <p class="ft-b">Not Received  OTP ?</p>
+                 <p class="ft-a" ><button (click)="resendotp()">Resend to <span>+91-XXXXXXXXXX</span></button></p>
+                 <p class="ft-r">or</p>
+                <!-- <button type="button" class="btn-ft-set" (click)="resendotp()">Resend OTP</button> -->
+                <!-- <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Verify</a></span></button> -->
               </div>
 
             </form>
           </div>
           <div *ngIf="otpsection" class="mb-chn">
             <h3 class="ch-op">
-              <a href="javascript:void(0);" (click)="changenumber()">Change Mobile Number</a>
+              <a href="javascript:void(0);" (click)="changenumber()" style="color: #b00;">Change Mobile Number ?</a>
             </h3>
             <div *ngIf="!togglembcheck" class="add-number">
               <form [formGroup]="changenumberform" (ngSubmit)="submitchangenumber()" ngNativeValidate>

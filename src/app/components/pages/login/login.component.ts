@@ -36,8 +36,7 @@ export class LoginComponent implements OnInit {
     input2: new FormControl('', Validators.required),
     input3: new FormControl('', Validators.required),
     input4: new FormControl('', Validators.required),
-    input5: new FormControl('', Validators.required),
-    input6: new FormControl('', Validators.required),
+    
   });
 
   changepasswordform = new FormGroup({
@@ -201,7 +200,7 @@ export class LoginComponent implements OnInit {
   }
 
   verifyotpsub() {
-    const mainotp = `${this.verifyotpform.value.input1}${this.verifyotpform.value.input2}${this.verifyotpform.value.input3}${this.verifyotpform.value.input4}${this.verifyotpform.value.input5}${this.verifyotpform.value.input6}`;
+    const mainotp = `${this.verifyotpform.value.input1}${this.verifyotpform.value.input2}${this.verifyotpform.value.input3}${this.verifyotpform.value.input4}`;
     const intotp = parseInt(mainotp, 10);
     console.log(intotp);
     console.log(this.mobilenumber);
