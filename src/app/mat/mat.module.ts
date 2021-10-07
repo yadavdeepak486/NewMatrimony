@@ -45,6 +45,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectCountryLangToken, MatSelectCountryModule } from '@angular-material-extensions/select-country';
 
 @NgModule({
   exports: [
@@ -95,6 +96,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     PlatformModule,
+    MatSelectCountryModule,
   ],
   declarations: [],
   imports: [
@@ -146,6 +148,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     PlatformModule,
-  ],
+    MatSelectCountryModule,
+  ]
 })
 export class MatModule {}

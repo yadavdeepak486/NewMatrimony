@@ -29,7 +29,7 @@
                   <div class="form-group">
                     <label class="lb-ser">On Behalf <span style="color: red;">*</span> </label>
                     <select class="form-control" formControlName="Profilecreatedby">
-                      <option [value]="profilefor._id" *ngFor="let profilefor of allprofilefor">
+                      <option [ngValue]="profilefor._id" *ngFor="let profilefor of allprofilefor">
                         {{profilefor.name}}</option>
                     </select>
                   </div>
@@ -49,15 +49,15 @@
                     <label class="lb-ser">Date Of Birth <span style="color: red;">*</span> </label>
                     <div id="otp" class="inputs2 d-flex flex-row justify-content-center ">
                       <select class="text-center form-control rounded" formControlName="dd" required>
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
+                        <option value="1" selected>01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
                         <option value="10">10</option>
                         <option value="12">12</option>
                         <option value="13">13</option>
@@ -81,15 +81,15 @@
                         <option value="31">31</option>
                       </select>
                       <select class="text-center form-control rounded" formControlName="mm" required>
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
+                        <option value="1" selected>01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
                         <option value="10">10</option>
                         <option value="12">12</option>
                       </select>
@@ -221,12 +221,7 @@
                 <input #digitfour style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
                   (keyup)="onDigitInput($event)" type="text" id="input4" formControlName="input4" maxlength="1"
                   required />
-                <input #digitfive style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  (keyup)="onDigitInput($event)" type="text" id="input5" formControlName="input5" maxlength="1"
-                  required />
-                <input #digitsix style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
-                  (keyup)="onDigitInput($event)" type="text" id="input6" formControlName="input6" maxlength="1"
-                  required />
+
               </div>
               <div class="btn-rv">
                 <button type="button" class="btn-ft-set" (click)="resendotp()">Resend OTP</button>

@@ -623,4 +623,9 @@ export class AdminService {
   blockcount() {
     return this.http.get(`${this.backendurl}/user/blockmem`);
   }
+
+  //advance filter
+  advancefilter(data) {
+    return this.http.post(`${this.backendurl}/admin/advancefilter`, data);
+  }
 }

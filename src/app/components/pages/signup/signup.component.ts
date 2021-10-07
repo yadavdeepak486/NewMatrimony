@@ -13,12 +13,47 @@ import { Country } from '@angular-material-extensions/select-country';
 })
 export class SignupComponent implements OnInit {
   togglembcheck: boolean = true;
-  defaultValue: any = {
+  languageSelected = 'es';
+
+  defaultValue: Country = {
     name: 'Deutschland',
     alpha2Code: 'DE',
     alpha3Code: 'DEU',
     numericCode: '276',
+    callingCode: '+49'
   };
+
+  predefinedCountries: Country[] = [
+    {
+      name: 'Germany',
+      alpha2Code: 'DE',
+      alpha3Code: 'DEU',
+      numericCode: '276',
+      callingCode: '+49'
+    },
+    {
+      name: 'Greece',
+      alpha2Code: 'GR',
+      alpha3Code: 'GRC',
+      numericCode: '300',
+      callingCode: '+30'
+    },
+    {
+      name: 'France',
+      alpha2Code: 'FR',
+      alpha3Code: 'FRA',
+      numericCode: '250',
+      callingCode: '+33'
+    },
+    {
+      name: 'Belgium',
+      alpha2Code: 'BE',
+      alpha3Code: 'BEL',
+      numericCode: '056',
+      callingCode: '+32'
+    }
+  ];
+
   sessionid: any;
   hide = true;
   auth: any;
@@ -28,7 +63,7 @@ export class SignupComponent implements OnInit {
   allcountry: any;
   mobilenumber: any;
   signupuser = new FormGroup({
-    Profilecreatedby: new FormControl('', Validators.required),
+    Profilecreatedby: new FormControl('610cc184fb791a5fb1afb3b0', Validators.required),
     firstName: new FormControl('', Validators.required),
     LastName: new FormControl('', Validators.required),
     Gender: new FormControl('Male', Validators.required),
@@ -37,7 +72,7 @@ export class SignupComponent implements OnInit {
     yyyy: new FormControl('2000', Validators.required),
     DOB: new FormControl(''),
     ConfirmEmail: new FormControl('', Validators.required),
-    Maritalstatus: new FormControl('', Validators.required),
+    Maritalstatus: new FormControl('6144459b4a9280296c14aed9', Validators.required),
     Mobile: new FormControl('', Validators.required),
     ConfirmPassword: new FormControl('', Validators.required),
     agree_terms_conditions: new FormControl('1', Validators.required),
@@ -48,8 +83,6 @@ export class SignupComponent implements OnInit {
     input2: new FormControl('', Validators.required),
     input3: new FormControl('', Validators.required),
     input4: new FormControl('', Validators.required),
-    input5: new FormControl('', Validators.required),
-    input6: new FormControl('', Validators.required),
   });
 
   changenumberform = new FormGroup({
@@ -74,7 +107,7 @@ export class SignupComponent implements OnInit {
   getallreligion() {
     this.userService.getprofilefordd().subscribe(
       (response: any) => {
-        //  console.log(response);
+        console.log(response);
         this.allprofilefor = response.data;
       },
       (error) => {
@@ -86,7 +119,7 @@ export class SignupComponent implements OnInit {
   getmaritalstatus() {
     this.adminService.getallmaritalstatus().subscribe(
       (response: any) => {
-        // console.log(response);
+        console.log(response);
         this.allmaritalstatus = response.data;
       },
       (error) => {
@@ -164,7 +197,7 @@ export class SignupComponent implements OnInit {
   }
 
   verifyotp() {
-    const mainotp = `${this.verifyotpform.value.input1}${this.verifyotpform.value.input2}${this.verifyotpform.value.input3}${this.verifyotpform.value.input4}${this.verifyotpform.value.input5}${this.verifyotpform.value.input6}`;
+    const mainotp = `${this.verifyotpform.value.input1}${this.verifyotpform.value.input2}${this.verifyotpform.value.input3}${this.verifyotpform.value.input4}`;
     const intotp = parseInt(mainotp, 10);
     console.log(intotp);
     console.log(this.mobilenumber);

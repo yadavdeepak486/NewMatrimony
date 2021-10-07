@@ -56,7 +56,7 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
   stateform = new FormGroup({
     state: new FormControl(''),
   });
-  
+
 
   constructor(
     public userService: UserService,
@@ -94,6 +94,25 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     displayKey: 'name',
     search: true,
   };
+
+
+  //////////////////////////////
+  toppingsControl = new FormControl([]);
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+
+onToppingRemoved(topping: string) {
+    const toppings = this.toppingsControl.value as string[];
+    this.removeFirst(toppings, topping);
+    this.toppingsControl.setValue(toppings); // To trigger change detection
+  }
+
+  private removeFirst<T>(array: T[], toRemove: T): void {
+    const index = array.indexOf(toRemove);
+    if (index !== -1) {
+      array.splice(index, 1);
+    }
+  }
+
 
   searchChange($event) {
     console.log($event);
@@ -329,6 +348,8 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
 
   filter() {
     console.log(this.filteruserform.value);
+    this.users = ""
+    this.loader = true
     this.userService.getfiltereduser(this.filteruserform.value).subscribe(
       (response: any) => {
         console.log(response);
@@ -364,7 +385,6 @@ export class VerticalListingsLeftSidebarComponent implements OnInit {
     this.userService.reportuser(id).subscribe(
       (response: any) => {
         console.log(response);
-        this.filter();
         this.toastr.success('User Reported');
       },
       (error) => {

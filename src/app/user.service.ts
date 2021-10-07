@@ -328,12 +328,12 @@ export class UserService {
     );
   }
 
-  rapayorder(planId) {
+  rapayorder(planId,rate) {
     let header = new HttpHeaders().set(
       'auth-token',
       localStorage.getItem('auth-token')
     );
-    return this.http.get(`${this.backendurl}/admin/rapay/${planId}`, {
+    return this.http.get(`${this.backendurl}/admin/rapay/${planId}/${rate}`, {
       headers: header,
     });
   }
@@ -412,4 +412,6 @@ export class UserService {
       headers: header,
     });
   }
+
+
 }

@@ -12,6 +12,8 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
   ngStyle: boolean = false;
   userdetails: any;
   id: any;
+  Photodummen = 'assets/img/me.jpg';
+  Photodumwomen = 'assets/img/wo.jpg';
 
   constructor(
     public userService: UserService,
@@ -61,6 +63,19 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
       },
       (error) => {
         this.toastr.error('Interest Already sent');
+      }
+    );
+  }
+
+  reportauser(id) {
+    console.log(id);
+    this.userService.reportuser(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('User Reported');
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }

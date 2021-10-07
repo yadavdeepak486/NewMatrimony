@@ -25,7 +25,8 @@
           <div class="listings-grid-sorting row align-items-center">
 
             <div class="col-lg-12 col-md-12 ">
-              <form [formGroup]="searchinput" (ngSubmit)="regsearch()" class="st-form ng-untouched ng-pristine ng-valid">
+              <form [formGroup]="searchinput" (ngSubmit)="regsearch()"
+                class="st-form ng-untouched ng-pristine ng-valid">
                 <div class="row m-0 align-items-center">
                   <div class="col-lg-7 col-md-12 p-0">
                     <div class="form-group">
@@ -40,21 +41,23 @@
                       <button type="submit">Search Now</button>
                     </div>
                   </div>
+
                   <div class="col-lg-3 ">
                     <button class="btn btn-primary st-searchbtn" data-toggle="collapse" data-target="#adsearch"
-                      style="float: right;">Advanced Search</button>
+                      style="float: right;" type="button">Advanced Search</button>
                   </div>
                 </div>
               </form>
+
             </div>
             <div class="col-lg-12">
               <div id="adsearch" class="collapse">
-                <form class="ad-srch">
+                <form [formGroup]="advancesearchform" (ngSubmit)="advancesearch()" class="ad-srch">
                   <div class="row">
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Gender</mat-label>
-                        <mat-select>
+                        <mat-select formControlName="gender">
                           <mat-option *ngFor="let gender of genderList" [value]="gender">{{gender}} </mat-option>
                         </mat-select>
                       </mat-form-field>
@@ -62,7 +65,7 @@
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Marital status</mat-label>
-                        <mat-select multiple>
+                        <mat-select multiple formControlName="Maritalstatus">
                           <mat-option *ngFor="let maritalstatus of allmaritalstatus" [value]="maritalstatus._id">
                             {{maritalstatus?.name}}</mat-option>
                         </mat-select>
@@ -73,17 +76,13 @@
                         <div class="col-lg-6">
                           <mat-form-field appearance="outline" style="width: 100%;">
                             <mat-label>Min Age</mat-label>
-                            <mat-select>
-                              <mat-option *ngFor="let minage of minageList" [value]="minage">{{minage}} </mat-option>
-                            </mat-select>
+                            <input matInput placeholder="20" formControlName="minage">
                           </mat-form-field>
                         </div>
                         <div class="col-lg-6">
                           <mat-form-field appearance="outline" style="width: 100%;">
                             <mat-label>Max Age</mat-label>
-                            <mat-select>
-                              <mat-option *ngFor="let maxage of maxageList" [value]="maxage">{{maxage}}</mat-option>
-                            </mat-select>
+                            <input matInput placeholder="50" formControlName="maxage">
                           </mat-form-field>
                         </div>
                       </div>
@@ -91,7 +90,7 @@
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Living City</mat-label>
-                        <mat-select multiple>
+                        <mat-select multiple formControlName="City">
                           <mat-option *ngFor="let city of allcity" [value]="city._id">{{city?.name}}</mat-option>
                         </mat-select>
                       </mat-form-field>
@@ -99,16 +98,19 @@
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Relationship Manager</mat-label>
-                        <mat-select multiple>
-                          <mat-option></mat-option>
+                        <mat-select multiple formControlName="rmanager">
+                          <mat-option *ngFor="let rmanager of allrmanagers" [value]="rmanager._id">
+                            {{rmanager?.firstname}} | {{rmanager?.Mobile}}
+                          </mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Religion</mat-label>
-                        <mat-select multiple>
-                          <mat-option *ngFor="let religion of allreligion" [value]="religion._id">{{religion?.name}}
+                        <mat-select multiple formControlName="Religion">
+                          <mat-option *ngFor="let religion of allreligion" [value]="religion._id">
+                            {{religion?.name}}
                           </mat-option>
                         </mat-select>
                       </mat-form-field>
@@ -116,7 +118,7 @@
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Caste</mat-label>
-                        <mat-select multiple>
+                        <mat-select multiple formControlName="Caste">
                           <mat-option *ngFor="let caste of allcaste" [value]="caste._id">{{caste?.name}}</mat-option>
                         </mat-select>
                       </mat-form-field>
@@ -124,7 +126,7 @@
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Membership Plan</mat-label>
-                        <mat-select multiple>
+                        <mat-select multiple formControlName="memtype">
                           <mat-option *ngFor="let plan of plans" [value]="plan._id">{{plan?.plantitle}}</mat-option>
                         </mat-select>
                       </mat-form-field>
@@ -132,18 +134,18 @@
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Expired Membership</mat-label>
-                        <mat-select multiple>
-                          <mat-option value="paid" >Paid</mat-option>
-                          <mat-option value="active" >Active</mat-option>
-                          <mat-option value="an-active" >Inactive</mat-option>
-                          <mat-option value="expired" >Expired</mat-option>
+                        <mat-select multiple formControlName="Status">
+                          <mat-option value="Paid">Paid</mat-option>
+                          <mat-option value="Active">Active</mat-option>
+                          <mat-option value="Inactive">Inactive</mat-option>
+                          <mat-option value="Expired">Expired</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Education</mat-label>
-                        <mat-select multiple>
+                        <mat-select multiple formControlName="Education">
                           <mat-option *ngFor="let education of alleducation" [value]="education._id">{{education?.name}}
                           </mat-option>
                         </mat-select>
@@ -152,7 +154,7 @@
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Employedin</mat-label>
-                        <mat-select multiple>
+                        <mat-select multiple formControlName="Employedin">
                           <mat-option *ngFor="let employedin of allemployedin" [value]="employedin._id">
                             {{employedin?.name}}</mat-option>
                         </mat-select>
@@ -161,36 +163,42 @@
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Special case</mat-label>
-                        <mat-select multiple>
-                          <mat-option value="any">Any</mat-option>
-                          <mat-option value="normal">Normal</mat-option>
-                          <mat-option value="physically-challenged-right-arm">Physically Challenged-Right Arm</mat-option>
-                          <mat-option value="physically-challenged-left-arm">Physically Challenged-Left Arm</mat-option>
-                          <mat-option value="physically-challenged-both-arm">Physically Challenged-Both Arm</mat-option>
-                          <mat-option value="physically-challenged-both-arm">Physically Challenged-Both Arm</mat-option>
-                          <mat-option value="physically-challenged-right-leg">Physically Challenged-Right Leg</mat-option>
-                          <mat-option value="physically-challenged-left-leg">Physically Challenged-Left Leg</mat-option>
-                          <mat-option value="physically-challenged-both-leg">Physically Challenged-Both Leg</mat-option>
-                          <mat-option value="physically-challenged-deaf">Physically Challenged Deaf</mat-option>
-                          <mat-option value="physically-challenged-dumb">Physically Challenged Dumb</mat-option>
-                          <mat-option value="physically-challenged-deaf-and-dumb">Physically Challenged Deaf and Dumb</mat-option>
-                          <mat-option value="physically-challenged-mentaly-challenged">Physically Challenged Mentaly Challenged</mat-option>
-                          <mat-option value="physically-challenged-other">Physically Challenged Other</mat-option>
-                          <mat-option value="hiv-positive">HIV Positive</mat-option>
+                        <mat-select multiple formControlName="spe_cases">
+                          <mat-option value="Any">Any</mat-option>
+                          <mat-option value="Normal">Normal</mat-option>
+                          <mat-option value="Physically Challenged-Right Arm">Physically Challenged-Right Arm
+                          </mat-option>
+                          <mat-option value="Physically Challenged-Left Arm">Physically Challenged-Left Arm</mat-option>
+                          <mat-option value="Physically Challenged-Both Arm">Physically Challenged-Both Arm</mat-option>
+                          <mat-option value="Physically Challenged-Both Arm">Physically Challenged-Both Arm</mat-option>
+                          <mat-option value="Physically Challenged-Right Leg">Physically Challenged-Right Leg
+                          </mat-option>
+                          <mat-option value="Physically Challenged-Left Leg">Physically Challenged-Left Leg</mat-option>
+                          <mat-option value="Physically Challenged-Both Leg">Physically Challenged-Both Leg</mat-option>
+                          <mat-option value="Physically Challenged Deaff">Physically Challenged Deaf</mat-option>
+                          <mat-option value="Physically Challenged Dumb">Physically Challenged Dumb</mat-option>
+                          <mat-option value="Physically Challenged Deaf and Dumb">Physically Challenged Deaf and Dumb
+                          </mat-option>
+                          <mat-option value="Physically Challenged Mentaly
+                          Challenged">Physically Challenged Mentaly
+                            Challenged</mat-option>
+                          <mat-option value="Physically Challenged Other">Physically Challenged Other</mat-option>
+                          <mat-option value="HIV Positive">HIV Positive</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
                     <div class="col-lg-3">
                       <mat-form-field appearance="outline">
                         <mat-label>Manglik</mat-label>
-                        <mat-select>
+                        <mat-select formControlName="Manglik">
                           <mat-option *ngFor="let manglik of manglikList" [value]="manglik">{{manglik}} </mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
                     <div class="col-lg-12">
-                      <button class="btn btn-primary btn-cncl">Search</button>
-                      <button class="btn btn-primary btn-cncl" type="submit">Cancel</button>
+                      <button class="btn btn-primary btn-cncl" type="submit">Search</button>
+                      <button class="btn btn-primary btn-cncl" type="button"
+                        (click)="advancesearchform.reset()">Reset</button>
                     </div>
                   </div>
                 </form>
@@ -199,29 +207,31 @@
           </div>
 
           <div class="row">
-              <div class="spinner-box" *ngIf="loader">
-                 <div class="pulse-container">  
-                    <div class="pulse-bubble pulse-bubble-1"></div>
-                    <div class="pulse-bubble pulse-bubble-2"></div>
-                    <div class="pulse-bubble pulse-bubble-3"></div>
-                 </div>
+            <div class="spinner-box" *ngIf="loader">
+              <div class="pulse-container">
+                <div class="pulse-bubble pulse-bubble-1"></div>
+                <div class="pulse-bubble pulse-bubble-2"></div>
+                <div class="pulse-bubble pulse-bubble-3"></div>
               </div>
+            </div>
             <div class="col-lg-12 col-md-12"
               *ngFor="let Content of alluser | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
               <div class="single-listings-item">
                 <div class="row m-0">
                   <div class="col-lg-4 col-md-4 p-0">
-                    <div  *ngIf="!Content.photo_privacy" class="listings-image" style="background-image: url({{Content?.Photo1}});">
+                    <div *ngIf="!Content.photo_privacy" class="listings-image"
+                      style="background-image: url({{Content?.Photo1}});">
                       <img [src]="Content.mainImg" alt="image">
                     </div>
-                    <div  *ngIf="Content.photo_privacy" class="listings-image" style="background-image: url({{Content?.Photo1}}); filter: blur(15px);">
+                    <div *ngIf="Content.photo_privacy" class="listings-image"
+                      style="background-image: url({{Content?.Photo1}}); filter: blur(15px);">
                       <img [src]="Content.mainImg" alt="image">
                     </div>
                   </div>
                   <div class="col-lg-8 col-md-8 p-0">
                     <div class="listings-content">
-                      <span class="status {{Content?.extraClass}}">
-                        Online</span>
+                      <span [ngClass]=" Content?.OnlineUsers == 1 ? 'status' : 'status status-close'">
+                        {{Content?.OnlineUsers == 1 ? 'Online Now' : 'Offline'}}</span>
                       <h3><a routerLink="/{{Content?.detailsLink}}">{{Content?.Name}} {{Content?.firstName}}
                           {{Content?.LastName}}</a>
                         <span class="sp-1">{{Content?.MatriID}} |</span>
@@ -251,7 +261,8 @@
                             </tr>
                             <tr>
                               <td></td>
-                              <td>RM:<span class="tb-s">Diksha Verma</span></td>
+                              <td>RM:<span class="tb-s">{{Content?.account_manager?.firstname}}
+                                  {{Content?.account_manager?.lastname}}</span></td>
                             </tr>
                           </tbody>
                         </table>
@@ -260,11 +271,12 @@
                       <ul class="listings-meta pd-tr">
                         <li class="lst-txt">Reg. Date: <span class="spn-lst">{{Content?.createdAt | date
                             :'short'}},</span></li>
-                        <li class="lst-txt">Last Login: <span class="spn-lst">{{Content?.updatedAt | date
-                            :'short'}},</span></li>
+                        <li class="lst-txt">Last Login: <span class="spn-lst">{{Content?.Lastlogin | date
+                            :'short'}},{{Content?.IP}}</span></li>
                         <li class="lst-txt">Profile View: <span class="spn-lst">"",</span></li>
-                        <li class="lst-txt">Signup Platform: <span class="spn-lst">Android,</span></li>
-                        <li class="lst-txt">Plan: <span class="spn-lst">Free</span></li>
+                        <li class="lst-txt">Signup Platform: <span
+                            class="spn-lst">{{Content?.Ref}},{{Content?.IP}}</span></li>
+                        <li class="lst-txt">Plan: <span class="spn-lst">{{Content?.membership_plan_title}}</span></li>
                       </ul>
                       <ul class="listings-meta pd-r">
                         <li><a routerLink="/profile-detail/{{Content?._id}}" class="lst-profile">Profile View</a></li>

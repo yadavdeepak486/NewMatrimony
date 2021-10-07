@@ -41,18 +41,8 @@ export class PremuimPlanComponent implements OnInit {
   contact: any;
   email: any;
   planId: any;
+  key:any
 
-  // razorPayOptions = {
-  //   "key":"",
-  //   "amount":"",
-  //   "currency":"INR",
-  //   "name":"",
-  //   "description":"Matrimony Payment",
-  //   "order_id":"",
-  //   "handler":(res)=>{
-  //     console.log(res)
-  //   }
-  // }
 
   constructor(
     private adminService: AdminService,
@@ -187,9 +177,10 @@ export class PremuimPlanComponent implements OnInit {
     );
   }
 
-  rapayorder(planId) {
+  rapayorder(planId,rate) {
     this.planId = planId;
-    this.userService.rapayorder(planId).subscribe(
+    console.log('%cpremuim-plan.component.ts line:192 rate', 'color: #007acc;', rate);
+    this.userService.rapayorder(planId,rate).subscribe(
       (response: any) => {
         console.log(response);
         this.order_id = response.order.id;
@@ -198,6 +189,7 @@ export class PremuimPlanComponent implements OnInit {
         this.contact = response.data.phone;
         this.email = response.data.email;
         this.description = response.order.receipt;
+        this.key = response.data.key;
         this.payWithRazor();
       },
       (error) => {
@@ -206,14 +198,7 @@ export class PremuimPlanComponent implements OnInit {
     );
   }
 
-  // buyRazorPay(formData:any){
-  // this.submitted = true;
-  // this.loading =  true;
-  // this.razorPayData = formData
-  // this.dataService.razorPayOrder(this.razorPayData).subscribe((res)=>{
 
-  // })
-  // }
 
   createRzpayOrder(data) {
     console.log(data);
@@ -224,16 +209,16 @@ export class PremuimPlanComponent implements OnInit {
   payWithRazor() {
     //const val = 'order_I3yuJcOmqHIZfj';
     const options: any = {
-      key: 'rzp_live_C0o3Py4EkltJAS', //api key
-      amount: this.amount, // amount should be in paise format to display Rs 1255 without decimal point
+      key: this.key,
+      amount: this.amount,
       currency: 'INR',
-      name: this.buyer_name, // company name or product name
-      description: this.description, // product description
-      image:
-        'https://storage.googleapis.com/endless-set-315803.appspot.com/instagram-96x96-1597575.png', // company logo or product image
-      order_id: this.order_id, // order_id created by you in backend
+      name: this.buyer_name,
+      description: this.description,
+      // image:
+      //   'https://storage.googleapis.com/endless-set-315803.appspot.com/instagram-96x96-1597575.png',
+      order_id: this.order_id,
       modal: {
-        // We should prevent closing of the form when esc key is pressed.
+
         escape: false,
       },
       prefill: {

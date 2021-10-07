@@ -18,33 +18,33 @@ export class AllMemberComponent implements OnInit {
   allcaste: any;
   alleducation: any;
   allemployedin: any;
+  allrmanagers:any
   genderList: string[] = ['Male', 'Female'];
-  minageList: string[] = [
-    '18 years',
-    '19  years',
-    '20 years',
-    '21 years',
-    '22 years',
-    '23 years',
-    '24 years',
-    '25 years',
-  ];
-  maxageList: string[] = [
-    '26 years',
-    '27  years',
-    '28 years',
-    '29 years',
-    '30 years',
-  ];
   manglikList: string[] = ['Not Manglik', 'Manglik', 'Ardh Manglik'];
   searchinput = new FormGroup({
     oneinput: new FormControl(''),
   });
 
+  advancesearchform = new FormGroup({
+    gender: new FormControl(''),
+    Maritalstatus: new FormControl(''),
+    minage: new FormControl(''),
+    maxage: new FormControl(''),
+    City: new FormControl(''),
+    rmanager: new FormControl(''),
+    Religion: new FormControl(''),
+    Caste: new FormControl(''),
+    memtype: new FormControl(''),
+    Status: new FormControl(''),
+    Education: new FormControl(''),
+    Employedin: new FormControl(''),
+    spe_cases: new FormControl(''),
+    Manglik: new FormControl(''),
+  });
+
   constructor(public adminServie: AdminService) {}
 
   ngOnInit(): void {
-    this.resetOption = [this.options[0]];
     this.getallusers();
     this.getmaritalstatus();
     this.getallcity();
@@ -53,139 +53,23 @@ export class AllMemberComponent implements OnInit {
     this.getalleducation();
     this.getallemployedin();
     this.allplans();
+    this.getallrmangers();
   }
 
-  pageTitleContent = [
-    {
-      title: 'Find Popular Places',
-    },
-  ];
 
   // Category Select
   singleSelect: any = [];
   multiSelect: any = [];
   stringArray: any = [];
   objectsArray: any = [];
-  resetOption: any;
   config = {
     displayKey: 'name',
     search: true,
   };
-  options = [
-    // Type here your category name
-    {
-      name: 'name',
-    },
-    {
-      name: 'lorem',
-    },
-    {
-      name: 'lorem',
-    },
-  ];
+
   searchChange($event) {
     console.log($event);
   }
-  reset() {
-    this.resetOption = [];
-  }
-  // Ordering Select
-  options2 = [
-    {
-      name: 'Recommended',
-    },
-    {
-      name: 'Default',
-    },
-    {
-      name: 'Popularity',
-    },
-    {
-      name: 'Latest',
-    },
-  ];
-  // Distance Select
-  options3 = [
-    {
-      name: 'Driving (5 mi.)',
-    },
-    {
-      name: 'Walking (1 mi.)',
-    },
-    {
-      name: 'Biking (2 mi.)',
-    },
-    {
-      name: 'Within 4 blocks',
-    },
-    {
-      name: 'Bicycle (6 mi.)',
-    },
-  ];
-
-  // All Listings
-  singleListingsItem = [
-    {
-      mainImg: 'assets/img/user1.png',
-
-      category: 'Restaurant',
-      location: 'New York, USA',
-      title: 'Himanshi Sharma',
-      online: 'Online',
-      detailsLink: '',
-      extraClass: 'status-open',
-    },
-    {
-      mainImg: 'assets/img/user1.png',
-
-      category: 'Restaurant',
-      location: 'New York, USA',
-      title: 'Himanshi Sharma',
-      online: 'Online',
-      detailsLink: '',
-      extraClass: 'status-open',
-    },
-    {
-      mainImg: 'assets/img/user1.png',
-
-      category: 'Restaurant',
-      location: 'New York, USA',
-      title: 'Himanshi Sharma',
-      online: 'Online',
-      detailsLink: '',
-      extraClass: 'status-open',
-    },
-    {
-      mainImg: 'assets/img/user1.png',
-
-      category: 'Restaurant',
-      location: 'New York, USA',
-      title: 'Himanshi Sharma',
-      online: 'Online',
-      detailsLink: '',
-      extraClass: 'status-open',
-    },
-    {
-      mainImg: 'assets/img/user1.png',
-
-      category: 'Restaurant',
-      location: 'New York, USA',
-      title: 'Himanshi Sharma',
-      online: 'Online',
-      detailsLink: '',
-      extraClass: 'status-open',
-    },
-    {
-      mainImg: 'assets/img/user1.png',
-
-      category: 'Restaurant',
-      location: 'New York, USA',
-      title: 'Himanshi Sharma',
-      online: 'Online',
-      detailsLink: '',
-      extraClass: 'status-open',
-    },
-  ];
 
   verticalListings: number = 1;
 
@@ -213,7 +97,7 @@ export class AllMemberComponent implements OnInit {
   getmaritalstatus() {
     this.adminServie.getallmaritalstatus().subscribe(
       (response: any) => {
-        // console.log(response);
+
         this.allmaritalstatus = response.data;
       },
       (error) => {
@@ -290,17 +174,52 @@ export class AllMemberComponent implements OnInit {
     );
   }
 
+
+
   regsearch() {
+    this.loader= true;
     console.log(this.searchinput.value);
     this.adminServie.regsearch(this.searchinput.value).subscribe(
       (response: any) => {
         console.log(response);
         this.alluser = response.data;
+        this.loader= false;
       },
       (error) => {
         console.log(error);
       }
     );
   }
-  // close
+
+  advancesearch(){
+    this.loader= true;
+    console.log(this.advancesearchform.value)
+    this.adminServie.advancefilter(this.advancesearchform.value).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.alluser = response.data;
+        this.loader= false;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getallrmangers(){
+    this.adminServie.getallstaff().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allrmanagers = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  resetsearch() {
+    this.advancesearchform.reset();
+  }
+
 }

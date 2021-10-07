@@ -2,7 +2,7 @@
 
 
 <!-- Start Listings Area -->
-<section class="listings-area ptb-100">
+<section class="listings-area dd-cs" style="padding: 40px 0px;">
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-12">
@@ -57,14 +57,7 @@
                     </mat-select>
                   </mat-form-field>
                 </div>
-                <!-- <div class="col-md-12">
-                  <mat-form-field appearance="outline" style="width:100%">
-                    <mat-label>Sub Caste</mat-label>
-                    <mat-select >
-                      <mat-option *ngFor="let subcaste of allsubcaste" [value]="subcaste._id" >{{subcaste?.name}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </div> -->
+
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Mother Tongue</mat-label>
@@ -74,12 +67,7 @@
                     </mat-select>
                   </mat-form-field>
                 </div>
-                <!-- <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="lb-ser">Profession</label>
-                    <input type="text" placeholder="id" class="form-control">
-                  </div>
-                </div> -->
+
                 <div class="col-md-12">
                   <mat-form-field appearance="outline" style="width:100%">
                     <mat-label>Country</mat-label>
@@ -129,18 +117,7 @@
                 <div class="col-md-12">
                   <label class="lb-ser">MEMBER TYPE</label>
                   <div class="custom-control custom-checkbox">
-                    <!--
-                    <mat-checkbox class="st-chk" [value]="falseValue"
-                      (change)="checkboxChange($event.source, $event.checked)">Free Member
-                    </mat-checkbox>
 
-                    <mat-checkbox class="st-chk" [value]="falseValue"
-                      (change)="checkboxChange($event.source, $event.checked)">Premium Member
-                    </mat-checkbox>
-
-                    <mat-checkbox class="st-chk" [value]="falseValue"
-                      (change)="checkboxChange($event.source, $event.checked)">All Member
-                    </mat-checkbox> -->
 
                     <mat-radio-group aria-label="Select an option" formControlName="memtype" style="    display: flex;
                     flex-direction: column;">
@@ -148,17 +125,6 @@
                       <mat-radio-button value="PM">Premium Member</mat-radio-button>
                       <mat-radio-button value="">All Member</mat-radio-button>
                     </mat-radio-group>
-
-
-
-                    <!-- <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Premium Member</label>
-                    <br>
-                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                    <label class="custom-control-label" for="customCheck2">Free Member</label>
-                    <br>
-                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                    <label class="custom-control-label" for="customCheck3">All Member</label> -->
                   </div>
                 </div>
 
@@ -180,7 +146,7 @@
           <h3 class="widget-title">ALL MEMBERS({{users?.length}})</h3>
         </div>
         <div class="spinner-box" *ngIf="loader">
-          <div class="pulse-container">  
+          <div class="pulse-container">
             <div class="pulse-bubble pulse-bubble-1"></div>
             <div class="pulse-bubble pulse-bubble-2"></div>
             <div class="pulse-bubble pulse-bubble-3"></div>
@@ -195,21 +161,32 @@
                   <div *ngIf="!Content.photo_privacy" class="listings-image" style="background-image: url({{Content.Photo1}}
                   );">
                     <img [src]="Content.Photo1" alt="image">
-                    <!-- <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
+                    <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a>
                     <a routerLink="/profile-detail/{{Content._id}}" class="link-btn"></a>
                   </div>
                   <div *ngIf="Content.photo_privacy" class="listings-image" style="background-image: url({{Content.Photo1}}
                   ); filter: blur(15px);">
                     <img [src]="Content.Photo1" alt="image">
-                    <!-- <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
+                    <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a>
                     <a routerLink="/profile-detail/{{Content._id}}" class="link-btn"></a>
                   </div>
                 </div>
                 <div class="col-lg-8 col-md-8 p-0">
                   <div class="listings-content">
-                    <span class="status ">
-                      Online Now</span>
-                    <h3 class="mid">ID: <span class="mds">{{Content.MatriID}}</span></h3>
+                    <span [ngClass]=" Content?.OnlineUsers == 1 ? 'status' : 'status status-close'">
+                      {{Content?.OnlineUsers == 1 ? 'Online Now' : 'Offline'}}</span>
+                    <h3 class="mid">ID: <span class="mds">{{Content?.MatriID}}</span>
+                    </h3>
+                    <!-- <div class="row" style="display: flex;">
+                      <h3 class="mid">ID: <span class="mds">{{Content?.MatriID}} </span>|</h3>
+                      <h3 style="
+                      background-color: #70c029;
+                      width: 9px;
+                      height: 9px;
+                      border-radius: 10px;
+                      margin: 5px;"></h3>
+                      <h3 style="font: size 14px;">Online</h3>
+                    </div> -->
 
                     <div class="d-flex align-items-center justify-content-between">
                     </div>
@@ -230,12 +207,14 @@
                             {{Content?.LCountry?.name}}</span> </li>
                       </ul>
                     </div>
+
+
                     <ul class="listings-meta">
                       <li><a routerLink="/profile-detail/{{Content._id}}"><i class=" bx bx-user"
                             style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                           <p class="i_t">Profile</p>
                         </a></li>
-                      <li><i (click)="sendinterest(Content._id)" class="flaticon-heart"
+                      <li><i (click)="sendinterest(Content._id)" class="bx bx-heart"
                           style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">Send Interest</p>
                       </li>
@@ -247,8 +226,6 @@
                           style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">Shortlist</p>
                       </li>
-
-
                       <li *ngIf="Content.photo_privacy"><i (click)="sendphotoreq(Content._id)"
                           class="bx bx-lock-open-alt" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">View Profile</p>

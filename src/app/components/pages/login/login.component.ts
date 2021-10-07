@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   usermobile: any;
   sessionid: any;
   mobilenumber: any;
+  IP:any;
+  Ref:any = "Web";
   forgotpasswordtoggle = false;
   verifyotp = false;
   hide = true;
@@ -24,6 +26,8 @@ export class LoginComponent implements OnInit {
     Mobile: new FormControl(''),
     password: new FormControl(''),
     Email: new FormControl(''),
+    IP: new FormControl(''),
+    Ref: new FormControl(''),
   });
 
   forgotpasswordform = new FormGroup({
@@ -36,8 +40,6 @@ export class LoginComponent implements OnInit {
     input2: new FormControl('', Validators.required),
     input3: new FormControl('', Validators.required),
     input4: new FormControl('', Validators.required),
-    input5: new FormControl('', Validators.required),
-    input6: new FormControl('', Validators.required),
   });
 
   changepasswordform = new FormGroup({
@@ -69,6 +71,8 @@ export class LoginComponent implements OnInit {
         Mobile: this.signin.value.Mobile,
         password: this.signin.value.password,
         Email: '',
+        IP: this.IP,
+        Ref: this.Ref
       });
       console.log(this.signin.value);
     } else {
@@ -77,6 +81,8 @@ export class LoginComponent implements OnInit {
         Mobile: '',
         password: this.signin.value.password,
         Email: this.signin.value.Mobile,
+        IP: this.IP,
+        Ref: this.Ref
       });
       console.log(this.signin.value);
     }
@@ -201,7 +207,7 @@ export class LoginComponent implements OnInit {
   }
 
   verifyotpsub() {
-    const mainotp = `${this.verifyotpform.value.input1}${this.verifyotpform.value.input2}${this.verifyotpform.value.input3}${this.verifyotpform.value.input4}${this.verifyotpform.value.input5}${this.verifyotpform.value.input6}`;
+    const mainotp = `${this.verifyotpform.value.input1}${this.verifyotpform.value.input2}${this.verifyotpform.value.input3}${this.verifyotpform.value.input4}`;
     const intotp = parseInt(mainotp, 10);
     console.log(intotp);
     console.log(this.mobilenumber);
@@ -259,6 +265,7 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         console.log(response);
         console.log(response.ip_address);
+        this.IP = response.ip_address
       },
       (error) => {
         console.log(error);

@@ -18,6 +18,9 @@
     }
   }
 }
+.dd-cs{
+
+}
 .h_rs {
   color: #efefef;
 }
@@ -350,7 +353,6 @@
     padding: 15px 30px;
 
     .status {
-      // display: inline-block;
       color: var(--whiteColor);
       margin-bottom: 15px;
       background-color: var(--green);
@@ -367,7 +369,7 @@
         top: 1px;
       }
       &.status-close {
-        background-color: red;
+        background-color: var(--red);
         color: var(--whiteColor);
       }
     }
@@ -845,6 +847,7 @@ label.lb-ser {
 section.widget.widget_filters.rs-pd {
   border: 1px solid#66667f26;
   padding: 23px;
+  border-radius: 10px;
 }
 
 /* Max width 767px */
