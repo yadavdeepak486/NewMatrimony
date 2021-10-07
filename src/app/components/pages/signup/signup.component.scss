@@ -1420,7 +1420,7 @@ a.default-btn.btn-lr {
   }
   .modal-content.rs-3 {
     border: none !important;
-    padding: 100px 0px !important;
+    padding: 0px 0px !important;
   }
 }
 /* Min width 576px to Max width 767px */
@@ -1820,7 +1820,10 @@ div#verifymobile {
 .inputs input {
   width: 40px;
   height: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  margin: 10px 20px !important;
 }
+  
 .inputs2 input {
   height: 40px;
   margin-top: -4px !important;
@@ -2086,9 +2089,43 @@ button.btnrg {
 
 // otp-change css
 
-.ch-op  { font-size: 15px;
+.ch-op  
+{ 
+    font-size: 17px;
     color: #05147f;
     margin-top: 20px; 
 } 
 
+// close
+
+
+// new css otp 7/10/2021
+button.btn-vtn {
+  width: 70%;
+  padding: 9px 20px;
+  border: navajowhite;
+  background: #b00;
+  border-radius: 100px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+p.ft-a button {
+  border: navajowhite;
+  color: #057013;
+  font-weight: 600;
+  background: none;
+  padding: 0px;
+}
+p.ft-b {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+p.ft-r {
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 60px;
+}
 // close

@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     input2: new FormControl('', Validators.required),
     input3: new FormControl('', Validators.required),
     input4: new FormControl('', Validators.required),
+
   });
 
   changepasswordform = new FormGroup({

@@ -24,6 +24,7 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.viewDetailedProfile(this.id);
+
   }
   ngOnDestroy(): void {
     this.userdetails = '';
@@ -67,11 +68,24 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
     );
   }
 
+  addtoshortlist(id) {
+    console.log(id);
+    this.userService.addtoshortlist(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Added to sortlist');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
   reportauser(id) {
     console.log(id);
     this.userService.reportuser(id).subscribe(
       (response: any) => {
         console.log(response);
+        // this.filter();
         this.toastr.success('User Reported');
       },
       (error) => {

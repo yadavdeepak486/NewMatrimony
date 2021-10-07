@@ -183,6 +183,7 @@ import { PrivacyPolicyTwoComponent } from './components/pages/privacy-policy-two
 import { TermsandconditionTwoComponent } from './components/pages/termsandcondition-two/termsandcondition-two.component';
 import { DeliveryPolicyComponent } from './components/pages/delivery-policy/delivery-policy.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { EditProfileComponent } from './components/pages/dashboard/edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -348,6 +349,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     PrivacyPolicyTwoComponent,
     TermsandconditionTwoComponent,
     DeliveryPolicyComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

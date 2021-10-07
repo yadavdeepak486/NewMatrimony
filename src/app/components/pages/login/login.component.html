@@ -37,21 +37,21 @@
                 Device {{usermobile}}</span></span>
             <form [formGroup]="verifyotpform" (ngSubmit)="verifyotpsub()" ngNativeValidate>
               <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
-                <input #digitone style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                <input #digitone style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
                   type="text" id="input1" formControlName="input1" (keyup)="onDigitInput($event)" maxlength="1"
                   required />
-                <input #digittwo style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                <input #digittwo style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
                   (keyup)="onDigitInput($event)" type="text" id="input2" formControlName="input2" maxlength="1"
                   required />
-                <input #digitthree style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                <input #digitthree style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
                   (keyup)="onDigitInput($event)" type="text" id="input3" formControlName="input3" maxlength="1"
                   required />
-                <input #digitfour style="border: 1px solid indigo;" class="m-2 text-center form-control rounded"
+                <input #digitfour style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
                   (keyup)="onDigitInput($event)" type="text" id="input4" formControlName="input4" maxlength="1"
                   required />
 
               </div>
-              <div class="btn-rv">
+              <div class="btn-rv text-center">
                 <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Verify</a></span></button>
               </div>
             </form>

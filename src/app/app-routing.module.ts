@@ -138,6 +138,7 @@ import { HometownComponent } from './components/pages/dashboard/member/profile-a
 import { PrivacyPolicyTwoComponent } from './components/pages/privacy-policy-two/privacy-policy-two.component';
 import { TermsandconditionTwoComponent } from './components/pages/termsandcondition-two/termsandcondition-two.component';
 import { DeliveryPolicyComponent } from './components/pages/delivery-policy/delivery-policy.component';
+import { EditProfileComponent } from './components/pages/dashboard/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -303,6 +304,7 @@ const routes: Routes = [
   { path: 'staffs/staff-role', component: StaffRoleComponent },
   { path: 'staffs/all-staff/add-new-staffs', component: AddNewStaffsComponent },
   { path: 'staffs/staff-role/add-new-role', component: AddNewRoleComponent },
+  { path: 'edit-profile/:id', component: EditProfileComponent },
 
   // system
   { path: 'system/update', component: UpdateComponent },

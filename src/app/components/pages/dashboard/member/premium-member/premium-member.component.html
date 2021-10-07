@@ -200,7 +200,7 @@
                           <span class="status {{Content?.extraClass}}">
                             Online</span>
                           <h3><a routerLink="/{{Content?.detailsLink}}">{{Content?.title}}</a>
-                            <span class="sp-1">{{Content?.Prefix}}{{Content?.MatriID}}</span>
+                            <span class="sp-1">{{Content?.MatriID}}</span>
                             <span class="sp-2">| {{Content?.Maritalstatus?.name}} |</span>
                             <span class="sp-3">Status : {{Content?.Status}}</span>
                           </h3>
@@ -239,8 +239,10 @@
                           </ul>
                           <ul class="listings-meta pd-r">
                             <li><a routerLink="/profile-detail/{{Content?._id}}" class="lst-profile">Profile View</a></li>
-                            <li><a routerLink="/user-dashboard/user-content/{{Content?._id}}" class="lst-profile">Edit Profile</a> </li>
-                            <li><a routerLink="/user-dashboard/user-content/{{Content?._id}}" class="lst-profile">Manage Photo</a> </li>
+                            <li><a routerLink="/edit-profile/{{Content?._id}}" class="lst-profile">Edit
+                              Profile</a> </li>
+                          <li><a routerLink="/edit-profile/{{Content?._id}}" class="lst-profile">Manage
+                              Photo</a> </li>
                             <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li> -->
                             <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li> -->
                             <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>
