@@ -1174,14 +1174,7 @@ export class UserProfileOneComponent implements OnInit {
     }
   }
 
-  contactdetailview() {
-    console.log('button clicked');
-    if (this.togglecontactdetail == false) {
-      this.togglecontactdetail = true;
-    } else {
-      this.togglecontactdetail = false;
-    }
-  }
+ 
 }
 
 // @Component({

@@ -156,33 +156,30 @@
                   </div>
                 </div>
                 <div class="col-md-12">
-                  <div class="form-group">
+                  <div class="form-group wtt-3">
                     <label class="lb-ser">Mobile Number <span style="color: red;">*</span><small>( We will send
-                        verification code on this )</small></label>
-
-
-                    <div class="input-group" style="flex-wrap: nowrap">
-                      <span class="custom-dropdown">
-
-                        <mat-form-field appearance="outline" class="mb-w">
-                          <mat-select>
-
-                            <mat-option [value]="country.dialCode" *ngFor="let country of countriesjson">
-                              <img with="4" height="4" [src]="country.flag">
-                              ({{country.dialCode}})
-                            </mat-option>
-
-                          </mat-select>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="mb-w">
-                          <input matInput type="number" min="1000000000" max="9999999999" maxlength="10"
+                      verification code on this )</small></label>
+                      <div class="input-group">
+                        <span class="custom-dropdown wtt-1">
+                          <mat-form-field appearance="outline" class="mb-w">
+                            <mat-select>
+                              <mat-option [value]="country.dialCode" *ngFor="let country of countriesjson">
+                                {{country.dialCode}}
+                                <img with="4" height="4" [src]="country.flag">
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </span>
+                        <!-- <img [src]="country?.flag" /> -->
+                        <span class="wtt-2">
+                        <mat-form-field appearance="outline" class="mb-w"> 
+                            <input matInput type="number" min="1000000000" max="9999999999" maxlength="10"
                             placeholder="Number" formControlName="Mobile" required>
                         </mat-form-field>
-                      </span>
-                    </div>
+                        </span>
+                        </div>
                   </div>
                 </div>
-
 
                 <div class="col-md-12">
                   <div class="form-group">

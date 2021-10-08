@@ -1,5 +1,19 @@
 @import "../vertical-listings-left-sidebar/vertical-listings-left-sidebar.component.scss";
 
+.text-left.mt-3.pdt {
+  padding-left: 30px;
+}
+.status.btn-wt {
+  color: var(--whiteColor);
+  margin-bottom: 15px;
+  background-color: var(--green);
+  border-radius: 30px;
+  padding: 4px 12px;
+  float: right;
+  font-weight: 600;
+  font-size: 14px;
+}
+
 // 9/9/2021
 .col-lg-6.rt-1 {
   background: #fff;
@@ -106,9 +120,9 @@ a.updt {
 .dpgrade {
   border: 1px solid #f00;
   padding: 18px;
-  height: 200px;
+  height: 180px;
   border-radius: 4px;
-  margin: 44px;
+  margin: 10px 30px;
 }
 h3.hd-1 {
   font-size: 16px;
