@@ -168,8 +168,8 @@
                           <mat-select>
 
                             <mat-option [value]="country.dialCode" *ngFor="let country of countriesjson">
-                              ({{country.dialCode}}) {{country.name}}
                               <img with="4" height="4" [src]="country.flag">
+                              ({{country.dialCode}})
                             </mat-option>
 
                           </mat-select>
