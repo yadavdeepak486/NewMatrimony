@@ -39,16 +39,22 @@
             </div>
           </div>
           <div class="col-lg-6 rt-1">
+            <div class="text-left mt-3 pdt">
+              <p>Profile Status :
+
+                 <span>  <mat-slide-toggle>Online</mat-slide-toggle></span>
+              </p>
+            </div>
             <div class="dpgrade">
               <p>You are currently a <strong style="background-color: #bb0000;
                 border-radius: 24px;
-                padding: 7px;
+                padding: 6px 12px;
                 color: white;
                 margin: 2px;">{{mydetail?.membership_plan_title || "Free"}}</strong>Plan Member<br></p>
               <p *ngIf="!mydetail?.membership_plan_title">Upgrade your membership to premium membership
                 and get in touch with call/chat with others member directly.</p>
               <p *ngIf="mydetail?.membership_plan_title">Welcome to Matrimony Family
-                <a class="updt" routerLink="/membership-detail">Memberships Detail</a>
+                <a class="updt mt-4 mb-4" routerLink="/membership-detail">Memberships Detail</a>
               </p>
 
             </div>

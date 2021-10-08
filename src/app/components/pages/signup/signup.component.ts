@@ -106,7 +106,7 @@ export class SignupComponent implements OnInit {
         "name": "Ascension Island",
         "dialCode": "+247",
         "isoCode": "AC",
-        "flag": "https://cdn.kcak11.com/flags/AC_64.png"
+        "flag": "https://cdn.kcak11.com/flags/shiny/24.png"
     },
     {
         "name": "Australia",

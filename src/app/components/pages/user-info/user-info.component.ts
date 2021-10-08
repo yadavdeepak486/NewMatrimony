@@ -23,6 +23,7 @@ export class UserInfoComponent implements OnInit {
   allstate: any;
   allcity: any;
   alllanguage: any;
+  allhometown: any;
   selectedreligion: any;
   disablecastetab: any = true;
 
@@ -43,6 +44,7 @@ export class UserInfoComponent implements OnInit {
     Country: new FormControl('', Validators.required),
     State: new FormControl('', Validators.required),
     City: new FormControl('', Validators.required),
+    HomeTown: new FormControl('', Validators.required),
   });
 
   constructor(
@@ -61,6 +63,7 @@ export class UserInfoComponent implements OnInit {
     this.alleducations();
     this.allcountrys();
     this.getalllanguage();
+    this.getallhometown();
   }
 
   // ngOnChanges(): void {
@@ -71,6 +74,18 @@ export class UserInfoComponent implements OnInit {
     this.adminService.getallreligion().subscribe(
       (response: any) => {
         this.allreligion = response.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getallhometown() {
+    this.adminService.allhometown().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.allhometown = response.data;
       },
       (error) => {
         console.log(error);
