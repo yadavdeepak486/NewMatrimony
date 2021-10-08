@@ -170,6 +170,7 @@ export class LoginComponent implements OnInit {
         console.log(phone);
         this.usermobile = phone;
         this.sendotp(response.data.Mobile);
+        this.forgotpasswordform.reset()
       },
       (error) => {
         this.toastr.error(error.error.msg);
@@ -228,6 +229,7 @@ export class LoginComponent implements OnInit {
         this.verifyotp = false;
         this.changepass = true;
         localStorage.setItem('cookie', this.mobilenumber);
+        this.verifyotpform.reset()
       },
       (error) => {
         console.log(error);

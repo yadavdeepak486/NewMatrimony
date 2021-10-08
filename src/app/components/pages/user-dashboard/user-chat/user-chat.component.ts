@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -15,7 +16,7 @@ import { UserService } from 'src/app/user.service';
   templateUrl: './user-chat.component.html',
   styleUrls: ['./user-chat.component.scss'],
 })
-export class UserChatComponent implements OnInit {
+export class UserChatComponent implements OnInit,OnDestroy {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   mydetail: any;
@@ -45,6 +46,10 @@ export class UserChatComponent implements OnInit {
     //this.scrollToBottom();
 
     //this.refreshchat();
+  }
+
+  ngOnDestroy():void{
+
   }
 
   // ngAfterViewChecked() {

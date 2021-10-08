@@ -60,7 +60,7 @@
           <div *ngIf="changepass" class="modal-content rs-3">
             <span class="sub-title-rs"><span>Reset Password {{usermobile}}</span></span>
             <form [formGroup]="changepasswordform" (ngSubmit)="submitchnpass()" ngNativeValidate>
-              <div class="inputs flex-row justify-content-center mt-2">
+              <div class="flex-row justify-content-center mt-2">
 
                 <div class="form-group">
                   <label class="lb-ser">Set New password to Login <span style="color: red;">*</span></label>
@@ -68,7 +68,8 @@
                     <mat-label>Enter your password</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required
                       style="width: 100%; height: auto;">
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                      'visibility'}}</mat-icon>
                   </mat-form-field>
                 </div>
 
@@ -78,7 +79,8 @@
                     <mat-label>Enter your password</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'" formControlName="ConfirmPassword"
                       style="width: 100%; height: auto;" required>
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                      'visibility'}}</mat-icon>
                     <mat-error>Password Doesn't match</mat-error>
                   </mat-form-field>
                 </div>
