@@ -24,7 +24,6 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.viewDetailedProfile(this.id);
-
   }
   ngOnDestroy(): void {
     this.userdetails = '';

@@ -161,13 +161,13 @@
                   <div *ngIf="!Content.photo_privacy" class="listings-image" style="background-image: url({{Content.Photo1}}
                   );">
                     <img [src]="Content.Photo1" alt="image">
-                    <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a>
+                    <!-- <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
                     <a routerLink="/profile-detail/{{Content._id}}" class="link-btn"></a>
                   </div>
                   <div *ngIf="Content.photo_privacy" class="listings-image" style="background-image: url({{Content.Photo1}}
                   ); filter: blur(15px);">
                     <img [src]="Content.Photo1" alt="image">
-                    <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a>
+                    <!-- <a routerLink="/{{Content.bookmarkLink}}" class="bookmark-save"><i class="flaticon-heart"></i></a> -->
                     <a routerLink="/profile-detail/{{Content._id}}" class="link-btn"></a>
                   </div>
                 </div>
@@ -226,7 +226,7 @@
                           style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">Shortlist</p>
                       </li>
-                      <li *ngIf="Content.photo_privacy"><i (click)="sendphotoreq(Content._id)"
+                      <li *ngIf="Content?.photo_privacy"><i (click)="sendphotoreq(Content._id)"
                           class="bx bx-lock-open-alt" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
                         <p class="i_t">View Profile</p>
                       </li>

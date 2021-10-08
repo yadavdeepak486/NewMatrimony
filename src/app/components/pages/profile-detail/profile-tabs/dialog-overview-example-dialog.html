@@ -1,15 +1,30 @@
+<!-- <div style="padding: 20px; border: 1px solid#ccc;">
+  <h3 mat-dialog-title style="font-size: 20px; margin-bottom: 15px; color: #f00;">Warning:</h3>
+  <h5 style="font-size:16px; margin-bottom: 15px;"> Contact details viewing is a part of premium package </h5>
+  <div mat-dialog-content>
+    <p style="font-size: 14px; margin-bottom:20px;">Your Profile Viewing Balance will be
+      deducted <strong>[{{view_contact_bal}}/{{view_contact_total}}]</strong></p>
+  </div>
 
-<div style="padding: 20px; border: 1px solid#ccc;" >
-<h3 mat-dialog-title style="font-size: 20px; margin-bottom: 15px; color: #f00;">Warning:</h3>
-<h5 style="font-size:16px; margin-bottom: 15px;"> Contact details viewing is a part of premium package </h5>
-<div mat-dialog-content>
-  <p style="font-size: 14px; margin-bottom:20px;">Your Profile Viewing Balance will be deducted</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()" class="btn btn-danger">Cancel</button>
-  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Proceed</button> -->
-  <button mat-button cdkFocusInitial (click)="opennewDialog()" class="btn btn-primary"
-    style="margin-left: 5px;">Proceed</button>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" class="btn btn-danger">Cancel</button>
+     <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Proceed</button>
+    <button mat-button cdkFocusInitial (click)="opennewDialog()" class="btn btn-primary"
+      style="margin-left: 5px;">Proceed</button>
 
-</div>
-</div>
+  </div>
+</div> -->
+<mat-dialog-content>
+  <h4>
+    Warning:
+  </h4>
+
+  <p>
+    Your Profile Viewing Balance will be
+    deducted <strong>[{{view_contact_bal}}/{{view_contact_total}}]</strong>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" (click)="opennewDialog()" tabindex="1">Proceed</button>
+  <button mat-raised-button mat-dialog-close tabindex="-1" (click)="onNoClick()">Cancel</button>
+</mat-dialog-actions>

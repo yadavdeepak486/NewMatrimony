@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
@@ -42,7 +43,7 @@ export class AllMemberComponent implements OnInit {
     Manglik: new FormControl(''),
   });
 
-  constructor(public adminServie: AdminService) {}
+  constructor(public adminServie: AdminService,private dialog: MatDialog,) {}
 
   ngOnInit(): void {
     this.getallusers();
@@ -177,6 +178,7 @@ export class AllMemberComponent implements OnInit {
 
 
   regsearch() {
+    this.alluser = []
     this.loader= true;
     console.log(this.searchinput.value);
     this.adminServie.regsearch(this.searchinput.value).subscribe(
@@ -222,4 +224,73 @@ export class AllMemberComponent implements OnInit {
     this.advancesearchform.reset();
   }
 
+  deleteuser(id){
+    console.log(id)
+    this.adminServie.deleteuser(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getallusers()
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  openDialog(id,matriID) {
+    console.log(id,matriID)
+    const dialogRef = this.dialog.open(ConfirmationDialog,{
+      data:{
+        id: id,
+        matriID: matriID
+      }
+    });
+    console.log("Modal khul gya")
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.getallusers()
+      }
+    });
+  }
 }
+
+
+@Component({
+  selector: 'confirmation-dialog',
+  templateUrl: './confirmation-dialog.html',
+})
+export class ConfirmationDialog {
+  Matriid:any
+  id:any
+  constructor(
+    public newdialogRef: MatDialogRef<ConfirmationDialog>,
+    public newdialog: MatDialog,
+    public adminServie: AdminService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+if(data){
+  this.Matriid = data.matriID,
+  this.id = data.id
+}
+  }
+
+  onNoClick(): void {
+    console.log("Cancel")
+    this.newdialogRef.close();
+  }
+
+  onConfirmClick(): void {
+    this.newdialogRef.close(true);
+    this.adminServie.deleteuser(this.id).subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+}
+
+

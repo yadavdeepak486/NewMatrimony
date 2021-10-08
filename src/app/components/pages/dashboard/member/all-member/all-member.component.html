@@ -244,7 +244,9 @@
                           <tbody class="tb-1">
                             <tr>
                               <td>{{Content?.Gender}} ,{{Content?.Age}} Yrs</td>
-                              <td>Form:<span class="tb-s">{{Content?.City?.name}}</span></td>
+                              <td>Form:<span
+                                  class="tb-s">{{Content?.City?.name}},{{Content?.State?.name}},{{Content?.Country?.name}}</span>
+                              </td>
                             </tr>
                             <tr>
                               <td>{{Content?.Religion?.name}},{{Content?.Caste?.name}}</td>
@@ -253,7 +255,7 @@
                             <tr>
                               <td>{{Content?.Education?.name}}, {{Content?.Education?.shortname}}
                                 {{Content?.Education?.place}}</td>
-                              <td>Email:<span class="tb-s">{{Content?.Email}}</span></td>
+                              <td>Email:<span class="tb-s">{{Content?.ConfirmEmail}}</span></td>
                             </tr>
                             <tr>
                               <td>{{Content?.Employedin?.name}} Employee, {{Content?.Occupation?.name}}</td>
@@ -287,6 +289,9 @@
                         <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li> -->
                         <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li> -->
                         <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>
+                        <li><a style="cursor: pointer;" (click)="openDialog(Content._id,Content.MatriID)"
+                            class="lst-profile">Delete
+                            User</a> </li>
                         <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Chat</a> </li> -->
                       </ul>
                     </div>

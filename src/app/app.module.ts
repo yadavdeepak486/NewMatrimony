@@ -84,7 +84,7 @@ import { BulkMemberComponent } from './components/pages/dashboard/member/bulk-me
 import { DeletedMemberComponent } from './components/pages/dashboard/member/deleted-member/deleted-member.component';
 import { ReportedMemberComponent } from './components/pages/dashboard/member/reported-member/reported-member.component';
 import { StepperDemoComponent } from './components/pages/stepper-demo/stepper-demo.component';
-import { ProfileTabsComponent } from './components/pages/profile-detail/profile-tabs/profile-tabs.component';
+import { DialogOverviewExampleDialog, DialogViewContactDetails, ProfileTabsComponent } from './components/pages/profile-detail/profile-tabs/profile-tabs.component';
 import { SimilarProfileComponent } from './components/pages/profile-detail/similar-profile/similar-profile.component';
 import { ReligionsComponent } from './components/pages/dashboard/member/profile-attributes/religions/religions.component';
 import { CasteComponent } from './components/pages/dashboard/member/profile-attributes/caste/caste.component';
@@ -152,7 +152,7 @@ import { VerifyProfileComponent } from './components/pages/dashboard/verify-prof
 import { VerifyMemberComponent } from './components/pages/dashboard/member/verify-member/verify-member.component';
 import { UserProfileOneComponent } from './components/pages/my-profile/user-profile-one.component';
 import { UserProfileTwoComponent } from './components/pages/complete-pro/user-profile-two.component';
-import { AllMemberComponent } from './components/pages/dashboard/member/all-member/all-member.component';
+import { AllMemberComponent, ConfirmationDialog } from './components/pages/dashboard/member/all-member/all-member.component';
 import { FeaturedMemberComponent } from './components/pages/dashboard/member/featured-member/featured-member.component';
 import { PremuimPlanComponent } from './components/pages/premuim-plan/premuim-plan.component';
 
@@ -350,6 +350,9 @@ import { EditProfileComponent } from './components/pages/dashboard/edit-profile/
     TermsandconditionTwoComponent,
     DeliveryPolicyComponent,
     EditProfileComponent,
+    ConfirmationDialog,
+    DialogOverviewExampleDialog,
+    DialogViewContactDetails
   ],
   imports: [
     BrowserModule,
@@ -371,5 +374,6 @@ import { EditProfileComponent } from './components/pages/dashboard/edit-profile/
   ],
   providers: [UserService, AdminService, HttpClientModule],
   bootstrap: [AppComponent],
+  entryComponents: [ConfirmationDialog,DialogOverviewExampleDialog,DialogViewContactDetails],
 })
 export class AppModule {}

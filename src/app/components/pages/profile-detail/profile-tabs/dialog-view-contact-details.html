@@ -1,38 +1,43 @@
-<div id="collapsefour" class="collapse st-block" aria-labelledby="headingfour" data-parent="#accordion">
-  <div class="card-body bd-n">
-    <div class="tab-bx1">
-      <table class="tb-text">
-        <tbody class="tb-text">
-          <tr class="wd">
-            <td class="wd1">Mobile No:</td>
-            <td class="wd1">{{userdetails?.mobileno || "not mentioned"}}</td>
-          </tr>
-          <tr class="wd">
-            <td class="wd1">Alternate Mobile No :</td>
-            <td class="wd1">{{userdetails?.alternate || "not mentioned"}}</td>
-          </tr>
-          <tr class="wd">
-            <td class="wd1">Whatsapp No:</td>
-            <td class="wd1">{{userdetails?.whatsapp || "not mentioned"}}</td>
-          </tr>
-          <tr class="wd">
-            <td class="wd1">Email Address:</td>
-            <td class="wd1">{{userdetails?.email || "No"}}</td>
-          </tr>
-          <tr class="wd">
-            <td class="wd1">Living Town:</td>
-            <td class="wd1">{{userdetails?.livingtown || "not mentioned"}}</td>
-          </tr>
-          <tr class="wd">
-            <td class="wd1">Home/Native place:</td>
-            <td class="wd1">{{userdetails?.nativeplace || "not mentioned"}}</td>
-          </tr>
-
-        </tbody>
-      </table>
+<mat-dialog-content>
+  <div id="collapsefour" class="collapse st-block" aria-labelledby="headingfour" data-parent="#accordion">
+    <div class="card-body bd-n">
+      <div class="tab-bx1">
+        <table class="tb-text">
+          <tbody class="tb-text">
+            <tr class="wd">
+              <td class="wd1">Mobile No:</td>
+              <td class="wd1">{{secretdetail?.Mobile || "not mentioned"}}</td>
+            </tr>
+            <tr class="wd">
+              <td class="wd1">Alternate Mobile No :</td>
+              <td class="wd1">{{secretdetail?.Phone || "not mentioned"}}</td>
+            </tr>
+            <tr class="wd">
+              <td class="wd1">Whatsapp No:</td>
+              <td class="wd1">{{secretdetail?.whatsapp_phone || "not mentioned"}}</td>
+            </tr>
+            <tr class="wd">
+              <td class="wd1">Email Address:</td>
+              <td class="wd1">{{secretdetail?.ConfirmEmail || "No"}}</td>
+            </tr>
+            <tr class="wd">
+              <td class="wd1">Living Town:</td>
+              <td class="wd1">{{secretdetail?.HomeTown || "not "+
+                "mentioned"}},{{secretdetail?.LCity?.name}},{{secretdetail?.LState?.name}},{{secretdetail?.LCountry?.name}}
+              </td>
+            </tr>
+            <tr class="wd">
+              <td class="wd1">Home/Native place:</td>
+              <td class="wd1">{{secretdetail?.nativeplace || "not "+
+                "mentioned"}},{{secretdetail?.City?.name}},{{secretdetail?.State?.name}},{{secretdetail?.Country?.name}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()" class="btn btn-primary">Done</button>
-</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" class="btn btn-primary">Save</button>
+</mat-dialog-actions>
