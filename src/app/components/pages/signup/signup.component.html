@@ -159,22 +159,31 @@
                   <div class="form-group">
                     <label class="lb-ser">Mobile Number <span style="color: red;">*</span><small>( We will send
                         verification code on this )</small></label>
-                    <div class="input-group">
-                      <span class="custom-dropdown">
-                        <select class="form-control" style="display: block;">
-                          <option [value]="country._id" *ngFor="let country of allcountry">
-                            +{{country?.callingCodes}}
-                          </option>
-                          <option value="610bb1c7b9e2fb19cc060ccc" selected>+91</option>
-                        </select></span>
 
-                      <!-- <img [src]="country?.flag" />
-                       -->
-                      <input class="form-control cd-n" type="number" min="1000000000" max="9999999999" maxlength="10"
-                        placeholder="Number" formControlName="Mobile" required>
+
+                    <div class="input-group" style="flex-wrap: nowrap">
+                      <span class="custom-dropdown">
+
+                        <mat-form-field appearance="outline" class="mb-w">
+                          <mat-select>
+
+                            <mat-option [value]="country.dialCode" *ngFor="let country of countriesjson">
+                              ({{country.dialCode}}) {{country.name}}
+                              <img with="4" height="4" [src]="country.flag">
+                            </mat-option>
+
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="mb-w">
+                          <input matInput type="number" min="1000000000" max="9999999999" maxlength="10"
+                            placeholder="Number" formControlName="Mobile" required>
+                        </mat-form-field>
+                      </span>
                     </div>
                   </div>
                 </div>
+
+
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="lb-ser">Create your password to Login <span style="color: red;">*</span></label>
