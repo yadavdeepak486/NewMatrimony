@@ -185,6 +185,7 @@ import { DeliveryPolicyComponent } from './components/pages/delivery-policy/deli
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { EditProfileComponent } from './components/pages/dashboard/edit-profile/edit-profile.component';
 import { AdminLoginComponent } from './components/pages/dashboard/admin-login/admin-login.component';
+import { SuccessStoryComponent } from './components/pages/success-story/success-story.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -354,7 +355,8 @@ import { AdminLoginComponent } from './components/pages/dashboard/admin-login/ad
     ConfirmationDialog,
     DialogOverviewExampleDialog,
     DialogViewContactDetails,
-    AdminLoginComponent
+    AdminLoginComponent,
+    SuccessStoryComponent,
   ],
   imports: [
     BrowserModule,

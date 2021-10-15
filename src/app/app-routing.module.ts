@@ -140,6 +140,7 @@ import { TermsandconditionTwoComponent } from './components/pages/termsandcondit
 import { DeliveryPolicyComponent } from './components/pages/delivery-policy/delivery-policy.component';
 import { EditProfileComponent } from './components/pages/dashboard/edit-profile/edit-profile.component';
 import { AdminLoginComponent } from './components/pages/dashboard/admin-login/admin-login.component';
+import { SuccessStoryComponent } from './components/pages/success-story/success-story.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -376,6 +377,7 @@ const routes: Routes = [
 
   // verify-profile
   { path: 'verify-profile/:id', component: VerifyProfileComponent },
+  { path: 'success-story', component: SuccessStoryComponent },
 
   // premium-plan
   { path: 'premium-plan', component: PremuimPlanComponent },
