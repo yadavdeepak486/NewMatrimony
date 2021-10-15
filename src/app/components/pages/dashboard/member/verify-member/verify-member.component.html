@@ -3,146 +3,320 @@
 <!-- Start Main Content Wrapper Area -->
 <div class="main-content d-flex flex-column">
 
-    <app-dashboard-navbar></app-dashboard-navbar>
+  <app-dashboard-navbar></app-dashboard-navbar>
 
-    <!-- Breadcrumb Area -->
-    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-        <h1>{{Content.title}}</h1>
-        <ol class="breadcrumb">
-            <li class="item"><a routerLink="/">Home</a></li>
-            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
-            <li class="item">{{Content.title}}</li>
-        </ol>
-    </div>
-    <!-- End Breadcrumb Area -->
+  <!-- Breadcrumb Area -->
+  <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+    <h1>{{Content.title}}</h1>
+    <ol class="breadcrumb">
+      <li class="item"><a routerLink="/dashboard">Home</a></li>
+      <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+      <li class="item">{{Content.title}} <strong>({{alluser?.length}})</strong></li>
+    </ol>
+  </div>
+  <!-- End Breadcrumb Area -->
 
-    <!-- Start -->
-    <div class="row">
-        <div class="col-12">
-             <!-- Start Listings Area -->
-<section class="listings-area ">
-    <div class="container">
-        <div class="listings-grid-sorting row align-items-center">
-            <!-- <div class="col-lg-5 col-md-4 result-count">
-                <input type="search" class="form-control" placeholder="search listing..">
-            </div> -->
+  <!-- Start -->
+  <div class="row">
+    <div class="col-12">
+      <!-- Start Listings Area -->
+      <section class="listings-area ">
+        <div class="container">
+          <!-- <div class="listings-grid-sorting row align-items-center">
 
             <div class="col-lg-12 col-md-12 ">
-                <form>
-                    <div class="row m-0 align-items-center">
-                        <div class="col-lg-5 col-md-12 p-0">
-                            <div class="form-group">
-                                <label><i class="flaticon-search"></i></label>
-                                <input type="text" class="form-control" placeholder="Search member ID/Name/Mb/Email">
-                            </div>
-                        </div>
-        
-                        <!-- <div class="col-lg-3 col-md-6 p-0">
-                            <div class="form-group">
-                                <label><i class="flaticon-pin"></i></label>
-                                <input type="text" class="form-control" placeholder="Location">
-                            </div>
-                        </div> -->
-        
-                        <div class="col-lg-5 col-md-6 p-0">
-                            <div class="form-group category-select">
-                                <label><i class="flaticon-category"></i></label>
-                                <ngx-select-dropdown (searchChange)="searchChange($event)"  class="form-control" name="category-select" tabindex="0"
-                                    [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options">
-                                </ngx-select-dropdown>
-                            </div>
-                        </div>
-        
-                        <div class="col-lg-2 col-md-12 p-0">
-                            <div class="submit-btn">
-                                <button type="submit">Search Now</button>
-                            </div>
-                        </div>
+              <form [formGroup]="searchinput" (ngSubmit)="regsearch()"
+                class="st-form ng-untouched ng-pristine ng-valid">
+                <div class="row m-0 align-items-center">
+                  <div class="col-lg-7 col-md-12 p-0">
+                    <div class="form-group">
+                      <label><i class="flaticon-search"></i></label>
+                      <input type="text" class="form-control stint" placeholder="Search ID/Name/Mobile/Email"
+                        formControlName="oneinput">
                     </div>
-                </form>
-            </div>
-        </div>
+                  </div>
 
-        <div class="row">
-            <div class="col-lg-12 col-md-12"
-                *ngFor="let Content of singleListingsItem | paginate: { itemsPerPage: 4, currentPage: verticalListings }">
-                <div class="single-listings-item">
-                    <div class="row m-0">
-                        <div class="col-lg-4 col-md-4 p-0">
-                            <div class="listings-image" style="background-image: url({{Content.mainImg}});">
-                                <img [src]="Content.mainImg" alt="image">
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 p-0">
-                            <div class="listings-content">
-                                <span class="status {{Content.extraClass}}">
-                                    {{Content.online}}</span>
-                                <h3><a routerLink="/{{Content.detailsLink}}">{{Content.title}}</a>
-                                    <span  class="sp-1">(01111110)</span>
-                                    <span  class="sp-2">| Unmarried |</span>
-                                    <span  class="sp-3">Status : Active</span>
-                                </h3>
-                                <div class="detail-text">
-                                    <table class="tb-1">
-                                        <tbody class="tb-1">
-                                            <tr>
-                                                <td>Feamale ,24 Yrs</td>
-                                                <td>Form:<span class="tb-s">Indore</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hindu,Rajput</td>
-                                                <td>Mb:<span class="tb-s">16000001600</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>B.Tech, NIT Indore</td>
-                                                <td>Assigned To:<span class="tb-s">Diksha Verma</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Govt. Employee, Manager</td>
-                                                <td>RM:<span class="tb-s">Diksha Verma</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p class="l-mark">Last Remark: <span  class="txt-small"> Called user and updated profile, also asked user to upload ID proof for better visibilty.</span></p>
-                                <ul class="listings-meta pd-tr">
-                                    <li  class="lst-txt">Reg. Date: <span class="spn-lst">29/7/2021,</span></li>
-                                    <li  class="lst-txt">Last Login: <span class="spn-lst">29/7/2021,</span></li>
-                                    <li  class="lst-txt">Profile View: <span class="spn-lst">345,</span></li>
-                                     <li  class="lst-txt">Signup Platform: <span class="spn-lst">Android,</span></li>
-                                    <li  class="lst-txt">Plan: <span class="spn-lst">Silver</span></li>
-                                </ul>
-                                <ul class="listings-meta pd-r">
-                                    <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Profile View</a></li>
-                                    <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Edit Profile</a> </li>
-                                    <li ><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Manage Photo</a> </li>
-                                    <li ><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li>
-                                    <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li>
-                                    <li ><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>
-                                    <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Chat</a> </li>
-                                </ul>
-                            </div>
-                        </div>
+                  <div class="col-lg-2 col-md-12 p-0">
+                    <div class="submit-btn">
+                      <button type="submit">Search Now</button>
                     </div>
+                  </div>
+
+                  <div class="col-lg-3 ">
+                    <button class="btn btn-primary st-searchbtn" data-toggle="collapse" data-target="#adsearch"
+                      style="float: right;" type="button">Advanced Search</button>
+                  </div>
                 </div>
+              </form>
+
+            </div>
+            <div class="col-lg-12">
+              <div id="adsearch" class="collapse">
+                <form [formGroup]="advancesearchform" (ngSubmit)="advancesearch()" class="ad-srch">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender">
+                          <mat-option *ngFor="let gender of genderList" [value]="gender">{{gender}} </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Marital status</mat-label>
+                        <mat-select multiple formControlName="Maritalstatus">
+                          <mat-option *ngFor="let maritalstatus of allmaritalstatus" [value]="maritalstatus._id">
+                            {{maritalstatus?.name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <mat-form-field appearance="outline" style="width: 100%;">
+                            <mat-label>Min Age</mat-label>
+                            <input matInput placeholder="20" formControlName="minage">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                          <mat-form-field appearance="outline" style="width: 100%;">
+                            <mat-label>Max Age</mat-label>
+                            <input matInput placeholder="50" formControlName="maxage">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Living City</mat-label>
+                        <mat-select multiple formControlName="City">
+                          <mat-option *ngFor="let city of allcity" [value]="city._id">{{city?.name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Relationship Manager</mat-label>
+                        <mat-select multiple formControlName="rmanager">
+                          <mat-option *ngFor="let rmanager of allrmanagers" [value]="rmanager._id">
+                            {{rmanager?.firstname}} | {{rmanager?.Mobile}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Religion</mat-label>
+                        <mat-select multiple formControlName="Religion">
+                          <mat-option *ngFor="let religion of allreligion" [value]="religion._id">
+                            {{religion?.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Caste</mat-label>
+                        <mat-select multiple formControlName="Caste">
+                          <mat-option *ngFor="let caste of allcaste" [value]="caste._id">{{caste?.name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Membership Plan</mat-label>
+                        <mat-select multiple formControlName="memtype">
+                          <mat-option *ngFor="let plan of plans" [value]="plan._id">{{plan?.plantitle}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Expired Membership</mat-label>
+                        <mat-select multiple formControlName="Status">
+                          <mat-option value="Paid">Paid</mat-option>
+                          <mat-option value="Active">Active</mat-option>
+                          <mat-option value="Inactive">Inactive</mat-option>
+                          <mat-option value="Expired">Expired</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Education</mat-label>
+                        <mat-select multiple formControlName="Education">
+                          <mat-option *ngFor="let education of alleducation" [value]="education._id">{{education?.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Employedin</mat-label>
+                        <mat-select multiple formControlName="Employedin">
+                          <mat-option *ngFor="let employedin of allemployedin" [value]="employedin._id">
+                            {{employedin?.name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Special case</mat-label>
+                        <mat-select multiple formControlName="spe_cases">
+                          <mat-option value="Any">Any</mat-option>
+                          <mat-option value="Normal">Normal</mat-option>
+                          <mat-option value="Physically Challenged-Right Arm">Physically Challenged-Right Arm
+                          </mat-option>
+                          <mat-option value="Physically Challenged-Left Arm">Physically Challenged-Left Arm</mat-option>
+                          <mat-option value="Physically Challenged-Both Arm">Physically Challenged-Both Arm</mat-option>
+                          <mat-option value="Physically Challenged-Both Arm">Physically Challenged-Both Arm</mat-option>
+                          <mat-option value="Physically Challenged-Right Leg">Physically Challenged-Right Leg
+                          </mat-option>
+                          <mat-option value="Physically Challenged-Left Leg">Physically Challenged-Left Leg</mat-option>
+                          <mat-option value="Physically Challenged-Both Leg">Physically Challenged-Both Leg</mat-option>
+                          <mat-option value="Physically Challenged Deaff">Physically Challenged Deaf</mat-option>
+                          <mat-option value="Physically Challenged Dumb">Physically Challenged Dumb</mat-option>
+                          <mat-option value="Physically Challenged Deaf and Dumb">Physically Challenged Deaf and Dumb
+                          </mat-option>
+                          <mat-option value="Physically Challenged Mentaly
+                          Challenged">Physically Challenged Mentaly
+                            Challenged</mat-option>
+                          <mat-option value="Physically Challenged Other">Physically Challenged Other</mat-option>
+                          <mat-option value="HIV Positive">HIV Positive</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Manglik</mat-label>
+                        <mat-select formControlName="Manglik">
+                          <mat-option *ngFor="let manglik of manglikList" [value]="manglik">{{manglik}} </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-12">
+                      <button class="btn btn-primary btn-cncl" type="submit">Search</button>
+                      <button class="btn btn-primary btn-cncl" type="button"
+                        (click)="advancesearchform.reset()">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="row">
+            <div class="spinner-box" *ngIf="loader">
+              <div class="pulse-container">
+                <div class="pulse-bubble pulse-bubble-1"></div>
+                <div class="pulse-bubble pulse-bubble-2"></div>
+                <div class="pulse-bubble pulse-bubble-3"></div>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12"
+              *ngFor="let Content of alluser | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+              <div class="single-listings-item">
+                <div class="row m-0">
+                  <div class="col-lg-4 col-md-4 p-0">
+                    <div *ngIf="!Content.photo_privacy" class="listings-image"
+                      style="background-image: url({{Content?.Photo1}});">
+                      <img [src]="Content.mainImg" alt="image">
+                    </div>
+                    <div *ngIf="Content.photo_privacy" class="listings-image"
+                      style="background-image: url({{Content?.Photo1}}); filter: blur(15px);">
+                      <img [src]="Content.mainImg" alt="image">
+                    </div>
+                  </div>
+                  <div class="col-lg-8 col-md-8 p-0">
+                    <div class="listings-content">
+                      <span [ngClass]=" Content?.OnlineUsers == 1 ? 'status' : 'status status-close'">
+                        {{Content?.OnlineUsers == 1 ? 'Online Now' : 'Offline'}}</span>
+                      <h3><a routerLink="/{{Content?.detailsLink}}">{{Content?.Name}} {{Content?.firstName}}
+                          {{Content?.LastName}}</a>
+                        <span class="sp-1">{{Content?.MatriID}} |</span>
+                        <span class="sp-1"></span>
+                        <span class="sp-2">| {{Content?.Maritalstatus?.name}} |</span>
+                        <span class="sp-3">Status : {{Content?.Status}}</span>
+                      </h3>
+                      <div class="detail-text">
+                        <table class="tb-1">
+                          <tbody class="tb-1">
+                            <tr>
+                              <td>{{Content?.Gender}} ,{{Content?.Age}} Yrs</td>
+                              <td>Form:<span
+                                  class="tb-s">{{Content?.City?.name}},{{Content?.State?.name}},{{Content?.Country?.name}}</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>{{Content?.Religion?.name}},{{Content?.Caste?.name}}</td>
+                              <td>Mobile:<span class="tb-s">{{Content?.Mobile}}</span></td>
+                            </tr>
+                            <tr>
+                              <td>{{Content?.Education?.name}}, {{Content?.Education?.shortname}}
+                                {{Content?.Education?.place}}</td>
+                              <td>Email:<span class="tb-s">{{Content?.ConfirmEmail}}</span></td>
+                            </tr>
+                            <tr>
+                              <td>{{Content?.Employedin?.name}} Employee, {{Content?.Occupation?.name}}</td>
+                              <td>Assigned To:<span
+                                  class="tb-s">{{Content?.Assign?.firstname}}{{Content?.Assign?.lastname}}</span></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td>RM:<span class="tb-s">{{Content?.account_manager?.firstname}}
+                                  {{Content?.account_manager?.lastname}}</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="l-mark">Last Remark: <span class="txt-small"> {{Content?.last_remark }}</span></p>
+                      <ul class="listings-meta pd-tr">
+                        <li class="lst-txt">Reg. Date: <span class="spn-lst">{{Content?.createdAt | date
+                            :'short'}},</span></li>
+                        <li class="lst-txt">Last Login: <span class="spn-lst">{{Content?.Lastlogin | date
+                            :'short'}},{{Content?.IP}}</span></li>
+                        <li class="lst-txt">Profile View: <span class="spn-lst">"",</span></li>
+                        <li class="lst-txt">Signup Platform: <span
+                            class="spn-lst">{{Content?.Ref}},{{Content?.IP}}</span></li>
+                        <li class="lst-txt">Plan: <span class="spn-lst">{{Content?.membership_plan_title}}</span></li>
+                      </ul>
+                      <ul class="listings-meta pd-r">
+                        <li><a routerLink="/profile-detail/{{Content?._id}}" class="lst-profile">Profile View</a></li>
+                        <li><a routerLink="/edit-profile/{{Content?._id}}" class="lst-profile">Edit
+                            Profile</a> </li>
+                        <li><a routerLink="/verify-profile/{{Content?._id}}" class="lst-profile">Profile Verify
+                          </a> </li>
+                        <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li> -->
+                        <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li> -->
+                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>
+                        <li><a style="cursor: pointer;" (click)="openDialog(Content._id,Content.MatriID)"
+                            class="lst-profile">Delete
+                            User</a> </li>
+                        <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Chat</a> </li> -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="col-lg-12 col-md-12">
-                <div class="pagination-area text-center">
-                    <pagination-controls (pageChange)="verticalListings = $event"></pagination-controls>
-                </div>
+              <div class="pagination-area text-center">
+                <pagination-controls (pageChange)="verticalListings = $event"></pagination-controls>
+              </div>
             </div>
+          </div>
         </div>
+      </section>
+      <!-- End Listings Area -->
     </div>
-</section>
-<!-- End Listings Area -->
-        </div>
-    </div>
-    <!-- End -->
+  </div>
+  <!-- End -->
 
-    <div class="flex-grow-1"></div>
+  <div class="flex-grow-1"></div>
 
-    <app-copyrights></app-copyrights>
+  <app-copyrights></app-copyrights>
 
 </div>
 <!-- End Main Content Wrapper Area -->

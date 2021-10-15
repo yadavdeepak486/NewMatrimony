@@ -77,7 +77,8 @@
                     <p class="mb-3 email">{{mydetail?.ConfirmEmail}}</p>
                   </div>
                   <div class="pft-st mb-4">
-                    <mat-slide-toggle>Online</mat-slide-toggle>
+                    <mat-slide-toggle [checked]="useDefault" (change)="toggle($event)">{{useDefault?"Online":"Offline"}}
+                    </mat-slide-toggle>
                   </div>
                 </div>
 

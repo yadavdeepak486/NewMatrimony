@@ -13,11 +13,21 @@
           <div class="avatar mr-3">
             <img [src]="mydetail?.Photo1 || path1" width="50" height="50" style="border-radius: 50%;" alt="image">
           </div>
+          <div>
+            <h6>{{mydetail?.Name || mydetail?.firstName}} {{mydetail?.Name || mydetail?.LastName}}</h6>
+            <!-- <p>{{mydetail?.ConfirmEmail}}</p> -->
+            <div class="pft-st mb-4">
+              <mat-slide-toggle [checked]="useDefault" (change)="toggle($event)">{{useDefault?"Online":"Offline"}}
+              </mat-slide-toggle>
+            </div>
+          </div>
 
-          <form class="form-group position-relative mb-0">
+
+
+          <!-- <form class="form-group position-relative mb-0">
             <label><i class='bx bx-search'></i></label>
             <input type="text" class="form-control" placeholder="Search here...">
-          </form>
+          </form> -->
         </div>
 
         <div class="sidebar-content d-flex chat-sidebar" data-simplebar>
@@ -98,7 +108,7 @@
               </div>
             </div>
             <!-- #scrollMe [scrollTop]="scrollMe.scrollHeight" -->
-            <div class="chat-container" data-simplebar>
+            <div class="chat-container" #scrollMe data-simplebar>
               <div *ngFor="let chat of chats" class="chat-content">
                 <div *ngIf="mydetail._id == chat.msg_sender._id" class="chat">
                   <div class="chat-avatar">

@@ -1,0 +1,96 @@
+<section class="bg-img">
+  <div class="container">
+    <div class="row">
+      <div class="offset-lg-7 col-lg-5">
+        <div class="card pd-5 rs-1">
+          <div *ngIf="!forgotpasswordtoggle && !verifyotp && !changepass" class="vesax-login">
+            <span class="sub-title-rs"><span>Admin Login</span></span>
+            <form [formGroup]="signin" (ngSubmit)="adminlogin()">
+              <div class="form-group">
+                <input type="text" placeholder="Number/Email" class="form-control" formControlName="Mobile" />
+              </div>
+              <div class="form-group">
+                <input type="password" placeholder="Enter Password" class="form-control" formControlName="password" />
+              </div>
+              <span class="dont-account ft-text"><a (click)="forgetpassword()" style="cursor: pointer;">Forgot
+                  Password?</a></span>
+              <button type="submit" class="btnln">Login Now</button>
+            </form>
+            <span class="dont-account">Don't have an account? <a href="/" style="color: blue;">Register
+                Now</a></span>
+          </div>
+          <div *ngIf="forgotpasswordtoggle" class="modal-content rs-3">
+            <span class="sub-title-rs"><span>Forgot Password</span></span>
+            <form [formGroup]="forgotpasswordform" (ngSubmit)="finduserandsendotp()">
+              <label>Enter Mobile/Email</label>
+              <div class="form-group">
+                <input type="text" placeholder="Mobile/Email" class="form-control" formControlName="Mobile" />
+              </div>
+              <div class="btn-rv">
+                <button type="submit" class="btn-ft-set">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="verifyotp" class="modal-content rs-3">
+            <span class="sub-title-rs"><span>Please check the otp sent to your
+                Device {{usermobile}}</span></span>
+            <form [formGroup]="verifyotpform" (ngSubmit)="verifyotpsub()" ngNativeValidate>
+              <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+                <input #digitone style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
+                  type="text" id="input1" formControlName="input1" (keyup)="onDigitInput($event)" maxlength="1"
+                  required />
+                <input #digittwo style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
+                  (keyup)="onDigitInput($event)" type="text" id="input2" formControlName="input2" maxlength="1"
+                  required />
+                <input #digitthree style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
+                  (keyup)="onDigitInput($event)" type="text" id="input3" formControlName="input3" maxlength="1"
+                  required />
+                <input #digitfour style="border: 1px solid #d2d1d3f0;" class="m-2 text-center form-control rounded"
+                  (keyup)="onDigitInput($event)" type="text" id="input4" formControlName="input4" maxlength="1"
+                  required />
+
+              </div>
+              <div class="btn-rv text-center">
+                <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Verify</a></span></button>
+              </div>
+            </form>
+          </div>
+
+          <div *ngIf="changepass" class="modal-content rs-3">
+            <span class="sub-title-rs"><span>Reset Password {{usermobile}}</span></span>
+            <form [formGroup]="changepasswordform" (ngSubmit)="submitchnpass()" ngNativeValidate>
+              <div class="flex-row justify-content-center mt-2">
+
+                <div class="form-group">
+                  <label class="lb-ser">Set New password to Login <span style="color: red;">*</span></label>
+                  <mat-form-field appearance="outline" class="mb-w">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required
+                      style="width: 100%; height: auto;">
+                    <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                      'visibility'}}</mat-icon>
+                  </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                  <label class="lb-ser">Re-Enter Password <span style="color: red;">*</span></label>
+                  <mat-form-field appearance="outline" class="mb-w">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="ConfirmPassword"
+                      style="width: 100%; height: auto;" required>
+                    <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :
+                      'visibility'}}</mat-icon>
+                    <mat-error>Password Doesn't match</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="btn-rv">
+                <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Submit</a></span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

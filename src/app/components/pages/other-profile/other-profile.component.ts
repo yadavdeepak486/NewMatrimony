@@ -88,8 +88,8 @@ export class OtherProfileComponent implements OnInit {
   editbasicinformation = new FormGroup({
     firstName: new FormControl(''),
     LastName: new FormControl(''),
-    Gender: new FormControl(''),
-    DOB: new FormControl(''),
+    Gender: new FormControl({value: '',disabled:true}),
+    DOB: new FormControl({value: '',disabled:true}),
     Maritalstatus: new FormControl(''),
     Language: new FormControl(''),
     Religion: new FormControl(''),
@@ -97,7 +97,7 @@ export class OtherProfileComponent implements OnInit {
     PSubcaste: new FormControl(''),
     MSubcaste: new FormControl(''),
     NoOfChild: new FormControl(''),
-    childrenlivingstatus: new FormControl(''),
+    childLivingWith: new FormControl(''),
     TOB: new FormControl(''),
   });
 
@@ -634,8 +634,8 @@ export class OtherProfileComponent implements OnInit {
         PSubcaste: this.mydetail.PSubcaste ? this.mydetail.PSubcaste : null,
         MSubcaste: this.mydetail.MSubcaste ? this.mydetail.MSubcaste : null,
         NoOfChild: this.mydetail.NoOfChild ? this.mydetail.NoOfChild : null,
-        childrenlivingstatus: this.mydetail.childrenlivingstatus
-          ? this.mydetail.childrenlivingstatus
+        childLivingWith: this.mydetail.childLivingWith
+          ? this.mydetail.childLivingWith
           : null,
         TOB: this.mydetail.TOB ? this.mydetail.TOB : null,
       });
@@ -1170,6 +1170,7 @@ export class OtherProfileComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.getallfollowup();
+        this.followupform.reset()
       },
       (error) => {
         console.log(error);

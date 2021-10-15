@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
   userauth = false;
   loginedinuserid;
@@ -97,7 +97,7 @@ export class UserService {
         headers: header,
       }
     );
-
+      console.log(req)
     return this.http.request(req);
   }
 
@@ -423,6 +423,9 @@ export class UserService {
     });
   }
 
+  sendmail(data,id) {
+    return this.http.post(`${this.backendurl}/user/sendmail/${id}`, data);
+  }
 
 
 }

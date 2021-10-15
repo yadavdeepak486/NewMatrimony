@@ -9,8 +9,66 @@
             <p>We request you to upload three clear photographs of bride/groom, You may choose in Privacy Setting whom
               you wish to display them</p>
           </div>
+          <form class="col-lg-12 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1();">
+            <div>
+              <img [src]="croppedImage1 || filePath1 " class="img-fixed" />
+              <div *ngIf="!readyupload1" class="file a-btn">
+                Upload profile Photo 1
+                <input type="file" (change)="imagePreview1($event);" name="file" class="input-one" />
+              </div>
+              <button *ngIf="readyupload1" class="btn btn-success mt-2" type="submit">Upload</button>
+              <button *ngIf="readyupload1" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
+                (click)="cancelupload1()">Cancel</button>
+              <p class="bt-tetx"></p>
+            </div>
+          </form>
+          <form class="col-lg-6 text-center" [formGroup]="imageupload2" (ngSubmit)="uploadimage2()">
+            <div>
+              <img [src]="croppedImage2 || filePath2 " class="img-fixed" />
+              <div *ngIf="!readyupload2" class="file a-btn">
+                Upload profile Photo 2
+                <input (change)="imagePreview2($event);" type="file" name="file" class="input-one" />
+              </div>
+              <button *ngIf="readyupload2" class="btn btn-success mt-2" type="submit">Upload</button>
+              <button *ngIf="readyupload2" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
+                (click)="cancelupload2()">Cancel</button>
+              <p class="bt-tetx"></p>
+            </div>
+          </form>
+          <form class="col-lg-6 text-center" [formGroup]="imageupload3" (ngSubmit)="uploadimage3()">
+            <div>
+              <img [src]="croppedImage3 || filePath3 " class="img-fixed" />
+              <div *ngIf="!readyupload3" class="file a-btn">
+                Upload profile Photo 3
+                <input (change)="imagePreview3($event);" type="file" name="file" class="input-one" />
+              </div>
+              <button *ngIf="readyupload3" class="btn btn-success mt-2" type="submit">Upload</button>
+              <button *ngIf="readyupload3" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
+                (click)="cancelupload3()">Cancel</button>
+              <p class="bt-tetx"></p>
+            </div>
+          </form>
+          <div *ngIf="cropper1">
+            <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent1" [maintainAspectRatio]="true"
+              [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped1($event)"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+          </div>
+          <div *ngIf="cropper2">
+            <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent2" [maintainAspectRatio]="true"
+              [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped2($event)"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+          </div>
+          <div *ngIf="cropper3">
+            <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent3" [maintainAspectRatio]="true"
+              [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped3($event)"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+          </div>
+          <div class="btn-box">
+            <button type="button" class="btnrg" (click)="movetouserhome()">
+              LETS START</button>
+          </div>
 
-          <form [formGroup]="photo1form" (ngSubmit)="submitphotos()" ngNativeValidate>
+          <!-- <form [formGroup]="photo1form" (ngSubmit)="submitphotos()" ngNativeValidate>
             <div class="row">
               <div class="col-lg-12">
                 <div class="img-box1">
@@ -27,7 +85,7 @@
                   ">
                     <input #photo1 type="file" accept="image/*" name="Photo1" (change)="imagePreview1($event)"
                       required />
-                    <!-- <i class='bx bx-camera'></i> -->
+
                     <p style="background-color: #0a82bb;
                         color: #ffff;
                         margin-top: 4px;
@@ -60,7 +118,7 @@
                   ">
                     <input #photo1 type="file" accept="image/*" name="Photo1" (change)="imagePreview2($event)"
                       required />
-                    <!-- <i class='bx bx-camera'></i> -->
+
                     <p style="background-color: #0a82bb;
                         color: #ffff;
                         margin-top: 4px;
@@ -92,7 +150,7 @@
                   ">
                     <input #photo1 type="file" accept="image/*" name="Photo1" (change)="imagePreview3($event)"
                       required />
-                    <!-- <i class='bx bx-camera'></i> -->
+
                     <p style="background-color: #0a82bb;
                         color: #ffff;
                         margin-top: 4px;
@@ -115,7 +173,7 @@
                   LETS START</button>
               </div>
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
@@ -7,15 +8,19 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./verify-member.component.scss']
 })
 export class VerifyMemberComponent implements OnInit {
+  alluser: any;
+  loader:boolean= true;
 
-  constructor(public adminServie: AdminService) { }
 
- 
+  constructor(public adminServie: AdminService,private dialog: MatDialog,) { }
+
+
   ngOnInit(): void {
-    this.resetOption = [this.options[0]]; 
-   
+    this.resetOption = [this.options[0]];
+    this.getuserstoverify();
+
   }
-  
+
   pageTitleContent = [
     {
         title: 'Find Popular Places'
@@ -43,7 +48,7 @@ options = [
     {
         name: "lorem",
     }
-    
+
 ];
 searchChange($event) {
     console.log($event);
@@ -65,7 +70,7 @@ options2 = [
     {
         name: "Latest",
     }
-    
+
 ];
 // Distance Select
 options3 = [
@@ -90,18 +95,18 @@ options3 = [
 singleListingsItem = [
     {
         mainImg: 'assets/img/user1.png',
-      
+
         category: 'Restaurant',
         location: 'New York, USA',
         title: 'Himanshi Sharma',
         online: 'Online',
         detailsLink: '',
         extraClass: 'status-open',
-        
+
     },
     {
       mainImg: 'assets/img/user1.png',
-      
+
       category: 'Restaurant',
       location: 'New York, USA',
       title: 'Himanshi Sharma',
@@ -111,7 +116,7 @@ singleListingsItem = [
     },
     {
       mainImg: 'assets/img/user1.png',
-      
+
       category: 'Restaurant',
       location: 'New York, USA',
       title: 'Himanshi Sharma',
@@ -121,7 +126,7 @@ singleListingsItem = [
     },
     {
       mainImg: 'assets/img/user1.png',
-      
+
       category: 'Restaurant',
       location: 'New York, USA',
       title: 'Himanshi Sharma',
@@ -131,7 +136,7 @@ singleListingsItem = [
     },
     {
       mainImg: 'assets/img/user1.png',
-      
+
       category: 'Restaurant',
       location: 'New York, USA',
       title: 'Himanshi Sharma',
@@ -141,7 +146,7 @@ singleListingsItem = [
     },
     {
       mainImg: 'assets/img/user1.png',
-      
+
       category: 'Restaurant',
       location: 'New York, USA',
       title: 'Himanshi Sharma',
@@ -161,5 +166,17 @@ verticalListings: number = 1;
     }
   ]
 
+  getuserstoverify() {
+    this.adminServie.allverifyusers().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.alluser = response.data;
+        this.loader= false;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
 }

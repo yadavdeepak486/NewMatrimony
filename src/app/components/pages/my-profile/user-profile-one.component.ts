@@ -78,6 +78,10 @@ export class UserProfileOneComponent implements OnInit {
   readyupload2 = false;
   readyupload3 = false;
 
+  cropper1 = false;
+  cropper2 = false;
+  cropper3 = false;
+
   tempblob: any;
 
   educationsltList: string[] = [
@@ -104,7 +108,7 @@ export class UserProfileOneComponent implements OnInit {
     PSubcaste: new FormControl(''),
     MSubcaste: new FormControl(''),
     NoOfChild: new FormControl(''),
-    childrenlivingstatus: new FormControl(''),
+    childLivingWith: new FormControl(''),
     TOB: new FormControl(''),
   });
 
@@ -234,6 +238,28 @@ export class UserProfileOneComponent implements OnInit {
   croppedImage1: any = '';
   croppedImage2: any = '';
   croppedImage3: any = '';
+  filename1:any
+  filename2:any
+  filename3:any
+  filetype1:any
+  filetype2:any
+  filetype3:any
+
+
+  base64ToFile(data, filename) {
+
+    const arr = data.split(',');
+    const mime = arr[0].match(/:(.*?);/)[1];
+    const bstr = atob(arr[1]);
+    let n = bstr.length;
+    let u8arr = new Uint8Array(n);
+
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+
+    return new File([u8arr], filename, { type: mime });
+  }
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
@@ -243,10 +269,12 @@ export class UserProfileOneComponent implements OnInit {
     console.log(event);
 
     if (this.croppedImage1) {
-      this.tempblob = base64StringToBlob(
-        this.croppedImage1.replace(/^[^,]+,/, '')
+      this.tempblob = this.base64ToFile(
+        event.base64,this.filename1
       );
-      this.imageupload1.get('Photo1').setValue(this.tempblob);
+      console.log(this.tempblob)
+
+    this.imageupload1.get('Photo1').setValue(this.tempblob);
     }
   }
 
@@ -255,10 +283,12 @@ export class UserProfileOneComponent implements OnInit {
     console.log(event);
 
     if (this.croppedImage2) {
-      this.tempblob = base64StringToBlob(
-        this.croppedImage2.replace(/^[^,]+,/, '')
+     this.tempblob = this.base64ToFile(
+        event.base64,this.filename2
       );
+      console.log(this.tempblob)
       this.imageupload2.get('Photo2').setValue(this.tempblob);
+
     }
   }
 
@@ -267,9 +297,10 @@ export class UserProfileOneComponent implements OnInit {
     console.log(event);
 
     if (this.croppedImage3) {
-      this.tempblob = base64StringToBlob(
-        this.croppedImage3.replace(/^[^,]+,/, '')
+      this.tempblob = this.base64ToFile(
+        event.base64,this.filename3
       );
+      console.log(this.tempblob)
       this.imageupload3.get('Photo3').setValue(this.tempblob);
     }
   }
@@ -298,7 +329,10 @@ export class UserProfileOneComponent implements OnInit {
   imagePreview1(e) {
     this.imageChangedEvent1 = e;
     const file = e.target.files[0];
+    this.cropper1 = true;
     console.log(file);
+    this.filename1 = file.name
+    this.filetype1 = file.type
     // this.imageupload1.get('Photo1').setValue(file);
     const reader = new FileReader();
     const k = reader.readAsDataURL(file);
@@ -311,9 +345,11 @@ export class UserProfileOneComponent implements OnInit {
 
   imagePreview2(e) {
     this.imageChangedEvent2 = e;
-
     const file = e.target.files[0];
+    this.cropper2 = true;
     console.log(file);
+    this.filename2 = file.name
+    this.filetype2 = file.type
     // this.imageupload2.get('Photo2').setValue(file);
     const reader = new FileReader();
     const k = reader.readAsDataURL(file);
@@ -326,9 +362,11 @@ export class UserProfileOneComponent implements OnInit {
 
   imagePreview3(e) {
     this.imageChangedEvent3 = e;
-
     const file = e.target.files[0];
+    this.cropper3 = true;
     console.log(file);
+    this.filename3 = file.name
+    this.filetype3 = file.type
     // this.imageupload3.get('Photo3').setValue(file);
     const reader = new FileReader();
     const k = reader.readAsDataURL(file);
@@ -349,6 +387,7 @@ export class UserProfileOneComponent implements OnInit {
         this.getmydetails();
         this.readyupload1 = false;
         this.imageupload1.reset();
+        this.cropper1 = false
       },
       (error) => {
         console.log(error);
@@ -360,6 +399,7 @@ export class UserProfileOneComponent implements OnInit {
     this.imageupload1.reset();
     this.filePath1 = '';
     this.readyupload1 = false;
+    this.cropper1 = false
   }
 
   uploadimage2() {
@@ -372,6 +412,7 @@ export class UserProfileOneComponent implements OnInit {
         this.getmydetails();
         this.readyupload2 = false;
         this.imageupload2.reset();
+        this.cropper2 = false
       },
       (error) => {
         console.log(error);
@@ -383,6 +424,8 @@ export class UserProfileOneComponent implements OnInit {
     this.imageupload2.reset();
     this.filePath2 = '';
     this.readyupload2 = false;
+    this.cropper2 = false
+
   }
 
   uploadimage3() {
@@ -395,6 +438,7 @@ export class UserProfileOneComponent implements OnInit {
         this.getmydetails();
         this.readyupload3 = false;
         this.imageupload3.reset();
+        this.cropper3 = false
       },
       (error) => {
         console.log(error);
@@ -406,6 +450,7 @@ export class UserProfileOneComponent implements OnInit {
     this.imageupload3.reset();
     this.filePath3 = '';
     this.readyupload3 = false;
+    this.cropper3 = false
   }
 
   //drop downs
@@ -433,16 +478,17 @@ export class UserProfileOneComponent implements OnInit {
   }
 
   castofrelgion(id) {
-    console.log(id);
-    this.adminService.castesofreligion(id).subscribe(
-      (response: any) => {
-        this.allcaste = response.data;
-        //console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if(id !== null){
+      this.adminService.castesofreligion(id).subscribe(
+        (response: any) => {
+          this.allcaste = response.data;
+          //console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   getmaritalstatus() {
@@ -673,8 +719,8 @@ export class UserProfileOneComponent implements OnInit {
         PSubcaste: this.mydetail.PSubcaste ? this.mydetail.PSubcaste : null,
         MSubcaste: this.mydetail.MSubcaste ? this.mydetail.MSubcaste : null,
         NoOfChild: this.mydetail.NoOfChild ? this.mydetail.NoOfChild : null,
-        childrenlivingstatus: this.mydetail.childrenlivingstatus
-          ? this.mydetail.childrenlivingstatus
+        childLivingWith: this.mydetail.childLivingWith
+          ? this.mydetail.childLivingWith
           : null,
         TOB: this.mydetail.TOB ? this.mydetail.TOB : null,
       });
@@ -776,10 +822,10 @@ export class UserProfileOneComponent implements OnInit {
     if (this.mydetail !== undefined) {
       this.editfamilydetailform.setValue({
         FamilyType: this.mydetail.FamilyType ? this.mydetail.FamilyType : null,
-        Familyvalues: this.mydetail.Familyvalues._id
+        Familyvalues: this.mydetail.Familyvalues
           ? this.mydetail.Familyvalues._id
           : null,
-        FamilyStatus: this.mydetail.FamilyStatus._id
+        FamilyStatus: this.mydetail.FamilyStatus
           ? this.mydetail.FamilyStatus._id
           : null,
         Fathersoccupation: this.mydetail.Fathersoccupation
@@ -1174,7 +1220,7 @@ export class UserProfileOneComponent implements OnInit {
     }
   }
 
- 
+
 }
 
 // @Component({

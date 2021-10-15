@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   usermobile: any;
   sessionid: any;
   mobilenumber: any;
-  IP:any;
+  IP:any="122.175.197.185"
   Ref:any = "Web";
   forgotpasswordtoggle = false;
   verifyotp = false;
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getmyip();
+    // this.getmyip();
   }
 
   userlogin() {
@@ -94,10 +94,11 @@ export class LoginComponent implements OnInit {
         this.auth = true;
         localStorage.setItem('auth-token', response.token);
         console.log(response);
-        this.routes.navigate(['/vertical-listings-left-sidebar']);
+        this.routes.navigate(['/user-dashboard']);
       },
       (error) => {
         //this.toastr.error(error.error.msg);
+        console.log(error)
         if (error.error.msg == 'User Doesnot Exist') {
           this.stafflogin(this.signin.value);
         } else {
@@ -263,16 +264,16 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  getmyip() {
-    this.userService.getmyip().subscribe(
-      (response: any) => {
-        console.log(response);
-        console.log(response.ip_address);
-        this.IP = response.ip_address
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  // getmyip() {
+  //   this.userService.getmyip().subscribe(
+  //     (response: any) => {
+  //       console.log(response);
+  //       console.log(response.ip_address);
+  //       this.IP = response.ip_address
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 }

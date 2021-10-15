@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 import { UserService } from 'src/app/user.service';
 import { Country } from '@angular-material-extensions/select-country';
+import { UrlResolver } from '@angular/compiler';
 
 @Component({
   selector: 'app-signup',
@@ -14,14 +15,11 @@ import { Country } from '@angular-material-extensions/select-country';
 export class SignupComponent implements OnInit {
   togglembcheck: boolean = true;
   languageSelected = 'es';
+  selecedflagcode:any;
 
-  defaultValue: Country = {
-    name: 'Deutschland',
-    alpha2Code: 'DE',
-    alpha3Code: 'DEU',
-    numericCode: '276',
-    callingCode: '+49'
-  };
+  tosendmail = {
+    Mobile: ""
+  }
 
   countriesjson =[
     {
@@ -101,12 +99,6 @@ export class SignupComponent implements OnInit {
         "dialCode": "+297",
         "isoCode": "AW",
         "flag": "https://www.countryflags.io/AW/shiny/24.png"
-    },
-    {
-        "name": "Ascension Island",
-        "dialCode": "+247",
-        "isoCode": "AC",
-        "flag": "https://cdn.kcak11.com/flags/shiny/24.png"
     },
     {
         "name": "Australia",
@@ -1496,37 +1488,29 @@ export class SignupComponent implements OnInit {
     }
 ]
 
-  predefinedCountries: Country[] = [
-    {
-      name: 'Germany',
-      alpha2Code: 'DE',
-      alpha3Code: 'DEU',
-      numericCode: '276',
-      callingCode: '+49'
-    },
-    {
-      name: 'Greece',
-      alpha2Code: 'GR',
-      alpha3Code: 'GRC',
-      numericCode: '300',
-      callingCode: '+30'
-    },
-    {
-      name: 'France',
-      alpha2Code: 'FR',
-      alpha3Code: 'FRA',
-      numericCode: '250',
-      callingCode: '+33'
-    },
-    {
-      name: 'Belgium',
-      alpha2Code: 'BE',
-      alpha3Code: 'BEL',
-      numericCode: '056',
-      callingCode: '+32'
-    }
-  ];
+selectedtext = "+91";
 
+objExp = {
+  "background":  `url("https://www.countryflags.io/IN/shiny/32.png") center / contain no-repeat`,
+  "white-space": "nowrap",
+  "display":"inline"
+}
+tochangeflag(e){
+  console.log(e.value)
+  this.selecedflagcode = e.value
+  var __FOUND = this.countriesjson.find(({ dialCode }) => dialCode === this.selecedflagcode);
+  console.log(__FOUND);
+  console.log(__FOUND.flag);
+  this.objExp = {
+    "background":  `url("${__FOUND.flag}") center / contain no-repeat`,
+    "white-space": "nowrap",
+    "display":"inline"
+  }
+}
+
+
+  IP:any;
+  Ref:any = "Web";
   sessionid: any;
   hide = true;
   auth: any;
@@ -1535,6 +1519,8 @@ export class SignupComponent implements OnInit {
   allmaritalstatus: any;
   allcountry: any;
   mobilenumber: any;
+
+
   signupuser = new FormGroup({
     Profilecreatedby: new FormControl('610cc184fb791a5fb1afb3b0', Validators.required),
     firstName: new FormControl('', Validators.required),
@@ -1549,6 +1535,8 @@ export class SignupComponent implements OnInit {
     Mobile: new FormControl('', Validators.required),
     ConfirmPassword: new FormControl('', Validators.required),
     agree_terms_conditions: new FormControl('1', Validators.required),
+    IP: new FormControl(''),
+    Ref: new FormControl(''),
   });
 
   verifyotpform = new FormGroup({
@@ -1576,6 +1564,7 @@ export class SignupComponent implements OnInit {
     this.getallreligion();
     this.getallflags();
     this.getmaritalstatus();
+    this.getmyip();
   }
 
   getallreligion() {
@@ -1610,6 +1599,8 @@ export class SignupComponent implements OnInit {
     console.log(this.signupuser.value);
     const DOBcal = `${this.signupuser.value.yyyy}-${this.signupuser.value.mm}-${this.signupuser.value.dd}`;
     this.signupuser.patchValue({ DOB: DOBcal });
+    this.signupuser.patchValue({ IP: this.IP });
+    this.signupuser.patchValue({ Ref: "Web Platform" });
     console.log(this.signupuser.value);
     this.userService.usersignup(this.signupuser.value).subscribe(
       (response: any) => {
@@ -1653,7 +1644,7 @@ export class SignupComponent implements OnInit {
       .subscribe(
         (response: any) => {
           console.log(response);
-
+          this.sendregistrationmail()
           console.log(response.response.body);
           const bodyresp = JSON.parse(response.response.body);
           console.log(bodyresp);
@@ -1678,7 +1669,6 @@ export class SignupComponent implements OnInit {
     console.log(this.sessionid);
     const getsessionid = localStorage.getItem('sessionid');
     console.log(getsessionid);
-    // dd4329b8-9d8a-4137-800d-1b2494a837f0
     const grpobj = {
       otp: intotp,
       Mobile: this.mobilenumber,
@@ -1703,6 +1693,7 @@ export class SignupComponent implements OnInit {
     console.log('button clicked');
     if (this.togglembcheck == false) {
       this.togglembcheck = true;
+      this.otpsection = false
     } else {
       this.togglembcheck = false;
     }
@@ -1720,9 +1711,6 @@ export class SignupComponent implements OnInit {
     else element.focus();
   }
 
-  // submitchangenumber() {
-  //   console.log(this.changenumberform.value);
-  // }
 
   changenumberotp() {
     console.log(this.changenumberform.value.Mobile);
@@ -1754,6 +1742,32 @@ export class SignupComponent implements OnInit {
         this.togglembcheck = true;
         this.changenumberotp();
         this.changenumberform.reset();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getmyip() {
+    this.userService.getmyip().subscribe(
+      (response: any) => {
+        console.log(response);
+        console.log(response.ip_address);
+        this.IP = response.ip_address
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  sendregistrationmail(){
+    this.tosendmail.Mobile = this.mobilenumber
+    const num = 1
+    this.userService.sendmail(this.tosendmail,num).subscribe(
+      (response: any) => {
+        console.log(response);
       },
       (error) => {
         console.log(error);

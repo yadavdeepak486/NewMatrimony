@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdminService {
-  backendurltest = 'https://demo.rishtaguru.com/api';
-  backendurl = 'http://localhost:4555/api';
+  backendurl = 'https://demo.rishtaguru.com/api';
+  backendurltest = 'http://localhost:4555/api';
   backendurlnew = 'http://3.109.48.14/api/api';
 
   constructor(public http: HttpClient) {}
@@ -631,5 +631,19 @@ export class AdminService {
 
   deleteuser(id) {
     return this.http.get(`${this.backendurl}/admin/deleteuser/${id}`);
+  }
+
+  allverifyusers() {
+    return this.http.get(`${this.backendurl}/admin/verifyuser`);
+  }
+
+  staffdetail() {
+    let header = new HttpHeaders().set(
+      'auth-adtoken',
+      localStorage.getItem('auth-adtoken')
+    );
+    return this.http.get(`${this.backendurl}/admin/viewonestafftoken`, {
+      headers: header,
+    });
   }
 }

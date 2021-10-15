@@ -54,7 +54,7 @@
                           <h3>Basic Information</h3>
                         </div>
                         <div class="edit">
-                          <a  class="st-edit" (click)="formone()"> Edit<i class="bx bx-edit"></i></a>
+                          <a class="st-edit" (click)="formone()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <!--  -->
                         <div *ngIf="togglecheck" class="info-text">
@@ -227,12 +227,12 @@
                                     <select class="form-control" formControlName="NoOfChild">
                                       <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
                                         {{caste?.name}}</option> -->
-                                      <option>Not Applicable</option>
-                                      <option>Never Married</option>
-                                      <option>0</option>
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
+                                      <option value="Not Applicable">Not Applicable</option>
+                                      <option value="Never Married">Never Married</option>
+                                      <option value="0">0</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
                                     </select>
                                   </div>
                                 </div>
@@ -250,13 +250,13 @@
                                     <label>Children Living Status</label>
                                     <!-- <input type="number" class="form-control" placeholder="Living no."
                                       formControlName="childrenlivingstatus" required> -->
-                                    <select class="form-control" formControlName="NoOfChild">
+                                    <select class="form-control" formControlName="childLivingWith">
                                       <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
                                           {{caste?.name}}</option> -->
-                                      <option>Not Applicable</option>
-                                      <option>Yes, living with me</option>
-                                      <option>Not, living with me</option>
-                                      <option>Partially</option>
+                                      <option value="Not Applicable">Not Applicable</option>
+                                      <option value="Yes, living with me">Yes, living with me</option>
+                                      <option value="Not, living with me">Not, living with me</option>
+                                      <option value="Partially">Partially</option>
                                     </select>
                                   </div>
                                 </div>
@@ -287,7 +287,7 @@
                           <h3>Family Details</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="familydetail()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="familydetail()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <!-- *ngIf="togglecheckfamily" -->
                         <div *ngIf="togglecheckfamily" class="info-text">
@@ -458,7 +458,7 @@
                           <h3>Physical Status & Eating Habits</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit"  (click)="physicaldetail()"> Edit<i class="bx bx-edit"></i></a>
+                          <a class="st-edit" (click)="physicaldetail()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckphysical" class="info-text">
                           <table class="tb-text">
@@ -534,21 +534,30 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                   <label>Special Case</label>
-                                   <select class="form-control" formControlName="spe_cases">
+                                  <label>Special Case</label>
+                                  <select class="form-control" formControlName="spe_cases">
                                     <option value="any">Any</option>
                                     <option value="normal">Normal</option>
-                                    <option value="physically-challenged-right-arm">Physically Challenged-Right Arm</option>
-                                    <option value="physically-challenged-left-arm">Physically Challenged-Left Arm</option>
-                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm</option>
-                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm</option>
-                                    <option value="physically-challenged-right-leg">Physically Challenged-Right Leg</option>
-                                    <option value="physically-challenged-left-leg">Physically Challenged-Left Leg</option>
-                                    <option value="physically-challenged-both-leg">Physically Challenged-Both Leg</option>
+                                    <option value="physically-challenged-right-arm">Physically Challenged-Right Arm
+                                    </option>
+                                    <option value="physically-challenged-left-arm">Physically Challenged-Left Arm
+                                    </option>
+                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm
+                                    </option>
+                                    <option value="physically-challenged-both-arm">Physically Challenged-Both Arm
+                                    </option>
+                                    <option value="physically-challenged-right-leg">Physically Challenged-Right Leg
+                                    </option>
+                                    <option value="physically-challenged-left-leg">Physically Challenged-Left Leg
+                                    </option>
+                                    <option value="physically-challenged-both-leg">Physically Challenged-Both Leg
+                                    </option>
                                     <option value="physically-challenged-deaf">Physically Challenged Deaf</option>
                                     <option value="physically-challenged-dumb">Physically Challenged Dumb</option>
-                                    <option value="physically-challenged-deaf-and-dumb">Physically Challenged Deaf and Dumb</option>
-                                    <option value="physically-challenged-mentaly-challenged">Physically Challenged Mentaly Challenged</option>
+                                    <option value="physically-challenged-deaf-and-dumb">Physically Challenged Deaf and
+                                      Dumb</option>
+                                    <option value="physically-challenged-mentaly-challenged">Physically Challenged
+                                      Mentaly Challenged</option>
                                     <option value="physically-challenged-other">Physically Challenged Other</option>
                                     <option value="hiv-positive">HIV Positive</option>
                                   </select>
@@ -571,7 +580,7 @@
                           <h3>Contact Details</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="formtwo()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="formtwo()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglechecktwo" class="info-text">
                           <table class="tb-text">
@@ -672,7 +681,7 @@
                           <h3>Education and Occupation</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="formoccupation()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="formoccupation()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckoccupation" class="info-text">
                           <table class="tb-text">
@@ -771,7 +780,7 @@
                           <h3>About</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="formabout()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="formabout()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="toggleabout" class="info-text st-about">
                           {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
@@ -803,7 +812,7 @@
                           <h3>Assets & Properties</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="properties()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="properties()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckproperties" class="info-text">
                           <table class="tb-text">
@@ -874,7 +883,7 @@
                           <h3>Horoscope details </h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit"  (click)="horoscope()"> Edit<i class="bx bx-edit"></i></a>
+                          <a class="st-edit" (click)="horoscope()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckhoroscope" class="info-text">
                           <table class="tb-text">
@@ -913,9 +922,10 @@
                                 <div class="form-group">
                                   <label>Manglik</label>
                                   <select class="form-control" formControlName="Manglik">
-                                    <option value="Not Manglik" selected>Not Manglik</option>
-                                    <option value="Manglik">Manglik</option>
-                                    <option value="Ardh Manglik">Ardh Manglik</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No" selected>No</option>
+                                    <option value="Anshik Manglik">Anshik Manglik</option>
+                                    <option value="Dont Know">Dont Know</option>
                                   </select>
                                 </div>
                               </div>
@@ -974,7 +984,7 @@
                           <h3>Hobbies and Details </h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="hobnother()" > Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="hobnother()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckhob" class="info-text">
                           <table class="tb-text">
@@ -1012,7 +1022,7 @@
                           <h3>Verify Profile </h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="editverifyprofile()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="editverifyprofile()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="toggleeverifyprofile" class="info-text">
                           <table class="tb-text">
@@ -1030,7 +1040,7 @@
                           </table>
                         </div>
                         <div *ngIf="!toggleeverifyprofile" class="info-text">
-                          <form [formGroup]="verifyform" >
+                          <form [formGroup]="verifyform">
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -1080,7 +1090,7 @@
                           <h3>Desired Partner Details</h3>
                         </div>
                         <div class="edit">
-                          <a class="st-edit" (click)="partnerexp()"> Edit<i class="bx bx-edit" ></i></a>
+                          <a class="st-edit" (click)="partnerexp()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="togglecheckpartner" class="info-text">
                           <table class="tb-text">
@@ -1317,11 +1327,10 @@
                                 <mat-form-field appearance="outline" class="slt" style="width:100%">
                                   <mat-label>Manglik Status</mat-label>
                                   <mat-select formControlName="PE_manglik" multiple>
-                                    <mat-option value="Not Manglik">
-                                      Not Manglik</mat-option>
-                                    <mat-option value="Manglik">Manglik</mat-option>
-                                    <mat-option value="Ardh Manglik">
-                                      Ardh Manglik</mat-option>
+                                    <mat-option value="Yes">Yes</mat-option>
+                                    <mat-option value="No" selected>No</mat-option>
+                                    <mat-option value="Anshik Manglik">Anshik Manglik</mat-option>
+                                    <mat-option value="Dont Know">Dont Know</mat-option>
                                   </mat-select>
                                 </mat-form-field>
                               </div>
@@ -1339,7 +1348,8 @@
 
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
-                                <button type="button" class="btn btn-primary btn-up" (click)="canceledpartnerdetailform()">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="canceledpartnerdetailform()">Cancel</button>
                               </div>
                             </div>
                           </form>
@@ -1479,7 +1489,7 @@
 
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
-                                 <button type="button" class="btn btn-primary btn-up">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-up">Cancel</button>
                               </div>
                             </div>
                           </form>

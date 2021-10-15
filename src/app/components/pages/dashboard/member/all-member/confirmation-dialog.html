@@ -2,12 +2,16 @@
   <h4>
     Warning:
   </h4>
-
+  <p>
+    This operation will permenantly delete <strong>{{Matriid}}</strong> user and all <br> its dependencies. This
+    action cannot be undone.
+  </p>
+  <hr>
   <p>
     Are you sure you want to delete <strong>{{Matriid}}</strong> ?
   </p>
 </mat-dialog-content>
 <mat-dialog-actions align="center">
-  <button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">Delete</button>
+  <button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">I understand, Delete it</button>
   <button mat-raised-button mat-dialog-close tabindex="-1" (click)="onNoClick()">Cancel</button>
 </mat-dialog-actions>

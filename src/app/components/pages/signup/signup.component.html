@@ -158,26 +158,26 @@
                 <div class="col-md-12">
                   <div class="form-group wtt-3">
                     <label class="lb-ser">Mobile Number <span style="color: red;">*</span><small>( We will send
-                      verification code on this )</small></label>
-                      <div class="input-group">
-                        <span class="custom-dropdown wtt-1">
-                          <mat-form-field appearance="outline" class="mb-w">
-                            <mat-select>
-                              <mat-option [value]="country.dialCode" *ngFor="let country of countriesjson">
-                                {{country.dialCode}}
-                                <img with="4" height="4" [src]="country.flag">
-                              </mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                        </span>
-                        <!-- <img [src]="country?.flag" /> -->
-                        <span class="wtt-2">
-                        <mat-form-field appearance="outline" class="mb-w"> 
-                            <input matInput type="number" min="1000000000" max="9999999999" maxlength="10"
+                        verification code on this )</small></label>
+                    <div class="input-group">
+                      <span class="custom-dropdown wtt-1">
+                        <mat-form-field appearance="outline" class="mb-w">
+                          <mat-select (selectionChange)="tochangeflag($event)" [(value)]="selectedtext"
+                            [ngStyle]="objExp">
+                            <mat-option [value]="country.dialCode" *ngFor="let country of countriesjson">
+                              {{country.dialCode}}
+                              <img with="4" height="4" [src]="country.flag">
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </span>
+                      <span class="wtt-2">
+                        <mat-form-field appearance="outline" class="mb-w">
+                          <input matInput type="number" min="1000000000" max="9999999999" maxlength="10"
                             placeholder="Number" formControlName="Mobile" required>
                         </mat-form-field>
-                        </span>
-                        </div>
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -208,7 +208,7 @@
             <span class="already-account">Already have an account? <a
                 style="cursor: pointer; color: blue; font-weight: 500;" href="/login">Login</a></span>
           </div>
-          <div *ngIf="otpsection  togglembcheck" class="modal-content rs-3">
+          <div *ngIf="otpsection && togglembcheck" class="modal-content rs-3">
             <h2 class="d-flex justify-content-center tx-v"> Verify your Mobile number</h2>
             <h4 class="d-flex justify-content-center sub-title tx-ch"><span>Please check the otp sent to your
                 Device
@@ -233,9 +233,9 @@
               <div class="text-center mt-4 mb-4">
                 <button type="submit" class="btn-vtn"><span><a class="anchorlink">Verify</a></span></button>
               </div>
-              <div class="btn-rv">
+              <div class="btn-rv text-center">
                 <p class="ft-b">Not Received OTP ?</p>
-                <p class="ft-a"><button (click)="resendotp()">Resend to <span>+91-XXXXXXXXXX</span></button></p>
+                <p class="ft-a"><button (click)="resendotp()">Resend to <span>+91-{{mobilenumber}}</span></button></p>
                 <p class="ft-r">or</p>
                 <!-- <button type="button" class="btn-ft-set" (click)="resendotp()">Resend OTP</button> -->
                 <!-- <button type="submit" class="btn-ft-get"><span><a class="anchorlink">Verify</a></span></button> -->
@@ -244,7 +244,7 @@
             </form>
           </div>
           <div *ngIf="otpsection" class="mb-chn">
-            <h3 class="ch-op">
+            <h3 class="ch-op text-center">
               <a href="javascript:void(0);" (click)="changenumber()" style="color: #b00;">Change Mobile Number ?</a>
             </h3>
             <div *ngIf="!togglembcheck" class="add-number">

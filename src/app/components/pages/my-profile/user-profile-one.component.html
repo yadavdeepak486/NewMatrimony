@@ -43,16 +43,17 @@
               <p class="bt-tetx">( Full lenth photograph recomended, Size 400X400 )</p>
             </div>
           </form>
-          <div>
-
+          <div *ngIf="cropper1">
             <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent1" [maintainAspectRatio]="true"
               [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped1($event)"
               (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
-
+          </div>
+          <div *ngIf="cropper2">
             <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent2" [maintainAspectRatio]="true"
               [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped2($event)"
               (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
-
+          </div>
+          <div *ngIf="cropper3">
             <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent3" [maintainAspectRatio]="true"
               [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped3($event)"
               (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
@@ -68,8 +69,7 @@
                           <h3>Basic Information</h3>
                         </div>
                         <div class="edit">
-                          <a href="javascript:void()" class="st-edit" (click)="formone()">Edit<i
-                              class="bx bx-edit"></i></a>
+                          <a href="javascript:" class="st-edit" (click)="formone()">Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <!--  -->
                         <div *ngIf="togglecheck" class="info-text">
@@ -116,8 +116,8 @@
                                 <td class="wd1">{{mydetail?.NoOfChild || "No Children"}}</td>
                               </tr>
                               <tr class="wd">
-                                <td class="wd1">Children Status:</td>
-                                <td class="wd1">{{mydetail?.childrenlivingstatus || "No Children"}}</td>
+                                <td class="wd1">Children Living Status:</td>
+                                <td class="wd1">{{mydetail?.childLivingWith || "No Children"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Time Of Birth:</td>
@@ -230,27 +230,18 @@
                                   </div>
                                 </div>
 
-
-                                <!-- <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label>Number of Children</label>
-                                    <input type="number" class="form-control" placeholder="No of Child"
-                                      formControlName="NoOfChild" required>
-                                  </div>
-                                </div> -->
-
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Number of Children</label>
                                     <select class="form-control" formControlName="NoOfChild">
                                       <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
                                         {{caste?.name}}</option> -->
-                                      <option>Not Applicable</option>
-                                      <option>Never Married</option>
-                                      <option>0</option>
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
+                                      <option value="Not Applicable">Not Applicable</option>
+                                      <option value="Never Married">Never Married</option>
+                                      <option value="0">0</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
                                     </select>
                                   </div>
                                 </div>
@@ -258,15 +249,13 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Children Living Status</label>
-                                    <!-- <input type="number" class="form-control" placeholder="Living no."
-                                      formControlName="childrenlivingstatus" required> -->
-                                    <select class="form-control" formControlName="NoOfChild">
-                                      <!-- <option [value]="caste._id" *ngFor="let caste of allcaste">
-                                          {{caste?.name}}</option> -->
-                                      <option>Not Applicable</option>
-                                      <option>Yes, living with me</option>
-                                      <option>Not, living with me</option>
-                                      <option>Partially</option>
+
+                                    <select class="form-control" formControlName="childLivingWith">
+
+                                      <option value="Not Applicable">Not Applicable</option>
+                                      <option value="Yes, living with me">Yes, living with me</option>
+                                      <option value="Not, living with me">Not, living with me</option>
+                                      <option value="Partially">Partially</option>
                                     </select>
                                   </div>
                                 </div>
@@ -584,12 +573,12 @@
                         </div>
                       </div>
                       <!-- this contact detail request -->
-                     
+
 
                       <!-- this contact detail request close -->
 
                       <!-- contact detail -->
-                      <div  class="content-box">
+                      <div class="content-box">
                         <div class="heading-title">
                           <h3>Contact Details</h3>
                         </div>
@@ -621,7 +610,7 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Home Town:</td>
-                                <td class="wd1">{{mydetail?.HomeTown || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.HomeTown.name || "not mentioned"}}</td>
                               </tr>
                               <!-- <tr class="wd">
                                 <td class="wd1">Home/Native place:</td>
@@ -936,9 +925,10 @@
                                 <div class="form-group">
                                   <label>Manglik</label>
                                   <select class="form-control" formControlName="Manglik">
-                                    <option value="Not Manglik" selected>Not Manglik</option>
-                                    <option value="Manglik">Manglik</option>
-                                    <option value="Ardh Manglik">Ardh Manglik</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No" selected>No</option>
+                                    <option value="Anshik Manglik">Anshik Manglik</option>
+                                    <option value="Dont Know">Dont Know</option>
                                   </select>
                                 </div>
                               </div>
@@ -1359,11 +1349,10 @@
                                 <mat-form-field appearance="outline" class="slt" style="width:100%">
                                   <mat-label>Manglik Status</mat-label>
                                   <mat-select formControlName="PE_manglik" multiple>
-                                    <mat-option value="Not Manglik">
-                                      Not Manglik</mat-option>
-                                    <mat-option value="Manglik">Manglik</mat-option>
-                                    <mat-option value="Ardh Manglik">
-                                      Ardh Manglik</mat-option>
+                                    <mat-option value="Yes">Yes</mat-option>
+                                    <mat-option value="No" selected>No</mat-option>
+                                    <mat-option value="Anshik Manglik">Anshik Manglik</mat-option>
+                                    <mat-option value="Dont Know">Dont Know</mat-option>
                                   </mat-select>
                                 </mat-form-field>
                               </div>

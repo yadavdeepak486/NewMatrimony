@@ -242,7 +242,7 @@
                     .default-btn {
                         border-radius: 30px;
                         box-shadow: unset;
-                        background-color: #eeeeee;
+                        background-color: var(--green);
                         font-size: 13px;
                         border: none;
                         position: relative;
@@ -266,9 +266,9 @@
                         }
                         &.danger {
                             margin-right: 0;
+                            background-color:var(--red);
 
                             &:hover {
-                                background-color: red;
                                 color: var(--whiteColor);
                             }
                         }
@@ -279,6 +279,41 @@
     }
 }
 
+.default-btn {
+  border-radius: 30px;
+  box-shadow: unset;
+  background-color: var(--green);
+  font-size: 13px;
+  border: none;
+  position: relative;
+  margin-right: 15px;
+  padding: {
+      top: 8px;
+      bottom: 8px;
+      left: 40px;
+      right: 20px;
+  };
+  &:hover {
+      background-color: #156627;
+      color: var(--whiteColor);
+  }
+  i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 15px;
+  }
+  &.danger {
+      margin-right: 0;
+      background-color:var(--red);
+
+      &:hover {
+        color: var(--whiteColor);
+        background-color:#bb2937;
+      }
+  }
+}
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
 
@@ -335,7 +370,7 @@
 /* Min width 992px to Max width 1199px */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
-    
+
 
 }
 /* Min width 1200px to Max width 1355px */
@@ -347,6 +382,6 @@
 /* Min width 1550px */
 @media only screen and (min-width: 1550px) {
 
-    
+
 
 }

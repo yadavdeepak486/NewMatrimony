@@ -8,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
@@ -26,6 +27,10 @@ export class UserChatComponent implements OnInit,OnDestroy {
   chats: any;
   id: any;
   path1 = 'assets/img/user1.jpg';
+  useDefault:any
+  data ={
+    OnlineUsers:""
+  }
 
   chatform = new FormGroup({
     msg: new FormControl(''),
@@ -40,35 +45,26 @@ export class UserChatComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.getmydetails();
-    // this.id = this.route.snapshot.params['id'];
-    // this.imageandname(this.id);
     this.mychatroom();
-    //this.scrollToBottom();
-
-    //this.refreshchat();
+    this.scrollToBottom();
   }
 
   ngOnDestroy():void{
-
   }
 
-  // ngAfterViewChecked() {
-  //   this.cdr.detectChanges();
-  //   this.scrollToBottom();
-  // }
-
-  // scrollToBottom(): void {
-  //   try {
-  //     this.myScrollContainer.nativeElement.scrollTop =
-  //       this.myScrollContainer.nativeElement.scrollHeight;
-  //   } catch (err) {}
-  // }
+  scrollToBottom(): void {
+      this.myScrollContainer.nativeElement.scroll({
+        top: this.myScrollContainer.nativeElement.scrollHeight,
+        left: 0,
+        behavior: 'smooth'})
+  }
 
   getmydetails() {
     this.userService.getmyprofiledetail().subscribe(
       (response: any) => {
         console.log(response);
         this.mydetail = response.data;
+        this.useDefault = this.mydetail.OnlineUsers == 1?true:false
       },
       (error) => {
         console.log(error);
@@ -129,6 +125,7 @@ export class UserChatComponent implements OnInit,OnDestroy {
         console.log(error);
       }
     );
+    this.scrollToBottom()
     setInterval(() => {
       this.userService.chatsroom(this.chatingroom).subscribe(
         (response: any) => {
@@ -173,5 +170,26 @@ export class UserChatComponent implements OnInit,OnDestroy {
           console.log(error);
         }
       );
+      this.scrollToBottom()
+  }
+
+  toggle(event: MatSlideToggleChange) {
+    console.log(this.mydetail.OnlineUsers)
+    console.log('toggle', this.mydetail.OnlineUsers == 0 ?event.checked:!event.checked);
+    console.log('toggle', event.checked);
+        this.useDefault = event.checked;
+        const changevalue = event.checked?'1':'0'
+        this.data.OnlineUsers = changevalue
+        console.log(this.data)
+    this.userService.addotheruserdetails(this.data).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getmydetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
   }
 }

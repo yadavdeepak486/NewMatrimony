@@ -202,4 +202,6 @@ export class PrimiumPackageComponent implements OnInit {
         }
       );
   }
+
+
 }

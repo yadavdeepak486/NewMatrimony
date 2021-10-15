@@ -167,67 +167,77 @@ export class UserInfoComponent implements OnInit {
 
   lstateofcountry(id) {
     console.log(id);
-    this.adminService.statebycountry(id).subscribe(
-      (response: any) => {
-        this.lallstate = response.data;
-        //console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (id !== null) {
+      this.adminService.statebycountry(id).subscribe(
+        (response: any) => {
+          this.lallstate = response.data;
+          //console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   lcityofstate(id) {
     console.log(id);
-    this.adminService.citybystate(id).subscribe(
-      (response: any) => {
-        this.lallcity = response.data;
-        //console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (id !== null) {
+      this.adminService.citybystate(id).subscribe(
+        (response: any) => {
+          this.lallcity = response.data;
+          //console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   stateofcountry(id) {
     console.log(id);
-    this.adminService.statebycountry(id).subscribe(
-      (response: any) => {
-        this.allstate = response.data;
-        //console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (id !== null) {
+      this.adminService.statebycountry(id).subscribe(
+        (response: any) => {
+          this.allstate = response.data;
+          //console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   cityofstate(id) {
     console.log(id);
-    this.adminService.citybystate(id).subscribe(
-      (response: any) => {
-        this.allcity = response.data;
-        //console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (id !== null) {
+      this.adminService.citybystate(id).subscribe(
+        (response: any) => {
+          this.allcity = response.data;
+          //console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   castofrelgion(id) {
     console.log(id);
-    this.adminService.castesofreligion(id).subscribe(
-      (response: any) => {
-        this.allcaste = response.data;
-        //console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (id !== null) {
+      this.adminService.castesofreligion(id).subscribe(
+        (response: any) => {
+          this.allcaste = response.data;
+          //console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   submitandmovephoto() {

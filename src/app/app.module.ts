@@ -184,6 +184,7 @@ import { TermsandconditionTwoComponent } from './components/pages/termsandcondit
 import { DeliveryPolicyComponent } from './components/pages/delivery-policy/delivery-policy.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { EditProfileComponent } from './components/pages/dashboard/edit-profile/edit-profile.component';
+import { AdminLoginComponent } from './components/pages/dashboard/admin-login/admin-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -352,7 +353,8 @@ import { EditProfileComponent } from './components/pages/dashboard/edit-profile/
     EditProfileComponent,
     ConfirmationDialog,
     DialogOverviewExampleDialog,
-    DialogViewContactDetails
+    DialogViewContactDetails,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AdminService } from 'src/app/admin.service';
 import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-verify-profile',
@@ -9,12 +10,19 @@ import { UserService } from 'src/app/user.service';
 export class VerifyProfileComponent implements OnInit {
   id: any;
   userdetails: any;
-  constructor(public userService: UserService, public route: ActivatedRoute) { }
+  dumPhoto = 'assets/img/me.jpg';
+  Photodummen = 'assets/img/me.jpg';
+  Photodumwomen = 'assets/img/wo.jpg';
+
+
+    constructor(public userService: UserService, public adminService: AdminService,public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+    this.id = this.route.snapshot.params['id'];
+    this.gethisdetails()
+
   }
- 
+
 
   breadcrumb = [
       {
@@ -25,7 +33,7 @@ export class VerifyProfileComponent implements OnInit {
 
   bookingsListingsBox = [
       {
-          customerImg: 'assets/img/dummy-img.jpg',
+          customerImg: 'assets/img/dumhis-img.jpg',
           customerName: 'James Anderson',
           customerNumber: '+214 4455 6521',
           customerEmail: 'hello@james.com',
@@ -164,4 +172,72 @@ export class VerifyProfileComponent implements OnInit {
           ]
       }
   ]
+
+  gethisdetails() {
+    this.userService.viewprofileadmin(this.id)?.subscribe(
+      (response: any) => {
+        console.log(response);
+        this.userdetails = response.data;
+        console.log(response.data.Gender);
+        if (response.data.Gender == 'Female') {
+          this.dumPhoto = this.Photodumwomen;
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  ApprovePhoto1() {
+      const data = {
+        Photo1Approve: "Yes"}
+     this.adminService.edituserprofile(this.id, data).subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  ApprovePhoto2() {
+    const data = {
+      Photo2Approve: "Yes"}
+   this.adminService.edituserprofile(this.id, data).subscribe(
+    (response: any) => {
+      console.log(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+}
+
+ApprovePhoto3() {
+  const data = {
+    Photo3Approve: "Yes"}
+ this.adminService.edituserprofile(this.id, data).subscribe(
+  (response: any) => {
+    console.log(response);
+  },
+  (error) => {
+    console.log(error);
+  }
+);
+}
+
+ApprovePartnerExpectationsApprove() {
+  const data = {
+    PartnerExpectationsApprove: "Yes"}
+ this.adminService.edituserprofile(this.id, data).subscribe(
+  (response: any) => {
+    console.log(response);
+  },
+  (error) => {
+    console.log(error);
+  }
+);
+}
 }

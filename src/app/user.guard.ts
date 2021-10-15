@@ -10,7 +10,7 @@ export class UserGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (localStorage.getItem('usertype') == "user") {
+    if (localStorage.getItem('auth-token') !== null) {
       return true;
     }
     else {

@@ -259,7 +259,8 @@
                             </tr>
                             <tr>
                               <td>{{Content?.Employedin?.name}} Employee, {{Content?.Occupation?.name}}</td>
-                              <td>Assigned To:<span class="tb-s">{{Content?.Assign?.lastname}}</span></td>
+                              <td>Assigned To:<span
+                                  class="tb-s">{{Content?.Assign?.firstname}}{{Content?.Assign?.lastname}}</span></td>
                             </tr>
                             <tr>
                               <td></td>
@@ -269,7 +270,7 @@
                           </tbody>
                         </table>
                       </div>
-                      <p class="l-mark">Last Remark: <span class="txt-small"> ""</span></p>
+                      <p class="l-mark">Last Remark: <span class="txt-small"> {{Content?.last_remark }}</span></p>
                       <ul class="listings-meta pd-tr">
                         <li class="lst-txt">Reg. Date: <span class="spn-lst">{{Content?.createdAt | date
                             :'short'}},</span></li>
@@ -284,8 +285,8 @@
                         <li><a routerLink="/profile-detail/{{Content?._id}}" class="lst-profile">Profile View</a></li>
                         <li><a routerLink="/edit-profile/{{Content?._id}}" class="lst-profile">Edit
                             Profile</a> </li>
-                        <li><a routerLink="/edit-profile/{{Content?._id}}" class="lst-profile">Manage
-                            Photo</a> </li>
+                        <li><a routerLink="/verify-profile/{{Content?._id}}" class="lst-profile">Profile Verify
+                          </a> </li>
                         <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li> -->
                         <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li> -->
                         <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>

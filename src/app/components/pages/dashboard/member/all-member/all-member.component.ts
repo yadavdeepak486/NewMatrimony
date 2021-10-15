@@ -46,7 +46,7 @@ export class AllMemberComponent implements OnInit {
   constructor(public adminServie: AdminService,private dialog: MatDialog,) {}
 
   ngOnInit(): void {
-    this.getallusers();
+    //this.getallusers();
     this.getmaritalstatus();
     this.getallcity();
     this.getallreligion();
@@ -55,6 +55,7 @@ export class AllMemberComponent implements OnInit {
     this.getallemployedin();
     this.allplans();
     this.getallrmangers();
+    this.getallusers();
   }
 
 
@@ -76,7 +77,7 @@ export class AllMemberComponent implements OnInit {
 
   breadcrumb = [
     {
-      title: 'Verify member List',
+      title: 'All Members',
       subTitle: 'Members',
     },
   ];
@@ -253,6 +254,19 @@ export class AllMemberComponent implements OnInit {
       }
     });
   }
+
+  // getuserstoverify() {
+  //   this.adminServie.allverifyusers().subscribe(
+  //     (response: any) => {
+  //       console.log(response);
+  //       this.alluser = response.data;
+  //       this.loader= false;
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 }
 
 
@@ -291,6 +305,8 @@ if(data){
       }
     )
   }
+
+
 }
 
 

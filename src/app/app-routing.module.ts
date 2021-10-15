@@ -139,6 +139,7 @@ import { PrivacyPolicyTwoComponent } from './components/pages/privacy-policy-two
 import { TermsandconditionTwoComponent } from './components/pages/termsandcondition-two/termsandcondition-two.component';
 import { DeliveryPolicyComponent } from './components/pages/delivery-policy/delivery-policy.component';
 import { EditProfileComponent } from './components/pages/dashboard/edit-profile/edit-profile.component';
+import { AdminLoginComponent } from './components/pages/dashboard/admin-login/admin-login.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -188,7 +189,7 @@ const routes: Routes = [
   { path: 'single-listings', component: ListingsDetailsComponent },
   { path: 'events', component: EventsComponent },
   { path: 'single-events', component: EventsDetailsComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard',canActivate: [AdminGuard], component: DashboardComponent },
   { path: 'dashboard-messages', component: DashboardMessagesComponent },
   { path: 'dashboard-bookings', component: DashboardBookingsComponent },
   { path: 'dashboard-wallet', component: DashboardWalletComponent },
@@ -203,6 +204,7 @@ const routes: Routes = [
   // new component
   { path: 'profile-detail/:id', component: ProfileDetailComponent },
   { path: 'member/all-member', component: AllMemberComponent },
+  { path: 'member/verify-member', component: VerifyMemberComponent },
   { path: 'member/free-member', component: FreeMemberComponent },
   { path: 'member/premium-member', component: PremiumMemberComponent },
   { path: 'member/featured-member', component: FeaturedMemberComponent },
@@ -373,7 +375,7 @@ const routes: Routes = [
   { path: 'myprofile/myprofiletab', component: MyprofileTabComponent },
 
   // verify-profile
-  { path: 'verify-profile', component: VerifyProfileComponent },
+  { path: 'verify-profile/:id', component: VerifyProfileComponent },
 
   // premium-plan
   { path: 'premium-plan', component: PremuimPlanComponent },
@@ -381,6 +383,7 @@ const routes: Routes = [
   // system
   { path: 'system/update', component: UpdateComponent },
   { path: 'system/server-status', component: ServerStatusComponent },
+  { path: 'admin-login', component: AdminLoginComponent},
 
   { path: '**', component: NotFoundComponent }, // This line will remain down from the whole pages component list
 ];

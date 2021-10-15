@@ -4,6 +4,7 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
+  Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AdminGuard implements CanActivate {
+  constructor(private routes: Router) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -19,6 +21,11 @@ export class AdminGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+      if(localStorage.getItem('auth-adtoken') !== null){
+        return true;
+      }else{
+        this.routes.navigate(['/admin-login']);
+      return false
+      }
   }
 }
