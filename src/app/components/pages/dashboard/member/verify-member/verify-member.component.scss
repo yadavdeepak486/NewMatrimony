@@ -433,3 +433,10 @@ form.st-form.ng-untouched.ng-pristine.ng-valid {
     animation: pulse .4s ease .4s infinite alternate;
 }
 // close loader css
+.Blink {
+  animation: blinker 0.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+}
+@keyframes blinker {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

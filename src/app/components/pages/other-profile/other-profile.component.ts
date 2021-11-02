@@ -27,6 +27,7 @@ export class OtherProfileComponent implements OnInit {
   togglecheckfamily: boolean = true;
   toggleabout: boolean = true;
   togglecheckpartner: boolean = true;
+  togglecheckmemship: boolean = true;
   togglecheckphysical: boolean = true;
   togglecheckproperties: boolean = true;
   togglecheckhoroscope: boolean = true;
@@ -88,8 +89,8 @@ export class OtherProfileComponent implements OnInit {
   editbasicinformation = new FormGroup({
     firstName: new FormControl(''),
     LastName: new FormControl(''),
-    Gender: new FormControl({value: '',disabled:true}),
-    DOB: new FormControl({value: '',disabled:true}),
+    Gender: new FormControl(''),
+    DOB: new FormControl(''),
     Maritalstatus: new FormControl(''),
     Language: new FormControl(''),
     Religion: new FormControl(''),
@@ -128,6 +129,7 @@ export class OtherProfileComponent implements OnInit {
     Mobile: new FormControl(''),
     Phone: new FormControl(''),
     whatsapp_phone: new FormControl(''),
+    photo_privacy: new FormControl(''),
     ConfirmEmail: new FormControl(''),
     HomeTown: new FormControl(''),
   });
@@ -199,6 +201,18 @@ export class OtherProfileComponent implements OnInit {
     PE_occupation: new FormControl(''),
     PE_manglik: new FormControl(''),
     PE_looking_for: new FormControl(''),
+  });
+
+  memshipform = new FormGroup({
+    chat_bal: new FormControl(''),
+    chat_total: new FormControl(''),
+    view_contact_bal: new FormControl(''),
+    view_contact_total: new FormControl(''),
+    MemshipExpiryDate: new FormControl(''),
+    PlanPurchaseDate: new FormControl(''),
+    membership_plan_title: new FormControl(''),
+    memtype: new FormControl(''),
+    Status: new FormControl('')
   });
 
   constructor(
@@ -676,6 +690,9 @@ export class OtherProfileComponent implements OnInit {
         whatsapp_phone: this.mydetail.whatsapp_phone
           ? this.mydetail.whatsapp_phone
           : null,
+        photo_privacy: this.mydetail.photo_privacy
+          ? this.mydetail.photo_privacy
+          : false,
         ConfirmEmail: this.mydetail.ConfirmEmail
           ? this.mydetail.ConfirmEmail
           : null,
@@ -700,12 +717,12 @@ export class OtherProfileComponent implements OnInit {
     }
   }
 
-  formoccupation() {
+  hobnother() {
     console.log('button clicked');
-    if (this.togglecheckoccupation == false) {
-      this.togglecheckoccupation = true;
+    if (this.togglecheckhob == false) {
+      this.togglecheckhob = true;
     } else {
-      this.togglecheckoccupation = false;
+      this.togglecheckhob = false;
     }
     this.alleducations();
     this.alloccupations();
@@ -969,28 +986,91 @@ export class OtherProfileComponent implements OnInit {
       );
   }
 
-  hobnother() {
+  editmemship() {
     console.log('button clicked');
-    if (this.togglecheckhob == false) {
-      this.togglecheckhob = true;
+    if (this.togglecheckmemship == false) {
+      this.togglecheckmemship = true;
     } else {
-      this.togglecheckhob = false;
+      this.togglecheckmemship = false;
     }
     if (this.mydetail !== undefined) {
+      this.memshipform.setValue({
+        chat_bal: this.mydetail.chat_bal
+          ? this.mydetail.chat_bal
+          : null,
+        chat_total: this.mydetail.chat_total ? this.mydetail.chat_total : null,
+        view_contact_bal: this.mydetail.view_contact_bal ? this.mydetail.view_contact_bal : null,
+        view_contact_total: this.mydetail.view_contact_total ? this.mydetail.view_contact_total : null,
+        MemshipExpiryDate: this.mydetail.MemshipExpiryDate
+          ? new Date(parseInt(this.mydetail.MemshipExpiryDate)).toISOString().split('T')[0]
+          : null,
+        PlanPurchaseDate: this.mydetail.PlanPurchaseDate
+          ? new Date(parseInt(this.mydetail.PlanPurchaseDate)).toISOString().split('T')[0]
+          : null,
+        membership_plan_title: this.mydetail.membership_plan_title
+          ? this.mydetail.membership_plan_title
+          : null,
+        memtype: this.mydetail.memtype
+          ? this.mydetail.memtype
+          : null,
+        Status: this.mydetail.Status
+          ? this.mydetail.Status
+          : null,
+      });
+      console.log(this.memshipform.value);
+    }
+  }
+
+  updatememship() {
+    console.log(this.memshipform.value);
+    this.memshipform.patchValue({
+      MemshipExpiryDate: new Date(new Date(this.memshipform.get('MemshipExpiryDate').value).toISOString()).getTime(),
+      PlanPurchaseDate: new Date(new Date(this.memshipform.get('PlanPurchaseDate').value).toISOString()).getTime()
+    })
+
+    this.adminService
+      .edituserprofile(this.id, this.memshipform.value)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.toastr.success('Membership Detail Updated Successfully');
+          this.togglecheckmemship = true;
+          this.memshipform.reset();
+          this.gethisdetails();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+
+  formoccupation() {
+    console.log('button clicked');
+    if (this.togglecheckoccupation == false) {
+      this.togglecheckoccupation = true;
+    } else {
+      this.togglecheckoccupation = false;
+    }
+    if (this.mydetail !== undefined) {
+
+    this.alleducations();
+    this.alloccupations();
+    this.allemployedins();
       this.eduoccueditform.setValue({
-        Education: this.mydetail.Education._id
+        Education: this.mydetail.Education
           ? this.mydetail.Education._id
           : null,
         EducationDetails: this.mydetail.EducationDetails
           ? this.mydetail.EducationDetails
           : null,
-        Occupation: this.mydetail.Occupation._id
+        Occupation: this.mydetail.Occupation
           ? this.mydetail.Occupation._id
           : null,
         OccupationDetail: this.mydetail.OccupationDetail
           ? this.mydetail.OccupationDetail
           : null,
-        Employedin: this.mydetail.Employedin._id
+        Employedin: this.mydetail.Employedin
           ? this.mydetail.Employedin._id
           : null,
         Annualincome: this.mydetail.Annualincome
@@ -1068,6 +1148,11 @@ export class OtherProfileComponent implements OnInit {
   canceledpartnerdetailform() {
     this.togglecheckpartner = true;
     this.partnerexpform.reset();
+  }
+
+  cancelmemshipform() {
+    this.togglecheckmemship = true;
+    this.memshipform.reset();
   }
 
   properties() {

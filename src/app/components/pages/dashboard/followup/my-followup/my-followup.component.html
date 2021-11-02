@@ -1,0 +1,135 @@
+<app-dashboard-sidemenu></app-dashboard-sidemenu>
+
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
+        <h1>{{Content.title}}</h1>
+        <ol class="breadcrumb">
+            <li class="item"><a routerLink="/">Home</a></li>
+            <li class="item"><a routerLink="dashboard">{{Content.subTitle}}</a></li>
+            <li class="item">{{Content.title}}</li>
+        </ol>
+    </div>
+    <!-- End Breadcrumb Area -->
+
+     <!-- Start -->
+     <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="form-group">
+                 <input type="date" class="form-control stt-dat" >
+            </div>
+        </div>
+     </div>
+     <!-- <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div  routerLink="/demo" class="stats-card-box">
+                <span class="sub-title">Total Follow Up </span>
+                <h3>{{totalfollowupnumber || 0}}</h3>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div routerLink="/demo" class="stats-card-box">
+                <span class="sub-title">Today Follow Up  </span>
+                <h3>06</h3>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
+            <div  routerLink="/demo" class="stats-card-box">
+                <span class="sub-title">Previous Follow Up</span>
+                <h3>08</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
+            <div routerLink="/demo" class="stats-card-box">
+                <span class="sub-title">Followed</span>
+                <h3>08</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div routerLink="/demo" class="stats-card-box st-blue">
+                <span class="sub-title">Attend  </span>
+                <h3>05</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div routerLink="/demo" class="stats-card-box st-pink">
+                <span class="sub-title">Not Attend </span>
+                <h3>08</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div routerLink="/demo" class="stats-card-box st-light-b">
+                <span class="sub-title">Busy</span>
+                <h3>08</h3>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div routerLink="/demo" class="stats-card-box st-parple">
+                <span class="sub-title">Forwarded</span>
+                <h3>08</h3>
+            </div>
+        </div>
+    </div> -->
+     <!-- End -->
+    <!-- Start followuptable -->
+
+        <div class="bookings-listings-box">
+            <!-- <h3>Booking Requests</h3> -->
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Matri ID</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Assigned to</th>
+                            <th>Followup Date</th>
+                            <th>Next Followup</th>
+                            <th>Responce</th>
+                            <th>Call Direction</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of allmyfollowup">
+                            <td class="matri Id">
+                              {{user?.MatriID}}
+                            </td>
+                            <td class="name">
+                              {{user?.Name || user?.firstName}}
+                            </td>
+                            <td class="status">
+                              {{user?.last_remark}}
+                            </td>
+                            <td class="assigned">
+                              {{user?.Assign?.firstname}}
+                            </td>
+                            <td class="followupdate">
+                            </td>
+                            <td class="nextfollowup">
+                            </td>
+                            <td class="responce">
+                            </td>
+                            <td class="calldirectio">
+                            </td>
+                            <td class="option">
+                              <a class="st-i"><i class=' bx bx-pencil'  routerLink="/edit-profile/{{user?._id}}"></i> </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       <div class="flex-grow-1"></div>
+
+    <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->

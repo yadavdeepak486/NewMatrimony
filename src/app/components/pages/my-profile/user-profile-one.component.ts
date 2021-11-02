@@ -139,6 +139,7 @@ export class UserProfileOneComponent implements OnInit {
     Mobile: new FormControl(''),
     Phone: new FormControl(''),
     whatsapp_phone: new FormControl(''),
+    photo_privacy: new FormControl(''),
     ConfirmEmail: new FormControl(''),
     HomeTown: new FormControl(''),
   });
@@ -761,6 +762,9 @@ export class UserProfileOneComponent implements OnInit {
         whatsapp_phone: this.mydetail.whatsapp_phone
           ? this.mydetail.whatsapp_phone
           : null,
+        photo_privacy: this.mydetail.photo_privacy
+          ? this.mydetail.photo_privacy
+          : null,
         ConfirmEmail: this.mydetail.ConfirmEmail
           ? this.mydetail.ConfirmEmail
           : null,
@@ -796,10 +800,27 @@ export class UserProfileOneComponent implements OnInit {
     this.alloccupations();
     this.allemployedins();
     if (this.mydetail !== undefined) {
-      this.hobbynotherform.setValue({
-        Hobbies: this.mydetail.Hobbies ? this.mydetail.Hobbies : null,
+      this.eduoccueditform.setValue({
+        Education: this.mydetail.Education._id
+          ? this.mydetail.Education._id
+          : null,
+        EducationDetails: this.mydetail.EducationDetails
+          ? this.mydetail.EducationDetails
+          : null,
+        Occupation: this.mydetail.Occupation._id
+          ? this.mydetail.Occupation._id
+          : null,
+        OccupationDetail: this.mydetail.OccupationDetail
+          ? this.mydetail.OccupationDetail
+          : null,
+        Employedin: this.mydetail.Employedin._id
+          ? this.mydetail.Employedin._id
+          : null,
+        Annualincome: this.mydetail.Annualincome
+          ? this.mydetail.Annualincome
+          : null,
       });
-      console.log(this.hobbynotherform.value);
+      console.log(this.eduoccueditform.value);
     }
   }
 
@@ -1051,27 +1072,10 @@ export class UserProfileOneComponent implements OnInit {
       this.togglecheckhob = false;
     }
     if (this.mydetail !== undefined) {
-      this.eduoccueditform.setValue({
-        Education: this.mydetail.Education._id
-          ? this.mydetail.Education._id
-          : null,
-        EducationDetails: this.mydetail.EducationDetails
-          ? this.mydetail.EducationDetails
-          : null,
-        Occupation: this.mydetail.Occupation._id
-          ? this.mydetail.Occupation._id
-          : null,
-        OccupationDetail: this.mydetail.OccupationDetail
-          ? this.mydetail.OccupationDetail
-          : null,
-        Employedin: this.mydetail.Employedin._id
-          ? this.mydetail.Employedin._id
-          : null,
-        Annualincome: this.mydetail.Annualincome
-          ? this.mydetail.Annualincome
-          : null,
+      this.hobbynotherform.setValue({
+        Hobbies: this.mydetail.Hobbies ? this.mydetail.Hobbies : null,
       });
-      console.log(this.eduoccueditform.value);
+      console.log(this.hobbynotherform.value);
     }
   }
 

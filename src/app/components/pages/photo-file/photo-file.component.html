@@ -11,43 +11,72 @@
           </div>
           <form class="col-lg-12 text-center" [formGroup]="imageupload1" (ngSubmit)="uploadimage1();">
             <div>
-              <img [src]="croppedImage1 || filePath1 " class="img-fixed" />
+              <img [src]="croppedImage1 || dumPhoto" class="img-fixed" style="max-width: 350px;"/>
               <div *ngIf="!readyupload1" class="file a-btn">
-                Upload profile Photo 1
-                <input type="file" (change)="imagePreview1($event);" name="file" class="input-one" />
+                <!-- Upload Photo 1 -->
+                <!-- <input type="file" (change)="imagePreview1($event);" name="file" class="input-one" /> -->
+                <label class="filelabel" style="margin: 10px auto;">
+                  <i class="fa fa-paperclip">
+                  </i>
+                  <span class="title">
+                    Upload Photo 1
+                  </span>
+                  <input class="FileUpload1"  (change)="imagePreview1($event);" id="FileInput" name="booking_attachment" type="file" />
+              </label>
               </div>
+              <div class="row" style="justify-content: center;">
               <button *ngIf="readyupload1" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload1" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload1()">Cancel</button>
-              <p class="bt-tetx"></p>
+              </div>
             </div>
           </form>
+          <div class="row" >
           <form class="col-lg-6 text-center" [formGroup]="imageupload2" (ngSubmit)="uploadimage2()">
             <div>
-              <img [src]="croppedImage2 || filePath2 " class="img-fixed" />
+              <img [src]="croppedImage2 || dumPhoto" class="img-fixed"  style="max-width: 250px;"/>
               <div *ngIf="!readyupload2" class="file a-btn">
-                Upload profile Photo 2
-                <input (change)="imagePreview2($event);" type="file" name="file" class="input-one" />
+                <!-- Upload profile Photo 2 -->
+                <!-- <input (change)="imagePreview2($event);" type="file" name="file" class="input-one" /> -->
+                <label class="filelabel" style="margin: 10px auto;">
+                  <i class="fa fa-paperclip">
+                  </i>
+                  <span class="title">
+                    Upload Photo 2
+                  </span>
+                  <input class="FileUpload1"  (change)="imagePreview2($event);" id="FileInput" name="booking_attachment" type="file" />
+              </label>
               </div>
+              <div class="row" style="justify-content: center;">
               <button *ngIf="readyupload2" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload2" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload2()">Cancel</button>
-              <p class="bt-tetx"></p>
+              </div>
             </div>
           </form>
           <form class="col-lg-6 text-center" [formGroup]="imageupload3" (ngSubmit)="uploadimage3()">
             <div>
-              <img [src]="croppedImage3 || filePath3 " class="img-fixed" />
+              <img [src]="croppedImage3 || dumPhoto" class="img-fixed" style="max-width: 250px;"/>
               <div *ngIf="!readyupload3" class="file a-btn">
-                Upload profile Photo 3
-                <input (change)="imagePreview3($event);" type="file" name="file" class="input-one" />
+                <!-- Upload profile Photo 3 -->
+                <!-- <input (change)="imagePreview3($event);" type="file" name="file" class="input-one" /> -->
+                <label class="filelabel" style="margin: 10px auto;">
+                  <i class="fa fa-paperclip">
+                  </i>
+                  <span class="title">
+                    Upload Photo 3
+                  </span>
+                  <input class="FileUpload1"  (change)="imagePreview3($event);" id="FileInput" name="booking_attachment" type="file" />
+              </label>
               </div>
+              <div class="row" style="justify-content: center;">
               <button *ngIf="readyupload3" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload3" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload3()">Cancel</button>
-              <p class="bt-tetx"></p>
+              </div>
             </div>
           </form>
+        </div>
           <div *ngIf="cropper1">
             <image-cropper style="width: 500px;" [imageChangedEvent]="imageChangedEvent1" [maintainAspectRatio]="true"
               [aspectRatio]="1/1" (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped1($event)"
@@ -67,113 +96,6 @@
             <button type="button" class="btnrg" (click)="movetouserhome()">
               LETS START</button>
           </div>
-
-          <!-- <form [formGroup]="photo1form" (ngSubmit)="submitphotos()" ngNativeValidate>
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="img-box1">
-                  <div class="outer" style="width: 200px;
-                  height: 200px;
-                  border-radius: 50%;
-                  overflow: hidden;
-                  margin: auto;">
-                    <img [src]="filePath1 || changeimage" alt="image" />
-
-                  </div>
-                  <label class="custom-file-upload" style="margin-top: 0px;
-                  z-index: 1002;
-                  ">
-                    <input #photo1 type="file" accept="image/*" name="Photo1" (change)="imagePreview1($event)"
-                      required />
-
-                    <p style="background-color: #0a82bb;
-                        color: #ffff;
-                        margin-top: 4px;
-                        padding: 6px;
-                        font-size: 14px;
-                        border-radius: 100px;">Select Image</p>
-
-                  </label>
-                  <button btn class="btn-denger st-cancel" (click)="cancelupload1()">Cancel</button>
-                  <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 37%;
-                  margin: auto;
-                  border-radius: 25px;
-              " role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
-                    [ngStyle]="{ width: progress + '%' }">{{ progress }}%
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="img-box2">
-                  <div class="outer" style="width: 200px;
-                  height: 200px;
-                  border-radius: 50%;
-                  overflow: hidden;
-                  margin: auto;">
-                    <img [src]="filePath2 ||changeimage" alt="image" />
-
-                  </div>
-                  <label class="custom-file-upload" style="margin-top: 0px;
-                  z-index: 1002;
-                  ">
-                    <input #photo1 type="file" accept="image/*" name="Photo1" (change)="imagePreview2($event)"
-                      required />
-
-                    <p style="background-color: #0a82bb;
-                        color: #ffff;
-                        margin-top: 4px;
-                        padding: 6px;
-                        font-size: 14px;
-                        border-radius: 100px;">Select Image </p>
-                  </label>
-                  <button btn class="btn-denger st-cancel" (click)="cancelupload2()">Cancel</button>
-                  <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 37%;
-                  margin: auto;
-                  border-radius: 25px;
-              " role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
-                    [ngStyle]="{ width: progress + '%' }">{{ progress }}%
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="img-box3">
-                  <div class="outer" style="width: 200px;
-                  height: 200px;
-                  border-radius: 50%;
-                  overflow: hidden;
-                  margin: auto;">
-                    <img [src]="filePath3 ||changeimage" alt="image" />
-
-                  </div>
-                  <label class="custom-file-upload" style="margin-top: 0px;
-                  z-index: 1002;
-                  ">
-                    <input #photo1 type="file" accept="image/*" name="Photo1" (change)="imagePreview3($event)"
-                      required />
-
-                    <p style="background-color: #0a82bb;
-                        color: #ffff;
-                        margin-top: 4px;
-                        padding: 6px;
-                        font-size: 14px;
-                        border-radius: 100px;">Select Image </p>
-                  </label>
-                  <button btn class="btn-denger st-cancel" (click)="cancelupload3()">Cancel</button>
-                  <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 37%;
-                  margin: auto;
-                  border-radius: 25px;
-              " role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
-                    [ngStyle]="{ width: progress + '%' }">{{ progress }}%
-                  </div>
-                </div>
-              </div>
-              <div class="btn-box">
-                <button type="submit" class="btnrg" data-toggle="modal" data-target="#verifymobile"
-                  data-dismiss="modal">
-                  LETS START</button>
-              </div>
-            </div>
-          </form> -->
         </div>
       </div>
     </div>

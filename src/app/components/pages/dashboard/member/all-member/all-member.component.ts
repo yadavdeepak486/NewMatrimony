@@ -69,6 +69,10 @@ export class AllMemberComponent implements OnInit {
     search: true,
   };
 
+  makearchive = {
+    Status: "Archived"
+  }
+
   searchChange($event) {
     console.log($event);
   }
@@ -255,6 +259,20 @@ export class AllMemberComponent implements OnInit {
     });
   }
 
+  changeusertoarchive(id){
+    console.log(id,this.makearchive);
+
+    this.adminServie.edituserprofile(id, this.makearchive).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getallusers()
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
   // getuserstoverify() {
   //   this.adminServie.allverifyusers().subscribe(
   //     (response: any) => {
@@ -267,6 +285,11 @@ export class AllMemberComponent implements OnInit {
   //     }
   //   );
   // }
+
+  pageChange(e){
+    console.log(e);
+  }
+
 }
 
 

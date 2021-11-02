@@ -6,17 +6,20 @@ import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-interest-sent',
   templateUrl: './interest-sent.component.html',
-  styleUrls: ['./interest-sent.component.scss']
+  styleUrls: ['./interest-sent.component.scss'],
 })
 export class InterestSentComponent implements OnInit {
   users: any;
-  constructor(public userService: UserService, private router: Router,public toastr: ToastrService) {}
+  constructor(
+    public userService: UserService,
+    private router: Router,
+    public toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getallUsers();
   }
 
-  
   getallUsers() {
     this.userService.sentinterest().subscribe(
       (response: any) => {
@@ -34,13 +37,13 @@ export class InterestSentComponent implements OnInit {
     this.router.navigate(['profile-detail', id]);
   }
 
-  unsend(id){
-    console.log(id)
+  unsend(id) {
+    console.log(id);
     this.userService.rejectinterest(id).subscribe(
       (response: any) => {
         console.log(response);
-        this.toastr.info("Interest Removed")
-        this.getallUsers()
+        this.toastr.info('Interest Removed');
+        this.getallUsers();
       },
       (error) => {
         console.log(error);
@@ -48,5 +51,3 @@ export class InterestSentComponent implements OnInit {
     );
   }
 }
-
-

@@ -14,7 +14,6 @@
               <button *ngIf="readyupload1" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload1" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload1()">Cancel</button>
-              <p class="bt-tetx">( Front facing photo with clear face is recomended, Size 400X400)</p>
             </div>
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload2" (ngSubmit)="uploadimage2()">
@@ -27,7 +26,6 @@
               <button *ngIf="readyupload2" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload2" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload2()">Cancel</button>
-              <p class="bt-tetx">( Full photograph from front recomended, Size 400X400 )</p>
             </div>
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload3" (ngSubmit)="uploadimage3()">
@@ -40,7 +38,6 @@
               <button *ngIf="readyupload3" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload3" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload3()">Cancel</button>
-              <p class="bt-tetx">( Full lenth photograph recomended, Size 400X400 )</p>
             </div>
           </form>
           <div class="col-lg-12">
@@ -599,7 +596,7 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Photo Privacy:</td>
-                                <td class="wd1">{{mydetail?.photoprivacy || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.photo_privacy?"Private":"Public" || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Email Address:</td>
@@ -644,9 +641,9 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Photo Privacy</label>
-                                  <select class="form-control">
-                                    <option>Public</option>
-                                    <option>Private</option>
+                                  <select class="form-control" formControlName="photo_privacy">
+                                    <option [value]="false">Public</option>
+                                    <option [value]="true">Private</option>
                                   </select>
                                 </div>
                               </div>
@@ -783,7 +780,7 @@
                           <a class="st-edit" (click)="formabout()"> Edit<i class="bx bx-edit"></i></a>
                         </div>
                         <div *ngIf="toggleabout" class="info-text st-about">
-                          {{mydetail?.Profile || "Lorem ipsum dolor sit amet consectetur adipisicing elit"}}
+                          {{mydetail?.Profile || "not mentioned"}}
                         </div>
                         <div *ngIf="!toggleabout" class="info-text">
                           <form [formGroup]="aboutform" (ngSubmit)="updateabout()">
@@ -1357,6 +1354,153 @@
 
                       </div>
 
+                      <!-- Membership -->
+                      <div class="content-box">
+                        <div class="heading-title">
+                          <h3>Membership</h3>
+                        </div>
+                        <div class="edit">
+                          <a class="st-edit" (click)="editmemship()"> Edit<i class="bx bx-edit"></i></a>
+                        </div>
+                        <div *ngIf="togglecheckmemship" class="info-text">
+                          <table class="tb-text">
+                            <tbody class="tb-text">
+                              <tr class="wd">
+                                <td class="wd1">Chat Balance:</td>
+                                <td class="wd1">{{mydetail?.chat_bal || "no plan"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Chat Total:</td>
+                                <td class="wd1">{{mydetail?.chat_total || "no plan"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">View Contact Balance:</td>
+                                <td class="wd1">
+                                  {{mydetail?.view_contact_bal || "no plan"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">View Contact Total:</td>
+                                <td class="wd1">{{mydetail?.view_contact_total || "no plan"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Expiry Date:</td>
+                                <td class="wd1">{{mydetail?.MemshipExpiryDate  | date:'short' || "no plan"}}</td>
+                              </tr>
+
+                              <tr class="wd">
+                                <td class="wd1">Plan Purchase Date:</td>
+                                <td class="wd1">{{mydetail?.PlanPurchaseDate | date:'short' || "no plan"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Plan Title:</td>
+                                <td class="wd1">{{mydetail?.membership_plan_title || "no plan"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Member Type:</td>
+                                <td class="wd1">{{mydetail?.memtype == "FM" ? "Free Member":"Premium Member" || "no plan"}}</td>
+                              </tr>
+                              <tr class="wd">
+                                <td class="wd1">Status:</td>
+                                <td class="wd1">{{mydetail?.Status || "not mentioned"}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div *ngIf="!togglecheckmemship" class="info-text">
+                          <form [formGroup]="memshipform" (ngSubmit)="updatememship()">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Chat Balance</label>
+                                  <input type="number" class="form-control" placeholder="30"
+                                    formControlName="chat_bal">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Chat Total</label>
+                                  <input type="number" class="form-control" placeholder="25"
+                                    formControlName="chat_total">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>View Contact Balance</label>
+                                  <input type="number" class="form-control" placeholder="25"
+                                    formControlName="view_contact_bal">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>>View Contact Total</label>
+                                  <input type="number" class="form-control" placeholder="25"
+                                    formControlName="view_contact_total">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Membership Expiry Date</label>
+                                  <input type="date" class="form-control" placeholder="25"
+                                    formControlName="MemshipExpiryDate">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Plan Purchase Date</label>
+                                  <input type="date" class="form-control" placeholder="25"
+                                    formControlName="PlanPurchaseDate">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Membership Plan Title</label>
+                                  <select class="form-control" formControlName="membership_plan_title">
+                                    <option value="">None</option>
+                                    <option value="Bronze">Bronze</option>
+                                    <option value="Silver Plus">Silver Plus</option>
+                                    <option value="Silver">Silver</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Gold Plus">Gold Plus</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Membership Type</label>
+                                  <select class="form-control" formControlName="memtype">
+                                    <option value="">None</option>
+                                    <option value="FM">Free Member</option>
+                                    <option value="PM">Premium Member</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Status</label>
+                                  <select class="form-control" formControlName="Status">
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Paid">Paid</option>
+                                    <option value="Expired">Expired</option>
+                                    <option value="Archived">Archived</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-up">Submit</button>
+                                <button type="button" class="btn btn-primary btn-up"
+                                  (click)="cancelmemshipform()">Cancel</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+
+                      </div>
+
+
+
+
 
                       <!-- heroscope detail -->
                       <div class="content-box">
@@ -1432,6 +1576,7 @@
                                 <th>Remark</th>
                                 <th>Next Follow up</th>
                                 <th>Staff</th>
+                                <th>Date</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -1448,6 +1593,9 @@
 
                                 <td class="email">
                                   {{followup?.staff?.firstname}} {{followup?.staff?.Mobile}}
+                                </td>
+                                <td class="name">
+                                  {{followup?.createdAt | date:'short'}}
                                 </td>
                               </tr>
 
@@ -1484,9 +1632,6 @@
                                     formControlName="remark"></textarea>
                                 </div>
                               </div>
-
-
-
                               <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-up">Submit</button>
                                 <button type="button" class="btn btn-primary btn-up">Cancel</button>

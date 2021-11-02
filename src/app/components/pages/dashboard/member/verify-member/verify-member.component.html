@@ -270,7 +270,21 @@
                           </tbody>
                         </table>
                       </div>
-                      <p class="l-mark">Last Remark: <span class="txt-small"> {{Content?.last_remark }}</span></p>
+                      <p class="l-mark">Verify: <span class="txt-small"> {{Content?.last_remark }}</span></p>
+                        <ul>
+                          <li>
+                            Photo 1:<span *ngIf="Content?.Photo1 != null && Content?.Photo1Approve == 'No'"><i class="bx bxs-check-circle text-success Blink"></i> Verify </span>
+                          </li>
+                          <li>
+                            Photo 2:<span *ngIf="Content?.Photo2 != null && Content?.Photo2Approve == 'No'"><i class="bx bxs-check-circle text-success Blink"></i> Verify </span>
+                          </li>
+                          <li>
+                            Photo 3:<span *ngIf="Content?.Photo3 != null && Content?.Photo3Approve == 'No'"><i class="bx bxs-check-circle text-success Blink"></i> Verify </span>
+                          </li>
+                          <li>
+                            Partner Expectation:<span *ngIf="Content?.PartnerExpectations != null && Content?.PartnerExpectationsApprove == 'No'"><i class="bx bxs-check-circle text-success Blink"></i> Verify </span>
+                          </li>
+                        </ul>
                       <ul class="listings-meta pd-tr">
                         <li class="lst-txt">Reg. Date: <span class="spn-lst">{{Content?.createdAt | date
                             :'short'}},</span></li>
@@ -289,10 +303,6 @@
                           </a> </li>
                         <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li> -->
                         <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li> -->
-                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>
-                        <li><a style="cursor: pointer;" (click)="openDialog(Content._id,Content.MatriID)"
-                            class="lst-profile">Delete
-                            User</a> </li>
                         <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Chat</a> </li> -->
                       </ul>
                     </div>

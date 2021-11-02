@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   togglembcheck: boolean = true;
   languageSelected = 'es';
   selecedflagcode:any;
+  filteredname:any;
 
   tosendmail = {
     Mobile: ""
@@ -608,7 +609,7 @@ export class SignupComponent implements OnInit {
         "name": "India",
         "dialCode": "+91",
         "isoCode": "IN",
-        "flag": "https://www.countryflags.io/IN/shiny/24.png"
+        "flag": "https://api.hostip.info/images/flags/in.gif"
     },
     {
         "name": "Indonesia",
@@ -1491,7 +1492,7 @@ export class SignupComponent implements OnInit {
 selectedtext = "+91";
 
 objExp = {
-  "background":  `url("https://www.countryflags.io/IN/shiny/32.png") center / contain no-repeat`,
+  "background":  `url("https://api.hostip.info/images/flags/in.gif") center / contain no-repeat`,
   "white-space": "nowrap",
   "display":"inline"
 }
@@ -1532,6 +1533,7 @@ tochangeflag(e){
     DOB: new FormControl(''),
     ConfirmEmail: new FormControl('', Validators.required),
     Maritalstatus: new FormControl('6144459b4a9280296c14aed9', Validators.required),
+    countrycode: new FormControl('+91', Validators.required),
     Mobile: new FormControl('', Validators.required),
     ConfirmPassword: new FormControl('', Validators.required),
     agree_terms_conditions: new FormControl('1', Validators.required),
@@ -1711,6 +1713,28 @@ tochangeflag(e){
     else element.focus();
   }
 
+  preventnumber(e){
+    // console.log(e);
+    var keycode = e.keyCode;
+    var valid =
+        //(keycode > 47 && keycode < 58)   || // number keys
+        keycode == 32 || keycode == 13 || keycode == 8 || keycode == 9  || // spacebar & return key(s) (if you want to allow carriage returns)
+        (keycode > 64 && keycode < 91) // letter keys
+        //(keycode > 95 && keycode < 112)  || // numpad keys
+        //(keycode > 185 && keycode < 193) || // ;=,-./` (in order)
+        //(keycode > 218 && keycode < 223);   // [\]' (in order)
+
+    return valid;
+  }
+
+  preventthanmax(e){
+    if (e.target.value >= 999999999
+            && e.keyCode !== 46
+            && e.keyCode !== 8
+           ) {
+           e.preventDefault();
+        }
+  }
 
   changenumberotp() {
     console.log(this.changenumberform.value.Mobile);
@@ -1719,7 +1743,6 @@ tochangeflag(e){
       .subscribe(
         (response: any) => {
           console.log(response);
-
           console.log(response.response.body);
           const bodyresp = JSON.parse(response.response.body);
           console.log(bodyresp);

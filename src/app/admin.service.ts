@@ -600,11 +600,17 @@ export class AdminService {
   }
 
   addfollowup(id, data) {
-    return this.http.post(`${this.backendurl}/admin/addfollowup/${id}`, data);
+    let header = new HttpHeaders().set(
+      'auth-adtoken',
+      localStorage.getItem('auth-adtoken')
+    );
+    return this.http.post(`${this.backendurl}/admin/addfollowup/${id}`, data,{
+      headers: header,
+    });
   }
 
   allfollowupofuser(id) {
-    return this.http.get(`${this.backendurl}/admin/viewoneuserfollowup/${id}`);
+    return this.http.get(`${this.backendurl}/admin/viewuserfollowup/${id}`);
   }
 
   //get counts
@@ -646,4 +652,27 @@ export class AdminService {
       headers: header,
     });
   }
+
+  allfollowup() {
+    return this.http.get(`${this.backendurl}/admin/allfollowup`);
+  }
+
+  deletefollowup(id) {
+    return this.http.get(`${this.backendurl}/admin/deletefollowup/${id}`);
+  }
+
+  stafffollowup(id) {
+    return this.http.get(`${this.backendurl}/admin/viewstafffollowup/${id}`);
+  }
+
+  staffmyfollowup() {
+    let header = new HttpHeaders().set(
+      'auth-adtoken',
+      localStorage.getItem('auth-adtoken')
+    );
+    return this.http.get(`${this.backendurl}/admin/viewstafffollowupassigned`, {
+      headers: header,
+    });
+  }
+
 }

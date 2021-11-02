@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/user.service';
 
@@ -18,7 +18,8 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
   constructor(
     public userService: UserService,
     public toastr: ToastrService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -89,6 +90,22 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
       },
       (error) => {
         console.log(error);
+      }
+    );
+  }
+
+  startchat(id) {
+    this.userService.createchatroom(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.toastr.success('Chat room');
+        this.router.navigate(['user-dashboard/user-chat']);
+      },
+      (error) => {
+        console.log(error);
+        if (error.error.msg == 'Already Exists') {
+          this.router.navigate(['user-dashboard/user-chat']);
+        }
       }
     );
   }

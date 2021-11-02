@@ -69,18 +69,19 @@
           <span *ngIf="blockeduser !== 0" class="badge">{{blockeduser}}</span>
         </a>
       </li>
-      <!-- <li class="nav-item" routerLinkActive="mm-active">
-        <a routerLink="/demo" class="nav-link">
-          <span class="icon"><i class='bx bx-street-view'></i></span>
-          <span class="menu-title">I Viewed Profile</span>
-          <span class="badge">3</span>
-        </a>
-      </li> -->
+
       <li class="nav-item" routerLinkActive="mm-active">
         <a routerLink="/user-dashboard/photo-recived" class="nav-link">
           <span class="icon"><i class='bx bx-user'></i></span>
           <span class="menu-title">Photo Request Recieved</span>
           <span *ngIf="photoreqrec !== 0" class="badge">{{photoreqrec}}</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="mm-active">
+        <a routerLink="/user-dashboard/contact-viewed" class="nav-link">
+          <span class="icon"><i class='bx bx-street-view'></i></span>
+          <span class="menu-title">Contact Details Viewed</span>
+          <span *ngIf="contactdetailcount !== 0" class="badge">{{contactdetailcount}}</span>
         </a>
       </li>
       <li class="nav-item" routerLinkActive="mm-active">

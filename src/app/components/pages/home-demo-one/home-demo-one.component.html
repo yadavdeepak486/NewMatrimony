@@ -1,7 +1,7 @@
 <app-navbar-style-one></app-navbar-style-one>
 
 <!-- <app-homeone-banner></app-homeone-banner> -->
-<app-signup></app-signup>
+<app-signup *ngIf="!checkauth"></app-signup>
 <app-features></app-features>
 
 <app-homeone-listings></app-homeone-listings>

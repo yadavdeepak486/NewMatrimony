@@ -14,7 +14,6 @@
               <button *ngIf="readyupload1" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload1" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload1()">Cancel</button>
-              <p class="bt-tetx">( Front facing photo with clear face is recomended, Size 400X400)</p>
             </div>
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload2" (ngSubmit)="uploadimage2()">
@@ -27,7 +26,6 @@
               <button *ngIf="readyupload2" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload2" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload2()">Cancel</button>
-              <p class="bt-tetx">( Full photograph from front recomended, Size 400X400)</p>
             </div>
           </form>
           <form class="col-lg-4 text-center" [formGroup]="imageupload3" (ngSubmit)="uploadimage3()">
@@ -40,7 +38,6 @@
               <button *ngIf="readyupload3" class="btn btn-success mt-2" type="submit">Upload</button>
               <button *ngIf="readyupload3" class="btn btn-danger mt-2" style="margin-left: 10px;" type="button"
                 (click)="cancelupload3()">Cancel</button>
-              <p class="bt-tetx">( Full lenth photograph recomended, Size 400X400 )</p>
             </div>
           </form>
           <div *ngIf="cropper1">
@@ -602,7 +599,7 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Photo Privacy:</td>
-                                <td class="wd1">{{mydetail?.photoprivacy || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.photo_privacy?"Private":"Public" || "not mentioned"}}</td>
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Email Address:</td>
@@ -610,7 +607,7 @@
                               </tr>
                               <tr class="wd">
                                 <td class="wd1">Home Town:</td>
-                                <td class="wd1">{{mydetail?.HomeTown.name || "not mentioned"}}</td>
+                                <td class="wd1">{{mydetail?.HomeTown || "not mentioned"}}</td>
                               </tr>
                               <!-- <tr class="wd">
                                 <td class="wd1">Home/Native place:</td>
@@ -647,9 +644,9 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label>Photo Privacy</label>
-                                  <select class="form-control">
-                                    <option>Public</option>
-                                    <option>Private</option>
+                                  <select class="form-control" formControlName="photo_privacy">
+                                    <option [value]="false">Public</option>
+                                    <option [value]="true">Private</option>
                                   </select>
                                 </div>
                               </div>

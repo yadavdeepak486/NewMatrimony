@@ -18,7 +18,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./user-chat.component.scss'],
 })
 export class UserChatComponent implements OnInit,OnDestroy {
-  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  // @ViewChild('scrollMe') myScrollContainer: ElementRef;
 
   mydetail: any;
   otheruser: any;
@@ -46,18 +46,18 @@ export class UserChatComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.getmydetails();
     this.mychatroom();
-    this.scrollToBottom();
+    //this.scrollToBottom();
   }
 
   ngOnDestroy():void{
   }
 
-  scrollToBottom(): void {
-      this.myScrollContainer.nativeElement.scroll({
-        top: this.myScrollContainer.nativeElement.scrollHeight,
-        left: 0,
-        behavior: 'smooth'})
-  }
+  // scrollToBottom(): void {
+  //     this.myScrollContainer.nativeElement.scroll({
+  //       top: this.myScrollContainer.nativeElement.scrollHeight,
+  //       left: 0,
+  //       behavior: 'smooth'})
+  // }
 
   getmydetails() {
     this.userService.getmyprofiledetail().subscribe(
@@ -90,7 +90,7 @@ export class UserChatComponent implements OnInit,OnDestroy {
       (response: any) => {
         console.log(response);
         this.rooms = response.data;
-        console.log(response.data[0].receiver._id);
+        console.log(response.data[0].receiver?._id);
         if (this.mydetail?._id == response.data[0].receiver?._id) {
           console.log('to set sender id');
           this.imageandname(response.data[0].sender._id);
@@ -125,7 +125,7 @@ export class UserChatComponent implements OnInit,OnDestroy {
         console.log(error);
       }
     );
-    this.scrollToBottom()
+    //this.scrollToBottom()
     setInterval(() => {
       this.userService.chatsroom(this.chatingroom).subscribe(
         (response: any) => {
@@ -170,7 +170,7 @@ export class UserChatComponent implements OnInit,OnDestroy {
           console.log(error);
         }
       );
-      this.scrollToBottom()
+      //this.scrollToBottom()
   }
 
   toggle(event: MatSlideToggleChange) {
@@ -191,5 +191,9 @@ export class UserChatComponent implements OnInit,OnDestroy {
       }
     );
 
+  }
+
+  deletechat(){
+    console.log(this.chatingroom);
   }
 }

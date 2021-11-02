@@ -15,19 +15,11 @@
           </div>
           <div>
             <h6>{{mydetail?.Name || mydetail?.firstName}} {{mydetail?.Name || mydetail?.LastName}}</h6>
-            <!-- <p>{{mydetail?.ConfirmEmail}}</p> -->
             <div class="pft-st mb-4">
               <mat-slide-toggle [checked]="useDefault" (change)="toggle($event)">{{useDefault?"Online":"Offline"}}
               </mat-slide-toggle>
             </div>
           </div>
-
-
-
-          <!-- <form class="form-group position-relative mb-0">
-            <label><i class='bx bx-search'></i></label>
-            <input type="text" class="form-control" placeholder="Search here...">
-          </form> -->
         </div>
 
         <div class="sidebar-content d-flex chat-sidebar" data-simplebar>
@@ -90,16 +82,11 @@
               <div class="header-right text-right w-100">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <span class="favorite d-block">
-                      <i class='bx bx-star'></i>
-                    </span>
-                  </li>
-                  <li>
                     <div class="dropdown">
                       <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false"><i class='bx bx-dots-vertical-rounded'></i></button>
                       <div class="dropdown-menu">
-                        <a class="dropdown-item d-flex align-items-center" href="#"><i class='bx bx-trash'></i> Delete
+                        <a class="dropdown-item d-flex align-items-center" ><i class='bx bx-trash' (click)="deletechat()"></i> Delete
                           Chat</a>
                       </div>
                     </div>
@@ -108,7 +95,7 @@
               </div>
             </div>
             <!-- #scrollMe [scrollTop]="scrollMe.scrollHeight" -->
-            <div class="chat-container" #scrollMe data-simplebar>
+            <div class="chat-container" #scrollMe [scrollTop]="scrollMe.scrollHeight" data-simplebar>
               <div *ngFor="let chat of chats" class="chat-content">
                 <div *ngIf="mydetail._id == chat.msg_sender._id" class="chat">
                   <div class="chat-avatar">
@@ -120,14 +107,8 @@
 
                   <div class="chat-body">
                     <div class="chat-message dropdown">
-                      <!-- <button class="dropdown-toggle btn-drp" type="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"><i class='bx bx-dots-vertical-rounded'></i></button> -->
                       <p>{{chat.msg}} </p>
                       <span class="time d-block">{{chat.createdAt | date :'short' }}</span>
-                      <!-- <div class="dropdown-menu st-dr">
-                        <a class="dropdown-item d-flex align-items-center" href="#"><i class='bx bx-trash'></i> Delete
-                          Chat</a>
-                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -161,18 +142,6 @@
       </div>
     </div>
   </div>
-  <!-- End -->
 
   <div class="flex-grow-1"></div>
-
-  <app-copyrights></app-copyrights>
-
 </div>
-<!-- End Main Content Wrapper Area -->
-<!-- <div class="btn-box d-flex align-items-center mr-3">
-                  <button class="emoji-btn d-inline-block mr-2" data-toggle="tooltip" data-placement="top" title="Emoji"
-                    type="button"><i class='bx bx-smile'></i></button>
-
-                  <button class="file-attachment-btn d-inline-block" data-toggle="tooltip" data-placement="top"
-                    title="File Attachment" type="button"><i class='bx bx-paperclip'></i></button>
-                </div> -->

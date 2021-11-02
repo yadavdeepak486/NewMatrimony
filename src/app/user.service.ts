@@ -427,5 +427,13 @@ export class UserService {
     return this.http.post(`${this.backendurl}/user/sendmail/${id}`, data);
   }
 
-
+  myviewedaddress() {
+    let header = new HttpHeaders().set(
+      'auth-token',
+      localStorage.getItem('auth-token')
+    );
+    return this.http.get(`${this.backendurl}/user/myviewedaddress`, {
+      headers: header,
+    });
+  }
 }

@@ -49,7 +49,9 @@ export class NavbarStyleOneComponent implements OnInit {
     const setauth = false;
     localStorage.setItem('auth-token', '');
     this.checkauth = false;
-    this.routes.navigate(['/']);
+    this.routes.navigate(['/']).then(() => {
+      window.location.reload();
+    });;
   }
 
   getmydetails() {

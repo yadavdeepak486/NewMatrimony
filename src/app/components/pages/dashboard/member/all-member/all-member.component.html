@@ -127,7 +127,7 @@
                       <mat-form-field appearance="outline">
                         <mat-label>Membership Plan</mat-label>
                         <mat-select multiple formControlName="memtype">
-                          <mat-option *ngFor="let plan of plans" [value]="plan._id">{{plan?.plantitle}}</mat-option>
+                          <mat-option *ngFor="let plan of plans" [value]="plan?.plantitle">{{plan?.plantitle}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
@@ -139,6 +139,7 @@
                           <mat-option value="Active">Active</mat-option>
                           <mat-option value="Inactive">Inactive</mat-option>
                           <mat-option value="Expired">Expired</mat-option>
+                          <mat-option value="Archived">Archived</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
@@ -191,7 +192,11 @@
                       <mat-form-field appearance="outline">
                         <mat-label>Manglik</mat-label>
                         <mat-select formControlName="Manglik">
-                          <mat-option *ngFor="let manglik of manglikList" [value]="manglik">{{manglik}} </mat-option>
+                          <mat-option value="">Any</mat-option>
+                          <mat-option value="Yes">Yes</mat-option>
+                    <mat-option value="No" selected>No</mat-option>
+                    <mat-option value="Anshik Manglik">Anshik Manglik</mat-option>
+                    <mat-option value="Dont Know">Dont Know</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
@@ -215,7 +220,7 @@
               </div>
             </div>
             <div class="col-lg-12 col-md-12"
-              *ngFor="let Content of alluser | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+              *ngFor="let Content of alluser | paginate: { itemsPerPage: 10, currentPage: verticalListings,totalItems: alluser?.length }">
               <div class="single-listings-item">
                 <div class="row m-0">
                   <div class="col-lg-4 col-md-4 p-0">
@@ -283,17 +288,14 @@
                       </ul>
                       <ul class="listings-meta pd-r">
                         <li><a routerLink="/profile-detail/{{Content?._id}}" class="lst-profile">Profile View</a></li>
-                        <li><a routerLink="/edit-profile/{{Content?._id}}" class="lst-profile">Edit
+                        <li><a target="_blank" routerLink="/edit-profile/{{Content?._id}}" class="lst-profile">Edit
                             Profile</a> </li>
                         <li><a routerLink="/verify-profile/{{Content?._id}}" class="lst-profile">Profile Verify
                           </a> </li>
-                        <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Send Match Alert</a> </li> -->
-                        <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">View Remark</a> </li> -->
-                        <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Add Remark</a> </li>
+                        <li><a style="cursor: pointer;" (click)="changeusertoarchive(Content?._id)" class="lst-profile">Archive User</a> </li>
                         <li><a style="cursor: pointer;" (click)="openDialog(Content._id,Content.MatriID)"
                             class="lst-profile">Delete
                             User</a> </li>
-                        <!-- <li><a routerLink="/{{Content.categoryLink}}" class="lst-profile">Chat</a> </li> -->
                       </ul>
                     </div>
                   </div>
@@ -303,7 +305,8 @@
 
             <div class="col-lg-12 col-md-12">
               <div class="pagination-area text-center">
-                <pagination-controls (pageChange)="verticalListings = $event"></pagination-controls>
+                <pagination-controls  (pageChange)="verticalListings = $event"></pagination-controls>
+                <!-- (pageChange)="verticalListings = $event" -->
               </div>
             </div>
           </div>

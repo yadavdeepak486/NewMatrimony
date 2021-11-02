@@ -1,0 +1,90 @@
+<app-user-dashboard-sidemenu></app-user-dashboard-sidemenu>
+<!-- Start Main Content Wrapper Area -->
+<div class="main-content d-flex flex-column">
+
+  <app-user-dashboard-navbar></app-user-dashboard-navbar>
+
+
+  <!-- Start -->
+  <div class="row">
+    <!-- Start Listings Area -->
+    <section class="listings-area st-section ">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div *ngIf="users" class="row">
+              <div class="col-lg-6 col-md-12"
+                *ngFor="let Content of users | paginate: { itemsPerPage: 50, currentPage: verticalListings }">
+                <div class="single-listings-item">
+                  <div class="row m-0" style="height: 200px;">
+                    <div class="col-lg-4 col-md-4 p-0" style="height: 200px;">
+                      <div class="listings-image"
+                        style="background-image: url({{Content?.whom1?.Photo1}});">
+                        <img [src]="Content?.whom1?.Photo1" alt="image">
+                        <a routerLink="/profile-detail/{{Content?.whom1?._id}}" class="link-btn"></a>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-8 col-md-8 p-0">
+                      <div class="listings-content">
+                        <h3 class="mid">ID: <span
+                            class="mds">{{Content?.whom1?.MatriID}}</span>
+                        </h3>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                        </div>
+                        <div class="dt">
+                          <ul>
+                            <li><span><strong>Address:</strong> {{Content.address}}</span></li>
+                          </ul>
+                        </div>
+                        <ul class="listings-meta">
+                          <li><a>
+                              <p class="i_t">Date:{{Content?.when1 | date: 'short'}}</p>
+                            </a></li>
+                          <!-- <li><a><i class="flaticon-heart clicked-change"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%); "></i>
+                              <p class="i_t">Cancel</p>
+                            </a></li>
+                          <li><a routerLink="/user-dashboard/user-chat"><i class=" bx bx-chat"
+                                style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Chat</p>
+                            </a></li>
+                          <li><a routerLink="/profile-detail/{{Content?.whom1?._id}}"><i
+                                class=" bx bx-phone-call" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Call</p>
+                            </a></li>
+                          <li><a><i class=" bx bx-list-plus" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                              <p class="i_t">Shortlist</p>
+                            </a></li>
+                          <li><i class=" bx bx-block" style="box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 29%)"></i>
+                            <p class="i_t">Block</p>
+                          </li> -->
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12 col-md-12">
+                <div class="pagination-area text-center">
+                  <pagination-controls (pageChange)="verticalListings = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Listings Area -->
+
+  </div>
+  <!-- End -->
+
+  <div class="flex-grow-1"></div>
+
+  <app-copyrights></app-copyrights>
+
+</div>
+<!-- End Main Content Wrapper Area -->

@@ -141,6 +141,8 @@ import { DeliveryPolicyComponent } from './components/pages/delivery-policy/deli
 import { EditProfileComponent } from './components/pages/dashboard/edit-profile/edit-profile.component';
 import { AdminLoginComponent } from './components/pages/dashboard/admin-login/admin-login.component';
 import { SuccessStoryComponent } from './components/pages/success-story/success-story.component';
+import { ContactViewedComponent } from './components/pages/user-dashboard/contact-viewed/contact-viewed.component';
+import { MyFollowupComponent } from './components/pages/dashboard/followup/my-followup/my-followup.component';
 
 const routes: Routes = [
   { path: '', component: HomeDemoOneComponent },
@@ -222,6 +224,7 @@ const routes: Routes = [
   { path: 'profile-attributes/subcaste', component: SubcasteComponent },
 
   { path: 'followup', component: FollowupComponent },
+  { path: 'my-followup', component: MyFollowupComponent },
   { path: 'add-comment', component: AddCommentComponent },
   { path: 'view-comment', component: ViewCommentComponent },
 
@@ -349,6 +352,7 @@ const routes: Routes = [
   { path: 'user-dashboard/interest-sent', component: InterestSentComponent },
   { path: 'user-dashboard/photo-recived', component: PhotoRecivedComponent },
   { path: 'user-dashboard/photo-request', component: PhotoRequestComponent },
+  { path: 'user-dashboard/contact-viewed', component: ContactViewedComponent },
   { path: 'user-dashboard/short-listed', component: ShortListedComponent },
   {
     path: 'user-dashboard-sidemenu',

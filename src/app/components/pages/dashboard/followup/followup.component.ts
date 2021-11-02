@@ -10,8 +10,9 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class FollowupComponent implements OnInit {
   allstaff: any;
-  // users = new FormControl();
-  // usersList: string[] = ['Rahul', 'Mohit', 'Mukesh', 'lorem', ];
+  allfollowup: any;
+  totalfollowupnumber: Number=0;
+
   constructor(
     public adminService: AdminService,
     private toastr: ToastrService
@@ -19,6 +20,7 @@ export class FollowupComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallstaff();
+    this.getallfollowup();
   }
   breadcrumb = [
     {
@@ -38,4 +40,51 @@ getallstaff() {
     }
   );
 }
+
+getallfollowup() {
+  this.adminService.allfollowup().subscribe(
+    (response: any) => {
+      console.log(response);
+      this.allfollowup = response.data;
+      this.totalfollowupnumber = response.data.length;
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+}
+
+editfollowup(id){
+  console.log(id);
+}
+
+deletefollowup(id){
+  console.log(id);
+  this.adminService.deletefollowup(id).subscribe(
+    (response: any) => {
+      console.log(response);
+      this.getallfollowup()
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+}
+
+
+getonestafffollowup(e) {
+  console.log(e.value);
+  this.adminService.stafffollowup(e.value).subscribe(
+    (response: any) => {
+      console.log(response);
+      this.allfollowup = response.data;
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+}
+
+
+
 }

@@ -8,10 +8,23 @@
             <span class="sub-title-rs"><span>Login</span></span>
             <form [formGroup]="signin" (ngSubmit)="userlogin()">
               <div class="form-group">
-                <input type="text" placeholder="Number/Email" class="form-control" formControlName="Mobile" />
+                <!-- <input type="text" placeholder="Number/Email" class="form-control" formControlName="Mobile" /> -->
+                <mat-label>Number/Email</mat-label>
+                <mat-form-field appearance="outline" class="mb-w">
+                  <input matInput type="text"
+                    placeholder="Number/Email" formControlName="Mobile" required>
+                </mat-form-field>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input type="password" placeholder="Enter Password" class="form-control" formControlName="password" />
+              </div> -->
+              <div class="form-group">
+                <label class="lb-ser">Password <span style="color: red;">*</span></label>
+                <mat-form-field appearance="outline" class="mb-w">
+                  <mat-label>Enter your password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                  <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
               </div>
               <span class="dont-account ft-text"><a (click)="forgetpassword()" style="cursor: pointer;">Forgot
                   Password?</a></span>

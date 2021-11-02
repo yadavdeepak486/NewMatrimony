@@ -13,6 +13,24 @@ input.form-control.stt-dat{
     display: inline-block;
 }
 
+
+.st-i i {
+  font-size: 20px;
+  margin-right: 20px;
+  background: #00d4d4;
+  color: #fff;
+  padding: 8px;
+  border-radius: 20px;
+}
+a.st-i2 i {
+  font-size: 20px;
+  margin-right: 20px;
+  background: #ff0000;
+  color: #fff;
+  padding: 8px;
+  border-radius: 20px;
+}
+
 .bookings-listings-box {
     margin-bottom: 30px;
     background-color: var(--whiteColor);
@@ -276,7 +294,7 @@ input.form-control.stt-dat{
 }
 // close
 
-// new css 
+// new css
 
 .flex {
     -webkit-box-flex: 1;
@@ -565,7 +583,7 @@ h3.ft-name {
 /* Min width 992px to Max width 1199px */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
-    
+
 
 }
 /* Min width 1200px to Max width 1355px */
@@ -577,6 +595,6 @@ h3.ft-name {
 /* Min width 1550px */
 @media only screen and (min-width: 1550px) {
 
-    
+
 
 }

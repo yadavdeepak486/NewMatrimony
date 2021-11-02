@@ -186,6 +186,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { EditProfileComponent } from './components/pages/dashboard/edit-profile/edit-profile.component';
 import { AdminLoginComponent } from './components/pages/dashboard/admin-login/admin-login.component';
 import { SuccessStoryComponent } from './components/pages/success-story/success-story.component';
+import { ContactViewedComponent } from './components/pages/user-dashboard/contact-viewed/contact-viewed.component';
+import { MyFollowupComponent } from './components/pages/dashboard/followup/my-followup/my-followup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -357,6 +359,8 @@ import { SuccessStoryComponent } from './components/pages/success-story/success-
     DialogViewContactDetails,
     AdminLoginComponent,
     SuccessStoryComponent,
+    ContactViewedComponent,
+    MyFollowupComponent,
   ],
   imports: [
     BrowserModule,

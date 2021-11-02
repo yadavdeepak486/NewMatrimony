@@ -10,11 +10,11 @@
     margin-bottom: 30px;
 }
 .progress-info {
-    font-size: 11px
+    font-size: 13px
 }
 
 .access-data {
-    font-size: 11px
+    font-size: 13px
 }
 
 .progress-bar {
@@ -42,4 +42,47 @@
 }
 .mbship {
     margin: 24px 0px;
+}
+
+
+.container {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: .125rem;
+  text-transform: uppercase;
+}
+
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+li span {
+  display: block;
+  font-size: 4.5rem;
+}
+
+
+
+
+@media all and (max-width: 768px) {
+  h1 {
+    font-size: calc(1.5rem * var(--smaller));
+  }
+
+  li {
+    font-size: calc(1.125rem * var(--smaller));
+  }
+
+  li span {
+    font-size: calc(3.375rem * var(--smaller));
+  }
 }

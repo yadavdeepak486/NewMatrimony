@@ -8,13 +8,14 @@
             <h3>We Need few more information </h3>
             <p>To server you better expireince we needfew more information please submit following .</p>
           </div>
-          <form [formGroup]="userinfo" (ngSubmit)="submitandmovephoto()">
+          <form [formGroup]="userinfo" (ngSubmit)="submitandmovephoto()" ngNativeValidate>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Religion <span style="color: red;">*</span></label>
                   <select #selectedreligion (ngModelChange)="castofrelgion($event)" class="form-control"
-                    formControlName="Religion">
+                    formControlName="Religion" required>
+                    <option value="">--Select--</option>
                     <option [value]="religion._id" *ngFor="let religion of allreligion">
                       {{religion?.name}}</option>
                   </select>
@@ -23,7 +24,8 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Caste <span style="color: red;">*</span> </label>
-                  <select class="form-control" formControlName="Caste">
+                  <select class="form-control" formControlName="Caste" required>
+                    <option value="">--Select--</option>
                     <option [value]="caste._id" *ngFor="let caste of allcaste">
                       {{caste?.name}}</option>
                   </select>
@@ -32,7 +34,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Manglik Status <span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="Manglik">
+                  <select class="form-control" formControlName="Manglik" required>
                     <option value="Yes">Yes</option>
                     <option value="No" selected>No</option>
                     <option value="Anshik Manglik">Anshik Manglik</option>
@@ -43,7 +45,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Height<span style="color: red;">*</span> </label>
-                  <select class="form-control" formControlName="Height">
+                  <select class="form-control" formControlName="Height" required>
                     <option [value]="height._id" *ngFor="let height of allheights">
                       {{height.feetinchvalue}} Feet {{height.cmvalue}} Cm</option>
                   </select>
@@ -52,19 +54,19 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Place Of Birth <span style="color: red;">*</span></label>
-                  <input type="text" placeholder="Hatod district Kanpur" formControlName="POB" class="form-control">
+                  <input type="text" placeholder="Hatod district Kanpur" formControlName="POB" (keydown)="preventnumber($event)" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Time Of Birth <span style="color: red;">*</span> </label>
-                  <input type="time" placeholder="Time of Birth" formControlName="TOB" class="form-control">
+                  <input type="time" placeholder="Time of Birth" formControlName="TOB" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label class="lb-ser">Education<span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="Education">
+                  <select class="form-control" formControlName="Education" required>
                     <option [value]="education._id" *ngFor="let education of alleducation">
                       {{education?.name}}</option>
                   </select>
@@ -75,7 +77,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Type of Employement <span style="color: red;">*</span> </label>
-                  <select class="form-control" formControlName="Employedin">
+                  <select class="form-control" formControlName="Employedin" required>
                     <option [value]="employedin._id" *ngFor="let employedin of allemployedin">
                       {{employedin?.name}}</option>
                   </select>
@@ -84,7 +86,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Language <span style="color: red;">*</span> </label>
-                  <select class="form-control" formControlName="Language">
+                  <select class="form-control" formControlName="Language" required>
                     <option [value]="language._id" *ngFor="let language of alllanguage">
                       {{language?.name}}</option>
                   </select>
@@ -93,7 +95,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label class="lb-ser">Occupation <span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="Occupation">
+                  <select class="form-control" formControlName="Occupation" required>
                     <option [value]="occupation._id" *ngFor="let occupation of alloccupation">
                       {{occupation?.name}}</option>
                   </select>
@@ -105,7 +107,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Living Country <span style="color: red;">*</span></label>
-                  <select (ngModelChange)="lstateofcountry($event)" class="form-control" formControlName="LCountry">
+                  <select (ngModelChange)="lstateofcountry($event)" class="form-control" formControlName="LCountry" required>
                     <option [value]="country._id" *ngFor="let country of allcountry">
                       {{country?.name}}</option>
                   </select>
@@ -114,7 +116,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Living State <span style="color: red;">*</span></label>
-                  <select (ngModelChange)="lcityofstate($event)" class="form-control" formControlName="LState">
+                  <select (ngModelChange)="lcityofstate($event)" class="form-control" formControlName="LState" required>
                     <option [value]="state._id" *ngFor="let state of lallstate">
                       {{state?.name}}</option>
                   </select>
@@ -123,7 +125,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label class="lb-ser">Living City <span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="LCity">
+                  <select class="form-control" formControlName="LCity" required>
                     <option [value]="city._id" *ngFor="let city of lallcity">
                       {{city?.name}}</option>
                   </select>
@@ -138,7 +140,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Native Country <span style="color: red;">*</span></label>
-                  <select (ngModelChange)="stateofcountry($event)" class="form-control" formControlName="Country">
+                  <select (ngModelChange)="stateofcountry($event)" class="form-control" formControlName="Country" required>
                     <option [value]="country._id" *ngFor="let country of allcountry">
                       {{country?.name}}</option>
                   </select>
@@ -147,7 +149,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="lb-ser">Native State <span style="color: red;">*</span></label>
-                  <select (ngModelChange)="cityofstate($event)" class="form-control" formControlName="State">
+                  <select (ngModelChange)="cityofstate($event)" class="form-control" formControlName="State" required>
                     <option [value]="state._id" *ngFor="let state of allstate">
                       {{state?.name}}</option>
                   </select>
@@ -156,13 +158,13 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label class="lb-ser">Native City <span style="color: red;">*</span></label>
-                  <select class="form-control" formControlName="City">
+                  <select class="form-control" formControlName="City" required>
                     <option [value]="city._id" *ngFor="let city of allcity">
                       {{city?.name}}</option>
                   </select>
                 </div>
               </div>
-              <div class="col-md-12">
+              <!-- <div class="col-md-12">
                 <div class="form-group">
                   <label class="lb-ser">Home Town <span style="color: red;">*</span></label>
                   <select class="form-control" formControlName="HomeTown">
@@ -170,7 +172,7 @@
                       {{hometown?.name}}</option>
                   </select>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="btn-box">
               <button type="submit" class="btnrg">

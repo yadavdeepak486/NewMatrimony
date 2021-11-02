@@ -24,6 +24,7 @@ export class PhotoFileComponent implements OnInit {
   currentFile: File;
   progress = 0;
   message = '';
+  mydetail:any
 
   fileInfos: Observable<any>;
 
@@ -48,6 +49,10 @@ export class PhotoFileComponent implements OnInit {
 
   changeimage = 'assets/img/events/img-3.png';
 
+  dumPhoto = 'assets/img/me.jpg';
+  Photodummen = 'assets/img/me.jpg';
+  Photodumwomen = 'assets/img/wo.jpg';
+
   photo1form: FormGroup;
   constructor(
     public adminService: AdminService,
@@ -58,6 +63,7 @@ export class PhotoFileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getmydetails()
     this.photo1form = this.formBuilder.group({
       Photo1: [''],
       Photo2: [''],
@@ -73,76 +79,6 @@ export class PhotoFileComponent implements OnInit {
       Photo3: '',
     });
   }
-
-  // imagePreview(e) {
-  //   const file = e.target.files[0];
-  //   console.log(file);
-  //   this.photo1form.get('Photo1').setValue(file);
-  //   const reader = new FileReader();
-  //   const k = reader.readAsDataURL(file);
-  //   console.log(k);
-  //   this.tosendpath = e.target.files.item(0);
-  //   console.log(this.tosendpath);
-  //   reader.onload = (_event) => {
-  //     this.filePath1 = reader.result;
-  //   };
-  // }
-
-  // imagePreview1(e) {
-  //   const file = e.target.files[0];
-  //   console.log(file);
-  //   this.photo1form.get('Photo1').setValue(file);
-  //   const reader = new FileReader();
-  //   const k = reader.readAsDataURL(file);
-  //   this.tosendpath = e.target.files.item(0);
-  //   reader.onload = (_event) => {
-  //     this.filePath1 = reader.result;
-  //   };
-  // }
-
-  // cancelupload1() {
-  //   this.photo1form.get('Photo1').setValue('');
-  //   this.filePath1 = '';
-  //   console.log(this.photo1form.value);
-  // }
-
-  // imagePreview2(e) {
-  //   const file = e.target.files[0];
-  //   console.log(file);
-  //   this.photo1form.get('Photo2').setValue(file);
-  //   const reader = new FileReader();
-  //   const k = reader.readAsDataURL(file);
-  //   this.tosendpath = e.target.files.item(0);
-  //   reader.onload = (_event) => {
-  //     this.filePath2 = reader.result;
-  //   };
-  // }
-
-  // cancelupload2() {
-  //   this.photo1form.get('Photo2').setValue('');
-  //   this.filePath2 = '';
-  //   console.log(this.photo1form.value);
-  // }
-
-  // imagePreview3(e) {
-  //   const file = e.target.files[0];
-  //   console.log(file);
-  //   this.photo1form.get('Photo3').setValue(file);
-  //   const reader = new FileReader();
-  //   const k = reader.readAsDataURL(file);
-  //   this.tosendpath = e.target.files.item(0);
-  //   reader.onload = (_event) => {
-  //     this.filePath3 = reader.result;
-  //   };
-  // }
-
-  // cancelupload3() {
-  //   this.photo1form.get('Photo3').setValue('');
-  //   this.filePath3 = '';
-  //   console.log(this.photo1form.value);
-  // }
-
-
 
 
   imageChangedEvent: any = '';
@@ -160,6 +96,23 @@ export class PhotoFileComponent implements OnInit {
   filetype3:any
 
   tempblob: any;
+
+  getmydetails() {
+    this.userService.getmyprofiledetail()?.subscribe(
+      (response: any) => {
+        console.log(response);
+        this.mydetail = response.data;
+        console.log(response.data.Gender);
+        if (response.data.Gender == 'Female') {
+          this.dumPhoto = this.Photodumwomen;
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
 
 
   base64ToFile(data, filename) {

@@ -30,21 +30,21 @@ export class UserInfoComponent implements OnInit {
   userinfo = new FormGroup({
     Religion: new FormControl('', Validators.required),
     Caste: new FormControl('', Validators.required),
-    Manglik: new FormControl('', Validators.required),
-    Height: new FormControl('', Validators.required),
+    Manglik: new FormControl('No', Validators.required),
+    Height: new FormControl('610ba756fbbfb6449ca84dd1', Validators.required),
     POB: new FormControl('', Validators.required),
     TOB: new FormControl('', Validators.required),
-    Education: new FormControl('', Validators.required),
-    Employedin: new FormControl('', Validators.required),
-    Language: new FormControl('', Validators.required),
-    Occupation: new FormControl('', Validators.required),
+    Education: new FormControl('614455575241e81a44a14161', Validators.required),
+    Employedin: new FormControl('61446dff93a9d20c30ceb7d9', Validators.required),
+    Language: new FormControl('6144772751d4e941487a2504', Validators.required),
+    Occupation: new FormControl('61445ed00ceafb302c15672e', Validators.required),
     LCountry: new FormControl('', Validators.required),
     LState: new FormControl('', Validators.required),
     LCity: new FormControl('', Validators.required),
     Country: new FormControl('', Validators.required),
     State: new FormControl('', Validators.required),
     City: new FormControl('', Validators.required),
-    HomeTown: new FormControl('', Validators.required),
+    //HomeTown: new FormControl('', Validators.required),
   });
 
   constructor(
@@ -193,6 +193,20 @@ export class UserInfoComponent implements OnInit {
         }
       );
     }
+  }
+
+  preventnumber(e){
+    // console.log(e);
+    var keycode = e.keyCode;
+    var valid =
+        //(keycode > 47 && keycode < 58)   || // number keys
+        keycode == 32 || keycode == 13 || keycode == 8 || keycode == 9  || // spacebar & return key(s) (if you want to allow carriage returns)
+        (keycode > 64 && keycode < 91) // letter keys
+        //(keycode > 95 && keycode < 112)  || // numpad keys
+        //(keycode > 185 && keycode < 193) || // ;=,-./` (in order)
+        //(keycode > 218 && keycode < 223);   // [\]' (in order)
+
+    return valid;
   }
 
   stateofcountry(id) {

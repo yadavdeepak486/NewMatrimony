@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeDemoOneComponent implements OnInit {
 
+  checkauth = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    let auth = localStorage.getItem('auth-token');
+    if (auth) {
+      this.checkauth = true;
+      console.log(this.checkauth);
+    }
   }
 
 }

@@ -7,7 +7,7 @@
 
   <!-- Breadcrumb Area -->
   <div class="breadcrumb-area" *ngFor="let Content of breadcrumb;">
-    <h1>{{Content.title}}</h1>
+    <h1>Howdy, {{adminname || 'Howdy, Andy!'}}!</h1>
     <ol class="breadcrumb">
       <li class="item"><a routerLink="/dashboard">Home</a></li>
       <li class="item">{{Content.subTitle}}</li>

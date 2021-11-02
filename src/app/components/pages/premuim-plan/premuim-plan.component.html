@@ -2,8 +2,8 @@
 
 <section class="pt-70 pb-50 bg-plan">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-2 col-md-6 col-sm-6">
+    <div class="row" style="justify-content: space-around;">
+      <!-- <div class="col">
         <div class="single-pricing-box text-center">
           <h3 class="plan-st-1 st-free">Free plan <span class="plan-st-2"></span></h3>
           <p class="st-green">0% Off <del class="st-del">₹ 0</del>
@@ -20,8 +20,8 @@
           </div>
           <a style="background: #fbc2c2;" class="btn-con">Continue</a>
         </div>
-      </div>
-      <div class="col-lg-2 col-md-6 col-sm-6">
+      </div> -->
+      <div class="col">
         <div class="single-pricing-box text-center">
           <h3 class="plan-st-1 st-bronze">{{bplan?.plantitle}} <span class="plan-st-2"></span></h3>
           <p class="st-green">75% Off <del class="st-del">₹ {{bplan?.website_rate*100/75 | number : '1.0-0'}}</del>
@@ -39,7 +39,7 @@
           <a style="cursor: pointer;" (click)="rapayorder(bplan._id,bplan.website_rate)" class="btn-con">Continue</a>
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-6">
+      <div class="col">
         <div class="single-pricing-box text-center">
           <h3 class="plan-st-1 st-silver">{{splan?.plantitle}} <span class="plan-st-2"></span></h3>
           <p class="st-green">75% Off <del class="st-del">₹ {{splan?.website_rate*100/75 | number : '1.0-0'}}</del></p>
@@ -56,7 +56,7 @@
           <a style="cursor: pointer;" (click)="rapayorder(splan._id,splan.website_rate)" class="btn-con">Continue</a>
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-6">
+      <div class="col">
         <div class="single-pricing-box text-center">
           <h3 class="plan-st-1 st-silver">{{spplan?.plantitle}} <span class="plan-st-2"></span></h3>
           <p class="st-green">75% Off <del class="st-del">₹ {{spplan?.website_rate*100/75 | number : '1.0-0'}}</del></p>
@@ -73,7 +73,7 @@
           <a style="cursor: pointer;" (click)="rapayorder(spplan._id,spplan.website_rate)" class="btn-con">Continue</a>
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-6">
+      <div class="col">
         <div class="single-pricing-box text-center">
           <h3 class="plan-st-1 st-gold">{{gplan?.plantitle}} <span class="plan-st-2"></span></h3>
           <p class="st-green">75% Off <del class="st-del">₹ {{gplan?.website_rate*100/75 | number : '1.0-0'}}</del></p>
@@ -90,7 +90,7 @@
           <a style="cursor: pointer;" (click)="rapayorder(gplan._id,gplan.website_rate)" class="btn-con">Continue</a>
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-6">
+      <div class="col">
         <div class="single-pricing-box text-center">
           <h3 class="plan-st-1  st-gold">{{gpplan?.plantitle}} <span class="plan-st-2"></span></h3>
           <p class="st-green">75% Off <del class="st-del">₹ {{gpplan?.website_rate*100/75 | number : '1.0-0'}}</del></p>

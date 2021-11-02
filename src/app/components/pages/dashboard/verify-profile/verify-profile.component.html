@@ -21,11 +21,11 @@
     <div class="col-lg-5">
       <div class="bookings-listings-box">
 
-        <div><img style="width: 100%;" [src]="userdetails?.Photo1 || dumPhoto" /></div>
+        <a (click)="photopreview(userdetails?.Photo1)" style="cursor: pointer;"><img style="width: 100%;" [src]="userdetails?.Photo1 || dumPhoto" /></a>
         <div>
-          <div *ngIf="userdetails?.Photo1Approve == 'No'">
-            <a (click)="ApprovePhoto1()" class="default-btn btn-app"><i class='bx bx-check-circle'></i> Approve</a>
-            <a href="#" class="default-btn danger btn-app"><i class='bx bx-x-circle'></i> Reject</a>
+          <div *ngIf="userdetails?.Photo1 && userdetails?.Photo1Approve == 'No'">
+            <a (click)="ApprovePhoto1()" class="default-btn btn-app" style="cursor: pointer;"><i class='bx bx-check-circle'></i> Approve</a>
+            <a class="default-btn danger btn-app" style="cursor: pointer;"><i class='bx bx-x-circle'></i> Reject</a>
           </div>
         </div>
       </div>
@@ -33,24 +33,23 @@
     <div class="col-lg-3">
       <div class="bookings-listings-box bt">
 
-        <div><img [src]="userdetails?.Photo2 || dumPhoto" /></div>
-        <div *ngIf="userdetails?.Photo2Approve == 'No'">
-          <a (click)="ApprovePhoto2()" class="default-btn btn-app"><i class='bx bx-check-circle'></i> Approve</a>
-          <a href="#" class="default-btn danger btn-app"><i class='bx bx-x-circle'></i> Reject</a>
+        <a (click)="photopreview(userdetails?.Photo2)"><img [src]="userdetails?.Photo2 || dumPhoto" /></a>
+        <div *ngIf="userdetails?.Photo2 && userdetails?.Photo2Approve == 'No'">
+          <a (click)="ApprovePhoto2()" class="default-btn btn-app" style="cursor: pointer;"><i class='bx bx-check-circle'></i> Approve</a>
+          <a class="default-btn danger btn-app" style="cursor: pointer;"><i class='bx bx-x-circle'></i> Reject</a>
         </div>
       </div>
     </div>
     <div class="col-lg-3">
       <div class="bookings-listings-box bt">
-        <div><img [src]="userdetails?.Photo3 || dumPhoto" /></div>
-        <div *ngIf="userdetails?.Photo3Approve == 'No'">
-          <a (click)="ApprovePhoto3()" class="default-btn btn-app"><i class='bx bx-check-circle'></i> Approve</a>
-          <a href="#" class="default-btn danger btn-app"><i class='bx bx-x-circle'></i> Reject</a>
+        <a (click)="photopreview(userdetails?.Photo3)"><img [src]="userdetails?.Photo3 || dumPhoto" /></a>
+        <div *ngIf="userdetails?.Photo3 && userdetails?.Photo3Approve == 'No'">
+          <a (click)="ApprovePhoto3()" class="default-btn btn-app" style="cursor: pointer;"><i class='bx bx-check-circle'></i> Approve</a>
+          <a class="default-btn danger btn-app" style="cursor: pointer;"><i class='bx bx-x-circle'></i> Reject</a>
         </div>
       </div>
     </div>
   </div>
-  <!-- Start -->
   <div class="row">
     <div class="col-lg-12">
       <div class="bookings-listings-box">
@@ -58,65 +57,13 @@
         <div class="p-4">
           <h6>{{userdetails?.PartnerExpectations || "not mentioned"}}</h6>
         </div>
-        <div *ngIf="userdetails?.PartnerExpectationsApprove == 'No'">
-          <a (click)="ApprovePartnerExpectationsApprove()" class="default-btn btn-app"><i
+        <div *ngIf="userdetails?.PartnerExpectations && userdetails?.PartnerExpectationsApprove == 'No'">
+          <a (click)="ApprovePartnerExpectationsApprove()" class="default-btn btn-app" style="cursor: pointer;"><i
               class='bx bx-check-circle'></i> Approve</a>
-          <a href="#" class="default-btn danger btn-app"><i class='bx bx-x-circle'></i> Reject</a>
+          <a class="default-btn danger btn-app" style="cursor: pointer;"><i class='bx bx-x-circle'></i> Reject</a>
         </div>
       </div>
     </div>
-    <!-- <div style="display: none;" class="col-lg-6">
-      <div class="bookings-listings-box">
-        <h3>PartnerExpectations</h3>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Documents</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let Content of bookingsListingsBox;">
-                <td class="name">
-                  <img [src]="Content.customerImg" alt="image" class="doc-img">
-                  <div class="info">
-                    <span>{{Content.customerName}}</span>
-                  </div>
-                </td>
-                <td class="action">
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Details</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let Content of bookingsListingsBox;">
-                <td class="details">
-                  <ul>
-                    <li *ngFor="let Info of Content.bookingsInfo">
-                      <i class='{{Info.icon}}'></i>
-                      <span>{{Info.title}}:</span>
-                      {{Info.text}}
-                    </li>
-                  </ul>
-                </td>
-                <td class="action">
-                  <a href="#" class="default-btn"><i class='bx bx-check-circle'></i> Approve</a>
-                  <a href="#" class="default-btn danger"><i class='bx bx-x-circle'></i> Reject</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div> -->
   </div>
   <!-- End -->
 
